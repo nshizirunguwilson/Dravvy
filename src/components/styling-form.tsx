@@ -9,7 +9,9 @@ import { Label } from "@/components/ui/label"
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
@@ -98,22 +100,22 @@ export function StylingForm(): JSX.Element {
               <SelectValue placeholder="Select a font" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="" disabled>
-                Serif Fonts
-              </SelectItem>
-              {serifFonts.map((font) => (
-                <SelectItem key={font.value} value={font.value}>
-                  {font.label}
-                </SelectItem>
-              ))}
-              <SelectItem value="" disabled>
-                Sans-Serif Fonts
-              </SelectItem>
-              {sansSerifFonts.map((font) => (
-                <SelectItem key={font.value} value={font.value}>
-                  {font.label}
-                </SelectItem>
-              ))}
+              <SelectGroup>
+                <SelectLabel>Serif Fonts</SelectLabel>
+                {serifFonts.map((font) => (
+                  <SelectItem key={font.value} value={font.value}>
+                    {font.label}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+              <SelectGroup>
+                <SelectLabel>Sans-Serif Fonts</SelectLabel>
+                {sansSerifFonts.map((font) => (
+                  <SelectItem key={font.value} value={font.value}>
+                    {font.label}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
             </SelectContent>
           </Select>
         </div>

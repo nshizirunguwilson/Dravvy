@@ -23,7 +23,7 @@ export function getZodErrorMessage(error: unknown): string {
   return 'An unknown error occurred'
 }
 
-export function debounce<T extends (...args: any[]) => void>(
+export function debounce<T extends (...args: any[]) => void>( // eslint-disable-line @typescript-eslint/no-explicit-any
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {

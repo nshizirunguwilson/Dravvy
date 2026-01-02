@@ -16,9 +16,11 @@ type Section =
 
 interface UIState {
   activeSection: number
+  activeSettingsSection: number
   isLoading: boolean
   error: string | null
   setActiveSection: (section: number) => void
+  setActiveSettingsSection: (section: number) => void
   setLoading: (loading: boolean) => void
   setError: (error: string | null) => void
 }
@@ -27,9 +29,11 @@ export const useUIStore = create<UIState>()(
   persist(
     (set) => ({
       activeSection: 0,
+      activeSettingsSection: 0,
       isLoading: false,
       error: null,
       setActiveSection: (section) => set({ activeSection: section }),
+      setActiveSettingsSection: (section) => set({ activeSettingsSection: section }),
       setLoading: (loading) => set({ isLoading: loading }),
       setError: (error) => set({ error }),
     }),

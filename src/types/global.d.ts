@@ -6,7 +6,7 @@ declare module '*.css' {
 }
 
 declare module 'html-to-docx' {
-  const htmlToDocx: any
+  const htmlToDocx: any // eslint-disable-line @typescript-eslint/no-explicit-any
   export default htmlToDocx
 }
 

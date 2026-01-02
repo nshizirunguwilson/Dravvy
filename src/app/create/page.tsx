@@ -8,7 +8,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { useResumeStore } from '@/store/useResumeStore'
+
 
 type Section = {
   id: 'basic' | 'work' | 'education' | 'skills' | 'certifications' | 'projects' | 'languages' | 'references'
@@ -29,7 +29,7 @@ const sections: Section[] = [
 export default function CreatePage() {
   const activeSection = useUIStore((state) => state.activeSection)
   const setActiveSection = useUIStore((state) => state.setActiveSection)
-  const references = useResumeStore((state) => state.references)
+
   const [hasSavedReferences, setHasSavedReferences] = React.useState(false)
   const router = useRouter()
 

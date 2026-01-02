@@ -4,62 +4,7 @@ import * as React from 'react'
 import { useResumeStore } from '@/store/useResumeStore'
 import type { ResumeData } from '@/types/resume'
 
-const formatDate = (dateString: string) => {
-  try {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    
-    switch (styling.dateFormat) {
-      case 'MM/YYYY':
-        return date.toLocaleDateString('en-US', {
-          month: '2-digit',
-          year: 'numeric',
-        });
-      case 'MMM YYYY':
-        return date.toLocaleDateString('en-US', {
-          month: 'short',
-          year: 'numeric',
-        });
-      case 'MMMM YYYY':
-        return date.toLocaleDateString('en-US', {
-          month: 'long',
-          year: 'numeric',
-        });
-      default:
-        return date.toLocaleDateString('en-US', {
-          month: 'short',
-          year: 'numeric',
-        });
-    }
-  } catch (error) {
-    console.error('Invalid date format:', error);
-    return dateString;
-  }
-};
 
-// Helper function to get font size class
-const getFontSizeClass = (type: 'heading' | 'subheading' | 'body') => {
-  switch (styling.fontSize) {
-    case 'small':
-      return type === 'heading' ? 'text-xl' : type === 'subheading' ? 'text-base' : 'text-sm';
-    case 'large':
-      return type === 'heading' ? 'text-3xl' : type === 'subheading' ? 'text-xl' : 'text-base';
-    default: // medium
-      return type === 'heading' ? 'text-2xl' : type === 'subheading' ? 'text-lg' : 'text-sm';
-  }
-};
-
-// Helper function to get spacing class
-const getSpacingClass = () => {
-  switch (styling.spacing) {
-    case 'small':
-      return 'space-y-4';
-    case 'large':
-      return 'space-y-8';
-    default: // medium
-      return 'space-y-6';
-  }
-};
 
 export function ResumePreview(): JSX.Element {
   const contact = useResumeStore((state: { contact: ResumeData['contact'] }) => state.contact)
@@ -72,36 +17,85 @@ export function ResumePreview(): JSX.Element {
   const references = useResumeStore((state: { references: ResumeData['references'] }) => state.references)
   const styling = useResumeStore((state: { style: ResumeData['style'] }) => state.style)
 
+  const formatDate = (dateString: string) => {
+    try {
+      if (!dateString) return '';
+      const date = new Date(dateString);
+      
+      switch (styling.dateFormat) {
+        case 'MM/YYYY':
+          return date.toLocaleDateString('en-US', {
+            month: '2-digit',
+            year: 'numeric',
+          });
+        case 'MMM YYYY':
+          return date.toLocaleDateString('en-US', {
+            month: 'short',
+            year: 'numeric',
+          });
+        case 'MMMM YYYY':
+          return date.toLocaleDateString('en-US', {
+            month: 'long',
+            year: 'numeric',
+          });
+        default:
+          return date.toLocaleDateString('en-US', {
+            month: 'short',
+            year: 'numeric',
+          });
+      }
+    } catch (error) {
+      console.error('Invalid date format:', error);
+      return dateString;
+    }
+  };
+
+  const getFontSizeClass = (type: 'heading' | 'subheading' | 'body') => {
+    switch (styling.fontSize) {
+      case 'small':
+        return type === 'heading' ? 'text-xl' : type === 'subheading' ? 'text-base' : 'text-sm';
+      case 'large':
+        return type === 'heading' ? 'text-3xl' : type === 'subheading' ? 'text-xl' : 'text-base';
+      default: // medium
+        return type === 'heading' ? 'text-2xl' : type === 'subheading' ? 'text-lg' : 'text-sm';
+    }
+  };
+
+  const getSpacingClass = () => {
+    switch (styling.spacing) {
+      case 'small':
+        return 'space-y-4';
+      case 'large':
+        return 'space-y-8';
+      default: // medium
+        return 'space-y-6';
+    }
+  };
+
   const renderDivider = () => {
-    switch (styling.sectionDivider?.type) {
+    switch (styling.separator) {
       case 'line':
-        return <div className="w-full h-px my-4" style={{ backgroundColor: styling.sectionDivider.color }} />;
-      case 'double-line':
+        return <div className="w-full h-px my-4" style={{ backgroundColor: styling.color }} />;
+      case 'double line':
         return (
           <div className="my-4 space-y-1">
-            <div className="w-full h-px" style={{ backgroundColor: styling.sectionDivider.color }} />
-            <div className="w-full h-px" style={{ backgroundColor: styling.sectionDivider.color }} />
+            <div className="w-full h-px" style={{ backgroundColor: styling.color }} />
+            <div className="w-full h-px" style={{ backgroundColor: styling.color }} />
           </div>
         );
-      case 'dashes':
-        return (
-          <div className="flex gap-1 my-4">
-            {Array(30).fill(0).map((_, i) => (
-              <div key={i} className="w-2 h-px" style={{ backgroundColor: styling.sectionDivider.color }} />
-            ))}
-          </div>
-        );
+      case 'bold line':
+         return <div className="w-full h-1 my-4" style={{ backgroundColor: styling.color }} />;
       default:
-        return null;
+        return null; // no separator
     }
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow" style={{ fontFamily: styling.fontFamily }}>
+    <div className="p-6 bg-white rounded-lg shadow" style={{ fontFamily: styling.font }}>
       <h2 className={`mb-4 font-semibold text-gray-900 ${getFontSizeClass('subheading')}`}>Preview</h2>
       <div className={getSpacingClass()}>
         <div className="space-y-2 text-center">
-          <h1 className={`font-bold text-gray-900 ${getFontSizeClass('heading')}`}>{contact.name}</h1>
+          <h1 className={`font-bold text-gray-900 ${getFontSizeClass('heading')}`}>{contact.fullName}</h1>
           <div className="space-x-2 text-sm text-gray-600">
             {contact.phone && (
               styling.showLinks ? (
@@ -172,17 +166,16 @@ export function ResumePreview(): JSX.Element {
             {renderDivider()}
             <div className={getSpacingClass()}>
               <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Experience</h4>
-              {experience.map((exp, index) => (
+              {experience.map((exp) => (
                 <div key={exp.id} className="space-y-2">
                   <div className="flex justify-between">
-                    <h5 className={`font-semibold text-gray-800 ${getFontSizeClass('subheading')}`}>{exp.jobTitle}</h5>
+                    <h5 className={`font-semibold text-gray-800 ${getFontSizeClass('subheading')}`}>{exp.position}</h5>
                     <span className={`text-gray-600 ${getFontSizeClass('body')}`}>
-                      {formatDate(exp.startDate)} - {exp.isPresent ? 'Present' : formatDate(exp.endDate)}
+                      {formatDate(exp.startDate)} - {exp.current ? 'Present' : formatDate(exp.endDate)}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm text-gray-600">
                     <span>{exp.company}</span>
-                    <span>{exp.location}</span>
                   </div>
                   <ul className="space-y-1 text-sm text-gray-600 list-disc list-inside">
                     {exp.description.map((point, pointIndex) => (
@@ -200,17 +193,17 @@ export function ResumePreview(): JSX.Element {
             {renderDivider()}
             <div className={getSpacingClass()}>
               <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Education</h4>
-              {education.map((edu, index) => (
+              {education.map((edu) => (
                 <div key={edu.id} className="space-y-2">
                   <div className="flex justify-between">
                     <h5 className={`font-semibold text-gray-800 ${getFontSizeClass('subheading')}`}>{edu.degree}</h5>
                     <span className={`text-gray-600 ${getFontSizeClass('body')}`}>
-                      {formatDate(edu.startDate)} - {edu.isExpected ? `Expected ${formatDate(edu.expectedDate)}` : formatDate(edu.endDate)}
+                      {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm text-gray-600">
-                    <span>{edu.institution}</span>
-                    <span>{edu.location}</span>
+                    <span>{edu.school}</span>
+                    <span>{edu.field}</span>
                   </div>
                 </div>
               ))}
@@ -223,12 +216,16 @@ export function ResumePreview(): JSX.Element {
             {renderDivider()}
             <div className={getSpacingClass()}>
               <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Projects</h4>
-              {projects.map((project, index) => (
+              {projects.map((project) => (
                 <div key={project.id} className="space-y-2">
                   <div className="flex justify-between">
                     <h5 className={`font-semibold text-gray-800 ${getFontSizeClass('subheading')}`}>{project.name}</h5>
                   </div>
-                  <p className={getFontSizeClass('body')}>{project.description}</p>
+                  <div className="space-y-1">
+                    {project.description.map((desc, i) => (
+                      <p key={i} className={getFontSizeClass('body')}>{desc}</p>
+                    ))}
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <span key={techIndex} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
@@ -237,24 +234,14 @@ export function ResumePreview(): JSX.Element {
                     ))}
                   </div>
                   <div className="flex gap-4 text-sm">
-                    {project.githubLink && styling.showLinks && (
+                    {project.link && styling.showLinks && (
                       <a 
-                        href={project.githubLink} 
+                        href={project.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-800"
                       >
-                        GitHub
-                      </a>
-                    )}
-                    {project.demoLink && styling.showLinks && (
-                      <a 
-                        href={project.demoLink} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800"
-                      >
-                        Live Demo
+                        Link
                       </a>
                     )}
                   </div>
@@ -270,22 +257,12 @@ export function ResumePreview(): JSX.Element {
             <div className={getSpacingClass()}>
               <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Skills</h4>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {skills.map((skill, index) => (
+                {skills.map((skill) => (
                   <div key={skill.id} className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className={`font-medium text-gray-800 ${getFontSizeClass('body')}`}>{skill.name}</span>
-                      {styling.showSkillProficiency && skill.proficiency !== undefined && (
-                        <span className={`text-gray-600 ${getFontSizeClass('body')}`}>{skill.proficiency}%</span>
-                      )}
+                    <div className="flex flex-col">
+                      <span className={`font-medium text-gray-800 ${getFontSizeClass('body')}`}>{skill.category}</span>
+                      <span className={`text-gray-600 ${getFontSizeClass('body')}`}>{skill.skills.join(', ')}</span>
                     </div>
-                    {styling.showSkillProficiency && skill.proficiency !== undefined && (
-                      <div className="w-full bg-gray-200 rounded-full h-2.5">
-                        <div 
-                          className="bg-blue-600 h-2.5 rounded-full" 
-                          style={{ width: `${skill.proficiency}%` }}
-                        />
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>
@@ -301,7 +278,7 @@ export function ResumePreview(): JSX.Element {
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {languages.map((language) => (
                   <div key={language.id} className="flex items-center justify-between">
-                    <span className={`font-medium text-gray-800 ${getFontSizeClass('body')}`}>{language.name}</span>
+                    <span className={`font-medium text-gray-800 ${getFontSizeClass('body')}`}>{language.language}</span>
                     <span className={`text-gray-600 ${getFontSizeClass('body')}`}>{language.proficiency}</span>
                   </div>
                 ))}

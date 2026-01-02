@@ -3,17 +3,17 @@
 import * as React from 'react'
 import { useResumeStore } from '@/store/useResumeStore'
 import { useHydration } from '@/hooks/useHydration'
-// @ts-ignore
+
 import { toast } from 'sonner'
-// @ts-ignore
+
 import { saveAs } from 'file-saver'
-// @ts-ignore
+
 import { pdf } from '@react-pdf/renderer'
 import { ResumePDF } from './resume-pdf'
-// @ts-ignore
+
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-// @ts-ignore
+
 import { FileIcon } from 'lucide-react'
 import type { ResumeData } from '@/types/resume'
 
@@ -51,17 +51,7 @@ export function ExportForm() {
     }
   }
 
-  const handleWordExport = async () => {
-    try {
-      setLoading(true);
-      // Word export logic
-    } catch (error) {
-      console.error('Error generating Word document:', error);
-      toast.error('Error generating Word document');
-    } finally {
-      setLoading(false);
-    }
-  };
+
 
   return (
     <div className="flex flex-col items-center justify-center p-8 space-y-6">

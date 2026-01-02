@@ -21,8 +21,8 @@ const sections: Section[] = [
 ]
 
 export default function SettingsPage() {
-  const activeSection = useUIStore((state) => state.activeSection)
-  const setActiveSection = useUIStore((state) => state.setActiveSection)
+  const activeSection = useUIStore((state) => state.activeSettingsSection)
+  const setActiveSection = useUIStore((state) => state.setActiveSettingsSection)
 
   const handleNext = () => {
     if (activeSection < sections.length - 1) {

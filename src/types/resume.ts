@@ -60,9 +60,14 @@ export type Award = {
 
 export type ResumeStyle = {
   theme: 'modern' | 'classic' | 'minimal'
-  fontSize: number
-  spacing: number
+  fontSize: 'small' | 'medium' | 'large'
+  spacing: 'small' | 'medium' | 'large'
   color: string
+  font: string
+  separator: 'line' | 'double line' | 'bold line' | 'no separator'
+  dateFormat: 'MM/YYYY' | 'MMM YYYY' | 'MMMM YYYY'
+  showLinks?: boolean
+  showSkillProficiency?: boolean
 }
 
 export type Language = {

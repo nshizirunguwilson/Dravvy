@@ -1,9 +1,9 @@
 'use client'
 
-// @ts-ignore
+
 import { StyleSheet, Document, Page, View, Text } from '@react-pdf/renderer'
 import { useResumeStore } from '@/store/useResumeStore'
-import type { ResumeData, Experience, Education, Skill, Project } from '@/types/resume'
+import type { Experience, Education, Skill, Project } from '@/types/resume'
 
 const getFontSize = (type: 'heading' | 'subheading' | 'body', fontSize: string) => {
   switch (fontSize) {
@@ -67,7 +67,7 @@ export function ResumePDF() {
     const styles = StyleSheet.create({
       page: {
         padding: 40,
-        fontFamily: styling.fontFamily || 'Helvetica',
+        fontFamily: styling.font || 'Helvetica',
         fontSize: getFontSize('body', styling.fontSize),
         color: '#1F2937',
       },
@@ -232,7 +232,7 @@ export function ResumePDF() {
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Skills</Text>
               <View style={styles.skillsGrid}>
-                {skills.map((skill: Skill, index: number) => (
+                {skills.map((skill: Skill) => (
                   <View key={skill.id} style={styles.skillTag}>
                     <Text style={styles.itemTitle}>{skill.category}</Text>
                     <Text>{skill.skills.join(', ')}</Text>
@@ -272,7 +272,7 @@ export function ResumePDF() {
           {projects.length > 0 && (
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Projects</Text>
-              {projects.map((project: Project, index: number) => (
+              {projects.map((project: Project) => (
                 <View key={project.id} style={{ marginBottom: 15 }}>
                   <Text style={styles.itemTitle}>{project.name}</Text>
                   {project.description.map((desc: string, i: number) => (

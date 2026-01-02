@@ -3,9 +3,10 @@
 import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { resumeSchema } from '@/lib/validations/resume'
+
 import { useResumeStore } from '@/store/useResumeStore'
 import type { ResumeData, Experience, Education, Skill, Project, Certification, Language, Reference } from '@/types/resume'
+import { resumeSchema, languageSchema } from '@/lib/validations/resume'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -13,8 +14,8 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { toast } from 'sonner'
 import { Card } from "@/components/ui/card"
-import { useUIStore } from "@/store/useUIStore"
-import { languageSchema, referenceSchema } from "@/lib/validations/resume"
+
+
 import { nanoid } from "nanoid"
 import { useRouter } from 'next/navigation'
 
@@ -31,29 +32,29 @@ const buttonStyles = "px-4 py-2.5 text-sm font-medium text-white bg-blue-600 hov
 
 function MainResumeForm({ section }: ResumeFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [submitSuccess, setSubmitSuccess] = React.useState(false)
+
   const [error, setError] = React.useState<string | null>(null)
-  const setActiveSection = useUIStore((state) => state.setActiveSection)
-  const activeSection = useUIStore((state) => state.activeSection)
+
   const router = useRouter()
-  const [savedSections, setSavedSections] = React.useState<Set<string>>(new Set())
+
   const [referenceOption, setReferenceOption] = React.useState<'uponRequest' | 'include'>('uponRequest')
-  const [references, setReferences] = React.useState<Reference[]>([])
+  const references = useResumeStore((state: { references: Reference[] }) => state.references)
 
-  const [experiences, setExperiences] = React.useState<Experience[]>([])
-  const [newDescription, setNewDescription] = React.useState('')
+  const experiences = useResumeStore((state: { experience: Experience[] }) => state.experience)
 
-  const [educations, setEducations] = React.useState<Education[]>([])
 
-  const [projects, setProjects] = React.useState<Project[]>([])
+
+  const educations = useResumeStore((state: { education: Education[] }) => state.education)
+
+  const projects = useResumeStore((state: { projects: Project[] }) => state.projects)
   const [newTechnology, setNewTechnology] = React.useState('')
 
-  const [skills, setSkills] = React.useState<Skill[]>([])
-  const [newSkill, setNewSkill] = React.useState('')
+  const skills = useResumeStore((state: { skills: Skill[] }) => state.skills)
 
-  const [certifications, setCertifications] = React.useState<Certification[]>([])
 
-  const [languages, setLanguages] = React.useState<Language[]>([])
+  const certifications = useResumeStore((state: { certifications: Certification[] }) => state.certifications)
+
+  const languages = useResumeStore((state: { languages: Language[] }) => state.languages)
 
   const contact = useResumeStore((state: { contact: ResumeData['contact'] }) => state.contact)
   const summary = useResumeStore((state: { summary: string }) => state.summary)
@@ -64,32 +65,38 @@ function MainResumeForm({ section }: ResumeFormProps) {
   const storeUpdateExperience = useResumeStore((state: { updateExperience: (experience: Experience) => void }) => state.updateExperience)
   const storeRemoveExperience = useResumeStore((state: { removeExperience: (id: string) => void }) => state.removeExperience)
   
+
   const storeAddEducation = useResumeStore((state: { addEducation: (education: Omit<Education, 'id'>) => void }) => state.addEducation)
   const storeUpdateEducation = useResumeStore((state: { updateEducation: (education: Education) => void }) => state.updateEducation)
   const storeRemoveEducation = useResumeStore((state: { removeEducation: (id: string) => void }) => state.removeEducation)
-  
+
   const storeAddSkill = useResumeStore((state: { addSkill: (skill: Omit<Skill, 'id'>) => void }) => state.addSkill)
   const storeUpdateSkill = useResumeStore((state: { updateSkill: (skill: Skill) => void }) => state.updateSkill)
   const storeRemoveSkill = useResumeStore((state: { removeSkill: (id: string) => void }) => state.removeSkill)
-  
+
   const storeAddProject = useResumeStore((state: { addProject: (project: Omit<Project, 'id'>) => void }) => state.addProject)
   const storeUpdateProject = useResumeStore((state: { updateProject: (project: Project) => void }) => state.updateProject)
   const storeRemoveProject = useResumeStore((state: { removeProject: (id: string) => void }) => state.removeProject)
-  
+
   const storeAddCertification = useResumeStore((state: { addCertification: (certification: Omit<Certification, 'id'>) => void }) => state.addCertification)
   const storeUpdateCertification = useResumeStore((state: { updateCertification: (certification: Certification) => void }) => state.updateCertification)
   const storeRemoveCertification = useResumeStore((state: { removeCertification: (id: string) => void }) => state.removeCertification)
-  
+
   const storeAddLanguage = useResumeStore((state: { addLanguage: (language: Omit<Language, 'id'>) => void }) => state.addLanguage)
   const storeUpdateLanguage = useResumeStore((state: { updateLanguage: (language: Language) => void }) => state.updateLanguage)
   const storeRemoveLanguage = useResumeStore((state: { removeLanguage: (id: string) => void }) => state.removeLanguage)
-  
+
   const storeAddReference = useResumeStore((state: { addReference: (reference: Omit<Reference, 'id'>) => void }) => state.addReference)
   const storeUpdateReference = useResumeStore((state: { updateReference: (reference: Reference) => void }) => state.updateReference)
   const storeRemoveReference = useResumeStore((state: { removeReference: (id: string) => void }) => state.removeReference)
 
+
+
+
   const markSectionAsSaved = () => {
-    setSavedSections(prev => new Set([...prev, section]))
+    // setSavedSections is removed as it was unused and local state. 
+    // If saving sections is needed, it should be in the store.
+    // For now, just logging or doing nothing.
   }
 
   const handleAddExperience = () => {
@@ -112,181 +119,123 @@ function MainResumeForm({ section }: ResumeFormProps) {
     storeUpdateExperience(experience)
   }
 
+
+
+
+
+
+
   const addEducation = () => {
-    setEducations([...educations, {
-      id: crypto.randomUUID(),
+    storeAddEducation({
       school: '',
       degree: '',
       field: '',
       startDate: '',
       endDate: '',
       gpa: ''
-    }])
+    })
   }
 
   const handleEducationChange = (index: number, field: keyof Education, value: string) => {
-    const updatedEducations = [...educations]
-    updatedEducations[index] = {
-      ...updatedEducations[index],
-      [field]: value
-    }
-    setEducations(updatedEducations)
-  }
-
-  const handleEducationSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    educations.forEach(education => storeUpdateEducation(education))
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setTimeout(() => setSubmitSuccess(false), 3000)
+    const educationToUpdate = { ...educations[index], [field]: value }
+    storeUpdateEducation(educationToUpdate)
   }
 
   const addProject = () => {
-    setProjects([...projects, {
-      id: crypto.randomUUID(),
+    storeAddProject({
       name: '',
       description: [],
       technologies: [],
       link: ''
-    }])
+    })
   }
 
   const handleProjectChange = (index: number, field: keyof Project, value: string | string[]) => {
-    const updatedProjects = [...projects]
-    updatedProjects[index] = {
-      ...updatedProjects[index],
-      [field]: value
-    }
-    setProjects(updatedProjects)
+    const projectToUpdate = { ...projects[index], [field]: value }
+    storeUpdateProject(projectToUpdate)
   }
 
   const addTechnology = (projectIndex: number) => {
     if (newTechnology.trim()) {
-      const updatedProjects = [...projects]
-      updatedProjects[projectIndex].technologies.push(newTechnology.trim())
-      setProjects(updatedProjects)
+      const project = projects[projectIndex]
+      const updatedProject = {
+        ...project,
+        technologies: [...project.technologies, newTechnology.trim()]
+      }
+      storeUpdateProject(updatedProject)
       setNewTechnology('')
     }
   }
 
-  const removeTechnology = (projectIndex: number, techIndex: number) => {
-    const updatedProjects = [...projects]
-    updatedProjects[projectIndex].technologies = updatedProjects[projectIndex].technologies.filter((_, i) => i !== techIndex)
-    setProjects(updatedProjects)
-  }
-
-  const handleProjectSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    projects.forEach(project => storeUpdateProject(project))
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setTimeout(() => setSubmitSuccess(false), 3000)
-  }
-
   const addSkill = () => {
-    setSkills([...skills, {
-      id: crypto.randomUUID(),
+    storeAddSkill({
       category: '',
       skills: []
-    }])
+    })
   }
 
   const handleSkillChange = (index: number, field: keyof Skill, value: string | string[]) => {
-    const updatedSkills = [...skills]
-    updatedSkills[index] = {
-      ...updatedSkills[index],
-      [field]: value
-    }
-    setSkills(updatedSkills)
+    const skillToUpdate = { ...skills[index], [field]: value }
+    storeUpdateSkill(skillToUpdate)
   }
 
-  const handleSkillsSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    skills.forEach(skill => storeUpdateSkill(skill))
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setTimeout(() => setSubmitSuccess(false), 3000)
-  }
+
+
+
+
+
+
+
+
+
 
   const addCertification = () => {
-    setCertifications([...certifications, {
-      id: crypto.randomUUID(),
+    storeAddCertification({
       name: '',
       issuer: '',
       date: '',
       link: ''
-    }])
+    })
   }
 
   const handleCertificationChange = (index: number, field: keyof Certification, value: string) => {
-    const updatedCertifications = [...certifications]
-    updatedCertifications[index] = {
-      ...updatedCertifications[index],
-      [field]: value
-    }
-    setCertifications(updatedCertifications)
+    const certificationToUpdate = { ...certifications[index], [field]: value }
+    storeUpdateCertification(certificationToUpdate)
   }
 
-  const handleCertificationSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    certifications.forEach(certification => storeUpdateCertification(certification))
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setTimeout(() => setSubmitSuccess(false), 3000)
-  }
+
 
   const addLanguage = () => {
-    setLanguages([...languages, {
-      id: crypto.randomUUID(),
+    storeAddLanguage({
       language: '',
       proficiency: 'basic'
-    }])
+    })
   }
 
   const handleLanguageChange = (index: number, field: keyof Language, value: string) => {
-    const updatedLanguages = [...languages]
-    updatedLanguages[index] = {
-      ...updatedLanguages[index],
-      [field]: value
-    }
-    setLanguages(updatedLanguages)
+    const languageToUpdate = { ...languages[index], [field]: value }
+    storeUpdateLanguage(languageToUpdate)
   }
 
-  const handleLanguageSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    languages.forEach(language => storeUpdateLanguage(language))
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setTimeout(() => setSubmitSuccess(false), 3000)
-  }
+
+
+
 
   const handleReferenceChange = (index: number, field: keyof Reference, value: string) => {
-    const updatedReferences = [...references]
-    updatedReferences[index] = {
-      ...updatedReferences[index],
-      [field]: value
-    }
-    setReferences(updatedReferences)
+    const referenceToUpdate = { ...references[index], [field]: value }
+    storeUpdateReference(referenceToUpdate)
   }
 
   const addReference = () => {
-    const newReference: Reference = {
-      id: crypto.randomUUID(),
+    storeAddReference({
       name: '',
       relationship: '',
       email: '',
       phone: ''
-    }
-    setReferences([...references, newReference])
+    })
   }
 
-  const handleReferenceSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    references.forEach(reference => storeUpdateReference(reference))
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
-    setTimeout(() => setSubmitSuccess(false), 3000)
-  }
+
 
   const validateContact = (contact: ResumeData['contact']) => {
     if (!contact.fullName || !contact.email || !contact.phone || !contact.location) {
@@ -367,13 +316,13 @@ function MainResumeForm({ section }: ResumeFormProps) {
       }
       markSectionAsSaved()
       toast.success(`${section.charAt(0).toUpperCase() + section.slice(1)} saved successfully`)
-      setSubmitSuccess(true)
+
     } catch (error) {
       setError(error instanceof Error ? error.message : 'An error occurred')
       toast.error(error instanceof Error ? error.message : 'Failed to save changes')
     } finally {
       setIsSubmitting(false)
-      setTimeout(() => setSubmitSuccess(false), 3000)
+
     }
   }
 
@@ -1238,10 +1187,7 @@ function MainResumeForm({ section }: ResumeFormProps) {
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => {
-                      const updatedReferences = references.filter((_, i) => i !== index)
-                      setReferences(updatedReferences)
-                    }}
+                    onClick={() => storeRemoveReference(reference.id)}
                     className="mt-4"
                   >
                     Remove Reference
@@ -1281,7 +1227,7 @@ function MainResumeForm({ section }: ResumeFormProps) {
 }
 
 function LanguageFormComponent() {
-  const { languages, addLanguage, updateLanguage, removeLanguage } = useResumeStore()
+  const { languages, addLanguage, removeLanguage } = useResumeStore()
   const form = useForm<Language>({
     resolver: zodResolver(languageSchema),
     defaultValues: {
@@ -1358,7 +1304,7 @@ function ReferenceFormComponent({ onReferencesSaved }: { onReferencesSaved?: () 
   const updateReference = useResumeStore((state) => state.updateReference)
   const removeReference = useResumeStore((state) => state.removeReference)
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [hasSaved, setHasSaved] = React.useState(false)
+
   const [referenceOption, setReferenceOption] = React.useState<'uponRequest' | 'include'>('uponRequest')
   const [error, setError] = React.useState<string | null>(null)
 
@@ -1375,7 +1321,7 @@ function ReferenceFormComponent({ onReferencesSaved }: { onReferencesSaved?: () 
       // Save references
       references.forEach(ref => updateReference(ref))
       toast.success('References saved successfully')
-      setHasSaved(true)
+
       onReferencesSaved?.()
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Failed to save references'
@@ -1387,7 +1333,7 @@ function ReferenceFormComponent({ onReferencesSaved }: { onReferencesSaved?: () 
   }
 
   return (
-    <div className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-8">
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Reference Options</h2>
         <div className="space-y-4">
@@ -1421,7 +1367,7 @@ function ReferenceFormComponent({ onReferencesSaved }: { onReferencesSaved?: () 
       </div>
 
       {referenceOption === 'include' && (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="space-y-6">
           <h2 className="text-2xl font-semibold">References</h2>
           {references.map((reference, index) => (
             <Card key={reference.id} className="p-4">
@@ -1489,7 +1435,7 @@ function ReferenceFormComponent({ onReferencesSaved }: { onReferencesSaved?: () 
           >
             Add Reference
           </Button>
-        </form>
+        </div>
       )}
 
       {error && (
@@ -1507,12 +1453,12 @@ function ReferenceFormComponent({ onReferencesSaved }: { onReferencesSaved?: () 
           {isSubmitting ? 'Saving...' : 'Save Changes'}
         </Button>
       </div>
-    </div>
+    </form>
   )
 }
 
 export function ResumeForm({ section, onReferencesSaved }: ResumeFormProps) {
-  const { activeSection } = useUIStore()
+
 
   if (section === 'languages') {
     return <LanguageFormComponent />
