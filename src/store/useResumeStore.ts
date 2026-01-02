@@ -97,7 +97,7 @@ const initialState: Omit<ResumeState, keyof Omit<ResumeState, keyof ResumeData |
     fontSize: 'medium',
     spacing: 'medium',
     color: '#2563eb',
-    font: 'inter',
+    font: 'helvetica',
     separator: 'line',
     dateFormat: 'MM/YYYY',
     showLinks: true,

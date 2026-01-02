@@ -81,7 +81,7 @@ export function ExportForm() {
         </Button>
         {!loading && (
           <motion.div
-            className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-lg blur opacity-30"
+            className="absolute -inset-1 bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 rounded-lg blur opacity-30 pointer-events-none"
             animate={{
               scale: [1, 1.05, 1],
               opacity: [0.3, 0.4, 0.3],

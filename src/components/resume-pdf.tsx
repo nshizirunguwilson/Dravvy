@@ -1,9 +1,30 @@
 'use client'
 
 
-import { StyleSheet, Document, Page, View, Text } from '@react-pdf/renderer'
+import { StyleSheet, Document, Page, View, Text, Font } from '@react-pdf/renderer'
 import { useResumeStore } from '@/store/useResumeStore'
 import type { Experience, Education, Skill, Project } from '@/types/resume'
+
+// Register standard fonts
+Font.register({ family: 'Helvetica', fonts: [{ src: 'https://fonts.gstatic.com/s/helveticaneue/v70/1Ptsg8zYS_SKggPNyC0IT4ttDfA.ttf' }] }); // Just to be safe or rely on built-in
+
+const getFontFamily = (font: string) => {
+  const fontMap: Record<string, string> = {
+    'times new roman': 'Times-Roman',
+    'georgia': 'Times-Roman',
+    'cambria': 'Times-Roman',
+    'garamond': 'Times-Roman',
+    'calibri': 'Helvetica',
+    'helvetica': 'Helvetica',
+    'arial': 'Helvetica',
+    'roboto': 'Helvetica',
+    'lato': 'Helvetica',
+    'open sans': 'Helvetica',
+    'inter': 'Helvetica',
+  };
+  
+  return fontMap[font.toLowerCase()] || 'Helvetica';
+};
 
 const getFontSize = (type: 'heading' | 'subheading' | 'body', fontSize: string) => {
   switch (fontSize) {
@@ -67,7 +88,7 @@ export function ResumePDF() {
     const styles = StyleSheet.create({
       page: {
         padding: 40,
-        fontFamily: styling.font || 'Helvetica',
+        fontFamily: getFontFamily(styling.font),
         fontSize: getFontSize('body', styling.fontSize),
         color: '#1F2937',
       },

@@ -76,7 +76,7 @@ export function StylingForm(): JSX.Element {
           <Label>Theme</Label>
           <Select
             value={style.theme}
-            onValueChange={(value) => updateStyle({ ...style, theme: value })}
+            onValueChange={(value) => updateStyle({ ...style, theme: value as ResumeData['style']['theme'] })}
           >
             <SelectTrigger>
               <SelectValue placeholder="Select a theme" />
@@ -125,7 +125,7 @@ export function StylingForm(): JSX.Element {
           <Label>Font Size</Label>
           <Select
             value={style.fontSize}
-            onValueChange={(value) => updateStyle({ ...style, fontSize: value })}
+            onValueChange={(value) => updateStyle({ ...style, fontSize: value as ResumeData['style']['fontSize'] })}
           >
             <SelectTrigger>
               <SelectValue placeholder="Select font size" />
@@ -145,7 +145,7 @@ export function StylingForm(): JSX.Element {
           <Label>Spacing</Label>
           <Select
             value={style.spacing}
-            onValueChange={(value) => updateStyle({ ...style, spacing: value })}
+            onValueChange={(value) => updateStyle({ ...style, spacing: value as ResumeData['style']['spacing'] })}
           >
             <SelectTrigger>
               <SelectValue placeholder="Select spacing" />
@@ -165,7 +165,7 @@ export function StylingForm(): JSX.Element {
           <Label>Section Separator</Label>
           <Select
             value={style.separator}
-            onValueChange={(value) => updateStyle({ ...style, separator: value })}
+            onValueChange={(value) => updateStyle({ ...style, separator: value as ResumeData['style']['separator'] })}
           >
             <SelectTrigger>
               <SelectValue placeholder="Select separator style" />
@@ -185,7 +185,7 @@ export function StylingForm(): JSX.Element {
           <Label>Date Format</Label>
           <Select
             value={style.dateFormat}
-            onValueChange={(value) => updateStyle({ ...style, dateFormat: value })}
+            onValueChange={(value) => updateStyle({ ...style, dateFormat: value as ResumeData['style']['dateFormat'] })}
           >
             <SelectTrigger>
               <SelectValue placeholder="Select date format" />
