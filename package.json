@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test:export": "node scripts/export-smoke.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -50,6 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
     "autoprefixer": "^10.4.17",
+    "esbuild": "^0.28.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "eslint-plugin-react": "^7.33.2",
