@@ -1,326 +1,285 @@
 'use client'
 
 import * as React from 'react'
+
 import { useResumeStore } from '@/store/useResumeStore'
-import type { ResumeData } from '@/types/resume'
+import type { ResumeStyle } from '@/types/resume'
 
+const fontStack: Record<string, string> = {
+  'times new roman': '"Times New Roman", Times, serif',
+  georgia: 'Georgia, "Times New Roman", serif',
+  cambria: 'Cambria, Georgia, serif',
+  garamond: 'Garamond, Georgia, serif',
+  calibri: 'Calibri, "Helvetica Neue", Arial, sans-serif',
+  helvetica: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+  arial: 'Arial, "Helvetica Neue", sans-serif',
+  roboto: 'Roboto, "Helvetica Neue", Arial, sans-serif',
+  lato: 'Lato, "Helvetica Neue", Arial, sans-serif',
+  'open sans': '"Open Sans", "Helvetica Neue", Arial, sans-serif',
+}
 
+const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {
+  if (!raw) return ''
+  const date = new Date(raw)
+  if (Number.isNaN(date.getTime())) return raw
+  switch (fmt) {
+    case 'MM/YYYY':
+      return date.toLocaleDateString('en-US', { month: '2-digit', year: 'numeric' })
+    case 'MMMM YYYY':
+      return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+    default:
+      return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+  }
+}
 
-export function ResumePreview(): JSX.Element {
-  const contact = useResumeStore((state: { contact: ResumeData['contact'] }) => state.contact)
-  const summary = useResumeStore((state: { summary: ResumeData['summary'] }) => state.summary)
-  const experience = useResumeStore((state: { experience: ResumeData['experience'] }) => state.experience)
-  const education = useResumeStore((state: { education: ResumeData['education'] }) => state.education)
-  const skills = useResumeStore((state: { skills: ResumeData['skills'] }) => state.skills)
-  const projects = useResumeStore((state: { projects: ResumeData['projects'] }) => state.projects)
-  const languages = useResumeStore((state: { languages: ResumeData['languages'] }) => state.languages)
-  const references = useResumeStore((state: { references: ResumeData['references'] }) => state.references)
-  const styling = useResumeStore((state: { style: ResumeData['style'] }) => state.style)
+const fontSizeMap = {
+  small: { heading: 22, sub: 13, body: 11 },
+  medium: { heading: 26, sub: 15, body: 12.5 },
+  large: { heading: 30, sub: 17, body: 14 },
+} as const
 
-  const formatDate = (dateString: string) => {
-    try {
-      if (!dateString) return '';
-      const date = new Date(dateString);
-      
-      switch (styling.dateFormat) {
-        case 'MM/YYYY':
-          return date.toLocaleDateString('en-US', {
-            month: '2-digit',
-            year: 'numeric',
-          });
-        case 'MMM YYYY':
-          return date.toLocaleDateString('en-US', {
-            month: 'short',
-            year: 'numeric',
-          });
-        case 'MMMM YYYY':
-          return date.toLocaleDateString('en-US', {
-            month: 'long',
-            year: 'numeric',
-          });
-        default:
-          return date.toLocaleDateString('en-US', {
-            month: 'short',
-            year: 'numeric',
-          });
-      }
-    } catch (error) {
-      console.error('Invalid date format:', error);
-      return dateString;
+const spacingMap = { small: 12, medium: 18, large: 26 } as const
+
+export function ResumePreview() {
+  const contact = useResumeStore((s) => s.contact)
+  const summary = useResumeStore((s) => s.summary)
+  const experience = useResumeStore((s) => s.experience)
+  const education = useResumeStore((s) => s.education)
+  const skills = useResumeStore((s) => s.skills)
+  const projects = useResumeStore((s) => s.projects)
+  const certifications = useResumeStore((s) => s.certifications)
+  const awards = useResumeStore((s) => s.awards)
+  const languages = useResumeStore((s) => s.languages)
+  const references = useResumeStore((s) => s.references)
+  const referencesMode = useResumeStore((s) => s.referencesMode)
+  const style = useResumeStore((s) => s.style)
+
+  const sizes = fontSizeMap[style.fontSize]
+  const gap = spacingMap[style.spacing]
+  const family = fontStack[style.font] ?? fontStack.helvetica
+  const accent = style.color
+
+  const Divider = () => {
+    if (style.separator === 'no separator') return <div style={{ height: gap / 2 }} />
+    if (style.separator === 'double line') {
+      return (
+        <div style={{ marginTop: gap / 2, marginBottom: gap / 2 }}>
+          <div style={{ height: 1, backgroundColor: accent }} />
+          <div style={{ height: 1, marginTop: 2, backgroundColor: accent }} />
+        </div>
+      )
     }
-  };
+    return (
+      <div
+        style={{
+          height: style.separator === 'bold line' ? 3 : 1,
+          backgroundColor: accent,
+          marginTop: gap / 2,
+          marginBottom: gap / 2,
+        }}
+      />
+    )
+  }
 
-  const getFontSizeClass = (type: 'heading' | 'subheading' | 'body') => {
-    switch (styling.fontSize) {
-      case 'small':
-        return type === 'heading' ? 'text-xl' : type === 'subheading' ? 'text-base' : 'text-sm';
-      case 'large':
-        return type === 'heading' ? 'text-3xl' : type === 'subheading' ? 'text-xl' : 'text-base';
-      default: // medium
-        return type === 'heading' ? 'text-2xl' : type === 'subheading' ? 'text-lg' : 'text-sm';
-    }
-  };
+  const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
+    <section>
+      <Divider />
+      <h2
+        style={{
+          fontSize: sizes.sub,
+          color: accent,
+          textTransform: 'uppercase',
+          letterSpacing: '0.08em',
+          marginBottom: gap / 3,
+          fontWeight: 700,
+        }}
+      >
+        {title}
+      </h2>
+      {children}
+    </section>
+  )
 
-  const getSpacingClass = () => {
-    switch (styling.spacing) {
-      case 'small':
-        return 'space-y-4';
-      case 'large':
-        return 'space-y-8';
-      default: // medium
-        return 'space-y-6';
-    }
-  };
-
-  const renderDivider = () => {
-    switch (styling.separator) {
-      case 'line':
-        return <div className="w-full h-px my-4" style={{ backgroundColor: styling.color }} />;
-      case 'double line':
-        return (
-          <div className="my-4 space-y-1">
-            <div className="w-full h-px" style={{ backgroundColor: styling.color }} />
-            <div className="w-full h-px" style={{ backgroundColor: styling.color }} />
-          </div>
-        );
-      case 'bold line':
-         return <div className="w-full h-1 my-4" style={{ backgroundColor: styling.color }} />;
-      default:
-        return null; // no separator
-    }
-  };
+  const contactBits = [
+    contact.location,
+    contact.phone,
+    contact.email,
+    contact.linkedin && 'LinkedIn',
+    contact.github && 'GitHub',
+    contact.website && 'Portfolio',
+  ].filter(Boolean)
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow" style={{ fontFamily: styling.font }}>
-      <h2 className={`mb-4 font-semibold text-gray-900 ${getFontSizeClass('subheading')}`}>Preview</h2>
-      <div className={getSpacingClass()}>
-        <div className="space-y-2 text-center">
-          <h1 className={`font-bold text-gray-900 ${getFontSizeClass('heading')}`}>{contact.fullName}</h1>
-          <div className="space-x-2 text-sm text-gray-600">
-            {contact.phone && (
-              styling.showLinks ? (
-                <a href={`tel:${contact.phone}`} className="transition-colors hover:text-blue-600">
-                  {contact.phone}
-                </a>
-              ) : (
-                <span>{contact.phone}</span>
-              )
-            )}
-            {contact.phone && contact.email && <span>•</span>}
-            {contact.email && (
-              styling.showLinks ? (
-                <a href={`mailto:${contact.email}`} className="transition-colors hover:text-blue-600">
-                  {contact.email}
-                </a>
-              ) : (
-                <span>{contact.email}</span>
-              )
-            )}
-            {contact.email && contact.linkedin && <span>•</span>}
-            {contact.linkedin && (
-              styling.showLinks ? (
-                <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-blue-600">
-                  LinkedIn
-                </a>
-              ) : (
-                <span>LinkedIn</span>
-              )
-            )}
-          </div>
-          <div className="space-x-2 text-sm text-gray-600">
-            {contact.github && (
-              styling.showLinks ? (
-                <a href={contact.github} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-blue-600">
-                  GitHub
-                </a>
-              ) : (
-                <span>GitHub</span>
-              )
-            )}
-            {contact.github && contact.website && <span>•</span>}
-            {contact.website && (
-              styling.showLinks ? (
-                <a href={contact.website} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-blue-600">
-                  Portfolio
-                </a>
-              ) : (
-                <span>Portfolio</span>
-              )
-            )}
-            {(contact.website || contact.github) && contact.location && <span>•</span>}
-            {contact.location && (
-              <span>{contact.location}</span>
-            )}
-          </div>
-        </div>
+    <div className="overflow-x-auto">
+      <article
+        className="mx-auto bg-white text-gray-900 shadow-sm"
+        style={{
+          fontFamily: family,
+          fontSize: sizes.body,
+          width: '210mm',
+          minHeight: '297mm',
+          padding: '20mm',
+          lineHeight: 1.5,
+        }}
+      >
+        <header style={{ textAlign: 'center', marginBottom: gap }}>
+          <h1
+            style={{
+              fontSize: sizes.heading,
+              fontWeight: 700,
+              letterSpacing: '0.01em',
+              color: '#111827',
+            }}
+          >
+            {contact.fullName || 'Your Name'}
+          </h1>
+          <p style={{ marginTop: 4, fontSize: sizes.body, color: '#374151' }}>
+            {contactBits.join('  •  ')}
+          </p>
+        </header>
 
-        {renderDivider()}
+        {summary && (
+          <Section title="Professional Summary">
+            <p style={{ color: '#1f2937' }}>{summary}</p>
+          </Section>
+        )}
 
-        <div>
-          <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Summary</h4>
-          <p className={getFontSizeClass('body')}>{summary}</p>
-        </div>
-        
         {experience.length > 0 && (
-          <>
-            {renderDivider()}
-            <div className={getSpacingClass()}>
-              <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Experience</h4>
-              {experience.map((exp) => (
-                <div key={exp.id} className="space-y-2">
-                  <div className="flex justify-between">
-                    <h5 className={`font-semibold text-gray-800 ${getFontSizeClass('subheading')}`}>{exp.position}</h5>
-                    <span className={`text-gray-600 ${getFontSizeClass('body')}`}>
-                      {formatDate(exp.startDate)} - {exp.current ? 'Present' : formatDate(exp.endDate)}
-                    </span>
-                  </div>
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>{exp.company}</span>
-                  </div>
-                  <ul className="space-y-1 text-sm text-gray-600 list-disc list-inside">
-                    {exp.description.map((point, pointIndex) => (
-                      <li key={pointIndex}>{point}</li>
-                    ))}
-                  </ul>
+          <Section title="Experience">
+            {experience.map((exp) => (
+              <div key={exp.id} style={{ marginBottom: gap / 1.5 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <strong style={{ fontSize: sizes.body + 1 }}>{exp.position || 'Position'}</strong>
+                  <span style={{ color: '#4b5563' }}>
+                    {formatDate(exp.startDate, style.dateFormat)} - {exp.current ? 'Present' : formatDate(exp.endDate, style.dateFormat)}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </>
+                <p style={{ color: '#4b5563', fontStyle: 'italic' }}>{exp.company}</p>
+                <ul style={{ marginTop: 4, paddingLeft: 18, listStyle: 'disc' }}>
+                  {exp.description.map((d, i) => (
+                    <li key={i}>{d}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </Section>
         )}
 
         {education.length > 0 && (
-          <>
-            {renderDivider()}
-            <div className={getSpacingClass()}>
-              <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Education</h4>
-              {education.map((edu) => (
-                <div key={edu.id} className="space-y-2">
-                  <div className="flex justify-between">
-                    <h5 className={`font-semibold text-gray-800 ${getFontSizeClass('subheading')}`}>{edu.degree}</h5>
-                    <span className={`text-gray-600 ${getFontSizeClass('body')}`}>
-                      {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
-                    </span>
-                  </div>
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>{edu.school}</span>
-                    <span>{edu.field}</span>
-                  </div>
+          <Section title="Education">
+            {education.map((edu) => (
+              <div key={edu.id} style={{ marginBottom: gap / 1.5 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <strong style={{ fontSize: sizes.body + 1 }}>{edu.degree}{edu.field ? `, ${edu.field}` : ''}</strong>
+                  <span style={{ color: '#4b5563' }}>
+                    {formatDate(edu.startDate, style.dateFormat)} - {formatDate(edu.endDate, style.dateFormat)}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </>
-        )}
-
-        {projects.length > 0 && (
-          <>
-            {renderDivider()}
-            <div className={getSpacingClass()}>
-              <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Projects</h4>
-              {projects.map((project) => (
-                <div key={project.id} className="space-y-2">
-                  <div className="flex justify-between">
-                    <h5 className={`font-semibold text-gray-800 ${getFontSizeClass('subheading')}`}>{project.name}</h5>
-                  </div>
-                  <div className="space-y-1">
-                    {project.description.map((desc, i) => (
-                      <p key={i} className={getFontSizeClass('body')}>{desc}</p>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4 text-sm">
-                    {project.link && styling.showLinks && (
-                      <a 
-                        href={project.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800"
-                      >
-                        Link
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
+                <p style={{ color: '#4b5563', fontStyle: 'italic' }}>
+                  {edu.school}{edu.gpa ? ` • GPA: ${edu.gpa}` : ''}
+                </p>
+              </div>
+            ))}
+          </Section>
         )}
 
         {skills.length > 0 && (
-          <>
-            {renderDivider()}
-            <div className={getSpacingClass()}>
-              <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Skills</h4>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {skills.map((skill) => (
-                  <div key={skill.id} className="space-y-2">
-                    <div className="flex flex-col">
-                      <span className={`font-medium text-gray-800 ${getFontSizeClass('body')}`}>{skill.category}</span>
-                      <span className={`text-gray-600 ${getFontSizeClass('body')}`}>{skill.skills.join(', ')}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <Section title="Skills">
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', rowGap: 4, columnGap: 12 }}>
+              {skills.map((s) => (
+                <React.Fragment key={s.id}>
+                  <span style={{ fontWeight: 600 }}>{s.category}</span>
+                  <span>{s.skills.filter(Boolean).join(', ')}</span>
+                </React.Fragment>
+              ))}
             </div>
-          </>
+          </Section>
+        )}
+
+        {projects.length > 0 && (
+          <Section title="Projects">
+            {projects.map((p) => (
+              <div key={p.id} style={{ marginBottom: gap / 1.5 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                  <strong style={{ fontSize: sizes.body + 1 }}>{p.name}</strong>
+                  {p.link && <span style={{ color: '#4b5563' }}>{p.link}</span>}
+                </div>
+                {p.technologies.length > 0 && (
+                  <p style={{ color: '#4b5563', fontStyle: 'italic' }}>{p.technologies.filter(Boolean).join(' · ')}</p>
+                )}
+                <ul style={{ marginTop: 4, paddingLeft: 18, listStyle: 'disc' }}>
+                  {p.description.map((d, i) => (
+                    <li key={i}>{d}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </Section>
+        )}
+
+        {certifications.length > 0 && (
+          <Section title="Certifications">
+            {certifications.map((c) => (
+              <div key={c.id} style={{ marginBottom: gap / 2, display: 'flex', justifyContent: 'space-between' }}>
+                <span>
+                  <strong>{c.name}</strong>
+                  <span style={{ color: '#4b5563' }}> — {c.issuer}</span>
+                </span>
+                <span style={{ color: '#4b5563' }}>{formatDate(c.date, style.dateFormat)}</span>
+              </div>
+            ))}
+          </Section>
+        )}
+
+        {awards.length > 0 && (
+          <Section title="Awards">
+            {awards.map((a) => (
+              <div key={a.id} style={{ marginBottom: gap / 2 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <strong>{a.title}</strong>
+                  <span style={{ color: '#4b5563' }}>{formatDate(a.date, style.dateFormat)}</span>
+                </div>
+                <p style={{ color: '#4b5563', fontStyle: 'italic' }}>{a.issuer}</p>
+                {a.description && <p>{a.description}</p>}
+              </div>
+            ))}
+          </Section>
         )}
 
         {languages.length > 0 && (
-          <>
-            {renderDivider()}
-            <div className={getSpacingClass()}>
-              <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>Languages</h4>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {languages.map((language) => (
-                  <div key={language.id} className="flex items-center justify-between">
-                    <span className={`font-medium text-gray-800 ${getFontSizeClass('body')}`}>{language.language}</span>
-                    <span className={`text-gray-600 ${getFontSizeClass('body')}`}>{language.proficiency}</span>
-                  </div>
-                ))}
-              </div>
+          <Section title="Languages">
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', rowGap: 4, columnGap: 16 }}>
+              {languages.map((l) => (
+                <div key={l.id} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ fontWeight: 600 }}>{l.language}</span>
+                  <span style={{ color: '#4b5563', textTransform: 'capitalize' }}>{l.proficiency}</span>
+                </div>
+              ))}
             </div>
-          </>
+          </Section>
         )}
 
-        {references.length > 0 && (
-          <>
-            {renderDivider()}
-            <div className={getSpacingClass()}>
-              <h4 className={`font-medium text-gray-900 ${getFontSizeClass('subheading')}`}>References</h4>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {references.map((reference) => (
-                  <div key={reference.id} className="space-y-2">
-                    <h5 className={`font-semibold text-gray-800 ${getFontSizeClass('subheading')}`}>{reference.name}</h5>
-                    <div className={`text-gray-600 ${getFontSizeClass('body')}`}>
-                      <p>{reference.relationship}</p>
-                      {styling.showLinks ? (
-                        <>
-                          <a href={`mailto:${reference.email}`} className="block transition-colors hover:text-blue-600">
-                            {reference.email}
-                          </a>
-                          <a href={`tel:${reference.phone}`} className="transition-colors hover:text-blue-600">
-                            {reference.phone}
-                          </a>
-                        </>
-                      ) : (
-                        <>
-                          <p>{reference.email}</p>
-                          <p>{reference.phone}</p>
-                        </>
-                      )}
-                    </div>
+        {referencesMode === 'uponRequest' ? (
+          <Section title="References">
+            <p style={{ color: '#4b5563', fontStyle: 'italic' }}>References available upon request.</p>
+          </Section>
+        ) : (
+          references.length > 0 && (
+            <Section title="References">
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: gap / 2 }}>
+                {references.map((r) => (
+                  <div key={r.id}>
+                    <strong>{r.name}</strong>
+                    <p style={{ color: '#4b5563', fontStyle: 'italic' }}>{r.relationship}</p>
+                    <p>{r.email}</p>
+                    <p>{r.phone}</p>
                   </div>
                 ))}
               </div>
-            </div>
-          </>
+            </Section>
+          )
         )}
-      </div>
+      </article>
     </div>
   )
 }
