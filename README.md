@@ -48,7 +48,7 @@ URL, project link) appear in the preview/exports only when filled in.
 ## Getting started
 
 ```bash
-git clone https://github.com/nshiziw/dravvy.git
+git clone https://github.com/nshizirunguwilson/dravvy.git
 cd dravvy
 npm install
 npm run dev          # http://localhost:3000
