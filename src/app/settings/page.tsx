@@ -1,93 +1,106 @@
 'use client'
 
+import * as React from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+
 import { StylingForm } from '@/components/styling-form'
 import { ResumePreview } from '@/components/resume-preview'
 import { ExportForm } from '@/components/export-form'
 import { Button } from '@/components/ui/button'
 import { useUIStore } from '@/store/useUIStore'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
-import { motion } from 'framer-motion'
-import { Toaster } from 'sonner'
+import { cn } from '@/lib/utils'
 
-type Section = {
-  id: 'styling' | 'preview' | 'export'
-  label: string
-}
+const sections = [
+  { id: 'styling', label: 'Styling' },
+  { id: 'preview', label: 'Preview' },
+  { id: 'export', label: 'Export' },
+] as const
 
-const sections: Section[] = [
-  { id: 'styling', label: 'Resume Styling' },
-  { id: 'preview', label: 'Resume Preview' },
-  { id: 'export', label: 'Export Resume' },
-]
+type SectionId = (typeof sections)[number]['id']
 
 export default function SettingsPage() {
-  const activeSection = useUIStore((state) => state.activeSettingsSection)
-  const setActiveSection = useUIStore((state) => state.setActiveSettingsSection)
+  const activeSection = useUIStore((s) => s.activeSettingsSection)
+  const setActiveSection = useUIStore((s) => s.setActiveSettingsSection)
 
-  const handleNext = () => {
-    if (activeSection < sections.length - 1) {
-      setActiveSection(activeSection + 1)
-    }
-  }
+  const safeIndex = Math.min(activeSection, sections.length - 1)
+  const current = sections[safeIndex]
 
-  const handlePrevious = () => {
-    if (activeSection > 0) {
-      setActiveSection(activeSection - 1)
-    }
-  }
+  const goNext = () => safeIndex < sections.length - 1 && setActiveSection(safeIndex + 1)
+  const goPrev = () => safeIndex > 0 && setActiveSection(safeIndex - 1)
 
   return (
-    <div className="mx-auto px-[5%] py-8">
-      <Toaster position="top-right" />
-      
-      <header className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Style and Export</h1>
-        <p className="mt-2 text-lg text-gray-600">
-          Customize your resume and export it as PDF
-        </p>
+    <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
+      <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <p className="text-sm font-medium text-gray-500">Final touches</p>
+          <h1 className="mt-1 text-3xl font-semibold text-gray-900 md:text-4xl">Style and export</h1>
+          <p className="mt-2 text-base text-gray-600">Choose your styling, preview the result, and export the file.</p>
+        </div>
+        <Link href="/create" className="text-sm font-medium text-gray-900 underline-offset-4 hover:underline">
+          ← Back to editor
+        </Link>
       </header>
 
-      <div className="grid grid-cols-1 gap-8">
-        <div className="space-y-8">
-          <motion.div 
-            className="bg-white rounded-lg shadow p-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              {sections[activeSection].label}
-            </h2>
-            
-            {sections[activeSection].id === 'styling' && <StylingForm />}
-            {sections[activeSection].id === 'preview' && <ResumePreview />}
-            {sections[activeSection].id === 'export' && <ExportForm />}
+      <nav className="mb-6 flex items-center gap-2 rounded-2xl border border-gray-200 bg-white p-1.5">
+        {sections.map((section, index) => {
+          const isActive = section.id === current.id
+          return (
+            <button
+              key={section.id}
+              type="button"
+              onClick={() => setActiveSection(index)}
+              className={cn(
+                'flex-1 rounded-xl px-4 py-2 text-sm font-medium transition-colors',
+                isActive ? 'bg-gray-900 text-white' : 'text-gray-700 hover:bg-gray-50'
+              )}
+            >
+              <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full border border-current text-[10px] font-semibold">
+                {index + 1}
+              </span>
+              {section.label}
+            </button>
+          )
+        })}
+      </nav>
 
-            <div className="flex justify-between mt-6">
-              <Button
-                onClick={handlePrevious}
-                disabled={activeSection === 0}
-                variant="outline"
-                className="relative overflow-hidden group px-6 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-              >
-                <ChevronLeftIcon className="h-5 w-5 relative z-10" />
-                <span className="relative z-10">Previous</span>
-                <span className="absolute inset-0 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-              </Button>
-              <Button
-                onClick={handleNext}
-                disabled={activeSection === sections.length - 1}
-                variant="outline"
-                className="relative overflow-hidden group px-6 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-              >
-                <span className="relative z-10">Next</span>
-                <ChevronRightIcon className="h-5 w-5 relative z-10" />
-                <span className="absolute inset-0 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-              </Button>
-            </div>
-          </motion.div>
+      <motion.div
+        key={current.id}
+        className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25 }}
+      >
+        {renderStep(current.id)}
+
+        <div className="mt-8 flex items-center justify-between border-t border-gray-100 pt-6">
+          <Button onClick={goPrev} disabled={safeIndex === 0} variant="outline" className="gap-2">
+            <ChevronLeftIcon className="h-4 w-4" />
+            Previous
+          </Button>
+          <Button
+            onClick={goNext}
+            disabled={safeIndex === sections.length - 1}
+            variant="outline"
+            className="gap-2"
+          >
+            Next
+            <ChevronRightIcon className="h-4 w-4" />
+          </Button>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
-} 
+}
+
+function renderStep(id: SectionId) {
+  switch (id) {
+    case 'styling':
+      return <StylingForm />
+    case 'preview':
+      return <ResumePreview />
+    case 'export':
+      return <ExportForm />
+  }
+}

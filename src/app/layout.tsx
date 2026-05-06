@@ -1,66 +1,42 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+
+import './globals.css'
 import { Toaster } from 'sonner'
 import { ErrorBoundary } from '@/components/error-boundary'
 
-const poppins = Poppins({
-  weight: ['100','200','300','400', '500', '600', '700', '800', '900'],
-  subsets: ["latin"],
+const inter = Inter({
+  subsets: ['latin'],
   display: 'swap',
-  fallback: [
-    '-apple-system',
-    'BlinkMacSystemFont',
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    'sans-serif'
-  ],
-  preload: true,
-  adjustFontFallback: true,
-});
+  variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
-  title: "Dravvy - Resume Builder",
-  description: "Create professional resumes with ease",
-  keywords: ['resume', 'cv', 'builder', 'job', 'career'],
+  title: 'Dravvy — Resume Builder',
+  description:
+    'Draft, style, and export a professional resume in minutes. Multi-step builder with live preview and PDF or DOCX export.',
+  keywords: ['resume', 'cv', 'builder', 'career', 'pdf', 'docx'],
   authors: [{ name: 'Dravvy' }],
-  creator: 'Dravvy',
-  publisher: 'Dravvy',
+  openGraph: {
+    title: 'Dravvy — Resume Builder',
+    description: 'Draft, style, and export a professional resume in minutes.',
+    type: 'website',
+  },
   robots: {
     index: true,
     follow: true,
   },
-};
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={poppins.className}>
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
+      <body className="font-sans">
         <ErrorBoundary>
-          <main className="min-h-screen bg-gray-50">
-            {children}
-          </main>
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              style: {
-                background: 'white',
-                color: 'teal',
-              },
-            }}
-          />
+          <main className="min-h-screen bg-gray-50 text-gray-900">{children}</main>
+          <Toaster position="top-right" richColors closeButton />
         </ErrorBoundary>
       </body>
     </html>
-  );
+  )
 }
