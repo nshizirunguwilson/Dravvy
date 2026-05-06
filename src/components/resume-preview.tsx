@@ -100,14 +100,17 @@ export function ResumePreview() {
     </section>
   )
 
-  const contactBits = [
-    contact.location,
-    contact.phone,
-    contact.email,
-    contact.linkedin && 'LinkedIn',
-    contact.github && 'GitHub',
-    contact.website && 'Portfolio',
-  ].filter(Boolean)
+  type Bit =
+    | { kind: 'text'; value: string }
+    | { kind: 'link'; label: string; href: string }
+
+  const contactItems: Bit[] = []
+  if (contact.location) contactItems.push({ kind: 'text', value: contact.location })
+  if (contact.phone) contactItems.push({ kind: 'text', value: contact.phone })
+  if (contact.email) contactItems.push({ kind: 'link', label: contact.email, href: `mailto:${contact.email}` })
+  if (contact.linkedin) contactItems.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
+  if (contact.github) contactItems.push({ kind: 'link', label: 'GitHub', href: contact.github })
+  if (contact.website) contactItems.push({ kind: 'link', label: 'Portfolio', href: contact.website })
 
   return (
     <div className="overflow-x-auto">
@@ -129,12 +132,30 @@ export function ResumePreview() {
               fontWeight: 700,
               letterSpacing: '0.01em',
               color: '#111827',
+              lineHeight: 1.2,
+              marginBottom: 8,
             }}
           >
             {contact.fullName || 'Your Name'}
           </h1>
-          <p style={{ marginTop: 4, fontSize: sizes.body, color: '#374151' }}>
-            {contactBits.join('  •  ')}
+          <p style={{ fontSize: sizes.body, color: '#374151', lineHeight: 1.5 }}>
+            {contactItems.map((bit, index) => (
+              <React.Fragment key={index}>
+                {index > 0 && <span style={{ margin: '0 6px' }}>•</span>}
+                {bit.kind === 'text' ? (
+                  <span>{bit.value}</span>
+                ) : (
+                  <a
+                    href={bit.href}
+                    target={bit.href.startsWith('mailto:') ? undefined : '_blank'}
+                    rel="noopener noreferrer"
+                    style={{ color: '#374151', textDecoration: 'none' }}
+                  >
+                    {bit.label}
+                  </a>
+                )}
+              </React.Fragment>
+            ))}
           </p>
         </header>
 

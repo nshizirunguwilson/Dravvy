@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { Document, Page, View, Text, StyleSheet } from '@react-pdf/renderer'
+import { Document, Page, View, Text, Link, StyleSheet } from '@react-pdf/renderer'
 
 import type { ResumeData, ResumeStyle } from '@/types/resume'
 
@@ -85,11 +85,17 @@ export function ResumePDF({ data }: ResumePDFProps) {
       fontSize: sizes.heading,
       fontFamily: isBoldFamily,
       color: '#111827',
-      marginBottom: 4,
+      marginBottom: 8,
+      lineHeight: 1.2,
     },
     contactLine: {
       fontSize: sizes.body,
       color: '#374151',
+      lineHeight: 1.4,
+    },
+    contactLink: {
+      color: '#374151',
+      textDecoration: 'none',
     },
     sectionTitle: {
       fontSize: sizes.sub,
@@ -179,21 +185,37 @@ export function ResumePDF({ data }: ResumePDFProps) {
     </View>
   )
 
-  const contactBits = [
-    contact.location,
-    contact.phone,
-    contact.email,
-    contact.linkedin,
-    contact.github,
-    contact.website,
-  ].filter(Boolean) as string[]
+  type Bit =
+    | { kind: 'text'; value: string }
+    | { kind: 'link'; label: string; href: string }
+
+  const bits: Bit[] = []
+  if (contact.location) bits.push({ kind: 'text', value: contact.location })
+  if (contact.phone) bits.push({ kind: 'text', value: contact.phone })
+  if (contact.email) bits.push({ kind: 'link', label: contact.email, href: `mailto:${contact.email}` })
+  if (contact.linkedin) bits.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
+  if (contact.github) bits.push({ kind: 'link', label: 'GitHub', href: contact.github })
+  if (contact.website) bits.push({ kind: 'link', label: 'Portfolio', href: contact.website })
 
   return (
     <Document title={`${contact.fullName || 'Resume'}`}>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
           <Text style={styles.name}>{contact.fullName || 'Your Name'}</Text>
-          <Text style={styles.contactLine}>{contactBits.join('  •  ')}</Text>
+          <Text style={styles.contactLine}>
+            {bits.map((bit, index) => (
+              <React.Fragment key={index}>
+                {index > 0 ? '  •  ' : ''}
+                {bit.kind === 'text' ? (
+                  bit.value
+                ) : (
+                  <Link src={bit.href} style={styles.contactLink}>
+                    {bit.label}
+                  </Link>
+                )}
+              </React.Fragment>
+            ))}
+          </Text>
         </View>
 
         {summary && (

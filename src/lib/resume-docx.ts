@@ -2,6 +2,7 @@ import {
   AlignmentType,
   BorderStyle,
   Document,
+  ExternalHyperlink,
   Packer,
   Paragraph,
   TabStopPosition,
@@ -119,15 +120,40 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
     new Paragraph({
       children: [run(contact.fullName || 'Your Name', { bold: true, size: sizes.heading })],
       alignment: AlignmentType.CENTER,
-      spacing: { after: 80 },
+      spacing: { after: 160, line: 360 },
     })
   )
 
-  const contactBits = [contact.location, contact.phone, contact.email, contact.linkedin, contact.github, contact.website].filter(Boolean) as string[]
-  if (contactBits.length > 0) {
+  type ContactBit =
+    | { kind: 'text'; value: string }
+    | { kind: 'link'; label: string; href: string }
+
+  const contactItems: ContactBit[] = []
+  if (contact.location) contactItems.push({ kind: 'text', value: contact.location })
+  if (contact.phone) contactItems.push({ kind: 'text', value: contact.phone })
+  if (contact.email) contactItems.push({ kind: 'link', label: contact.email, href: `mailto:${contact.email}` })
+  if (contact.linkedin) contactItems.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
+  if (contact.github) contactItems.push({ kind: 'link', label: 'GitHub', href: contact.github })
+  if (contact.website) contactItems.push({ kind: 'link', label: 'Portfolio', href: contact.website })
+
+  if (contactItems.length > 0) {
+    const children: (TextRun | ExternalHyperlink)[] = []
+    contactItems.forEach((item, index) => {
+      if (index > 0) children.push(run('  •  '))
+      if (item.kind === 'text') {
+        children.push(run(item.value))
+      } else {
+        children.push(
+          new ExternalHyperlink({
+            link: item.href,
+            children: [run(item.label, { color: '2563EB' })],
+          })
+        )
+      }
+    })
     blocks.push(
       new Paragraph({
-        children: [run(contactBits.join('  •  '))],
+        children,
         alignment: AlignmentType.CENTER,
         spacing: { after: 200 },
       })
