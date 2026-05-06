@@ -18,6 +18,10 @@ import type {
 interface ResumeState extends ResumeData {
   activeSection: number;
   setActiveSection: (section: number) => void;
+
+  // References mode (upon request / include)
+  referencesMode: 'uponRequest' | 'include';
+  setReferencesMode: (mode: 'uponRequest' | 'include') => void;
   
   // Contact
   updateContact: (contact: ContactInfo) => void;
@@ -77,8 +81,9 @@ interface ResumeState extends ResumeData {
   removeReference: (id: string) => void;
 }
 
-const initialState: Omit<ResumeState, keyof Omit<ResumeState, keyof ResumeData | 'activeSection'>> = {
+const initialState: Omit<ResumeState, keyof Omit<ResumeState, keyof ResumeData | 'activeSection' | 'referencesMode'>> = {
   activeSection: 0,
+  referencesMode: 'uponRequest',
   contact: {
     fullName: '',
     email: '',
@@ -114,6 +119,9 @@ export const useResumeStore = create<ResumeState>()(
       
       // Navigation
       setActiveSection: (section) => set({ activeSection: section }),
+
+      // References mode
+      setReferencesMode: (mode) => set({ referencesMode: mode }),
       
       // Contact
       updateContact: (contact) => set({ contact }),

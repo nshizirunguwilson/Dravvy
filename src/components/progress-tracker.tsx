@@ -1,14 +1,13 @@
 'use client'
 
+import * as React from 'react'
+import { motion } from 'framer-motion'
+import { Check } from 'lucide-react'
+
 import { useResumeStore } from '@/store/useResumeStore'
 import { useUIStore } from '@/store/useUIStore'
-import { calculateProgress, getProgressMessage } from '@/lib/utils/progress'
 import { Progress } from '@/components/ui/progress'
-import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
-import type { ResumeData } from '@/types/resume'
-import React from 'react'
 
 const sections = [
   { id: 'basic', label: 'Basic Information' },
@@ -16,133 +15,110 @@ const sections = [
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
   { id: 'certifications', label: 'Certifications' },
+  { id: 'awards', label: 'Awards' },
   { id: 'projects', label: 'Projects' },
   { id: 'languages', label: 'Languages' },
-  { id: 'references', label: 'References' }
-]
+  { id: 'references', label: 'References' },
+] as const
 
 export function ProgressTracker() {
-  const contact = useResumeStore((state: { contact: ResumeData['contact'] }) => state.contact)
-  const summary = useResumeStore((state: { summary: string }) => state.summary)
-  const experience = useResumeStore((state: { experience: ResumeData['experience'] }) => state.experience)
-  const education = useResumeStore((state: { education: ResumeData['education'] }) => state.education)
-  const skills = useResumeStore((state: { skills: ResumeData['skills'] }) => state.skills)
-  const projects = useResumeStore((state: { projects: ResumeData['projects'] }) => state.projects)
-  const certifications = useResumeStore((state: { certifications: ResumeData['certifications'] }) => state.certifications)
-  const languages = useResumeStore((state: { languages: ResumeData['languages'] }) => state.languages)
-  const references = useResumeStore((state: { references: ResumeData['references'] }) => state.references)
-  
-  const activeSection = useUIStore((state) => state.activeSection)
-  const setActiveSection = useUIStore((state) => state.setActiveSection)
+  const contact = useResumeStore((s) => s.contact)
+  const summary = useResumeStore((s) => s.summary)
+  const experience = useResumeStore((s) => s.experience)
+  const education = useResumeStore((s) => s.education)
+  const skills = useResumeStore((s) => s.skills)
+  const projects = useResumeStore((s) => s.projects)
+  const certifications = useResumeStore((s) => s.certifications)
+  const awards = useResumeStore((s) => s.awards)
+  const languages = useResumeStore((s) => s.languages)
+  const references = useResumeStore((s) => s.references)
+  const referencesMode = useResumeStore((s) => s.referencesMode)
 
+  const activeSection = useUIStore((s) => s.activeSection)
+  const setActiveSection = useUIStore((s) => s.setActiveSection)
 
-  const resumeData = {
-    contact,
-    summary,
-    experience,
-    education,
-    skills,
-    projects,
-    certifications,
-    languages,
-    references
-  }
-
-  const progress = calculateProgress(resumeData)
-  const message = getProgressMessage(progress)
-
-  const handleStepClick = (index: number) => {
-    try {
-      setActiveSection(index);
-    } catch (error) {
-      console.error('Failed to set active section:', error);
-    }
-  }
-
-  const isSectionCompleted = (sectionId: string) => {
-
-    
-    switch (sectionId) {
+  const isCompleted = (id: typeof sections[number]['id']): boolean => {
+    switch (id) {
       case 'basic':
-        return !!contact?.fullName && !!contact?.email && !!contact?.phone && !!contact?.location;
+        return Boolean(
+          contact.fullName && contact.email && contact.phone && contact.location && summary
+        )
       case 'work':
-        return (experience?.length || 0) > 0;
+        return experience.length > 0
       case 'education':
-        return (education?.length || 0) > 0;
+        return education.length > 0
       case 'skills':
-        return (skills?.length || 0) > 0;
-      case 'projects':
-        return (projects?.length || 0) > 0;
+        return skills.length > 0
       case 'certifications':
-        return (certifications?.length || 0) > 0;
+        return certifications.length > 0
+      case 'awards':
+        return awards.length > 0
+      case 'projects':
+        return projects.length > 0
       case 'languages':
-        return (languages?.length || 0) > 0;
+        return languages.length > 0
       case 'references':
-        return (references?.length || 0) > 0;
-      default:
-        return false;
+        return referencesMode === 'uponRequest' || references.length > 0
     }
   }
 
-  const getStepStatus = (index: number) => {
+  const completedCount = sections.filter((s) => isCompleted(s.id)).length
+  const progress = Math.round((completedCount / sections.length) * 100)
+
+  const getStatus = (index: number) => {
     if (index === activeSection) return 'active'
-    if (isSectionCompleted(sections[index].id)) return 'completed'
+    if (isCompleted(sections[index].id)) return 'completed'
     return 'pending'
   }
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow">
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-gray-900">Resume Progress</h2>
-          <span className="text-sm font-medium text-gray-600">{progress}%</span>
-        </div>
-        <Progress value={progress} className="h-2" />
-        <div className="relative">
-          <div className="absolute top-4 left-0 right-0 h-0.5 bg-gray-200" />
-          <div className="relative flex justify-between">
-            {sections.map((section, index) => {
-              const status = getStepStatus(index)
-              return (
-                <motion.div
-                  key={section.id}
-                  className="flex flex-col items-center cursor-pointer group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  onClick={() => handleStepClick(index)}
-                >
-                  <div className={cn(
-                    "w-8 h-8 rounded-full flex items-center justify-center mb-2 relative z-10 transition-transform duration-200 ease-in-out transform group-hover:scale-110",
-                    status === 'completed' && "bg-green-500 group-hover:bg-green-600",
-                    status === 'active' && "bg-blue-500 group-hover:bg-blue-600",
-                    status === 'pending' && "bg-gray-300 group-hover:bg-gray-400"
-                  )}>
-                    {status === 'completed' ? (
-                      <Check className="w-4 h-4 text-white" />
-                    ) : (
-                      <span className={cn(
-                        "text-sm font-medium",
-                        status === 'active' ? "text-white" : "text-gray-600"
-                      )}>
-                        {index + 1}
-                      </span>
-                    )}
-                  </div>
-                  <p className={cn(
-                    "text-xs font-medium text-center max-w-[100px] transition-colors duration-200",
-                    status === 'completed' && "text-green-600 group-hover:text-green-700",
-                    status === 'active' && "text-blue-600 group-hover:text-blue-700",
-                    status === 'pending' && "text-gray-600 group-hover:text-gray-700"
-                  )}>
-                    {section.label}
-                  </p>
-                </motion.div>
-              )
-            })}
-          </div>
-        </div>
-        <p className="text-sm text-gray-600">{message}</p>
+    <div className="rounded-2xl border border-gray-200 bg-white p-6">
+      <div className="mb-4 flex items-center justify-between">
+        <h2 className="text-base font-semibold text-gray-900">Resume Progress</h2>
+        <span className="text-sm font-medium text-gray-600">{progress}%</span>
+      </div>
+      <Progress value={progress} className="h-1.5" />
+
+      <div className="mt-6 grid grid-cols-3 gap-y-4 sm:grid-cols-5 lg:grid-cols-9">
+        {sections.map((section, index) => {
+          const status = getStatus(index)
+          return (
+            <motion.button
+              type="button"
+              key={section.id}
+              className="group flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2, delay: index * 0.04 }}
+              onClick={() => setActiveSection(index)}
+            >
+              <div
+                className={cn(
+                  'flex h-8 w-8 items-center justify-center rounded-full border transition-colors',
+                  status === 'completed' && 'border-gray-900 bg-gray-900 text-white',
+                  status === 'active' && 'border-gray-900 bg-white text-gray-900 ring-2 ring-gray-900',
+                  status === 'pending' && 'border-gray-300 bg-white text-gray-500 group-hover:border-gray-400'
+                )}
+              >
+                {status === 'completed' ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <span className="text-xs font-semibold">{index + 1}</span>
+                )}
+              </div>
+              <p
+                className={cn(
+                  'mt-2 max-w-[7rem] text-[11px] font-medium leading-tight',
+                  status === 'completed' && 'text-gray-900',
+                  status === 'active' && 'text-gray-900',
+                  status === 'pending' && 'text-gray-500'
+                )}
+              >
+                {section.label}
+              </p>
+            </motion.button>
+          )
+        })}
       </div>
     </div>
   )

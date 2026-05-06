@@ -1,26 +1,22 @@
 'use client'
 
-import { ResumeForm } from '@/components/resume-form'
+import * as React from 'react'
+import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+
+import { ResumeForm, type ResumeSection } from '@/components/resume-form'
 import { ProgressTracker } from '@/components/progress-tracker'
 import { Button } from '@/components/ui/button'
 import { useUIStore } from '@/store/useUIStore'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
-import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
-import React from 'react'
 
-
-type Section = {
-  id: 'basic' | 'work' | 'education' | 'skills' | 'certifications' | 'projects' | 'languages' | 'references'
-  label: string
-}
-
-const sections: Section[] = [
+const sections: { id: ResumeSection; label: string }[] = [
   { id: 'basic', label: 'Basic Information' },
   { id: 'work', label: 'Work Experience' },
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
   { id: 'certifications', label: 'Certifications' },
+  { id: 'awards', label: 'Awards' },
   { id: 'projects', label: 'Projects' },
   { id: 'languages', label: 'Languages' },
   { id: 'references', label: 'References' },
@@ -29,78 +25,69 @@ const sections: Section[] = [
 export default function CreatePage() {
   const activeSection = useUIStore((state) => state.activeSection)
   const setActiveSection = useUIStore((state) => state.setActiveSection)
-
-  const [hasSavedReferences, setHasSavedReferences] = React.useState(false)
   const router = useRouter()
 
+  const safeIndex = Math.min(activeSection, sections.length - 1)
+  const current = sections[safeIndex]
+  const isLast = safeIndex === sections.length - 1
+
   const handleNext = () => {
-    if (activeSection === sections.length - 1) {
-      if (hasSavedReferences) {
-        router.push('/settings')
-      }
+    if (isLast) {
+      router.push('/settings')
     } else {
-      setActiveSection(activeSection + 1)
+      setActiveSection(safeIndex + 1)
     }
   }
 
   const handlePrevious = () => {
-    if (activeSection > 0) {
-      setActiveSection(activeSection - 1)
+    if (safeIndex > 0) {
+      setActiveSection(safeIndex - 1)
     }
   }
 
   return (
-    <div className="mx-auto px-[5%] py-8">
-      <header className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Create Your Resume</h1>
-        <p className="mt-2 text-lg text-gray-600">
-          Fill in your information step by step
-        </p>
+    <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
+      <header className="mb-8">
+        <p className="text-sm font-medium text-gray-500">Step {safeIndex + 1} of {sections.length}</p>
+        <h1 className="mt-1 text-3xl font-semibold text-gray-900 md:text-4xl">Build your resume</h1>
+        <p className="mt-2 text-base text-gray-600">Fill in your information one section at a time. Your changes save automatically.</p>
       </header>
 
-      <div className="grid grid-cols-1 gap-8">
-        <div className="space-y-8">
-          <ProgressTracker />
-          <motion.div 
-            className="p-6 bg-white rounded-lg shadow"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <h2 className="mb-4 text-lg font-semibold text-gray-900">
-              {sections[activeSection].label}
-            </h2>
-            <ResumeForm 
-              section={sections[activeSection].id} 
-              onReferencesSaved={() => setHasSavedReferences(true)}
-            />
-            
-            <div className="flex justify-between mt-6">
-              <Button
-                onClick={handlePrevious}
-                disabled={activeSection === 0}
-                variant="outline"
-                className="relative overflow-hidden group px-6 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-              >
-                <ChevronLeftIcon className="relative z-10 w-5 h-5" />
-                <span className="relative z-10">Previous</span>
-                <span className="absolute inset-0 w-0 transition-all duration-300 bg-blue-600 group-hover:w-full"></span>
-              </Button>
-              <Button
-                onClick={handleNext}
-                variant="outline"
-                disabled={activeSection === sections.length - 1 && !hasSavedReferences}
-                className="relative overflow-hidden group px-6 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-              >
-                <span className="relative z-10">
-                  {activeSection === sections.length - 1 ? 'Go to Settings' : 'Next'}
-                </span>
-                <ChevronRightIcon className="relative z-10 w-5 h-5" />
-                <span className="absolute inset-0 w-0 transition-all duration-300 bg-blue-600 group-hover:w-full"></span>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
+      <div className="space-y-6">
+        <ProgressTracker />
+        <motion.div
+          key={current.id}
+          className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
+        >
+          <h2 className="mb-6 text-xl font-semibold text-gray-900">{current.label}</h2>
+          <ResumeForm
+            section={current.id}
+            onReferencesSaved={() => router.push('/settings')}
+          />
+
+          <div className="mt-8 flex items-center justify-between border-t border-gray-100 pt-6">
+            <Button
+              onClick={handlePrevious}
+              disabled={safeIndex === 0}
+              variant="outline"
+              className="gap-2"
+            >
+              <ChevronLeftIcon className="h-4 w-4" />
+              Previous
+            </Button>
+            <Button
+              onClick={handleNext}
+              variant="outline"
+              className="gap-2"
+            >
+              {isLast ? 'Go to Styling' : 'Next'}
+              <ChevronRightIcon className="h-4 w-4" />
+            </Button>
+          </div>
+        </motion.div>
       </div>
     </div>
   )
