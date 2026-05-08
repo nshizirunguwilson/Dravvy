@@ -114,28 +114,25 @@ export function ResumePreview() {
 
   return (
     <div className="relative">
-      {/* Pedestal — a paper-deep tray with the page floating on it. */}
-      <div className="rounded-lg bg-paper-deep p-4 paper-grain md:p-8">
-        {/* Control rail — print-shop chrome */}
+      {/* Pedestal — neutral tray with the A4 page floating on it. */}
+      <div className="rounded-xl border border-line bg-surface-2/60 p-4 md:p-6">
+        {/* Control bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-4">
-          <div className="flex items-center gap-3 font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
+          <div className="flex items-center gap-2 text-[12px] font-medium text-slate-7">
             <span className="inline-flex h-1.5 w-1.5 rounded-full bg-positive" aria-hidden />
-            <span className="text-ink-9">Live</span>
-            <span aria-hidden className="text-ink-3">·</span>
-            <span className="num-tabular">A4</span>
-            <span aria-hidden className="text-ink-3">·</span>
-            <span className="num-tabular">210 × 297 mm</span>
+            <span className="text-slate-12">Live preview</span>
+            <span aria-hidden className="text-slate-5">·</span>
+            <span className="num-tabular">A4 · 210 × 297 mm</span>
           </div>
-          <span className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6 num-tabular">
-            Plate XI
+          <span className="text-[12px] font-medium text-slate-6">
+            What you see is what exports
           </span>
         </div>
-        <div className="hairline" />
 
         {/* The page */}
-        <div className="mt-5 overflow-x-auto">
+        <div className="mt-1 overflow-x-auto">
           <article
-            className="mx-auto bg-page text-ink-12 shadow-lift"
+            className="mx-auto bg-surface text-slate-12 shadow-lg"
             style={{
               fontFamily: family,
               fontSize: sizes.body,
@@ -322,12 +319,6 @@ export function ResumePreview() {
         )}
           </article>
         </div>
-
-        {/* Footer rule + caption */}
-        <div className="hairline mt-6" />
-        <p className="mt-3 text-center font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
-          Live preview · what you see is what exports
-        </p>
       </div>
     </div>
   )

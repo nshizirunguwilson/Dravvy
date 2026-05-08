@@ -6,6 +6,7 @@ import { Check } from 'lucide-react'
 
 import { useResumeStore } from '@/store/useResumeStore'
 import { useUIStore } from '@/store/useUIStore'
+import { Progress } from '@/components/ui/progress'
 import { cn } from '@/lib/utils'
 
 const sections = [
@@ -69,68 +70,43 @@ export function ProgressTracker() {
 
   return (
     <aside aria-label="Resume progress" className="lg:sticky lg:top-24">
-      {/* Header */}
-      <div className="mb-7 flex items-baseline justify-between gap-4">
-        <p className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6">Folio</p>
-        <p className="font-mono text-spec text-ink-9 num-tabular">
-          <span className="text-ink-12">{String(completedCount).padStart(2, '0')}</span>
-          <span className="text-ink-5"> / 09</span>
-        </p>
+      <div className="rounded-xl border border-line bg-surface p-5 shadow-sm">
+        {/* Header */}
+        <div className="flex items-baseline justify-between gap-4">
+          <p className="text-[14px] font-semibold text-slate-12">Sections</p>
+          <p className="text-[13px] text-slate-7 num-tabular">
+            <span className="font-semibold text-slate-12">{completedCount}</span> of {sections.length}
+          </p>
+        </div>
+
+        <Progress value={progress} className="mt-3" />
+
+        {/* The list */}
+        <ol className="mt-5 space-y-1">
+          {sections.map((section, index) => {
+            const completed = isCompleted(section.id)
+            const active = index === activeSection
+            return (
+              <li key={section.id}>
+                <motion.button
+                  type="button"
+                  onClick={() => setActiveSection(index)}
+                  whileTap={reduce ? undefined : { scale: 0.985 }}
+                  className={cn(
+                    'group flex w-full items-center gap-3 rounded-md px-2.5 py-2 text-left text-[14px] transition-colors',
+                    active
+                      ? 'bg-brand-soft text-brand-ink'
+                      : 'text-slate-9 hover:bg-surface-2 hover:text-slate-12',
+                  )}
+                >
+                  <Node active={active} completed={completed} index={index} />
+                  <span className="flex-1 truncate font-medium">{section.label}</span>
+                </motion.button>
+              </li>
+            )
+          })}
+        </ol>
       </div>
-
-      {/* The rail */}
-      <ol className="relative">
-        {/* Connecting hairline */}
-        <span
-          aria-hidden
-          className="absolute left-[7px] top-1 bottom-1 w-px bg-rule"
-        />
-        <motion.span
-          aria-hidden
-          className="absolute left-[7px] top-1 w-px bg-ink-12"
-          initial={false}
-          animate={{ height: `calc(${progress}% )` }}
-          transition={{ duration: reduce ? 0 : 0.6, ease: [0.2, 0.7, 0.2, 1] }}
-          style={{ originY: 0 }}
-        />
-
-        {sections.map((section, index) => {
-          const completed = isCompleted(section.id)
-          const active = index === activeSection
-          return (
-            <li key={section.id} className="relative pl-8">
-              <button
-                type="button"
-                onClick={() => setActiveSection(index)}
-                className={cn(
-                  'group flex w-full items-center gap-3 py-3 text-left transition-colors',
-                  active ? 'text-ink-12' : 'text-ink-7 hover:text-ink-12',
-                )}
-              >
-                <Node active={active} completed={completed} />
-                <span className="flex flex-1 items-center justify-between gap-3">
-                  <span
-                    className={cn(
-                      'text-caption transition-colors',
-                      active ? 'font-medium text-ink-12' : completed ? 'text-ink-9' : 'text-ink-7',
-                    )}
-                  >
-                    {section.label}
-                  </span>
-                  <span
-                    className={cn(
-                      'font-mono text-spec uppercase tracking-[0.14em] num-tabular',
-                      active ? 'text-ink-9' : 'text-ink-5',
-                    )}
-                  >
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                </span>
-              </button>
-            </li>
-          )
-        })}
-      </ol>
     </aside>
   )
 }
@@ -138,31 +114,23 @@ export function ProgressTracker() {
 function Node({
   active,
   completed,
+  index,
 }: {
   active: boolean
   completed: boolean
+  index: number
 }) {
   return (
     <span
       aria-hidden
       className={cn(
-        'absolute left-0 top-1/2 -translate-y-1/2',
-        'flex h-[16px] w-[16px] items-center justify-center rounded-full transition-all duration-200',
-        completed && 'bg-ink-12 text-paper',
-        active && !completed && 'bg-page ring-1 ring-ink-12',
-        !active && !completed && 'bg-page ring-1 ring-rule-strong',
+        'flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold transition-colors num-tabular',
+        completed && 'bg-brand text-white',
+        !completed && active && 'border border-brand bg-surface text-brand',
+        !completed && !active && 'border border-line bg-surface text-slate-7',
       )}
     >
-      {completed ? (
-        <Check className="h-[9px] w-[9px]" strokeWidth={3} />
-      ) : (
-        <span
-          className={cn(
-            'block h-[5px] w-[5px] rounded-full',
-            active ? 'bg-ink-12' : 'bg-transparent',
-          )}
-        />
-      )}
+      {completed ? <Check className="h-3.5 w-3.5" strokeWidth={3} /> : index + 1}
     </span>
   )
 }

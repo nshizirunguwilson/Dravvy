@@ -4,7 +4,7 @@ import * as React from 'react'
 import { saveAs } from 'file-saver'
 import { motion, useReducedMotion } from 'framer-motion'
 import { toast } from 'sonner'
-import { FileDown } from 'lucide-react'
+import { FileDown, FileText, FileType2 } from 'lucide-react'
 
 import { useResumeStore } from '@/store/useResumeStore'
 import { useHydration } from '@/hooks/useHydration'
@@ -83,108 +83,97 @@ export function ExportForm() {
   }
 
   return (
-    <div className="grid grid-cols-12 gap-x-10 gap-y-12">
-      <aside className="col-span-12 lg:col-span-3">
-        <p className="font-mono text-spec uppercase tracking-[0.18em] text-ink-6">Imprint</p>
-        <p className="mt-4 max-w-xs text-caption italic text-ink-7">
-          PDF for printing or attaching to applications. DOCX for editing in Word, Pages, or
-          Google Docs.
+    <div className="space-y-8">
+      {/* Filename */}
+      <div className="space-y-2">
+        <Label>File name</Label>
+        <Input
+          value={filename}
+          onChange={(e) => setFilename(e.target.value)}
+          placeholder={`${slugify(data.contact.fullName || 'your-name')}-resume`}
+        />
+        <p className="text-[13px] text-slate-7">
+          The format extension is added automatically.
         </p>
-      </aside>
-
-      <div className="col-span-12 space-y-10 lg:col-span-9">
-        {/* Filename */}
-        <div className="border-b border-rule pb-6">
-          <Label className="mb-3">File name</Label>
-          <Input
-            value={filename}
-            onChange={(e) => setFilename(e.target.value)}
-            placeholder={`${slugify(data.contact.fullName || 'your-name')}-resume`}
-          />
-          <p className="mt-3 text-caption italic text-ink-7">
-            The format extension is added automatically.
-          </p>
-        </div>
-
-        {/* Format choice — two editorial plates */}
-        <div>
-          <Label className="mb-4">Format</Label>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <FormatPlate
-              active={format === 'pdf'}
-              onClick={() => setFormat('pdf')}
-              folio="i"
-              title="PDF"
-              tagline="A printable A4 facsimile"
-              detail="Pixel-exact to the preview. Recommended for online application portals."
-            />
-            <FormatPlate
-              active={format === 'docx'}
-              onClick={() => setFormat('docx')}
-              folio="ii"
-              title="DOCX"
-              tagline="An editable manuscript"
-              detail="Opens cleanly in Microsoft Word, Pages, and Google Docs for downstream edits."
-            />
-          </div>
-        </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex flex-wrap items-center justify-between gap-6 border-t border-rule pt-7"
-        >
-          <p className="font-mono text-spec uppercase tracking-[0.14em] text-ink-6">
-            Ready · <span className="text-ink-9">{format.toUpperCase()}</span>
-          </p>
-          <Button
-            type="button"
-            onClick={handleExport}
-            disabled={loading || !data.contact.fullName}
-            variant="default"
-            size="lg"
-            className="min-w-[220px] gap-3"
-          >
-            {loading ? (
-              <span className="flex items-center gap-2">
-                <motion.span
-                  className="h-3.5 w-3.5 rounded-full border border-paper/30 border-t-paper"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                />
-                Setting type…
-              </span>
-            ) : (
-              <span className="flex items-center gap-2">
-                <FileDown className="h-4 w-4" />
-                Download {format.toUpperCase()}
-              </span>
-            )}
-          </Button>
-        </motion.div>
-        {!data.contact.fullName && (
-          <p className="text-caption italic text-ink-7">
-            Add your full name in <span className="not-italic font-medium">Basic information</span>{' '}
-            to enable export.
-          </p>
-        )}
       </div>
+
+      {/* Format choice */}
+      <div className="space-y-3">
+        <Label>Export format</Label>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <FormatCard
+            active={format === 'pdf'}
+            onClick={() => setFormat('pdf')}
+            icon={<FileText className="h-5 w-5" />}
+            title="PDF"
+            tagline="Print-ready A4"
+            detail="Pixel-exact to the preview. Recommended for online applications."
+          />
+          <FormatCard
+            active={format === 'docx'}
+            onClick={() => setFormat('docx')}
+            icon={<FileType2 className="h-5 w-5" />}
+            title="DOCX"
+            tagline="Editable manuscript"
+            detail="Opens cleanly in Microsoft Word, Pages, and Google Docs."
+          />
+        </div>
+      </div>
+
+      {/* CTA */}
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6"
+      >
+        <p className="text-[14px] text-slate-7">
+          Ready to download as <span className="font-semibold text-slate-12">{format.toUpperCase()}</span>.
+        </p>
+        <Button
+          type="button"
+          onClick={handleExport}
+          disabled={loading || !data.contact.fullName}
+          variant="default"
+          size="lg"
+          className="min-w-[200px]"
+        >
+          {loading ? (
+            <span className="flex items-center gap-2">
+              <motion.span
+                className="h-3.5 w-3.5 rounded-full border-2 border-white/30 border-t-white"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+              />
+              Generating…
+            </span>
+          ) : (
+            <span className="flex items-center gap-2">
+              <FileDown className="h-4 w-4" />
+              Download {format.toUpperCase()}
+            </span>
+          )}
+        </Button>
+      </motion.div>
+      {!data.contact.fullName && (
+        <p className="text-[13px] text-slate-7">
+          Add your full name in <span className="font-medium text-slate-12">Basic information</span> to enable export.
+        </p>
+      )}
     </div>
   )
 }
 
-function FormatPlate({
+function FormatCard({
   active,
   onClick,
-  folio,
+  icon,
   title,
   tagline,
   detail,
 }: {
   active: boolean
   onClick: () => void
-  folio: string
+  icon: React.ReactNode
   title: string
   tagline: string
   detail: string
@@ -194,34 +183,23 @@ function FormatPlate({
       type="button"
       onClick={onClick}
       className={cn(
-        'group relative rounded-md border px-6 py-6 text-left transition-all duration-200',
+        'group relative rounded-xl border bg-surface px-5 py-5 text-left transition-all duration-150',
         active
-          ? 'border-ink-12 bg-page shadow-page'
-          : 'border-rule bg-page hover:border-rule-strong hover:shadow-paper',
+          ? 'border-brand shadow-sm ring-2 ring-brand/30'
+          : 'border-line shadow-xs hover:border-line-strong hover:shadow-sm',
       )}
     >
-      <div className="flex items-baseline justify-between">
-        <span
-          className={cn(
-            'font-mono text-spec uppercase tracking-[0.18em] num-tabular',
-            active ? 'text-ink-12' : 'text-ink-6',
-          )}
-        >
-          Plate {folio}
-        </span>
-        <span
-          aria-hidden
-          className={cn(
-            'h-1.5 w-1.5 rounded-full transition-colors',
-            active ? 'bg-ink-12' : 'bg-rule',
-          )}
-        />
+      <div
+        className={cn(
+          'mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors',
+          active ? 'bg-brand text-white' : 'bg-brand-soft text-brand-ink',
+        )}
+      >
+        {icon}
       </div>
-      <h3 className="mt-6 font-display text-h3 font-medium leading-none tracking-tight text-ink-12">
-        {title}
-      </h3>
-      <p className="mt-2 text-caption italic text-ink-7">{tagline}</p>
-      <p className="mt-5 max-w-xs text-caption text-ink-9">{detail}</p>
+      <h3 className="text-[16px] font-semibold text-slate-12">{title}</h3>
+      <p className="mt-0.5 text-[13px] font-medium text-brand">{tagline}</p>
+      <p className="mt-3 max-w-xs text-[13px] leading-[1.5] text-slate-7">{detail}</p>
     </button>
   )
 }

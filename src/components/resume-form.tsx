@@ -44,14 +44,15 @@ interface ResumeFormProps {
   onReferencesSaved?: () => void
 }
 
-// Editorial primitives carry their own styling — these className strings
-// are kept (empty) so the existing form code can pass them through cn().
+// Primitives carry their own styling — these className strings are kept
+// (empty) so the existing form code can pass them through cn() without
+// fighting the new bordered-input look.
 const inputStyles = ''
 const textareaStyles = ''
 const labelStyles = 'mb-2'
 const requiredMark = (
-  <span aria-hidden className="ml-1 text-ink-6" title="required">
-    ·
+  <span aria-hidden className="ml-1 text-negative" title="required">
+    *
   </span>
 )
 
@@ -67,7 +68,7 @@ function SaveButton({ pending }: { pending: boolean }) {
 
 function SectionCard({ children }: { children: React.ReactNode }) {
   return (
-    <div className="space-y-5 rounded-md border border-rule bg-page p-5 shadow-paper">
+    <div className="space-y-5 rounded-xl border border-line bg-surface-2/40 p-5 md:p-6">
       {children}
     </div>
   )
@@ -75,7 +76,7 @@ function SectionCard({ children }: { children: React.ReactNode }) {
 
 function EmptyHint({ children }: { children: React.ReactNode }) {
   return (
-    <p className="border-y border-dashed border-rule py-6 text-center text-caption italic text-ink-7">
+    <p className="rounded-xl border border-dashed border-line bg-surface-2/40 px-5 py-8 text-center text-[14px] text-slate-7">
       {children}
     </p>
   )
@@ -301,12 +302,12 @@ function WorkExperienceForm() {
               />
             </div>
           </div>
-          <label className="inline-flex items-center gap-2 text-caption text-ink-9">
+          <label className="inline-flex cursor-pointer items-center gap-2 text-[14px] text-slate-9">
             <input
               type="checkbox"
               checked={exp.current}
               onChange={(e) => update({ ...exp, current: e.target.checked, endDate: e.target.checked ? '' : exp.endDate })}
-              className="h-[14px] w-[14px] rounded-sm border-rule-strong text-ink-12 accent-[hsl(var(--ink-12))]"
+              className="h-4 w-4 rounded border-line accent-[hsl(var(--accent))]"
             />
             I currently work here
           </label>
@@ -1059,18 +1060,16 @@ function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <fieldset className="space-y-3">
-        <legend className="font-mono text-spec uppercase tracking-[0.12em] text-ink-6">
-          Reference style
-        </legend>
+        <legend className="text-[14px] font-semibold text-slate-12">Reference style</legend>
         <label className="flex cursor-pointer items-center gap-3">
           <input
             type="radio"
             name="reference-mode"
             checked={referencesMode === 'uponRequest'}
             onChange={() => setReferencesMode('uponRequest')}
-            className="h-[14px] w-[14px] accent-[hsl(var(--ink-12))]"
+            className="h-4 w-4 accent-[hsl(var(--accent))]"
           />
-          <span className="text-caption text-ink-9">
+          <span className="text-[14px] text-slate-9">
             Show &ldquo;References available upon request&rdquo;
           </span>
         </label>
@@ -1080,9 +1079,9 @@ function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void 
             name="reference-mode"
             checked={referencesMode === 'include'}
             onChange={() => setReferencesMode('include')}
-            className="h-[14px] w-[14px] accent-[hsl(var(--ink-12))]"
+            className="h-4 w-4 accent-[hsl(var(--accent))]"
           />
-          <span className="text-caption text-ink-9">Include named references</span>
+          <span className="text-[14px] text-slate-9">Include named references</span>
         </label>
       </fieldset>
 
