@@ -172,3 +172,8 @@
     display: none !important;
   }
 }
+*{
+  @supports (corner-shape: squircle) {
+    corner-shape: squircle;
+  }
+}
