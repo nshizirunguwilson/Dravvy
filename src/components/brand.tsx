@@ -2,38 +2,32 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 /**
- * Brand mark — a serif "D" with a vertical hairline that nods to a
- * column rule. Used in the header and as the favicon source.
+ * Brand mark — a rounded blue tile with a confident "D" inside.
  */
 export function Mark({ className, ...props }: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width="28"
-      height="28"
-      viewBox="0 0 28 28"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn('block', className)}
       aria-hidden
       {...props}
     >
-      <rect x="0.5" y="0.5" width="27" height="27" rx="6" stroke="currentColor" strokeOpacity="0.16" />
-      {/* Serif D — drawn as a path so the bowl is real, not a font */}
+      <rect width="32" height="32" rx="8" fill="hsl(var(--accent))" />
       <path
-        d="M9 7.5h5.4c4.05 0 6.6 2.55 6.6 6.5s-2.55 6.5-6.6 6.5H9V7.5Zm2.5 2.05v8.9h2.7c2.7 0 4.4-1.7 4.4-4.45s-1.7-4.45-4.4-4.45H11.5Z"
-        fill="currentColor"
+        d="M9 8h7.6c4.5 0 7.6 3.2 7.6 8s-3.1 8-7.6 8H9V8Zm3.4 2.7v10.6h4c2.9 0 4.7-2 4.7-5.3s-1.8-5.3-4.7-5.3h-4Z"
+        fill="white"
       />
-      {/* The "column rule" hairline — half-height tick at the right edge */}
-      <line x1="22.5" y1="9.5" x2="22.5" y2="18.5" stroke="currentColor" strokeWidth="0.75" strokeOpacity="0.55" />
     </svg>
   )
 }
 
 /**
- * Wordmark — Mark + the typeset name. Uses the display serif and a
- * touch of negative letterspacing to feel kerned by hand. The dot on
- * the second `v` is omitted (italic-style ligature feel) — we get this
- * for free by using Fraunces with a -0.04em tracking.
+ * Wordmark — Mark + the typeset name in the same sans the rest of the
+ * UI uses. Slight negative tracking on the name for a confident lockup.
  */
 export function Wordmark({
   className,
@@ -44,24 +38,16 @@ export function Wordmark({
 }) {
   const text =
     size === 'lg'
-      ? 'text-[28px] leading-[28px]'
+      ? 'text-[24px] leading-none'
       : size === 'sm'
-        ? 'text-[16px] leading-[16px]'
-        : 'text-[20px] leading-[20px]'
-  const mark =
-    size === 'lg' ? 'h-8 w-8' : size === 'sm' ? 'h-5 w-5' : 'h-7 w-7'
+        ? 'text-[16px] leading-none'
+        : 'text-[19px] leading-none'
+  const mark = size === 'lg' ? 'h-9 w-9' : size === 'sm' ? 'h-6 w-6' : 'h-8 w-8'
 
   return (
-    <span className={cn('inline-flex items-center gap-2 text-ink-12', className)}>
+    <span className={cn('inline-flex items-center gap-2.5 text-slate-12', className)}>
       <Mark className={mark} />
-      <span
-        className={cn(
-          'font-display font-medium tracking-[-0.022em]',
-          text,
-        )}
-      >
-        Dravvy
-      </span>
+      <span className={cn('font-bold tracking-[-0.02em]', text)}>Dravvy</span>
     </span>
   )
 }

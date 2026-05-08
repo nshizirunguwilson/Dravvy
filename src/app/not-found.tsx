@@ -5,55 +5,40 @@ import { Button } from '@/components/ui/button'
 
 export default function NotFound() {
   return (
-    <div className="relative min-h-screen bg-paper">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8 md:px-10">
+    <div className="relative min-h-screen bg-canvas">
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 md:px-10">
         <Link href="/">
           <Wordmark size="md" />
         </Link>
-        <span className="font-mono text-spec uppercase text-ink-6">404 · Not found</span>
+        <span className="text-[13px] font-medium text-slate-7">404 · Not found</span>
       </header>
 
-      <main className="mx-auto grid max-w-6xl grid-cols-12 gap-8 px-6 py-24 md:px-10 md:py-40">
-        <div className="col-span-12 md:col-span-3">
-          <span
-            aria-hidden
-            className="block font-display text-[180px] leading-[0.9] tracking-[-0.04em] text-ink-12 md:text-[260px]"
-          >
-            404
-          </span>
+      <main className="mx-auto grid max-w-3xl gap-10 px-6 py-24 text-center md:py-32">
+        <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-soft text-[28px] font-bold text-brand-ink">
+          404
         </div>
-
-        <div className="col-span-12 mt-6 md:col-span-7 md:col-start-5 md:mt-3">
-          <p className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
-            Folio · missing page
-          </p>
-          <h1 className="mt-4 font-display text-h2 leading-[1.04] tracking-[-0.022em] text-ink-12">
-            This page <span className="font-display-italic">isn’t in the folio.</span>
+        <div className="space-y-4">
+          <h1 className="text-[40px] font-bold leading-[1.05] tracking-[-0.025em] text-slate-12 md:text-[52px]">
+            We couldn&rsquo;t find that page.
           </h1>
-          <p className="mt-5 max-w-md text-body text-ink-7">
-            The link is broken or the page was retired. Your draft, if you have one, is still
-            on this device — head back to the editor.
+          <p className="mx-auto max-w-md text-[16px] text-slate-7">
+            The link is broken or the page was retired. Your draft, if you have one, is still on
+            this device — head back to the editor.
           </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link href="/">
-              <Button variant="default" size="lg">
-                Back to start
-              </Button>
-            </Link>
-            <Link href="/create">
-              <Button variant="link">Open the editor →</Button>
-            </Link>
-          </div>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Link href="/">
+            <Button variant="default" size="lg">
+              Back to home
+            </Button>
+          </Link>
+          <Link href="/create">
+            <Button variant="outline" size="lg">
+              Open the editor
+            </Button>
+          </Link>
         </div>
       </main>
-
-      <div className="mx-auto max-w-6xl px-6 md:px-10">
-        <div className="hairline" />
-        <p className="py-8 font-mono text-spec uppercase text-ink-6">
-          Dravvy · drafted in your browser, never on a server.
-        </p>
-      </div>
     </div>
   )
 }

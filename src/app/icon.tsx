@@ -9,16 +9,16 @@ export default function Icon() {
       <div
         style={{
           fontSize: 40,
-          background: '#16140F',
+          background: '#2563EB',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: '#FAF6EE',
-          fontFamily: 'Georgia, serif',
-          fontWeight: 600,
-          letterSpacing: '-0.02em',
+          color: 'white',
+          fontFamily: 'system-ui, sans-serif',
+          fontWeight: 800,
+          letterSpacing: '-0.04em',
           borderRadius: 14,
         }}
       >

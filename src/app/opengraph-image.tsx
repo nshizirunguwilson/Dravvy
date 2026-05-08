@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Dravvy — A resume, set in print.'
+export const alt = 'Dravvy — Resume builder, no account needed'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -12,58 +12,35 @@ export default function OpenGraphImage() {
         style={{
           width: '100%',
           height: '100%',
-          background: '#F7F2E9',
-          color: '#16140F',
+          background: '#F8FAFC',
+          color: '#0F172A',
           display: 'flex',
           flexDirection: 'column',
           padding: 80,
-          fontFamily: 'Georgia, serif',
+          fontFamily: 'system-ui, sans-serif',
         }}
       >
-        {/* Top bar: mark + plate */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <div
-              style={{
-                width: 44,
-                height: 44,
-                background: '#16140F',
-                color: '#F7F2E9',
-                borderRadius: 8,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 28,
-                fontWeight: 600,
-              }}
-            >
-              D
-            </div>
-            <div style={{ fontSize: 28, letterSpacing: '-0.02em', fontWeight: 500 }}>Dravvy</div>
-          </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <div
             style={{
-              fontSize: 14,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: '#5A554C',
-              fontFamily: 'monospace',
+              width: 52,
+              height: 52,
+              background: '#2563EB',
+              color: '#FFFFFF',
+              borderRadius: 12,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 32,
+              fontWeight: 800,
+              letterSpacing: '-0.04em',
             }}
           >
-            Resume Builder · A4
+            D
           </div>
+          <div style={{ fontSize: 30, letterSpacing: '-0.02em', fontWeight: 700 }}>Dravvy</div>
         </div>
 
-        {/* Hairline rule under top bar */}
-        <div style={{ height: 1, background: '#1614001A', marginTop: 36 }} />
-
-        {/* Display headline */}
         <div
           style={{
             marginTop: 'auto',
@@ -74,32 +51,29 @@ export default function OpenGraphImage() {
         >
           <div
             style={{
-              fontSize: 110,
-              lineHeight: 1.02,
+              fontSize: 96,
+              lineHeight: 1.04,
               letterSpacing: '-0.035em',
-              fontWeight: 500,
+              fontWeight: 700,
               maxWidth: 1000,
             }}
           >
-            A resume,
+            {'Build a resume you’ll'}
             <br />
-            <span style={{ fontStyle: 'italic' }}>set in print.</span>
+            actually want to send.
           </div>
           <div
             style={{
-              fontSize: 22,
-              color: '#3D382F',
-              fontFamily: 'sans-serif',
-              maxWidth: 720,
+              fontSize: 24,
+              color: '#475569',
+              maxWidth: 800,
               letterSpacing: '-0.005em',
+              fontWeight: 500,
             }}
           >
-            Nine guided sections. A true A4 preview. PDF or DOCX, no account.
+            Nine guided sections. Live A4 preview. PDF or DOCX, no account.
           </div>
         </div>
-
-        {/* Bottom rule */}
-        <div style={{ height: 1, background: '#1614001A', marginTop: 50 }} />
       </div>
     ),
     size,
