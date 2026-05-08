@@ -13,8 +13,8 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      'inline-flex h-10 items-center justify-center rounded-md bg-gray-100 p-1 text-gray-500',
-      className
+      'inline-flex h-auto items-center gap-6 border-b border-rule',
+      className,
     )}
     {...props}
   />
@@ -28,8 +28,13 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-gray-950 data-[state=active]:shadow-sm',
-      className
+      // Editorial tab: text-only, with a 1px ink underline that animates in.
+      'group relative -mb-px inline-flex items-center gap-2 whitespace-nowrap pb-3 text-[14px] font-medium text-ink-7 transition-colors',
+      'hover:text-ink-12 focus-visible:outline-none focus-visible:text-ink-12',
+      'data-[state=active]:text-ink-12',
+      "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-[-1px] after:h-px after:bg-ink-12 after:origin-left after:scale-x-0 after:transition-transform after:duration-200",
+      'data-[state=active]:after:scale-x-100',
+      className,
     )}
     {...props}
   />
@@ -42,13 +47,10 @@ const TabsContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}
-    className={cn(
-      'mt-2 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2',
-      className
-    )}
+    className={cn('mt-6 focus-visible:outline-none', className)}
     {...props}
   />
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 
-export { Tabs, TabsList, TabsTrigger, TabsContent } 
+export { Tabs, TabsList, TabsTrigger, TabsContent }
