@@ -113,18 +113,38 @@ export function ResumePreview() {
   if (contact.website) contactItems.push({ kind: 'link', label: 'Portfolio', href: contact.website })
 
   return (
-    <div className="overflow-x-auto">
-      <article
-        className="mx-auto bg-white text-gray-900 shadow-sm"
-        style={{
-          fontFamily: family,
-          fontSize: sizes.body,
-          width: '210mm',
-          minHeight: '297mm',
-          padding: '20mm',
-          lineHeight: 1.5,
-        }}
-      >
+    <div className="relative">
+      {/* Pedestal — a paper-deep tray with the page floating on it. */}
+      <div className="rounded-lg bg-paper-deep p-4 paper-grain md:p-8">
+        {/* Control rail — print-shop chrome */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-4">
+          <div className="flex items-center gap-3 font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
+            <span className="inline-flex h-1.5 w-1.5 rounded-full bg-positive" aria-hidden />
+            <span className="text-ink-9">Live</span>
+            <span aria-hidden className="text-ink-3">·</span>
+            <span className="num-tabular">A4</span>
+            <span aria-hidden className="text-ink-3">·</span>
+            <span className="num-tabular">210 × 297 mm</span>
+          </div>
+          <span className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6 num-tabular">
+            Plate XI
+          </span>
+        </div>
+        <div className="hairline" />
+
+        {/* The page */}
+        <div className="mt-5 overflow-x-auto">
+          <article
+            className="mx-auto bg-page text-ink-12 shadow-lift"
+            style={{
+              fontFamily: family,
+              fontSize: sizes.body,
+              width: '210mm',
+              minHeight: '297mm',
+              padding: '20mm',
+              lineHeight: 1.5,
+            }}
+          >
         <header style={{ textAlign: 'center', marginBottom: gap }}>
           <h1
             style={{
@@ -300,7 +320,15 @@ export function ResumePreview() {
             </Section>
           )
         )}
-      </article>
+          </article>
+        </div>
+
+        {/* Footer rule + caption */}
+        <div className="hairline mt-6" />
+        <p className="mt-3 text-center font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
+          Live preview · what you see is what exports
+        </p>
+      </div>
     </div>
   )
 }

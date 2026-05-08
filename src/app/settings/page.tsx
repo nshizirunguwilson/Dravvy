@@ -2,20 +2,21 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 import { StylingForm } from '@/components/styling-form'
 import { ResumePreview } from '@/components/resume-preview'
 import { ExportForm } from '@/components/export-form'
 import { Button } from '@/components/ui/button'
+import { Wordmark } from '@/components/brand'
 import { useUIStore } from '@/store/useUIStore'
 import { cn } from '@/lib/utils'
 
 const sections = [
-  { id: 'styling', label: 'Styling' },
-  { id: 'preview', label: 'Preview' },
-  { id: 'export', label: 'Export' },
+  { id: 'styling', label: 'Styling', folio: 'X', helper: 'Choose typeface, accent, separator and rhythm.' },
+  { id: 'preview', label: 'Preview', folio: 'XI', helper: 'A4 page, dimensioned to the millimetre.' },
+  { id: 'export', label: 'Export', folio: 'XII', helper: 'PDF for printing, DOCX for editing.' },
 ] as const
 
 type SectionId = (typeof sections)[number]['id']
@@ -23,6 +24,7 @@ type SectionId = (typeof sections)[number]['id']
 export default function SettingsPage() {
   const activeSection = useUIStore((s) => s.activeSettingsSection)
   const setActiveSection = useUIStore((s) => s.setActiveSettingsSection)
+  const reduce = useReducedMotion()
 
   const safeIndex = Math.min(activeSection, sections.length - 1)
   const current = sections[safeIndex]
@@ -31,65 +33,114 @@ export default function SettingsPage() {
   const goPrev = () => safeIndex > 0 && setActiveSection(safeIndex - 1)
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
-      <header className="mb-8 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p className="text-sm font-medium text-gray-500">Final touches</p>
-          <h1 className="mt-1 text-3xl font-semibold text-gray-900 md:text-4xl">Style and export</h1>
-          <p className="mt-2 text-base text-gray-600">Choose your styling, preview the result, and export the file.</p>
+    <div className="min-h-screen bg-paper">
+      <header className="sticky top-0 z-30 border-b border-rule bg-paper/90 backdrop-blur-[2px]">
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 md:px-10">
+          <Link href="/" aria-label="Dravvy">
+            <Wordmark size="sm" />
+          </Link>
+          <p className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
+            Imprint · <span className="text-ink-9">Style &amp; export</span>
+          </p>
+          <Link
+            href="/create"
+            className="text-caption text-ink-9 underline-offset-[6px] hover:underline"
+          >
+            ← Back to editor
+          </Link>
         </div>
-        <Link href="/create" className="text-sm font-medium text-gray-900 underline-offset-4 hover:underline">
-          ← Back to editor
-        </Link>
       </header>
 
-      <nav className="mb-6 flex items-center gap-2 rounded-2xl border border-gray-200 bg-white p-1.5">
-        {sections.map((section, index) => {
-          const isActive = section.id === current.id
-          return (
-            <button
-              key={section.id}
-              type="button"
-              onClick={() => setActiveSection(index)}
-              className={cn(
-                'flex-1 rounded-xl px-4 py-2 text-sm font-medium transition-colors',
-                isActive ? 'bg-gray-900 text-white' : 'text-gray-700 hover:bg-gray-50'
-              )}
-            >
-              <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full border border-current text-[10px] font-semibold">
-                {index + 1}
-              </span>
-              {section.label}
-            </button>
-          )
-        })}
-      </nav>
-
-      <motion.div
-        key={current.id}
-        className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.25 }}
-      >
-        {renderStep(current.id)}
-
-        <div className="mt-8 flex items-center justify-between border-t border-gray-100 pt-6">
-          <Button onClick={goPrev} disabled={safeIndex === 0} variant="outline" className="gap-2">
-            <ChevronLeftIcon className="h-4 w-4" />
-            Previous
-          </Button>
-          <Button
-            onClick={goNext}
-            disabled={safeIndex === sections.length - 1}
-            variant="outline"
-            className="gap-2"
-          >
-            Next
-            <ChevronRightIcon className="h-4 w-4" />
-          </Button>
+      <div className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-16">
+        {/* Page heading */}
+        <div className="mb-12 grid grid-cols-12 gap-x-10 gap-y-6 border-b border-rule pb-10">
+          <div className="col-span-12 lg:col-span-8">
+            <p className="font-mono text-spec uppercase tracking-[0.18em] text-ink-6">
+              Imprint
+            </p>
+            <h1 className="mt-4 font-display text-h1 leading-[1.02] tracking-[-0.026em] text-ink-12">
+              The final pass — <span className="font-display-italic">style and send.</span>
+            </h1>
+          </div>
+          <p className="col-span-12 max-w-md self-end text-caption italic text-ink-7 lg:col-span-4">
+            {current.helper}
+          </p>
         </div>
-      </motion.div>
+
+        {/* Editorial tab nav — text-only with animated underline */}
+        <nav
+          aria-label="Settings sections"
+          className="mb-10 flex items-end gap-10 border-b border-rule"
+        >
+          {sections.map((section, index) => {
+            const active = section.id === current.id
+            return (
+              <button
+                key={section.id}
+                type="button"
+                onClick={() => setActiveSection(index)}
+                className={cn(
+                  'group relative -mb-px flex items-baseline gap-3 pb-4 transition-colors',
+                  active ? 'text-ink-12' : 'text-ink-7 hover:text-ink-12',
+                )}
+              >
+                <span className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6 num-tabular">
+                  {section.folio}
+                </span>
+                <span className="font-display text-[20px] font-medium leading-none tracking-tight">
+                  {section.label}
+                </span>
+                <span
+                  aria-hidden
+                  className={cn(
+                    'pointer-events-none absolute inset-x-0 bottom-[-1px] h-px origin-left bg-ink-12 transition-transform duration-200',
+                    active ? 'scale-x-100' : 'scale-x-0',
+                  )}
+                />
+              </button>
+            )
+          })}
+        </nav>
+
+        {/* Content */}
+        <AnimatePresence mode="wait">
+          <motion.section
+            key={current.id}
+            initial={reduce ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? undefined : { opacity: 0, y: -6 }}
+            transition={{ duration: 0.22, ease: [0.2, 0.7, 0.2, 1] }}
+          >
+            {renderStep(current.id)}
+          </motion.section>
+        </AnimatePresence>
+
+        {/* Footer nav */}
+        <div className="mt-16 flex items-center justify-between border-t border-rule pt-7">
+          <div>
+            {safeIndex > 0 ? (
+              <Button onClick={goPrev} variant="ghost" className="gap-2">
+                <ArrowLeft className="h-4 w-4" />
+                <span>{sections[safeIndex - 1].label}</span>
+              </Button>
+            ) : (
+              <span className="font-mono text-spec uppercase tracking-[0.14em] text-ink-5">
+                Imprint open
+              </span>
+            )}
+          </div>
+          {safeIndex < sections.length - 1 ? (
+            <Button onClick={goNext} variant="default" size="lg" className="gap-3">
+              <span>{sections[safeIndex + 1].label}</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          ) : (
+            <span className="font-mono text-spec uppercase tracking-[0.14em] text-ink-5">
+              End of folio
+            </span>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
