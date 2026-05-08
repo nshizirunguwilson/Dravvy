@@ -4,11 +4,9 @@ import { cn } from '@/lib/utils'
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 /**
- * Editorial input.
- *
- * Borderless + bottom hairline. The hairline thickens to ink-12 on focus —
- * a real underline animation, not a ring. Native date/color inputs get
- * their browser chrome trimmed back so they sit on the same baseline.
+ * Bordered input. Visible boundary on all four sides, white background,
+ * comfortable height (44px), brand-coloured focus ring. Label sits above
+ * via the Label primitive — not on top of the field.
  */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type = 'text', ...props }, ref) => {
@@ -18,18 +16,18 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ref={ref}
         type={type}
         className={cn(
-          'w-full bg-transparent px-0 py-2.5 text-[15px] text-ink-12',
-          'placeholder:text-ink-5',
-          'border-0 border-b border-rule outline-none',
-          'transition-[border-color,padding] duration-150',
-          'focus:border-ink-12',
-          'disabled:cursor-not-allowed disabled:opacity-60',
-          // dates/times: keep the native picker but match our baseline
+          'flex h-11 w-full rounded-md border border-line bg-surface px-3.5 text-[15px] text-slate-12',
+          'placeholder:text-slate-5',
+          'shadow-xs transition-[border-color,box-shadow] duration-150',
+          'hover:border-line-strong',
+          'focus:border-brand focus:outline-none focus:[box-shadow:var(--ring-focus)]',
+          'disabled:cursor-not-allowed disabled:opacity-60 disabled:bg-surface-2',
+          // Native pickers
           '[&::-webkit-calendar-picker-indicator]:cursor-pointer',
           '[&::-webkit-calendar-picker-indicator]:opacity-60',
-          // color: a small rounded swatch instead of the default chrome
+          // Color swatch sizing
           isColor &&
-            'h-10 w-12 cursor-pointer border border-rule p-0.5 [&::-webkit-color-swatch]:rounded-sm [&::-webkit-color-swatch-wrapper]:p-0 [&::-moz-color-swatch]:rounded-sm',
+            'h-11 w-14 cursor-pointer p-1 [&::-webkit-color-swatch]:rounded-sm [&::-webkit-color-swatch-wrapper]:p-0 [&::-moz-color-swatch]:rounded-sm',
           className,
         )}
         {...props}

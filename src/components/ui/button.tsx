@@ -7,34 +7,34 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const base =
-  'group relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap text-[14px] font-medium transition-[transform,background-color,border-color,color] duration-150 ease-out focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 active:translate-y-[0.5px]'
+  'group relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-md text-[14px] font-semibold transition-[transform,background-color,border-color,color,box-shadow] duration-150 ease-out focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 active:translate-y-[0.5px]'
 
 const variants: Record<NonNullable<ButtonProps['variant']>, string> = {
-  // Primary: solid ink with a subtle inner top highlight (1px white at 6%
-  // via inset shadow) so it feels like a real, slightly-lit chip.
+  // Primary: brand blue, white text. Subtle 1px inner top highlight.
   default:
-    'rounded-md bg-ink-12 text-paper shadow-paper hover:bg-ink-11 ' +
-    'shadow-[inset_0_1px_0_0_hsl(var(--paper)/0.07),0_1px_0_0_hsl(var(--ink-12))] ' +
-    'focus-visible:[box-shadow:inset_0_1px_0_0_hsl(var(--paper)/0.07),0_0_0_1px_hsl(var(--paper)),0_0_0_3px_hsl(var(--ink-9)/0.5)]',
+    'bg-brand text-white shadow-sm ' +
+    'hover:bg-brand-hover hover:shadow-md ' +
+    'shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_1px_2px_0_hsl(220_88%_30%/0.25)] ' +
+    'focus-visible:[box-shadow:inset_0_1px_0_0_rgba(255,255,255,0.18),0_0_0_1px_hsl(var(--surface)),0_0_0_3px_hsl(var(--accent)/0.45)]',
 
-  // Outline: 1px hairline, paper background, hover deepens the rule.
+  // Outline: white surface, slate border, slate text.
   outline:
-    'rounded-md border border-rule bg-page text-ink-12 hover:border-rule-strong hover:bg-paper-deep ' +
-    'focus-visible:[box-shadow:0_0_0_1px_hsl(var(--paper)),0_0_0_3px_hsl(var(--ink-9)/0.4)]',
+    'border border-line bg-surface text-slate-12 shadow-xs ' +
+    'hover:border-line-strong hover:bg-surface-2 ' +
+    'focus-visible:[box-shadow:0_0_0_1px_hsl(var(--surface)),0_0_0_3px_hsl(var(--accent)/0.4)]',
 
-  // Ghost: no chrome at rest, hover drops a sunken paper tint.
+  // Ghost: transparent at rest, soft tint on hover.
   ghost:
-    'rounded-md text-ink-9 hover:text-ink-12 hover:bg-paper-deep ' +
-    'focus-visible:[box-shadow:0_0_0_1px_hsl(var(--paper)),0_0_0_3px_hsl(var(--ink-9)/0.4)]',
+    'text-slate-9 hover:bg-surface-2 hover:text-slate-12 ' +
+    'focus-visible:[box-shadow:0_0_0_1px_hsl(var(--surface)),0_0_0_3px_hsl(var(--accent)/0.4)]',
 
-  // Link: underline-on-hover, never a CTA — used for inline navigation.
-  link:
-    'rounded-none p-0 text-ink-12 underline-offset-[6px] hover:underline decoration-ink-9 decoration-1',
+  // Link: text only with underline-on-hover. Used for inline navigation.
+  link: 'rounded-none p-0 text-brand underline-offset-4 hover:underline',
 }
 
 const sizes: Record<NonNullable<ButtonProps['size']>, string> = {
-  sm: 'h-8 px-3 text-[13px]',
-  default: 'h-10 px-4',
+  sm: 'h-9 px-3.5 text-[13px]',
+  default: 'h-11 px-5',
   lg: 'h-12 px-6 text-[15px]',
 }
 
@@ -42,12 +42,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'default', size = 'default', ...props }, ref) => (
     <button
       ref={ref}
-      className={cn(
-        base,
-        variants[variant],
-        variant !== 'link' && sizes[size],
-        className,
-      )}
+      className={cn(base, variants[variant], variant !== 'link' && sizes[size], className)}
       {...props}
     />
   ),

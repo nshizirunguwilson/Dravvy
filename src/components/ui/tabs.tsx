@@ -6,6 +6,10 @@ import { cn } from '@/lib/utils'
 
 const Tabs = TabsPrimitive.Root
 
+/**
+ * Pill-style tabs: active gets a white surface and a soft shadow, sitting
+ * inside a slate tray. Reads as a real segmented control.
+ */
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
@@ -13,7 +17,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      'inline-flex h-auto items-center gap-6 border-b border-rule',
+      'inline-flex items-center gap-1 rounded-lg border border-line bg-surface-2 p-1',
       className,
     )}
     {...props}
@@ -28,12 +32,10 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      // Editorial tab: text-only, with a 1px ink underline that animates in.
-      'group relative -mb-px inline-flex items-center gap-2 whitespace-nowrap pb-3 text-[14px] font-medium text-ink-7 transition-colors',
-      'hover:text-ink-12 focus-visible:outline-none focus-visible:text-ink-12',
-      'data-[state=active]:text-ink-12',
-      "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-[-1px] after:h-px after:bg-ink-12 after:origin-left after:scale-x-0 after:transition-transform after:duration-200",
-      'data-[state=active]:after:scale-x-100',
+      'inline-flex items-center gap-2 whitespace-nowrap rounded-md px-3.5 py-2 text-[14px] font-medium text-slate-7 transition-colors',
+      'hover:text-slate-12',
+      'focus-visible:outline-none focus-visible:[box-shadow:var(--ring-focus)]',
+      'data-[state=active]:bg-surface data-[state=active]:text-slate-12 data-[state=active]:shadow-sm',
       className,
     )}
     {...props}
