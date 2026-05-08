@@ -1,232 +1,351 @@
 import Link from 'next/link'
-import { ArrowUpRight, FileDown, LayoutGrid, ListChecks, Palette, ShieldCheck, Sparkles } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { Wordmark } from '@/components/brand'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900">
+    <div className="relative min-h-screen bg-paper text-ink-12">
       <SiteHeader />
       <Hero />
-      <FeatureGrid />
-      <ProcessStrip />
-      <FaqStrip />
-      <SiteFooter />
+      <Specifications />
+      <ProcessFolio />
+      <Reasons />
+      <Faq />
+      <Colophon />
     </div>
   )
 }
 
+/* ----------------------------------------------------------------------
+ * Header — small, restrained, one hairline below
+ * -------------------------------------------------------------------- */
 function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-gray-200 bg-white/80 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 md:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-gray-900 text-sm font-semibold text-white">
-            D
-          </span>
-          <span className="text-base font-semibold tracking-tight">Dravvy</span>
+    <header className="sticky top-0 z-30 bg-paper/90 backdrop-blur-[2px]">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-10">
+        <Link href="/" aria-label="Dravvy">
+          <Wordmark size="md" />
         </Link>
-        <nav className="hidden items-center gap-6 text-sm text-gray-600 md:flex">
-          <a href="#features" className="hover:text-gray-900">Features</a>
-          <a href="#process" className="hover:text-gray-900">How it works</a>
-          <a href="#faq" className="hover:text-gray-900">FAQ</a>
+        <nav className="hidden items-center gap-10 md:flex">
+          <a href="#specs" className="text-caption text-ink-7 transition-colors hover:text-ink-12">
+            Specifications
+          </a>
+          <a href="#process" className="text-caption text-ink-7 transition-colors hover:text-ink-12">
+            Process
+          </a>
+          <a href="#faq" className="text-caption text-ink-7 transition-colors hover:text-ink-12">
+            Notes
+          </a>
         </nav>
-        <Link href="/create">
-          <Button className="bg-gray-900 text-white hover:bg-gray-800">Start building</Button>
+        <Link href="/create" className="hidden md:block">
+          <Button variant="default" size="sm">
+            Begin
+          </Button>
+        </Link>
+        <Link href="/create" className="md:hidden">
+          <Button variant="default" size="sm">
+            Begin
+          </Button>
         </Link>
       </div>
+      <div className="hairline mx-auto max-w-6xl" />
     </header>
   )
 }
 
+/* ----------------------------------------------------------------------
+ * Hero — 12-col asymmetric. Left holds the headline; right holds the
+ * "plate" (the resume preview floating on a textured pedestal).
+ * -------------------------------------------------------------------- */
 function Hero() {
   return (
-    <section className="border-b border-gray-200 bg-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2 md:gap-14 md:px-8 md:py-28">
-        <div className="flex flex-col justify-center">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            Built for the 2026 hiring market
-          </span>
-          <h1 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-            A resume that opens doors, finished in one sitting.
+    <section className="relative">
+      <div className="mx-auto grid max-w-6xl grid-cols-12 gap-x-8 gap-y-16 px-6 pb-24 pt-24 md:px-10 md:pb-32 md:pt-36">
+        {/* Eyebrow + title */}
+        <div className="col-span-12 lg:col-span-7">
+          <div className="flex items-center gap-3 font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
+            <span className="num-tabular">Issue 01</span>
+            <span aria-hidden className="h-px w-8 bg-ink-3" />
+            <span>The resume builder</span>
+          </div>
+
+          <h1 className="mt-8 font-display font-medium leading-[0.98] tracking-[-0.03em] text-ink-12 text-[64px] md:text-[88px] lg:text-[104px]">
+            A resume,
+            <br />
+            <span className="font-display-italic">set in print.</span>
           </h1>
-          <p className="mt-5 max-w-xl text-base text-gray-600 md:text-lg">
-            Dravvy walks you through every section, keeps your formatting consistent, and exports a
-            print-ready document the moment you are done. No templates from a stock pack, no fiddling
-            with margins.
+
+          <p className="mt-8 max-w-xl text-lead text-ink-7">
+            Nine guided sections. A true A4 preview, dimensioned to the millimetre. Export as a
+            print-ready PDF or an editable DOCX. <em className="font-display-italic text-ink-12">No account, no template
+            pack, no fuss.</em>
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+
+          <div className="mt-10 flex flex-wrap items-center gap-5">
             <Link href="/create">
-              <Button size="lg" className="bg-gray-900 text-white hover:bg-gray-800">
-                Build your resume
-                <ArrowUpRight className="ml-2 h-4 w-4" />
+              <Button variant="default" size="lg">
+                Start the draft
               </Button>
             </Link>
-            <Link href="#features">
-              <Button size="lg" variant="outline">
-                See what is included
-              </Button>
+            <Link href="#specs" className="text-caption text-ink-9 underline-offset-[6px] hover:underline">
+              Read the specifications →
             </Link>
           </div>
-          <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-gray-100 pt-6 text-sm">
-            <Stat number="9" label="Guided sections" />
-            <Stat number="A4" label="Print-ready export" />
-            <Stat number="2" label="File formats" />
-          </dl>
         </div>
 
-        <PreviewMock />
+        {/* The plate */}
+        <Plate />
       </div>
+
+      {/* Hero baseline rule */}
+      <div className="mx-auto max-w-6xl px-6 md:px-10">
+        <div className="hairline" />
+      </div>
+
+      {/* Stats — print-spec style with mono tabular numerals */}
+      <Stats />
     </section>
   )
 }
 
-function Stat({ number, label }: { number: string; label: string }) {
+function Plate() {
   return (
-    <div>
-      <dt className="text-2xl font-semibold tracking-tight">{number}</dt>
-      <dd className="text-gray-500">{label}</dd>
-    </div>
-  )
-}
+    <div className="col-span-12 lg:col-span-5">
+      <div className="relative">
+        {/* Pedestal — paper-deep with hairline at top, no shadow on the
+         * pedestal itself, just on the page that sits on it. */}
+        <div className="relative rounded-lg bg-paper-deep p-5 paper-grain md:p-7">
+          <div className="flex items-center justify-between pb-4 font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
+            <span>Live · A4</span>
+            <span className="num-tabular">210 × 297</span>
+          </div>
+          <div className="hairline" />
 
-function PreviewMock() {
-  return (
-    <div className="relative">
-      <div className="absolute -inset-3 rounded-3xl border border-gray-200" aria-hidden />
-      <div className="relative rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-          <p className="text-xs font-medium uppercase tracking-widest text-gray-500">Live Preview</p>
-          <span className="rounded-full bg-gray-900 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white">
-            A4
-          </span>
+          {/* The page */}
+          <article className="mt-5 rounded-sm bg-page p-6 shadow-lift md:p-8">
+            <p className="font-display text-[26px] font-medium leading-tight tracking-tight text-ink-12">
+              Avery Lin
+            </p>
+            <p className="mt-1 text-caption text-ink-7">
+              Senior Product Designer · Remote · avery@example.com
+            </p>
+
+            <div className="hairline mt-5" />
+
+            <p className="mt-4 font-mono text-spec uppercase tracking-[0.16em] text-ink-7">
+              Experience
+            </p>
+            <div className="mt-2 space-y-1">
+              <p className="text-caption font-medium text-ink-12">Lead Designer · Holloway</p>
+              <p className="text-caption text-ink-7">
+                Shipped a redesign that lifted activation 38% in two quarters.
+              </p>
+            </div>
+
+            <p className="mt-5 font-mono text-spec uppercase tracking-[0.16em] text-ink-7">
+              Skills
+            </p>
+            <p className="mt-2 text-caption text-ink-9">
+              Design Systems, User Research, Prototyping, Figma, Workshops
+            </p>
+
+            <div className="mt-5 grid grid-cols-2 gap-4">
+              <div>
+                <p className="font-mono text-spec uppercase tracking-[0.16em] text-ink-7">
+                  Education
+                </p>
+                <p className="mt-2 text-caption text-ink-12">B.A. Design, RISD</p>
+                <p className="text-caption text-ink-7">2017 — 2021</p>
+              </div>
+              <div>
+                <p className="font-mono text-spec uppercase tracking-[0.16em] text-ink-7">
+                  Languages
+                </p>
+                <p className="mt-2 text-caption text-ink-12">English · Native</p>
+                <p className="text-caption text-ink-7">Mandarin · Fluent</p>
+              </div>
+            </div>
+          </article>
         </div>
-        <div className="mt-5 space-y-4">
-          <div>
-            <p className="text-lg font-semibold">Avery Lin</p>
-            <p className="text-xs text-gray-500">Senior Product Designer · Remote · avery@example.com</p>
-          </div>
-          <div>
-            <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-gray-700">Experience</p>
-            <div className="space-y-1 text-xs text-gray-600">
-              <p className="font-medium text-gray-900">Lead Designer · Holloway</p>
-              <p>Shipped a redesign that lifted activation by 38% in two quarters.</p>
-            </div>
-          </div>
-          <div>
-            <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-gray-700">Skills</p>
-            <div className="flex flex-wrap gap-1.5 text-[11px] text-gray-700">
-              {['Design Systems', 'User Research', 'Prototyping', 'Figma', 'Workshops'].map((tag) => (
-                <span key={tag} className="rounded-full border border-gray-200 px-2 py-0.5">{tag}</span>
-              ))}
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 text-xs text-gray-600">
-            <div>
-              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-gray-700">Education</p>
-              <p className="font-medium text-gray-900">B.A. Design, RISD</p>
-              <p>2017 - 2021</p>
-            </div>
-            <div>
-              <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-gray-700">Languages</p>
-              <p>English · Native</p>
-              <p>Mandarin · Fluent</p>
-            </div>
-          </div>
-        </div>
+
+        {/* Folio number tucked into the pedestal corner */}
+        <span
+          aria-hidden
+          className="absolute -bottom-3 right-2 bg-paper px-2 font-mono text-spec uppercase tracking-[0.18em] text-ink-6"
+        >
+          Plate i
+        </span>
       </div>
     </div>
   )
 }
 
-const features = [
+function Stats() {
+  const items = [
+    { number: '09', label: 'Sections, guided' },
+    { number: 'A4', label: 'Print to the millimetre' },
+    { number: '02', label: 'Export formats' },
+  ]
+  return (
+    <div className="mx-auto max-w-6xl px-6 md:px-10">
+      <dl className="grid grid-cols-3 divide-x divide-rule">
+        {items.map(({ number, label }, i) => (
+          <div
+            key={label}
+            className={`py-7 ${i === 0 ? 'pr-6' : i === items.length - 1 ? 'pl-6' : 'px-6'}`}
+          >
+            <dt className="font-display text-[40px] font-medium leading-none tracking-tight text-ink-12 num-tabular md:text-[56px]">
+              {number}
+            </dt>
+            <dd className="mt-3 text-caption text-ink-7">{label}</dd>
+          </div>
+        ))}
+      </dl>
+      <div className="hairline" />
+    </div>
+  )
+}
+
+/* ----------------------------------------------------------------------
+ * Specifications — features as a printed spec sheet, hairline rules
+ * between rows, mono section markers, no card chrome.
+ * -------------------------------------------------------------------- */
+const specs = [
   {
-    icon: ListChecks,
+    n: '§ 01',
     title: 'Nine guided sections',
-    body: 'Basics, experience, education, skills, certifications, awards, projects, languages and references — each with built-in validation.',
+    body: 'Basics, experience, education, skills, certifications, awards, projects, languages, references. Each with inline validation and free reordering.',
   },
   {
-    icon: Palette,
-    title: 'Style without code',
-    body: 'Pick a font, accent color, separator, spacing and date format. Every choice flows into the preview and the export.',
+    n: '§ 02',
+    title: 'Style without writing CSS',
+    body: 'Theme, accent, typeface, size, spacing, separator, date format. Every choice flows into the preview, the PDF, the DOCX.',
   },
   {
-    icon: FileDown,
-    title: 'PDF or DOCX',
-    body: 'Export an A4 PDF, or a Word document you can edit downstream. The filename is preset to your name.',
+    n: '§ 03',
+    title: 'A true A4 preview',
+    body: 'The preview is dimensioned exactly like the export. Nothing reflows on download.',
   },
   {
-    icon: LayoutGrid,
-    title: 'Live A4 preview',
-    body: 'See exactly what recruiters see. The preview is dimensioned like the final page so nothing reflows on export.',
+    n: '§ 04',
+    title: 'PDF or DOCX, one click',
+    body: 'Print-ready PDF for upload, or DOCX you can edit downstream in Word, Google Docs, Pages.',
   },
   {
-    icon: ShieldCheck,
+    n: '§ 05',
+    title: 'Quiet by default',
+    body: 'Sans body, single column, neutral accents — chosen so applicant tracking systems read every line cleanly.',
+  },
+  {
+    n: '§ 06',
     title: 'Stays on your device',
-    body: 'Drafts persist locally in your browser. No accounts, no servers, no analytics watching you write.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Quiet, professional defaults',
-    body: 'Safe typography, restrained layout. Your content does the talking, not the decoration.',
+    body: 'Drafts persist in your browser. No accounts. No telemetry. Clear site data and the draft is gone.',
   },
 ] as const
 
-function FeatureGrid() {
+function Specifications() {
   return (
-    <section id="features" className="border-b border-gray-200 bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 py-20 md:px-8 md:py-24">
-        <div className="max-w-2xl">
-          <p className="text-sm font-medium text-gray-500">Features</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
-            Everything a hiring manager scans for, nothing they will skip past.
+    <section id="specs" className="relative">
+      <div className="mx-auto max-w-6xl grid-cols-12 gap-x-8 px-6 pt-28 md:grid md:px-10">
+        <div className="col-span-3">
+          <p className="font-mono text-spec uppercase tracking-[0.18em] text-ink-6">
+            Specifications
+          </p>
+          <h2 className="mt-4 font-display text-h2 leading-[1.05] tracking-tight text-ink-12">
+            Everything a hiring manager <span className="font-display-italic">scans for</span>.
           </h2>
         </div>
-        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-gray-200 bg-gray-200 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map(({ icon: Icon, title, body }) => (
-            <div key={title} className="bg-white p-6">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-900 text-white">
-                <Icon className="h-4 w-4" />
-              </div>
-              <h3 className="mt-4 text-base font-semibold">{title}</h3>
-              <p className="mt-2 text-sm text-gray-600">{body}</p>
-            </div>
-          ))}
+        <div className="col-span-8 col-start-5 mt-12 md:mt-0">
+          <ul>
+            {specs.map(({ n, title, body }, i) => (
+              <li
+                key={title}
+                className={`grid grid-cols-12 gap-6 py-8 ${i === 0 ? 'border-t border-rule' : ''} border-b border-rule`}
+              >
+                <span className="col-span-3 font-mono text-spec uppercase tracking-[0.16em] text-ink-6 num-tabular">
+                  {n}
+                </span>
+                <div className="col-span-9">
+                  <h3 className="font-display text-h4 font-medium leading-tight tracking-tight text-ink-12">
+                    {title}
+                  </h3>
+                  <p className="mt-3 max-w-md text-body text-ink-7">{body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
   )
 }
 
+/* ----------------------------------------------------------------------
+ * Process — oversized display numerals bleeding off the column, body
+ * to the right. The signature move on this page.
+ * -------------------------------------------------------------------- */
 const steps = [
-  { number: '01', title: 'Fill the sections', body: 'Move through nine guided steps. Required fields are marked with an asterisk.' },
-  { number: '02', title: 'Pick a style', body: 'Choose a font, accent color, separator, spacing and date format.' },
-  { number: '03', title: 'Preview the layout', body: 'See an A4-sized preview that matches the final document exactly.' },
-  { number: '04', title: 'Export', body: 'Download as PDF for printing, or DOCX to edit in Word or Google Docs.' },
-]
+  {
+    n: '01',
+    title: 'Fill the sections',
+    body: 'Move through nine guided steps. Required fields are marked with an asterisk; the rest is yours to skip.',
+  },
+  {
+    n: '02',
+    title: 'Choose the styling',
+    body: 'A typeface, an accent, a separator, a spacing rhythm. Tuned to read serious without reading dull.',
+  },
+  {
+    n: '03',
+    title: 'Preview at A4',
+    body: 'See exactly what the recruiter sees, dimensioned to the page. No surprises on export.',
+  },
+  {
+    n: '04',
+    title: 'Export and send',
+    body: 'A print-ready PDF, or a DOCX a colleague can edit. The filename is preset to your name.',
+  },
+] as const
 
-function ProcessStrip() {
+function ProcessFolio() {
   return (
-    <section id="process" className="border-b border-gray-200 bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-20 md:px-8 md:py-24">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-xl">
-            <p className="text-sm font-medium text-gray-500">How it works</p>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
-              Four steps from blank page to a file you can send.
+    <section id="process" className="relative pt-32 md:pt-40">
+      <div className="mx-auto max-w-6xl grid-cols-12 gap-x-8 px-6 md:grid md:px-10">
+        <div className="col-span-12 mb-14 flex items-end justify-between gap-6">
+          <div>
+            <p className="font-mono text-spec uppercase tracking-[0.18em] text-ink-6">
+              Process
+            </p>
+            <h2 className="mt-4 max-w-2xl font-display text-h2 leading-[1.05] tracking-tight text-ink-12">
+              Four passes from blank page to a file you can send.
             </h2>
           </div>
-          <Link href="/create" className="text-sm font-medium text-gray-900 underline-offset-4 hover:underline">
-            Start now →
+          <Link
+            href="/create"
+            className="hidden text-caption text-ink-9 underline-offset-[6px] hover:underline md:block"
+          >
+            Begin →
           </Link>
         </div>
-        <ol className="mt-12 grid gap-6 md:grid-cols-4">
-          {steps.map((step) => (
-            <li key={step.number} className="rounded-xl border border-gray-200 p-5">
-              <p className="text-xs font-semibold tracking-widest text-gray-400">{step.number}</p>
-              <p className="mt-2 text-base font-semibold">{step.title}</p>
-              <p className="mt-2 text-sm text-gray-600">{step.body}</p>
+
+        <ol className="col-span-12 divide-y divide-rule border-y border-rule">
+          {steps.map(({ n, title, body }) => (
+            <li key={n} className="grid grid-cols-12 gap-6 py-12 md:py-16">
+              <div className="col-span-12 md:col-span-4">
+                <span
+                  aria-hidden
+                  className="block font-display font-medium leading-[0.85] tracking-[-0.04em] text-ink-12 text-[120px] md:text-[180px]"
+                >
+                  {n}
+                </span>
+              </div>
+              <div className="col-span-12 md:col-span-7 md:col-start-6">
+                <h3 className="font-display text-h3 font-medium leading-tight tracking-tight text-ink-12">
+                  {title}
+                </h3>
+                <p className="mt-4 max-w-md text-body text-ink-7">{body}</p>
+              </div>
             </li>
           ))}
         </ol>
@@ -235,38 +354,32 @@ function ProcessStrip() {
   )
 }
 
-const faqs = [
-  {
-    q: 'Do I need an account?',
-    a: 'No. Your draft is stored in your browser. Clearing site data clears your draft.',
-  },
-  {
-    q: 'Which file formats can I export?',
-    a: 'You can export to a print-ready A4 PDF, or to a DOCX that opens cleanly in Microsoft Word and Google Docs.',
-  },
-  {
-    q: 'Can I customize the styling?',
-    a: 'Yes. The styling step lets you pick a font, accent color, separator style, font size, spacing, and date format. The preview updates immediately.',
-  },
-  {
-    q: 'Is the layout ATS-friendly?',
-    a: 'Yes. The exported document uses single-column body text, standard fonts, and plain section headings, all of which most applicant tracking systems parse reliably.',
-  },
-] as const
-
-function FaqStrip() {
+/* ----------------------------------------------------------------------
+ * Reasons — a compact two-column "colophon" of why the defaults are
+ * what they are. Editorial detail. No icons.
+ * -------------------------------------------------------------------- */
+function Reasons() {
+  const lines: [string, string][] = [
+    ['Single column', 'Parses cleanly through every applicant tracking system.'],
+    ['Neutral accent', 'Lets your content do the talking. The colour is a guest, not the host.'],
+    ['No emoji', 'Recruiters read fast. Decoration slows them down.'],
+    ['No telemetry', 'Drafts stay on your device. We do not watch you write.'],
+  ]
   return (
-    <section id="faq" className="border-b border-gray-200 bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 py-20 md:px-8 md:py-24">
-        <div className="max-w-2xl">
-          <p className="text-sm font-medium text-gray-500">FAQ</p>
-          <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Quick questions, short answers.</h2>
+    <section className="pt-32 md:pt-40">
+      <div className="mx-auto max-w-6xl grid-cols-12 gap-x-8 px-6 md:grid md:px-10">
+        <div className="col-span-3">
+          <p className="font-mono text-spec uppercase tracking-[0.18em] text-ink-6">
+            Editorial choices
+          </p>
         </div>
-        <dl className="mt-10 grid gap-6 md:grid-cols-2">
-          {faqs.map(({ q, a }) => (
-            <div key={q} className="rounded-xl border border-gray-200 bg-white p-5">
-              <dt className="text-base font-semibold">{q}</dt>
-              <dd className="mt-2 text-sm text-gray-600">{a}</dd>
+        <dl className="col-span-9 grid gap-6 md:grid-cols-2">
+          {lines.map(([term, def]) => (
+            <div key={term} className="grid grid-cols-12 gap-3 border-t border-rule pt-5">
+              <dt className="col-span-4 font-display text-[18px] font-medium leading-tight text-ink-12">
+                {term}
+              </dt>
+              <dd className="col-span-8 text-caption text-ink-7">{def}</dd>
             </div>
           ))}
         </dl>
@@ -275,15 +388,126 @@ function FaqStrip() {
   )
 }
 
-function SiteFooter() {
+/* ----------------------------------------------------------------------
+ * FAQ — disclosure rows. Plus glyph rotates to ×. No card chrome.
+ * -------------------------------------------------------------------- */
+const faqs = [
+  {
+    q: 'Do I need an account?',
+    a: 'No. Your draft is stored in your browser. Clear site data and the draft is gone with it.',
+  },
+  {
+    q: 'Which file formats can I export?',
+    a: 'A print-ready A4 PDF, or a DOCX that opens cleanly in Microsoft Word and Google Docs.',
+  },
+  {
+    q: 'Can I customise the styling?',
+    a: 'Yes. Pick a typeface, accent, separator, font size, spacing and date format. The preview updates as you go.',
+  },
+  {
+    q: 'Is the layout ATS-friendly?',
+    a: 'Yes. The export uses single-column body text, standard fonts, and plain section headings — all of which most applicant tracking systems read reliably.',
+  },
+] as const
+
+function Faq() {
   return (
-    <footer className="bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 py-10 md:flex-row md:items-center md:px-8">
-        <p className="text-sm text-gray-500">© {new Date().getFullYear()} Dravvy. Built with Next.js.</p>
-        <Link href="/create" className="text-sm font-medium text-gray-900 underline-offset-4 hover:underline">
-          Build your resume →
-        </Link>
+    <section id="faq" className="pt-32 md:pt-40">
+      <div className="mx-auto max-w-6xl grid-cols-12 gap-x-8 px-6 md:grid md:px-10">
+        <div className="col-span-3">
+          <p className="font-mono text-spec uppercase tracking-[0.18em] text-ink-6">Notes</p>
+          <h2 className="mt-4 font-display text-h2 leading-[1.05] tracking-tight text-ink-12">
+            Short questions, <span className="font-display-italic">short answers.</span>
+          </h2>
+        </div>
+        <div className="col-span-9 mt-10 md:mt-0">
+          <ul className="border-t border-rule">
+            {faqs.map(({ q, a }, i) => (
+              <li key={q} className="border-b border-rule py-7 md:grid md:grid-cols-12 md:gap-8">
+                <span className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6 md:col-span-2 num-tabular">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <dl className="md:col-span-10">
+                  <dt className="font-display text-[22px] font-medium leading-tight text-ink-12">
+                    {q}
+                  </dt>
+                  <dd className="mt-3 max-w-2xl text-body text-ink-7">{a}</dd>
+                </dl>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ----------------------------------------------------------------------
+ * Colophon — the closing rule. Mono only.
+ * -------------------------------------------------------------------- */
+function Colophon() {
+  const year = new Date().getFullYear()
+  return (
+    <footer className="mt-32 border-t border-rule">
+      <div className="mx-auto grid max-w-6xl grid-cols-12 gap-x-8 px-6 py-14 md:px-10">
+        <div className="col-span-12 md:col-span-6">
+          <Wordmark size="md" />
+          <p className="mt-5 max-w-sm text-caption text-ink-7">
+            Drafted in your browser, set in print. A resume tool that reads like a magazine and
+            exports like a document.
+          </p>
+        </div>
+        <div className="col-span-12 mt-10 grid grid-cols-2 gap-x-6 md:col-span-6 md:mt-0 md:grid-cols-3">
+          <FooterCol
+            label="Build"
+            items={[
+              ['Begin', '/create'],
+              ['Specifications', '#specs'],
+              ['Process', '#process'],
+            ]}
+          />
+          <FooterCol
+            label="Notes"
+            items={[
+              ['Questions', '#faq'],
+              ['Editorial choices', '#'],
+            ]}
+          />
+          <FooterCol
+            label="Folio"
+            items={[
+              [`© ${year}`, '#'],
+              ['Set in Fraunces', '#'],
+            ]}
+          />
+        </div>
+      </div>
+      <div className="mx-auto max-w-6xl px-6 md:px-10">
+        <div className="hairline" />
+        <p className="py-6 font-mono text-spec uppercase tracking-[0.16em] text-ink-6">
+          Vol. 01 · A resume tool, set in print.
+        </p>
       </div>
     </footer>
+  )
+}
+
+function FooterCol({ label, items }: { label: string; items: [string, string][] }) {
+  return (
+    <div>
+      <p className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6">{label}</p>
+      <ul className="mt-4 space-y-3">
+        {items.map(([text, href]) => (
+          <li key={text}>
+            <a
+              href={href}
+              className="text-caption text-ink-9 underline-offset-[6px] transition-colors hover:text-ink-12 hover:underline"
+            >
+              {text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
