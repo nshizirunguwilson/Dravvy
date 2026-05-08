@@ -1,17 +1,16 @@
 'use client'
 
 import * as React from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { Check } from 'lucide-react'
 
 import { useResumeStore } from '@/store/useResumeStore'
 import { useUIStore } from '@/store/useUIStore'
-import { Progress } from '@/components/ui/progress'
 import { cn } from '@/lib/utils'
 
 const sections = [
-  { id: 'basic', label: 'Basic Information' },
-  { id: 'work', label: 'Work Experience' },
+  { id: 'basic', label: 'Basic information' },
+  { id: 'work', label: 'Work experience' },
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
   { id: 'certifications', label: 'Certifications' },
@@ -20,6 +19,8 @@ const sections = [
   { id: 'languages', label: 'Languages' },
   { id: 'references', label: 'References' },
 ] as const
+
+type SectionId = (typeof sections)[number]['id']
 
 export function ProgressTracker() {
   const contact = useResumeStore((s) => s.contact)
@@ -36,12 +37,13 @@ export function ProgressTracker() {
 
   const activeSection = useUIStore((s) => s.activeSection)
   const setActiveSection = useUIStore((s) => s.setActiveSection)
+  const reduce = useReducedMotion()
 
-  const isCompleted = (id: typeof sections[number]['id']): boolean => {
+  const isCompleted = (id: SectionId): boolean => {
     switch (id) {
       case 'basic':
         return Boolean(
-          contact.fullName && contact.email && contact.phone && contact.location && summary
+          contact.fullName && contact.email && contact.phone && contact.location && summary,
         )
       case 'work':
         return experience.length > 0
@@ -65,61 +67,104 @@ export function ProgressTracker() {
   const completedCount = sections.filter((s) => isCompleted(s.id)).length
   const progress = Math.round((completedCount / sections.length) * 100)
 
-  const getStatus = (index: number) => {
-    if (index === activeSection) return 'active'
-    if (isCompleted(sections[index].id)) return 'completed'
-    return 'pending'
-  }
-
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6">
-      <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-base font-semibold text-gray-900">Resume Progress</h2>
-        <span className="text-sm font-medium text-gray-600">{progress}%</span>
+    <aside aria-label="Resume progress" className="lg:sticky lg:top-24">
+      {/* Header */}
+      <div className="mb-7 flex items-baseline justify-between gap-4">
+        <p className="font-mono text-spec uppercase tracking-[0.16em] text-ink-6">Folio</p>
+        <p className="font-mono text-spec text-ink-9 num-tabular">
+          <span className="text-ink-12">{String(completedCount).padStart(2, '0')}</span>
+          <span className="text-ink-5"> / 09</span>
+        </p>
       </div>
-      <Progress value={progress} className="h-1.5" />
 
-      <div className="mt-6 grid grid-cols-3 gap-y-4 sm:grid-cols-5 lg:grid-cols-9">
+      {/* The rail */}
+      <ol className="relative">
+        {/* Connecting hairline */}
+        <span
+          aria-hidden
+          className="absolute left-[7px] top-1 bottom-1 w-px bg-rule"
+        />
+        <motion.span
+          aria-hidden
+          className="absolute left-[7px] top-1 w-px bg-ink-12"
+          initial={false}
+          animate={{ height: `calc(${progress}% )` }}
+          transition={{ duration: reduce ? 0 : 0.6, ease: [0.2, 0.7, 0.2, 1] }}
+          style={{ originY: 0 }}
+        />
+
         {sections.map((section, index) => {
-          const status = getStatus(index)
+          const completed = isCompleted(section.id)
+          const active = index === activeSection
           return (
-            <motion.button
-              type="button"
-              key={section.id}
-              className="group flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2, delay: index * 0.04 }}
-              onClick={() => setActiveSection(index)}
-            >
-              <div
+            <li key={section.id} className="relative pl-8">
+              <button
+                type="button"
+                onClick={() => setActiveSection(index)}
                 className={cn(
-                  'flex h-8 w-8 items-center justify-center rounded-full border transition-colors',
-                  status === 'completed' && 'border-gray-900 bg-gray-900 text-white',
-                  status === 'active' && 'border-gray-900 bg-white text-gray-900 ring-2 ring-gray-900',
-                  status === 'pending' && 'border-gray-300 bg-white text-gray-500 group-hover:border-gray-400'
+                  'group flex w-full items-center gap-3 py-3 text-left transition-colors',
+                  active ? 'text-ink-12' : 'text-ink-7 hover:text-ink-12',
                 )}
               >
-                {status === 'completed' ? (
-                  <Check className="h-4 w-4" />
-                ) : (
-                  <span className="text-xs font-semibold">{index + 1}</span>
-                )}
-              </div>
-              <p
-                className={cn(
-                  'mt-2 max-w-[7rem] text-[11px] font-medium leading-tight',
-                  status === 'completed' && 'text-gray-900',
-                  status === 'active' && 'text-gray-900',
-                  status === 'pending' && 'text-gray-500'
-                )}
-              >
-                {section.label}
-              </p>
-            </motion.button>
+                <Node active={active} completed={completed} />
+                <span className="flex flex-1 items-center justify-between gap-3">
+                  <span
+                    className={cn(
+                      'text-caption transition-colors',
+                      active ? 'font-medium text-ink-12' : completed ? 'text-ink-9' : 'text-ink-7',
+                    )}
+                  >
+                    {section.label}
+                  </span>
+                  <span
+                    className={cn(
+                      'font-mono text-spec uppercase tracking-[0.14em] num-tabular',
+                      active ? 'text-ink-9' : 'text-ink-5',
+                    )}
+                  >
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                </span>
+              </button>
+            </li>
           )
         })}
-      </div>
-    </div>
+      </ol>
+    </aside>
   )
 }
+
+function Node({
+  active,
+  completed,
+}: {
+  active: boolean
+  completed: boolean
+}) {
+  return (
+    <span
+      aria-hidden
+      className={cn(
+        'absolute left-0 top-1/2 -translate-y-1/2',
+        'flex h-[16px] w-[16px] items-center justify-center rounded-full transition-all duration-200',
+        completed && 'bg-ink-12 text-paper',
+        active && !completed && 'bg-page ring-1 ring-ink-12',
+        !active && !completed && 'bg-page ring-1 ring-rule-strong',
+      )}
+    >
+      {completed ? (
+        <Check className="h-[9px] w-[9px]" strokeWidth={3} />
+      ) : (
+        <span
+          className={cn(
+            'block h-[5px] w-[5px] rounded-full',
+            active ? 'bg-ink-12' : 'bg-transparent',
+          )}
+        />
+      )}
+    </span>
+  )
+}
+
+export default ProgressTracker

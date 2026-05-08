@@ -44,29 +44,41 @@ interface ResumeFormProps {
   onReferencesSaved?: () => void
 }
 
-const inputStyles =
-  'w-full px-4 py-2.5 text-gray-700 bg-white border border-gray-200 rounded-lg focus:border-gray-900 focus:ring-2 focus:ring-gray-200 transition-colors duration-200 placeholder-gray-400 outline-none'
-const textareaStyles =
-  'w-full px-4 py-3 text-gray-700 bg-white border border-gray-200 rounded-lg focus:border-gray-900 focus:ring-2 focus:ring-gray-200 transition-colors duration-200 placeholder-gray-400 resize-none outline-none'
-const labelStyles = 'block text-sm font-medium text-gray-700 mb-1.5'
-const requiredMark = <span className="text-red-500 ml-0.5">*</span>
+// Editorial primitives carry their own styling — these className strings
+// are kept (empty) so the existing form code can pass them through cn().
+const inputStyles = ''
+const textareaStyles = ''
+const labelStyles = 'mb-2'
+const requiredMark = (
+  <span aria-hidden className="ml-1 text-ink-6" title="required">
+    ·
+  </span>
+)
 
 function SaveButton({ pending }: { pending: boolean }) {
   return (
     <div className="flex justify-end pt-2">
-      <Button
-        type="submit"
-        disabled={pending}
-        className="bg-gray-900 text-white hover:bg-gray-800 disabled:opacity-60"
-      >
-        {pending ? 'Saving...' : 'Save Changes'}
+      <Button type="submit" disabled={pending} variant="default">
+        {pending ? 'Saving…' : 'Save section'}
       </Button>
     </div>
   )
 }
 
 function SectionCard({ children }: { children: React.ReactNode }) {
-  return <div className="p-4 space-y-4 border border-gray-200 rounded-lg">{children}</div>
+  return (
+    <div className="space-y-5 rounded-md border border-rule bg-page p-5 shadow-paper">
+      {children}
+    </div>
+  )
+}
+
+function EmptyHint({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="border-y border-dashed border-rule py-6 text-center text-caption italic text-ink-7">
+      {children}
+    </p>
+  )
 }
 
 /* -------------------- Basic Info -------------------- */
@@ -242,7 +254,7 @@ function WorkExperienceForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {experiences.length === 0 && (
-        <p className="text-sm text-gray-500">Add your first work experience to get started.</p>
+        <EmptyHint>Add your first work experience to begin.</EmptyHint>
       )}
       {experiences.map((exp) => (
         <SectionCard key={exp.id}>
@@ -289,12 +301,12 @@ function WorkExperienceForm() {
               />
             </div>
           </div>
-          <label className="inline-flex items-center gap-2 text-sm text-gray-700">
+          <label className="inline-flex items-center gap-2 text-caption text-ink-9">
             <input
               type="checkbox"
               checked={exp.current}
               onChange={(e) => update({ ...exp, current: e.target.checked, endDate: e.target.checked ? '' : exp.endDate })}
-              className="h-4 w-4 rounded border-gray-300"
+              className="h-[14px] w-[14px] rounded-sm border-rule-strong text-ink-12 accent-[hsl(var(--ink-12))]"
             />
             I currently work here
           </label>
@@ -401,9 +413,7 @@ function EducationForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {educations.length === 0 && (
-        <p className="text-sm text-gray-500">Add an institution to get started.</p>
-      )}
+      {educations.length === 0 && <EmptyHint>Add an institution to begin.</EmptyHint>}
       {educations.map((edu) => (
         <SectionCard key={edu.id}>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -527,7 +537,7 @@ function SkillsForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {skills.length === 0 && (
-        <p className="text-sm text-gray-500">Add a skill category, e.g. &ldquo;Frontend&rdquo; or &ldquo;Languages&rdquo;.</p>
+        <EmptyHint>Add a category, e.g. &ldquo;Frontend&rdquo; or &ldquo;Languages&rdquo;.</EmptyHint>
       )}
       {skills.map((skill) => (
         <SectionCard key={skill.id}>
@@ -625,7 +635,7 @@ function CertificationsForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {certifications.length === 0 && (
-        <p className="text-sm text-gray-500">Add a professional certification you have earned.</p>
+        <EmptyHint>Add a professional certification you have earned.</EmptyHint>
       )}
       {certifications.map((c) => (
         <SectionCard key={c.id}>
@@ -719,7 +729,7 @@ function AwardsForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {awards.length === 0 && (
-        <p className="text-sm text-gray-500">Add a recognition or honor you have received.</p>
+        <EmptyHint>Add a recognition or honour you have received.</EmptyHint>
       )}
       {awards.map((a) => (
         <SectionCard key={a.id}>
@@ -816,7 +826,7 @@ function ProjectsForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {projects.length === 0 && (
-        <p className="text-sm text-gray-500">Add a notable project from your portfolio.</p>
+        <EmptyHint>Add a notable project from your portfolio.</EmptyHint>
       )}
       {projects.map((p) => (
         <SectionCard key={p.id}>
@@ -957,7 +967,7 @@ function LanguagesForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {languages.length === 0 && (
-        <p className="text-sm text-gray-500">Add a language you speak and your proficiency.</p>
+        <EmptyHint>Add a language you speak and your proficiency.</EmptyHint>
       )}
       {languages.map((l) => (
         <SectionCard key={l.id}>
@@ -1049,34 +1059,36 @@ function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <fieldset className="space-y-3">
-        <legend className="text-sm font-medium text-gray-700">Reference Style</legend>
-        <label className="flex items-center gap-2">
+        <legend className="font-mono text-spec uppercase tracking-[0.12em] text-ink-6">
+          Reference style
+        </legend>
+        <label className="flex cursor-pointer items-center gap-3">
           <input
             type="radio"
             name="reference-mode"
             checked={referencesMode === 'uponRequest'}
             onChange={() => setReferencesMode('uponRequest')}
-            className="h-4 w-4 text-gray-900"
+            className="h-[14px] w-[14px] accent-[hsl(var(--ink-12))]"
           />
-          <span className="text-sm text-gray-700">Show &ldquo;References available upon request&rdquo;</span>
+          <span className="text-caption text-ink-9">
+            Show &ldquo;References available upon request&rdquo;
+          </span>
         </label>
-        <label className="flex items-center gap-2">
+        <label className="flex cursor-pointer items-center gap-3">
           <input
             type="radio"
             name="reference-mode"
             checked={referencesMode === 'include'}
             onChange={() => setReferencesMode('include')}
-            className="h-4 w-4 text-gray-900"
+            className="h-[14px] w-[14px] accent-[hsl(var(--ink-12))]"
           />
-          <span className="text-sm text-gray-700">Include named references</span>
+          <span className="text-caption text-ink-9">Include named references</span>
         </label>
       </fieldset>
 
       {referencesMode === 'include' && (
         <div className="space-y-4">
-          {references.length === 0 && (
-            <p className="text-sm text-gray-500">Add a reference to get started.</p>
-          )}
+          {references.length === 0 && <EmptyHint>Add a reference to begin.</EmptyHint>}
           {references.map((r) => (
             <SectionCard key={r.id}>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
