@@ -2,36 +2,276 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ----------------------------------------------------------------------
+ * Editorial design system
+ *
+ * One palette, two surfaces (paper / page), three radii, three type
+ * families. No gradients anywhere. Color is restrained on purpose;
+ * hierarchy is carried by scale, weight, italic, and hairline rules.
+ * -------------------------------------------------------------------- */
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --radius: 0.5rem;
+    /* Surface */
+    --paper: 36 30% 96%;        /* warm parchment, page bg */
+    --paper-deep: 36 28% 92%;   /* sunken / hover surface */
+    --page: 36 22% 99%;         /* raised paper-white surface (cards) */
+
+    /* Ink ramp (warm near-black -> warm muted) */
+    --ink-12: 30 10% 8%;        /* primary text + primary action bg */
+    --ink-11: 30 9% 14%;        /* hover of primary */
+    --ink-9: 30 7% 22%;         /* subhead */
+    --ink-7: 30 6% 38%;         /* body secondary */
+    --ink-6: 30 5% 50%;         /* caption */
+    --ink-5: 30 4% 62%;         /* placeholder */
+    --ink-3: 30 6% 78%;         /* disabled glyph */
+
+    /* Hairline rules (very low contrast on purpose) */
+    --rule: 30 10% 88%;         /* default hairline */
+    --rule-strong: 30 10% 80%;  /* used for focus / emphasis */
+
+    /* One restrained accent — used sparingly: focus rings,
+     * one micro-detail per surface. Never as a default CTA color. */
+    --accent: 14 42% 32%;       /* deep sienna / book-cloth */
+    --accent-soft: 14 38% 92%;  /* used only as an underline tint */
+
+    /* Status (kept very muted — no candy colors) */
+    --positive: 142 32% 28%;
+    --negative: 4 55% 38%;
+
+    /* Shape system — three radii used for different surface roles */
+    --radius-sm: 4px;
+    --radius: 10px;
+    --radius-lg: 16px;
+
+    /* Shadows — real, soft, asymmetric */
+    --shadow-paper: 0 1px 0 hsl(30 10% 88%);
+    --shadow-page: 0 1px 0 hsl(30 10% 92%), 0 12px 28px -18px hsl(30 25% 12% / 0.18);
+    --shadow-paper-lift: 0 1px 0 hsl(30 10% 88%), 0 24px 48px -24px hsl(30 25% 12% / 0.22);
+
+    /* shadcn-compatibility layer (so existing Radix primitives still
+     * resolve their CSS vars — values remap to the editorial palette) */
+    --background: var(--paper);
+    --foreground: var(--ink-12);
+    --card: var(--page);
+    --card-foreground: var(--ink-12);
+    --popover: var(--page);
+    --popover-foreground: var(--ink-12);
+    --primary: var(--ink-12);
+    --primary-foreground: var(--paper);
+    --secondary: var(--paper-deep);
+    --secondary-foreground: var(--ink-12);
+    --muted: var(--paper-deep);
+    --muted-foreground: var(--ink-7);
+    --accent-foreground: var(--paper);
+    --destructive: var(--negative);
+    --destructive-foreground: var(--paper);
+    --border: var(--rule);
+    --input: var(--rule);
+    --ring: var(--ink-9);
+    --radius: 10px;
+  }
+
+  .dark {
+    --paper: 30 8% 7%;
+    --paper-deep: 30 8% 5%;
+    --page: 30 8% 10%;
+
+    --ink-12: 36 30% 96%;
+    --ink-11: 36 28% 90%;
+    --ink-9: 36 12% 78%;
+    --ink-7: 30 6% 60%;
+    --ink-6: 30 5% 48%;
+    --ink-5: 30 5% 36%;
+    --ink-3: 30 5% 22%;
+
+    --rule: 30 6% 18%;
+    --rule-strong: 30 6% 26%;
+
+    --accent: 14 50% 62%;
+    --accent-soft: 14 30% 18%;
+
+    --positive: 142 30% 60%;
+    --negative: 4 60% 62%;
+
+    --shadow-paper: 0 1px 0 hsl(30 6% 18%);
+    --shadow-page: 0 1px 0 hsl(30 6% 14%), 0 12px 28px -18px hsl(0 0% 0% / 0.5);
+    --shadow-paper-lift: 0 1px 0 hsl(30 6% 18%), 0 24px 48px -24px hsl(0 0% 0% / 0.55);
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--rule));
   }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
-    @apply bg-background text-foreground antialiased;
+    background-color: hsl(var(--paper));
+    color: hsl(var(--ink-12));
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11', 'kern';
+    font-variant-ligatures: common-ligatures contextual;
+  }
+
+  /* Display type: restrained Fraunces with a subtle SOFT axis bump
+   * so headlines feel printed, not webby. */
+  .font-display {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-variation-settings: 'opsz' 96, 'SOFT' 30, 'WONK' 0;
+    letter-spacing: -0.018em;
+  }
+
+  .font-display-italic {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-style: italic;
+    font-variation-settings: 'opsz' 96, 'SOFT' 50, 'WONK' 1;
+    letter-spacing: -0.012em;
+  }
+
+  /* Spec / metadata mono — used for stat numerals, badges, page chrome */
+  .font-spec {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-feature-settings: 'tnum', 'zero', 'ss01';
+    letter-spacing: 0;
+  }
+
+  /* Tabular numerals everywhere a number lives in UI chrome */
+  .num-tabular {
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: 'tnum', 'lnum';
+  }
+
+  ::selection {
+    background-color: hsl(var(--ink-12));
+    color: hsl(var(--paper));
+  }
+}
+
+/* ----------------------------------------------------------------------
+ * Element-level utilities
+ * -------------------------------------------------------------------- */
+
+@layer components {
+  /* Hairline divider: 1px on retina, 0.5px on the new ones. */
+  .hairline {
+    background-color: hsl(var(--rule));
+    height: 1px;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    .hairline {
+      height: 0.5px;
+    }
+  }
+
+  /* The single ambient texture we ship: a 4% noise field on the
+   * resume preview pedestal only. SVG is inlined to avoid a request. */
+  .paper-grain {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.05  0 0 0 0 0.04  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/></svg>");
+    background-size: 220px 220px;
+  }
+
+  /* Save-pulse: a 1px hairline that sweeps top-of-viewport when a
+   * save fires. Hooked via a data attribute on <html>. */
+  .save-pulse {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    background-color: hsl(var(--ink-12));
+    transform-origin: left center;
+    pointer-events: none;
+    z-index: 90;
+  }
+
+  /* Floating-label input shell — borderless field with an animated
+   * underline on focus. Used by the FloatingField primitive. */
+  .field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid hsl(var(--rule));
+    transition: border-color 200ms ease;
+    padding-top: 18px;
+  }
+  .field:focus-within {
+    border-color: hsl(var(--ink-12));
+  }
+  .field > input,
+  .field > textarea,
+  .field > select {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    padding: 6px 0 8px;
+    color: hsl(var(--ink-12));
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .field > input::placeholder,
+  .field > textarea::placeholder {
+    color: hsl(var(--ink-5));
+  }
+  .field > label {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    color: hsl(var(--ink-6));
+    font-size: 15px;
+    transition: transform 180ms ease, font-size 180ms ease, color 180ms ease;
+    transform-origin: left top;
+    pointer-events: none;
+  }
+  .field:focus-within > label,
+  .field[data-filled='true'] > label {
+    transform: translateY(-18px);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: hsl(var(--ink-7));
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+
+  /* Focus ring used by branded buttons + interactive cards */
+  .ring-ink {
+    box-shadow: 0 0 0 1px hsl(var(--paper)), 0 0 0 3px hsl(var(--ink-12) / 0.5);
+  }
+}
+
+/* ----------------------------------------------------------------------
+ * Reduced motion
+ * -------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ----------------------------------------------------------------------
+ * Print: keep the page itself printable. Recruiters notice this.
+ * -------------------------------------------------------------------- */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+* {
+  @supports (corner-shape: squircle) {
+    corner-shape: squircle;
   }
 }
