@@ -44,23 +44,24 @@ export default function CreatePage() {
     <div className="min-h-screen bg-canvas">
       {/* Slim editor header */}
       <header className="sticky top-0 z-30 border-b border-line bg-canvas/85 backdrop-blur">
-        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 md:px-10">
-          <Link href="/" aria-label="Dravvy">
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 md:px-10">
+          <Link href="/" aria-label="Dravvy" className="shrink-0">
             <Wordmark size="sm" />
           </Link>
-          <p className="hidden text-[13px] font-medium text-slate-7 sm:block num-tabular">
+          <p className="hidden text-[13px] font-medium text-slate-7 num-tabular md:block">
             Step {safeIndex + 1} of {sections.length}
           </p>
           <Link
             href="/settings"
-            className="text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
+            className="shrink-0 text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
           >
-            Style &amp; export →
+            <span className="hidden sm:inline">Style &amp; export →</span>
+            <span className="sm:hidden">Style →</span>
           </Link>
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-x-8 gap-y-10 px-6 py-10 md:px-10 md:py-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-x-8 gap-y-6 px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:gap-y-10">
         {/* Left rail */}
         <div className="col-span-12 lg:col-span-3">
           <ProgressTracker />
@@ -69,14 +70,14 @@ export default function CreatePage() {
         {/* Editor pane */}
         <main className="col-span-12 lg:col-span-9">
           {/* Section header */}
-          <div className="mb-8">
-            <p className="mb-2 text-[13px] font-semibold uppercase tracking-wider text-brand">
+          <div className="mb-6 sm:mb-8">
+            <p className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-brand sm:text-[13px]">
               Section {String(safeIndex + 1).padStart(2, '0')}
             </p>
-            <h1 className="text-[32px] font-bold leading-[1.1] tracking-[-0.02em] text-slate-12 md:text-[40px]">
+            <h1 className="text-[24px] font-bold leading-[1.15] tracking-[-0.02em] text-slate-12 sm:text-[28px] md:text-[36px] lg:text-[40px]">
               {current.label}
             </h1>
-            <p className="mt-3 text-[15px] text-slate-7">{current.helper}</p>
+            <p className="mt-2 text-[14px] text-slate-7 sm:mt-3 sm:text-[15px]">{current.helper}</p>
           </div>
 
           {/* Form card */}
@@ -87,7 +88,7 @@ export default function CreatePage() {
               animate={{ opacity: 1, y: 0 }}
               exit={reduce ? undefined : { opacity: 0, y: -6 }}
               transition={{ duration: 0.22, ease: [0.2, 0.7, 0.2, 1] }}
-              className="rounded-2xl border border-line bg-surface p-6 shadow-sm md:p-8"
+              className="rounded-2xl border border-line bg-surface p-4 shadow-sm sm:p-6 md:p-8"
             >
               <ResumeForm
                 section={current.id}
@@ -97,8 +98,8 @@ export default function CreatePage() {
           </AnimatePresence>
 
           {/* Footer nav */}
-          <div className="mt-8 flex items-center justify-between gap-3">
-            <div>
+          <div className="mt-6 flex items-center justify-between gap-3 sm:mt-8">
+            <div className="min-w-0 shrink-0">
               {safeIndex > 0 ? (
                 <Button onClick={handlePrev} variant="outline" className="gap-2">
                   <ArrowLeft className="h-4 w-4" />
@@ -109,9 +110,23 @@ export default function CreatePage() {
                 <span />
               )}
             </div>
-            <Button onClick={handleNext} variant="default" size="lg" className="gap-2">
-              <span>{isLast ? 'Style & export' : `Next: ${sections[safeIndex + 1].label}`}</span>
-              <ArrowRight className="h-4 w-4" />
+            <Button
+              onClick={handleNext}
+              variant="default"
+              size="lg"
+              className="min-w-0 max-w-[60%] gap-2 sm:max-w-none"
+            >
+              <span className="truncate">
+                {isLast
+                  ? 'Style & export'
+                  : (
+                    <>
+                      <span className="hidden sm:inline">Next: </span>
+                      {sections[safeIndex + 1].label}
+                    </>
+                  )}
+              </span>
+              <ArrowRight className="h-4 w-4 shrink-0" />
             </Button>
           </div>
         </main>

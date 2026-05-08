@@ -23,9 +23,10 @@ export default function Home() {
 function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-canvas/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-10">
-        <Link href="/" aria-label="Dravvy">
-          <Wordmark size="md" />
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 md:px-10">
+        <Link href="/" aria-label="Dravvy" className="shrink-0">
+          <Wordmark size="sm" className="md:hidden" />
+          <Wordmark size="md" className="hidden md:inline-flex" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           <a href="#features" className="text-[14px] font-medium text-slate-7 transition-colors hover:text-slate-12">
@@ -38,9 +39,10 @@ function SiteHeader() {
             FAQ
           </a>
         </nav>
-        <Link href="/create">
-          <Button variant="default" size="sm">
-            Start building
+        <Link href="/create" className="shrink-0">
+          <Button variant="default" size="sm" className="px-3 sm:px-4">
+            <span className="hidden sm:inline">Start building</span>
+            <span className="sm:hidden">Start</span>
             <ArrowRight className="h-4 w-4" />
           </Button>
         </Link>
@@ -55,38 +57,40 @@ function SiteHeader() {
 function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-5xl px-6 pb-12 pt-20 text-center md:pb-16 md:pt-28">
-        <div className="mx-auto mb-7 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[13px] font-medium text-slate-9 shadow-xs">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-positive" aria-hidden />
-          No account, no upload — your draft stays in your browser
+      <div className="mx-auto max-w-5xl px-4 pb-12 pt-14 text-center sm:px-6 sm:pt-20 md:pb-16 md:pt-28">
+        <div className="mx-auto mb-7 inline-flex max-w-full items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[12px] font-medium text-slate-9 shadow-xs sm:text-[13px]">
+          <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-positive" aria-hidden />
+          <span className="truncate sm:whitespace-normal">
+            No account, no upload — your draft stays in your browser
+          </span>
         </div>
 
-        <h1 className="text-balance text-[44px] font-bold leading-[1.05] tracking-[-0.028em] text-slate-12 md:text-[68px] lg:text-[80px]">
+        <h1 className="text-balance text-[34px] font-bold leading-[1.06] tracking-[-0.028em] text-slate-12 sm:text-[44px] md:text-[60px] lg:text-[78px]">
           Build a resume you&rsquo;ll
           <br className="hidden md:block" />{' '}
           actually want to send.
         </h1>
 
-        <p className="mx-auto mt-7 max-w-2xl text-pretty text-[17px] leading-[1.55] text-slate-7 md:text-[19px]">
+        <p className="mx-auto mt-6 max-w-2xl text-pretty text-[15px] leading-[1.55] text-slate-7 sm:text-[17px] md:mt-7 md:text-[19px]">
           Walk through nine guided sections. Pick a styling. See a true A4 preview as you go.
           Export as a print-ready PDF or an editable DOCX in one click.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/create">
-            <Button variant="default" size="lg" className="px-7">
+        <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center md:mt-10">
+          <Link href="/create" className="sm:w-auto">
+            <Button variant="default" size="lg" className="w-full sm:w-auto sm:px-7">
               Build your resume
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
-          <Link href="#features">
-            <Button variant="outline" size="lg">
+          <Link href="#features" className="sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
               See what&rsquo;s included
             </Button>
           </Link>
         </div>
 
-        <ul className="mx-auto mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] text-slate-7">
+        <ul className="mx-auto mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12px] text-slate-7 sm:text-[13px] md:mt-8 md:gap-x-6">
           {['ATS-friendly defaults', 'Free, forever', 'Works offline after load'].map((item) => (
             <li key={item} className="inline-flex items-center gap-1.5">
               <Check className="h-3.5 w-3.5 text-positive" strokeWidth={2.5} />
@@ -103,7 +107,7 @@ function Hero() {
 
 function PreviewMock() {
   return (
-    <div className="mx-auto max-w-5xl px-6 pb-24 md:px-10 md:pb-32">
+    <div className="mx-auto max-w-5xl px-4 pb-16 sm:px-6 sm:pb-24 md:px-10 md:pb-32">
       <div className="relative">
         {/* Soft pedestal behind the card */}
         <div
@@ -236,7 +240,7 @@ function FeaturesGrid() {
           <p className="mb-3 text-[13px] font-semibold uppercase tracking-wider text-brand">
             Features
           </p>
-          <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.018em] text-slate-12 md:text-[44px]">
+          <h2 className="text-[26px] font-bold leading-[1.1] tracking-[-0.018em] text-slate-12 sm:text-[32px] md:text-[40px] lg:text-[44px]">
             Everything a hiring manager scans for.
           </h2>
           <p className="mt-4 text-[16px] text-slate-7">
@@ -297,7 +301,7 @@ function ProcessStrip() {
           <p className="mb-3 text-[13px] font-semibold uppercase tracking-wider text-brand">
             How it works
           </p>
-          <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.018em] text-slate-12 md:text-[44px]">
+          <h2 className="text-[26px] font-bold leading-[1.1] tracking-[-0.018em] text-slate-12 sm:text-[32px] md:text-[40px] lg:text-[44px]">
             Four steps from blank page to a file you can send.
           </h2>
         </div>
@@ -360,7 +364,7 @@ function Faq() {
           <p className="mb-3 text-[13px] font-semibold uppercase tracking-wider text-brand">
             Questions
           </p>
-          <h2 className="text-[32px] font-bold leading-[1.1] tracking-[-0.018em] text-slate-12 md:text-[40px]">
+          <h2 className="text-[26px] font-bold leading-[1.1] tracking-[-0.018em] text-slate-12 sm:text-[32px] md:text-[40px]">
             Quick answers, no fine print.
           </h2>
         </div>
