@@ -23,8 +23,31 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      include: ['src/lib/**', 'src/store/**', 'src/components/**'],
+      // Scope coverage to the modules that are under unit test. Heavy view
+      // components and the DOCX/PDF exporters are exercised by the export
+      // smoke test instead, so they're intentionally out of this gate.
+      include: [
+        'src/lib/utils.ts',
+        'src/lib/utils/progress.ts',
+        'src/lib/validations/resume.ts',
+        'src/store/**',
+        'src/hooks/useHydration.ts',
+        'src/components/brand.tsx',
+        'src/components/error-boundary.tsx',
+        'src/components/progress-tracker.tsx',
+        'src/components/ui/button.tsx',
+        'src/components/ui/input.tsx',
+        'src/components/ui/label.tsx',
+        'src/components/ui/progress.tsx',
+        'src/components/ui/textarea.tsx',
+      ],
       exclude: ['src/**/*.d.ts', 'src/**/*.test.{ts,tsx}'],
+      thresholds: {
+        statements: 90,
+        branches: 85,
+        functions: 90,
+        lines: 90,
+      },
     },
   },
 })
