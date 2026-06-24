@@ -42,3 +42,8 @@ next-env.d.ts
 
 # export pipeline smoke test artifacts
 /.export-smoke
+
+# playwright
+/test-results
+/playwright-report
+/playwright/.cache
