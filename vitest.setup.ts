@@ -37,6 +37,27 @@ Object.defineProperty(globalThis, 'localStorage', {
   writable: true,
 })
 
+// jsdom doesn't implement these APIs that framer-motion / scroll code rely on.
+if (!window.matchMedia) {
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: (query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: () => {},
+      removeListener: () => {},
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => false,
+    }),
+  })
+}
+
+if (!Element.prototype.scrollIntoView) {
+  Element.prototype.scrollIntoView = () => {}
+}
+
 // Unmount React trees and clear persisted state between tests.
 afterEach(() => {
   cleanup()
