@@ -9,7 +9,9 @@
 A no-account, browser-only resume builder. Nine guided sections, a true A4
 preview, and one-click export as a print-ready PDF or an editable DOCX.
 
-[Features](#highlights) · [Screenshots](#screenshots) · [Getting started](#getting-started) · [Stack](#stack)
+[![CI](https://github.com/nshizirunguwilson/Dravvy/actions/workflows/ci.yml/badge.svg)](https://github.com/nshizirunguwilson/Dravvy/actions/workflows/ci.yml)
+
+[Features](#highlights) · [Screenshots](#screenshots) · [Getting started](#getting-started) · [Testing](#testing) · [Docker](#docker) · [Stack](#stack)
 
 </div>
 
@@ -136,12 +138,58 @@ npm run dev          # http://localhost:3000
 | `npm run start`       | Serves the production build.                                                  |
 | `npm run lint`        | Runs the Next/ESLint ruleset.                                                 |
 | `npm run typecheck`   | Strict TypeScript pass with no emit.                                          |
+| `npm run test`        | Unit + component tests (Vitest, jsdom).                                       |
+| `npm run test:coverage` | Unit/component tests with a v8 coverage gate.                               |
+| `npm run test:e2e`    | End-to-end tests (Playwright, Chromium) on a dev server at port 3100.         |
 | `npm run test:export` | Headless smoke test: renders the PDF and DOCX from a fixture and asserts the file headers. |
 | `npm run format`      | Prettier formatting.                                                          |
 
 The export smoke test is fully headless — it bundles the export modules
 with esbuild, runs them in Node, and asserts that the PDF starts with
 `%PDF` and the DOCX is a valid zip. CI can run it without a browser.
+
+---
+
+## Testing
+
+Three layers, all runnable locally and in CI:
+
+- **Unit & component** — [Vitest](https://vitest.dev) + React Testing Library
+  (jsdom). Covers the utilities, Zod validation schemas, both Zustand stores
+  (every action), the UI primitives, the live preview and the DOCX export —
+  **120+ tests**. A v8 coverage gate enforces 90% statements / lines /
+  functions and 85% branches across the tested surface (currently ~99% / ~94%).
+- **End-to-end** — [Playwright](https://playwright.dev) (Chromium) drives the
+  real app: the landing CTA into the builder, section-to-section navigation,
+  and the builder ↔ style/export flow. Playwright starts its own dev server on
+  port 3100, so it never collides with another server running on 3000.
+
+```bash
+npm run test            # unit + component (Vitest)
+npm run test:coverage   # with coverage gate
+npm run test:e2e        # end-to-end (Playwright)
+```
+
+Every push and pull request runs lint, typecheck, the unit suite with
+coverage, the production build, the Playwright e2e suite, and a Docker image
+build via [GitHub Actions](.github/workflows/ci.yml).
+
+---
+
+## Docker
+
+A multi-stage `Dockerfile` builds the app and serves it from a slim runtime
+image as an unprivileged user:
+
+```bash
+docker build -t dravvy .
+docker run -p 3000:3000 dravvy        # http://localhost:3000
+# …or with compose
+docker compose up --build
+```
+
+The runtime image carries only production dependencies and the build output —
+no test tooling, source maps or dev dependencies.
 
 ---
 
