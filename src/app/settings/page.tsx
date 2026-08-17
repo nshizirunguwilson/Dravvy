@@ -64,7 +64,7 @@ export default function SettingsPage() {
           <p className="mt-2 text-[14px] text-slate-7 sm:mt-3 sm:text-[15px]">{current.helper}</p>
         </div>
 
-        {/* Tab nav — wraps in a horizontally-scrollable container at small widths */}
+        {/* Tab nav, wraps in a horizontally-scrollable container at small widths */}
         <Tabs value={current.id} onValueChange={(v) => setActiveSection(sections.findIndex((s) => s.id === v))}>
           <div className="-mx-4 mb-6 overflow-x-auto px-4 sm:mx-0 sm:mb-8 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <TabsList>

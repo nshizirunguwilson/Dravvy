@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ----------------------------------------------------------------------
- * Modern product design system — Dravvy v2
+ * Modern product design system for Dravvy v2
  *
  * One sans family (Plus Jakarta Sans). Cool slate canvas, white
  * surfaces, real bordered controls, soft layered shadows, one bright
@@ -14,8 +14,8 @@
 @layer base {
   :root {
     /* Canvas + surfaces */
-    --canvas: 210 40% 98%;        /* slate-50 ish — page background */
-    --surface: 0 0% 100%;         /* pure white — cards, inputs */
+    --canvas: 210 40% 98%;        /* slate-50 ish, page background */
+    --surface: 0 0% 100%;         /* pure white, cards and inputs */
     --surface-2: 210 40% 96.5%;   /* hover / sunken / row stripe */
 
     /* Slate text ramp (cool, neutral) */
@@ -32,7 +32,7 @@
     --border-strong: 213 16% 80%; /* hover / strong border */
     --divider: 216 22% 94%;       /* very soft inline divider */
 
-    /* Brand accent — confident, professional blue */
+    /* Brand accent, confident, professional blue */
     --accent: 220 88% 56%;        /* primary CTA / focus / link */
     --accent-hover: 220 80% 50%;  /* CTA hover */
     --accent-soft: 220 100% 96%;  /* tint backgrounds */
@@ -44,13 +44,13 @@
     --negative: 0 72% 51%;        /* red-600 */
     --negative-soft: 0 86% 97%;
 
-    /* Radii — three deliberate sizes */
+    /* Radii, three deliberate sizes */
     --radius-sm: 8px;
     --radius: 12px;
     --radius-lg: 18px;
     --radius-xl: 24px;
 
-    /* Shadows — layered and warm-neutral, soft */
+    /* Shadows, layered and warm-neutral, soft */
     --shadow-xs: 0 1px 2px 0 hsl(220 12% 12% / 0.04);
     --shadow-sm: 0 1px 2px 0 hsl(220 12% 12% / 0.05), 0 1px 3px 0 hsl(220 12% 12% / 0.05);
     --shadow-md: 0 1px 3px 0 hsl(220 12% 12% / 0.05), 0 4px 12px -2px hsl(220 12% 12% / 0.08);

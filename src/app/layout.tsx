@@ -12,13 +12,13 @@ const sans = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Dravvy — Resume builder, no account needed',
+  title: 'Dravvy: Resume builder, no account needed',
   description:
     'A browser-only resume builder. Walk through nine sections, pick a styling, see a true A4 preview, export as PDF or DOCX.',
   keywords: ['resume', 'cv', 'builder', 'pdf', 'docx', 'a4'],
   authors: [{ name: 'Dravvy' }],
   openGraph: {
-    title: 'Dravvy — Resume builder, no account needed',
+    title: 'Dravvy: Resume builder, no account needed',
     description: 'Draft, style, and export a professional resume in minutes.',
     type: 'website',
   },

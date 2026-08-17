@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test'
 
 /**
- * End-to-end tests run against a locally started dev server — no external
+ * End-to-end tests run against a locally started dev server, with no external
  * services, no deployment. CI starts the same server on its runner.
  */
 export default defineConfig({

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 /**
- * Brand mark — a rounded blue tile with a confident "D" inside.
+ * Brand mark: a rounded blue tile with a confident "D" inside.
  */
 export function Mark({ className, ...props }: React.SVGProps<SVGSVGElement>) {
   return (
@@ -26,7 +26,7 @@ export function Mark({ className, ...props }: React.SVGProps<SVGSVGElement>) {
 }
 
 /**
- * Wordmark — Mark + the typeset name in the same sans the rest of the
+ * Wordmark: Mark plus the typeset name in the same sans the rest of the
  * UI uses. Slight negative tracking on the name for a confident lockup.
  */
 export function Wordmark({

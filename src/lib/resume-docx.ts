@@ -226,7 +226,7 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
     for (const c of certifications) {
       blocks.push(
         titleWithDate(
-          [run(c.name, { bold: true }), run(` — ${c.issuer}`)],
+          [run(c.name, { bold: true }), run(` - ${c.issuer}`)],
           formatDate(c.date, style.dateFormat)
         )
       )

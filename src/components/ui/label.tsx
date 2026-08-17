@@ -5,7 +5,7 @@ export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> 
 
 /**
  * Label sits ABOVE the field. Normal sans, 14px, weight 500, slate-9.
- * Not uppercase, not mono — readability first.
+ * Not uppercase, not mono, readability first.
  */
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
   ({ className, ...props }, ref) => (

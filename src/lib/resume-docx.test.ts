@@ -78,7 +78,7 @@ describe('buildResumeDocxBlob', () => {
   it('produces a valid Office Open XML (zip) document', async () => {
     const blob = await buildResumeDocxBlob(data)
     const bytes = new Uint8Array(await blob.arrayBuffer())
-    // DOCX files are ZIP archives — they start with the "PK" signature.
+    // DOCX files are ZIP archives, so they start with the "PK" signature.
     expect(bytes[0]).toBe(0x50)
     expect(bytes[1]).toBe(0x4b)
   })

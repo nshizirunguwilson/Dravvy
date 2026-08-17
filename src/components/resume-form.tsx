@@ -44,7 +44,7 @@ interface ResumeFormProps {
   onReferencesSaved?: () => void
 }
 
-// Primitives carry their own styling — these className strings are kept
+// Primitives carry their own styling, so these className strings are kept
 // (empty) so the existing form code can pass them through cn() without
 // fighting the new bordered-input look.
 const inputStyles = ''

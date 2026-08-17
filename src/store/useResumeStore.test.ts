@@ -7,7 +7,7 @@ beforeEach(() => {
   reset()
 })
 
-describe('useResumeStore — contact & summary', () => {
+describe('useResumeStore: contact & summary', () => {
   it('starts from an empty initial state', () => {
     const state = useResumeStore.getState()
     expect(state.contact.fullName).toBe('')
@@ -36,7 +36,7 @@ describe('useResumeStore — contact & summary', () => {
   })
 })
 
-describe('useResumeStore — experience CRUD', () => {
+describe('useResumeStore: experience CRUD', () => {
   const exp = {
     company: 'WAC TechX',
     position: 'Lead Engineer',
@@ -79,7 +79,7 @@ describe('useResumeStore — experience CRUD', () => {
   })
 })
 
-describe('useResumeStore — other collections', () => {
+describe('useResumeStore: other collections', () => {
   it('adds and removes skills', () => {
     useResumeStore.getState().addSkill({ category: 'Frontend', skills: ['React', 'Next.js'] })
     expect(useResumeStore.getState().skills).toHaveLength(1)
@@ -111,7 +111,7 @@ describe('useResumeStore — other collections', () => {
   })
 })
 
-describe('useResumeStore — resetStore', () => {
+describe('useResumeStore: resetStore', () => {
   it('wipes all entered data back to initial', () => {
     const s = useResumeStore.getState()
     s.updateSummary('something')

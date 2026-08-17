@@ -305,7 +305,7 @@ export function ResumePDF({ data }: ResumePDFProps) {
               <View key={c.id} style={[styles.rowBetween, { marginBottom: 2 }]}>
                 <Text>
                   <Text style={{ fontFamily: isBoldFamily }}>{c.name}</Text>
-                  <Text style={{ color: '#4b5563' }}> — {c.issuer}</Text>
+                  <Text style={{ color: '#4b5563' }}> - {c.issuer}</Text>
                 </Text>
                 <Text style={styles.italic}>{formatDate(c.date, style.dateFormat)}</Text>
               </View>

@@ -6,7 +6,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 /**
  * Bordered input. Visible boundary on all four sides, white background,
  * comfortable height (44px), brand-coloured focus ring. Label sits above
- * via the Label primitive — not on top of the field.
+ * via the Label primitive, not on top of the field.
  */
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type = 'text', ...props }, ref) => {

@@ -114,7 +114,7 @@ export function ResumePreview() {
 
   return (
     <div className="relative">
-      {/* Pedestal — neutral tray with the A4 page floating on it. */}
+      {/* Pedestal, a neutral tray with the A4 page floating on it. */}
       <div className="rounded-xl border border-line bg-surface-2/60 p-4 md:p-6">
         {/* Control bar */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-4">
@@ -261,7 +261,7 @@ export function ResumePreview() {
               <div key={c.id} style={{ marginBottom: gap / 2, display: 'flex', justifyContent: 'space-between' }}>
                 <span>
                   <strong>{c.name}</strong>
-                  <span style={{ color: '#4b5563' }}> — {c.issuer}</span>
+                  <span style={{ color: '#4b5563' }}> - {c.issuer}</span>
                 </span>
                 <span style={{ color: '#4b5563' }}>{formatDate(c.date, style.dateFormat)}</span>
               </div>

@@ -7,7 +7,7 @@ beforeEach(() => {
   store().resetStore()
 })
 
-describe('useResumeStore — education CRUD', () => {
+describe('useResumeStore: education CRUD', () => {
   const edu = {
     school: 'ALU',
     degree: 'BSc',
@@ -33,7 +33,7 @@ describe('useResumeStore — education CRUD', () => {
   })
 })
 
-describe('useResumeStore — certifications CRUD', () => {
+describe('useResumeStore: certifications CRUD', () => {
   const cert = { name: 'RWD', issuer: 'freeCodeCamp', date: '2026' }
 
   it('adds, updates, removes and reorders certifications', () => {
@@ -53,7 +53,7 @@ describe('useResumeStore — certifications CRUD', () => {
   })
 })
 
-describe('useResumeStore — awards CRUD', () => {
+describe('useResumeStore: awards CRUD', () => {
   const award = { title: 'Top Performer', issuer: 'WAC TechX', date: '2025', description: 'Recognised' }
 
   it('adds, updates, removes and reorders awards', () => {
@@ -73,7 +73,7 @@ describe('useResumeStore — awards CRUD', () => {
   })
 })
 
-describe('useResumeStore — skills & projects update/reorder', () => {
+describe('useResumeStore: skills & projects update/reorder', () => {
   it('updates and reorders skills', () => {
     store().addSkill({ category: 'Frontend', skills: ['React'] })
     store().addSkill({ category: 'Backend', skills: ['Node'] })
@@ -102,7 +102,7 @@ describe('useResumeStore — skills & projects update/reorder', () => {
   })
 })
 
-describe('useResumeStore — languages & references update/remove', () => {
+describe('useResumeStore: languages & references update/remove', () => {
   it('updates and removes languages', () => {
     store().addLanguage({ language: 'English', proficiency: 'fluent' })
     const lang = store().languages[0]

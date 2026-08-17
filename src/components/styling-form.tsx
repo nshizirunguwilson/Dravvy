@@ -205,7 +205,7 @@ export function StylingForm() {
         </Field>
       </div>
 
-      {/* Accent — preset palette + custom */}
+      {/* Accent, preset palette + custom */}
       <Field label="Accent colour">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
           <div className="flex flex-wrap gap-2">
