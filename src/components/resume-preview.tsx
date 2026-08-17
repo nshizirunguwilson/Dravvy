@@ -9,24 +9,28 @@ import type { ResumeStyle } from '@/types/resume'
 /**
  * Font stacks for the A4 preview.
  *
- * Roboto, Lato, Open Sans and Garamond are loaded as real webfonts in the root
- * layout, so their variables come first and the choice always renders. The
- * rest come from Windows or macOS, with a same-genre fallback behind them so a
- * machine without the face still shows serif for serif and sans for sans.
+ * Two rules hold here, and breaking either one makes a typeface choice a lie:
+ *
+ * 1. Every option names the real system font first, then its own dedicated
+ *    webfont. A machine that has the genuine face uses it; every other machine
+ *    still gets that typeface rather than a substitute.
+ * 2. No stack ever names another option's font. Georgia used to list
+ *    "Times New Roman" as a fallback, so on Linux the two options rendered
+ *    identically. Each chain now ends at a generic family instead.
  */
 const fontStack: Record<string, string> = {
-  'times new roman': '"Times New Roman", Times, "Liberation Serif", serif',
-  georgia: 'Georgia, "Gelasio", "Times New Roman", serif',
-  cambria: 'Cambria, var(--font-resume-cambria), Caladea, Georgia, serif',
-  garamond: 'Garamond, var(--font-resume-garamond), "EB Garamond", Georgia, serif',
-  calibri: 'Calibri, var(--font-resume-calibri), Carlito, "Helvetica Neue", Arial, sans-serif',
-  helvetica: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-  arial: 'Arial, "Liberation Sans", "Helvetica Neue", sans-serif',
-  roboto: 'var(--font-resume-roboto), Roboto, "Helvetica Neue", Arial, sans-serif',
-  lato: 'var(--font-resume-lato), Lato, "Helvetica Neue", Arial, sans-serif',
-  'open sans': 'var(--font-resume-open-sans), "Open Sans", "Helvetica Neue", Arial, sans-serif',
-  montserrat: 'var(--font-resume-montserrat), Montserrat, "Helvetica Neue", Arial, sans-serif',
-  outfit: 'var(--font-resume-outfit), Outfit, "Helvetica Neue", Arial, sans-serif',
+  'times new roman': '"Times New Roman", var(--font-resume-times), Tinos, serif',
+  georgia: 'Georgia, var(--font-resume-georgia), Gelasio, serif',
+  cambria: 'Cambria, var(--font-resume-cambria), Caladea, serif',
+  garamond: 'Garamond, var(--font-resume-garamond), "EB Garamond", serif',
+  calibri: 'Calibri, var(--font-resume-calibri), Carlito, sans-serif',
+  helvetica: '"Helvetica Neue", Helvetica, var(--font-resume-helvetica), Archivo, sans-serif',
+  arial: 'Arial, var(--font-resume-arial), Arimo, sans-serif',
+  roboto: 'var(--font-resume-roboto), Roboto, sans-serif',
+  lato: 'var(--font-resume-lato), Lato, sans-serif',
+  'open sans': 'var(--font-resume-open-sans), "Open Sans", sans-serif',
+  montserrat: 'var(--font-resume-montserrat), Montserrat, sans-serif',
+  outfit: 'var(--font-resume-outfit), Outfit, sans-serif',
 }
 
 const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {
