@@ -26,6 +26,7 @@ const fontStack: Record<string, string> = {
   lato: 'var(--font-resume-lato), Lato, "Helvetica Neue", Arial, sans-serif',
   'open sans': 'var(--font-resume-open-sans), "Open Sans", "Helvetica Neue", Arial, sans-serif',
   montserrat: 'var(--font-resume-montserrat), Montserrat, "Helvetica Neue", Arial, sans-serif',
+  outfit: 'var(--font-resume-outfit), Outfit, "Helvetica Neue", Arial, sans-serif',
 }
 
 const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {

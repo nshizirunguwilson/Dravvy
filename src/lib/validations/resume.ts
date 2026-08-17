@@ -76,6 +76,7 @@ export const styleSchema = z.object({
     'lato',
     'open sans',
     'montserrat',
+    'outfit',
   ]),
   separator: z.enum(['line', 'double line', 'bold line', 'no separator']),
   dateFormat: z.enum(['MM/YYYY', 'MMM YYYY', 'MMMM YYYY']),

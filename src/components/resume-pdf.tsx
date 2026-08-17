@@ -18,6 +18,7 @@ const fontMap: Record<string, string> = {
   lato: 'Helvetica',
   'open sans': 'Helvetica',
   montserrat: 'Helvetica',
+  outfit: 'Helvetica',
 }
 
 const fontSizeMap = {

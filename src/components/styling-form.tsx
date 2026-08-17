@@ -35,6 +35,7 @@ const sansSerifFonts = [
   { value: 'lato', label: 'Lato' },
   { value: 'open sans', label: 'Open Sans' },
   { value: 'montserrat', label: 'Montserrat' },
+  { value: 'outfit', label: 'Outfit' },
 ] as const
 
 const separatorTypes = [

@@ -6,6 +6,7 @@ import {
   Lato,
   Montserrat,
   Open_Sans,
+  Outfit,
   Plus_Jakarta_Sans,
   Roboto,
 } from 'next/font/google'
@@ -72,6 +73,15 @@ const resumeMontserrat = Montserrat({
   variable: '--font-resume-montserrat',
 })
 
+// Outfit publishes no true italic, so the browser synthesises the oblique used
+// for company names and project tech lists. That is the normal fallback and is
+// why no italic style is requested here.
+const resumeOutfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-resume-outfit',
+})
+
 const resumeCambria = Caladea({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -101,6 +111,7 @@ const fontVariables = [
   resumeCambria.variable,
   resumeCalibri.variable,
   resumeMontserrat.variable,
+  resumeOutfit.variable,
 ].join(' ')
 
 export const metadata: Metadata = {

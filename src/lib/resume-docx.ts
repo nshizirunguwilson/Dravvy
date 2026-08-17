@@ -25,6 +25,7 @@ type DocxFont =
   | 'Lato'
   | 'Open Sans'
   | 'Montserrat'
+  | 'Outfit'
 
 const fontDisplayMap: Record<string, DocxFont> = {
   'times new roman': 'Times New Roman',
@@ -38,6 +39,7 @@ const fontDisplayMap: Record<string, DocxFont> = {
   lato: 'Lato',
   'open sans': 'Open Sans',
   montserrat: 'Montserrat',
+  outfit: 'Outfit',
 }
 
 const fontSizeMap = {
