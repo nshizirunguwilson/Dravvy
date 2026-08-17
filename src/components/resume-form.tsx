@@ -85,6 +85,7 @@ function EmptyHint({ children }: { children: React.ReactNode }) {
 /* -------------------- Basic Info -------------------- */
 
 function BasicInfoForm() {
+  const uid = React.useId()
   const contact = useResumeStore((s) => s.contact)
   const summary = useResumeStore((s) => s.summary)
   const updateContact = useResumeStore((s) => s.updateContact)
@@ -116,8 +117,9 @@ function BasicInfoForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <Label className={labelStyles}>Full Name {requiredMark}</Label>
+          <Label className={labelStyles} htmlFor={`${uid}-full-name`}>Full Name {requiredMark}</Label>
           <Input
+            id={`${uid}-full-name`}
             value={contact.fullName}
             onChange={(e) => updateContact({ ...contact, fullName: e.target.value })}
             className={inputStyles}
@@ -126,8 +128,9 @@ function BasicInfoForm() {
           />
         </div>
         <div>
-          <Label className={labelStyles}>Email {requiredMark}</Label>
+          <Label className={labelStyles} htmlFor={`${uid}-email`}>Email {requiredMark}</Label>
           <Input
+            id={`${uid}-email`}
             type="email"
             value={contact.email}
             onChange={(e) => updateContact({ ...contact, email: e.target.value })}
@@ -140,8 +143,9 @@ function BasicInfoForm() {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <Label className={labelStyles}>Phone {requiredMark}</Label>
+          <Label className={labelStyles} htmlFor={`${uid}-phone`}>Phone {requiredMark}</Label>
           <Input
+            id={`${uid}-phone`}
             type="tel"
             value={contact.phone}
             onChange={(e) => updateContact({ ...contact, phone: e.target.value })}
@@ -151,8 +155,9 @@ function BasicInfoForm() {
           />
         </div>
         <div>
-          <Label className={labelStyles}>Location {requiredMark}</Label>
+          <Label className={labelStyles} htmlFor={`${uid}-location`}>Location {requiredMark}</Label>
           <Input
+            id={`${uid}-location`}
             value={contact.location}
             onChange={(e) => updateContact({ ...contact, location: e.target.value })}
             className={inputStyles}
@@ -164,8 +169,9 @@ function BasicInfoForm() {
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <div>
-          <Label className={labelStyles}>Personal Website</Label>
+          <Label className={labelStyles} htmlFor={`${uid}-personal-website`}>Personal Website</Label>
           <Input
+            id={`${uid}-personal-website`}
             type="url"
             value={contact.website ?? ''}
             onChange={(e) => updateContact({ ...contact, website: e.target.value })}
@@ -174,8 +180,9 @@ function BasicInfoForm() {
           />
         </div>
         <div>
-          <Label className={labelStyles}>LinkedIn Profile</Label>
+          <Label className={labelStyles} htmlFor={`${uid}-linkedin-profile`}>LinkedIn Profile</Label>
           <Input
+            id={`${uid}-linkedin-profile`}
             type="url"
             value={contact.linkedin ?? ''}
             onChange={(e) => updateContact({ ...contact, linkedin: e.target.value })}
@@ -184,8 +191,9 @@ function BasicInfoForm() {
           />
         </div>
         <div>
-          <Label className={labelStyles}>GitHub Profile</Label>
+          <Label className={labelStyles} htmlFor={`${uid}-github-profile`}>GitHub Profile</Label>
           <Input
+            id={`${uid}-github-profile`}
             type="url"
             value={contact.github ?? ''}
             onChange={(e) => updateContact({ ...contact, github: e.target.value })}
@@ -196,8 +204,9 @@ function BasicInfoForm() {
       </div>
 
       <div>
-        <Label className={labelStyles}>Professional Summary {requiredMark}</Label>
+        <Label className={labelStyles} htmlFor={`${uid}-professional-summary`}>Professional Summary {requiredMark}</Label>
         <Textarea
+          id={`${uid}-professional-summary`}
           value={summary}
           onChange={(e) => updateSummary(e.target.value)}
           className={textareaStyles}
@@ -215,6 +224,7 @@ function BasicInfoForm() {
 /* -------------------- Work Experience -------------------- */
 
 function WorkExperienceForm() {
+  const uid = React.useId()
   const experiences = useResumeStore((s) => s.experience)
   const addExperience = useResumeStore((s) => s.addExperience)
   const updateExperience = useResumeStore((s) => s.updateExperience)
@@ -261,8 +271,9 @@ function WorkExperienceForm() {
         <SectionCard key={exp.id}>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <Label className={labelStyles}>Job Title {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-job-title`}>Job Title {requiredMark}</Label>
               <Input
+                id={`${uid}-job-title`}
                 value={exp.position}
                 onChange={(e) => update({ ...exp, position: e.target.value })}
                 className={inputStyles}
@@ -270,8 +281,9 @@ function WorkExperienceForm() {
               />
             </div>
             <div>
-              <Label className={labelStyles}>Company {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-company`}>Company {requiredMark}</Label>
               <Input
+                id={`${uid}-company`}
                 value={exp.company}
                 onChange={(e) => update({ ...exp, company: e.target.value })}
                 className={inputStyles}
@@ -281,8 +293,9 @@ function WorkExperienceForm() {
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <Label className={labelStyles}>Start Date {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-start-date`}>Start Date {requiredMark}</Label>
               <Input
+                id={`${uid}-start-date`}
                 type="date"
                 value={exp.startDate}
                 onChange={(e) => update({ ...exp, startDate: e.target.value })}
@@ -291,8 +304,9 @@ function WorkExperienceForm() {
               />
             </div>
             <div>
-              <Label className={labelStyles}>End Date {!exp.current && requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-end-date`}>End Date {!exp.current && requiredMark}</Label>
               <Input
+                id={`${uid}-end-date`}
                 type="date"
                 value={exp.endDate}
                 onChange={(e) => update({ ...exp, endDate: e.target.value })}
@@ -302,22 +316,22 @@ function WorkExperienceForm() {
               />
             </div>
           </div>
-          <label className="inline-flex cursor-pointer items-center gap-2 text-[14px] text-slate-9">
+          <label className="inline-flex min-h-[44px] cursor-pointer items-center gap-2 text-[14px] text-slate-9">
             <input
               type="checkbox"
               checked={exp.current}
               onChange={(e) => update({ ...exp, current: e.target.checked, endDate: e.target.checked ? '' : exp.endDate })}
-              className="h-4 w-4 rounded border-line accent-[hsl(var(--accent))]"
+              className="h-6 w-6 rounded border-line accent-[hsl(var(--accent))]"
             />
             I currently work here
           </label>
 
           <div>
-            <Label className={labelStyles}>
+            <Label className={labelStyles} id={`${uid}-description-2-4-bullet-points`}>
               Description {requiredMark}
               <span className="ml-2 text-xs text-slate-7">(2-4 bullet points)</span>
             </Label>
-            <div className="space-y-2">
+            <div className="space-y-2" role="group" aria-labelledby={`${uid}-description-2-4-bullet-points`}>
               {exp.description.map((point, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <Input
@@ -329,6 +343,7 @@ function WorkExperienceForm() {
                     }}
                     className={inputStyles}
                     placeholder="Describe an achievement or responsibility"
+                    aria-label={`Bullet point ${i + 1}`}
                   />
                   <Button
                     type="button"
@@ -387,6 +402,7 @@ function WorkExperienceForm() {
 /* -------------------- Education -------------------- */
 
 function EducationForm() {
+  const uid = React.useId()
   const educations = useResumeStore((s) => s.education)
   const addEducation = useResumeStore((s) => s.addEducation)
   const updateEducation = useResumeStore((s) => s.updateEducation)
@@ -419,8 +435,9 @@ function EducationForm() {
         <SectionCard key={edu.id}>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <Label className={labelStyles}>Degree {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-degree`}>Degree {requiredMark}</Label>
               <Input
+                id={`${uid}-degree`}
                 value={edu.degree}
                 onChange={(e) => update({ ...edu, degree: e.target.value })}
                 className={inputStyles}
@@ -428,8 +445,9 @@ function EducationForm() {
               />
             </div>
             <div>
-              <Label className={labelStyles}>Field of Study {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-field-of-study`}>Field of Study {requiredMark}</Label>
               <Input
+                id={`${uid}-field-of-study`}
                 value={edu.field}
                 onChange={(e) => update({ ...edu, field: e.target.value })}
                 className={inputStyles}
@@ -438,8 +456,9 @@ function EducationForm() {
             </div>
           </div>
           <div>
-            <Label className={labelStyles}>Institution {requiredMark}</Label>
+            <Label className={labelStyles} htmlFor={`${uid}-institution`}>Institution {requiredMark}</Label>
             <Input
+              id={`${uid}-institution`}
               value={edu.school}
               onChange={(e) => update({ ...edu, school: e.target.value })}
               className={inputStyles}
@@ -448,8 +467,9 @@ function EducationForm() {
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <Label className={labelStyles}>Start Date {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-start-date`}>Start Date {requiredMark}</Label>
               <Input
+                id={`${uid}-start-date`}
                 type="date"
                 value={edu.startDate}
                 onChange={(e) => update({ ...edu, startDate: e.target.value })}
@@ -458,8 +478,9 @@ function EducationForm() {
               />
             </div>
             <div>
-              <Label className={labelStyles}>End / Expected Date {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-end-expected-date`}>End / Expected Date {requiredMark}</Label>
               <Input
+                id={`${uid}-end-expected-date`}
                 type="date"
                 value={edu.endDate}
                 onChange={(e) => update({ ...edu, endDate: e.target.value })}
@@ -469,8 +490,9 @@ function EducationForm() {
             </div>
           </div>
           <div>
-            <Label className={labelStyles}>GPA</Label>
+            <Label className={labelStyles} htmlFor={`${uid}-gpa`}>GPA</Label>
             <Input
+              id={`${uid}-gpa`}
               value={edu.gpa ?? ''}
               onChange={(e) => update({ ...edu, gpa: e.target.value })}
               className={inputStyles}
@@ -507,6 +529,7 @@ function EducationForm() {
 /* -------------------- Skills -------------------- */
 
 function SkillsForm() {
+  const uid = React.useId()
   const skills = useResumeStore((s) => s.skills)
   const addSkill = useResumeStore((s) => s.addSkill)
   const updateSkill = useResumeStore((s) => s.updateSkill)
@@ -543,8 +566,9 @@ function SkillsForm() {
       {skills.map((skill) => (
         <SectionCard key={skill.id}>
           <div>
-            <Label className={labelStyles}>Category {requiredMark}</Label>
+            <Label className={labelStyles} htmlFor={`${uid}-category`}>Category {requiredMark}</Label>
             <Input
+              id={`${uid}-category`}
               value={skill.category}
               onChange={(e) => update({ ...skill, category: e.target.value })}
               className={inputStyles}
@@ -553,8 +577,8 @@ function SkillsForm() {
             />
           </div>
           <div>
-            <Label className={labelStyles}>Skills {requiredMark}</Label>
-            <div className="space-y-2">
+            <Label className={labelStyles} id={`${uid}-skills`}>Skills {requiredMark}</Label>
+            <div className="space-y-2" role="group" aria-labelledby={`${uid}-skills`}>
               {skill.skills.map((s, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <Input
@@ -566,6 +590,7 @@ function SkillsForm() {
                     }}
                     className={inputStyles}
                     placeholder="e.g. TypeScript"
+                    aria-label={`Skill ${i + 1}`}
                   />
                   <Button
                     type="button"
@@ -608,6 +633,7 @@ function SkillsForm() {
 /* -------------------- Certifications -------------------- */
 
 function CertificationsForm() {
+  const uid = React.useId()
   const certifications = useResumeStore((s) => s.certifications)
   const addCertification = useResumeStore((s) => s.addCertification)
   const updateCertification = useResumeStore((s) => s.updateCertification)
@@ -642,8 +668,9 @@ function CertificationsForm() {
         <SectionCard key={c.id}>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <Label className={labelStyles}>Title {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-title`}>Title {requiredMark}</Label>
               <Input
+                id={`${uid}-title`}
                 value={c.name}
                 onChange={(e) => update({ ...c, name: e.target.value })}
                 className={inputStyles}
@@ -651,8 +678,9 @@ function CertificationsForm() {
               />
             </div>
             <div>
-              <Label className={labelStyles}>Issuer {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-issuer`}>Issuer {requiredMark}</Label>
               <Input
+                id={`${uid}-issuer`}
                 value={c.issuer}
                 onChange={(e) => update({ ...c, issuer: e.target.value })}
                 className={inputStyles}
@@ -662,8 +690,9 @@ function CertificationsForm() {
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <Label className={labelStyles}>Issue Date {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-issue-date`}>Issue Date {requiredMark}</Label>
               <Input
+                id={`${uid}-issue-date`}
                 type="date"
                 value={c.date}
                 onChange={(e) => update({ ...c, date: e.target.value })}
@@ -672,8 +701,9 @@ function CertificationsForm() {
               />
             </div>
             <div>
-              <Label className={labelStyles}>Credential URL</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-credential-url`}>Credential URL</Label>
               <Input
+                id={`${uid}-credential-url`}
                 type="url"
                 value={c.link ?? ''}
                 onChange={(e) => update({ ...c, link: e.target.value })}
@@ -702,6 +732,7 @@ function CertificationsForm() {
 /* -------------------- Awards -------------------- */
 
 function AwardsForm() {
+  const uid = React.useId()
   const awards = useResumeStore((s) => s.awards)
   const addAward = useResumeStore((s) => s.addAward)
   const updateAward = useResumeStore((s) => s.updateAward)
@@ -736,8 +767,9 @@ function AwardsForm() {
         <SectionCard key={a.id}>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <Label className={labelStyles}>Title {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-title`}>Title {requiredMark}</Label>
               <Input
+                id={`${uid}-title`}
                 value={a.title}
                 onChange={(e) => update({ ...a, title: e.target.value })}
                 className={inputStyles}
@@ -745,8 +777,9 @@ function AwardsForm() {
               />
             </div>
             <div>
-              <Label className={labelStyles}>Issuer {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-issuer`}>Issuer {requiredMark}</Label>
               <Input
+                id={`${uid}-issuer`}
                 value={a.issuer}
                 onChange={(e) => update({ ...a, issuer: e.target.value })}
                 className={inputStyles}
@@ -755,8 +788,9 @@ function AwardsForm() {
             </div>
           </div>
           <div>
-            <Label className={labelStyles}>Date {requiredMark}</Label>
+            <Label className={labelStyles} htmlFor={`${uid}-date`}>Date {requiredMark}</Label>
             <Input
+              id={`${uid}-date`}
               type="date"
               value={a.date}
               onChange={(e) => update({ ...a, date: e.target.value })}
@@ -765,8 +799,9 @@ function AwardsForm() {
             />
           </div>
           <div>
-            <Label className={labelStyles}>Description</Label>
+            <Label className={labelStyles} htmlFor={`${uid}-description`}>Description</Label>
             <Textarea
+              id={`${uid}-description`}
               value={a.description}
               onChange={(e) => update({ ...a, description: e.target.value })}
               className={textareaStyles}
@@ -795,6 +830,7 @@ function AwardsForm() {
 /* -------------------- Projects -------------------- */
 
 function ProjectsForm() {
+  const uid = React.useId()
   const projects = useResumeStore((s) => s.projects)
   const addProject = useResumeStore((s) => s.addProject)
   const updateProject = useResumeStore((s) => s.updateProject)
@@ -832,8 +868,9 @@ function ProjectsForm() {
       {projects.map((p) => (
         <SectionCard key={p.id}>
           <div>
-            <Label className={labelStyles}>Project Name {requiredMark}</Label>
+            <Label className={labelStyles} htmlFor={`${uid}-project-name`}>Project Name {requiredMark}</Label>
             <Input
+              id={`${uid}-project-name`}
               value={p.name}
               onChange={(e) => update({ ...p, name: e.target.value })}
               className={inputStyles}
@@ -841,8 +878,8 @@ function ProjectsForm() {
             />
           </div>
           <div>
-            <Label className={labelStyles}>Description {requiredMark}</Label>
-            <div className="space-y-2">
+            <Label className={labelStyles} id={`${uid}-description`}>Description {requiredMark}</Label>
+            <div className="space-y-2" role="group" aria-labelledby={`${uid}-description`}>
               {p.description.map((desc, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <Input
@@ -853,6 +890,7 @@ function ProjectsForm() {
                       update({ ...p, description: next })
                     }}
                     className={inputStyles}
+                    aria-label={`Project detail ${i + 1}`}
                   />
                   <Button
                     type="button"
@@ -875,8 +913,8 @@ function ProjectsForm() {
             </div>
           </div>
           <div>
-            <Label className={labelStyles}>Tech Stack {requiredMark}</Label>
-            <div className="space-y-2">
+            <Label className={labelStyles} id={`${uid}-tech-stack`}>Tech Stack {requiredMark}</Label>
+            <div className="space-y-2" role="group" aria-labelledby={`${uid}-tech-stack`}>
               {p.technologies.map((tech, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <Input
@@ -887,6 +925,7 @@ function ProjectsForm() {
                       update({ ...p, technologies: next })
                     }}
                     className={inputStyles}
+                    aria-label={`Technology ${i + 1}`}
                   />
                   <Button
                     type="button"
@@ -911,8 +950,9 @@ function ProjectsForm() {
             </div>
           </div>
           <div>
-            <Label className={labelStyles}>Project Link</Label>
+            <Label className={labelStyles} htmlFor={`${uid}-project-link`}>Project Link</Label>
             <Input
+              id={`${uid}-project-link`}
               type="url"
               value={p.link ?? ''}
               onChange={(e) => update({ ...p, link: e.target.value })}
@@ -940,6 +980,7 @@ function ProjectsForm() {
 /* -------------------- Languages -------------------- */
 
 function LanguagesForm() {
+  const uid = React.useId()
   const languages = useResumeStore((s) => s.languages)
   const addLanguage = useResumeStore((s) => s.addLanguage)
   const updateLanguage = useResumeStore((s) => s.updateLanguage)
@@ -974,8 +1015,9 @@ function LanguagesForm() {
         <SectionCard key={l.id}>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
-              <Label className={labelStyles}>Language {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-language`}>Language {requiredMark}</Label>
               <Input
+                id={`${uid}-language`}
                 value={l.language}
                 onChange={(e) => update({ ...l, language: e.target.value })}
                 className={inputStyles}
@@ -984,12 +1026,12 @@ function LanguagesForm() {
               />
             </div>
             <div>
-              <Label className={labelStyles}>Proficiency {requiredMark}</Label>
+              <Label className={labelStyles} htmlFor={`${uid}-proficiency`}>Proficiency {requiredMark}</Label>
               <Select
                 value={l.proficiency}
                 onValueChange={(value: Language['proficiency']) => update({ ...l, proficiency: value })}
               >
-                <SelectTrigger className={inputStyles}>
+                <SelectTrigger className={inputStyles} id={`${uid}-proficiency`}>
                   <SelectValue placeholder="Select proficiency" />
                 </SelectTrigger>
                 <SelectContent>
@@ -1024,6 +1066,7 @@ function LanguagesForm() {
 /* -------------------- References -------------------- */
 
 function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void }) {
+  const uid = React.useId()
   const references = useResumeStore((s) => s.references)
   const addReference = useResumeStore((s) => s.addReference)
   const updateReference = useResumeStore((s) => s.updateReference)
@@ -1061,25 +1104,25 @@ function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void 
     <form onSubmit={handleSubmit} className="space-y-6">
       <fieldset className="space-y-3">
         <legend className="text-[14px] font-semibold text-slate-12">Reference style</legend>
-        <label className="flex cursor-pointer items-center gap-3">
+        <label className="flex min-h-[44px] cursor-pointer items-center gap-3">
           <input
             type="radio"
             name="reference-mode"
             checked={referencesMode === 'uponRequest'}
             onChange={() => setReferencesMode('uponRequest')}
-            className="h-4 w-4 accent-[hsl(var(--accent))]"
+            className="h-5 w-5 accent-[hsl(var(--accent))]"
           />
           <span className="text-[14px] text-slate-9">
             Show &ldquo;References available upon request&rdquo;
           </span>
         </label>
-        <label className="flex cursor-pointer items-center gap-3">
+        <label className="flex min-h-[44px] cursor-pointer items-center gap-3">
           <input
             type="radio"
             name="reference-mode"
             checked={referencesMode === 'include'}
             onChange={() => setReferencesMode('include')}
-            className="h-4 w-4 accent-[hsl(var(--accent))]"
+            className="h-5 w-5 accent-[hsl(var(--accent))]"
           />
           <span className="text-[14px] text-slate-9">Include named references</span>
         </label>
@@ -1092,8 +1135,9 @@ function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void 
             <SectionCard key={r.id}>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
-                  <Label className={labelStyles}>Name {requiredMark}</Label>
+                  <Label className={labelStyles} htmlFor={`${uid}-name`}>Name {requiredMark}</Label>
                   <Input
+                    id={`${uid}-name`}
                     value={r.name}
                     onChange={(e) => update({ ...r, name: e.target.value })}
                     className={inputStyles}
@@ -1101,8 +1145,9 @@ function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void 
                   />
                 </div>
                 <div>
-                  <Label className={labelStyles}>Relationship {requiredMark}</Label>
+                  <Label className={labelStyles} htmlFor={`${uid}-relationship`}>Relationship {requiredMark}</Label>
                   <Input
+                    id={`${uid}-relationship`}
                     value={r.relationship}
                     onChange={(e) => update({ ...r, relationship: e.target.value })}
                     className={inputStyles}
@@ -1111,8 +1156,9 @@ function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void 
                   />
                 </div>
                 <div>
-                  <Label className={labelStyles}>Email {requiredMark}</Label>
+                  <Label className={labelStyles} htmlFor={`${uid}-email`}>Email {requiredMark}</Label>
                   <Input
+                    id={`${uid}-email`}
                     type="email"
                     value={r.email}
                     onChange={(e) => update({ ...r, email: e.target.value })}
@@ -1121,8 +1167,9 @@ function ReferencesForm({ onReferencesSaved }: { onReferencesSaved?: () => void 
                   />
                 </div>
                 <div>
-                  <Label className={labelStyles}>Phone {requiredMark}</Label>
+                  <Label className={labelStyles} htmlFor={`${uid}-phone`}>Phone {requiredMark}</Label>
                   <Input
+                    id={`${uid}-phone`}
                     value={r.phone}
                     onChange={(e) => update({ ...r, phone: e.target.value })}
                     className={inputStyles}

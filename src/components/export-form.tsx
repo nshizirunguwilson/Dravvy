@@ -28,6 +28,8 @@ export function ExportForm() {
   const [format, setFormat] = React.useState<ExportFormat>('pdf')
   const [loading, setLoading] = React.useState(false)
   const [filename, setFilename] = React.useState('')
+  const filenameId = React.useId()
+  const formatLabelId = React.useId()
   const reduce = useReducedMotion()
 
   const data = useResumeStore((s) => ({
@@ -86,8 +88,9 @@ export function ExportForm() {
     <div className="space-y-8">
       {/* Filename */}
       <div className="space-y-2">
-        <Label>File name</Label>
+        <Label htmlFor={filenameId}>File name</Label>
         <Input
+          id={filenameId}
           value={filename}
           onChange={(e) => setFilename(e.target.value)}
           placeholder={`${slugify(data.contact.fullName || 'your-name')}-resume`}
@@ -99,8 +102,8 @@ export function ExportForm() {
 
       {/* Format choice */}
       <div className="space-y-3">
-        <Label>Export format</Label>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <Label id={formatLabelId}>Export format</Label>
+        <div role="radiogroup" aria-labelledby={formatLabelId} className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <FormatCard
             active={format === 'pdf'}
             onClick={() => setFormat('pdf')}
@@ -181,6 +184,8 @@ function FormatCard({
   return (
     <button
       type="button"
+      role="radio"
+      aria-checked={active}
       onClick={onClick}
       className={cn(
         'group relative rounded-xl border bg-surface px-5 py-5 text-left transition-all duration-150',
