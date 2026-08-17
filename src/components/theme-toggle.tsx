@@ -31,7 +31,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       aria-label={label}
       title={label}
       className={cn(
-        'inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-line bg-surface text-slate-9 shadow-xs transition-colors',
+        'inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-line bg-surface text-slate-9 shadow-xs transition-colors',
         'hover:border-line-strong hover:bg-surface-2 hover:text-slate-12',
         'focus-visible:outline-none focus-visible:[box-shadow:0_0_0_1px_hsl(var(--surface)),0_0_0_3px_hsl(var(--accent)/0.4)]',
         className,
@@ -69,7 +69,7 @@ export function ThemeSelector({ className }: { className?: string }) {
               aria-checked={active}
               onClick={() => setTheme(value)}
               className={cn(
-                'flex flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-[13px] font-semibold transition-colors',
+                'flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-md px-3 py-2 text-[13px] font-semibold transition-colors',
                 'focus-visible:outline-none focus-visible:[box-shadow:0_0_0_1px_hsl(var(--surface)),0_0_0_3px_hsl(var(--accent)/0.4)]',
                 active
                   ? 'bg-surface text-slate-12 shadow-xs'
