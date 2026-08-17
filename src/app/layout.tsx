@@ -1,5 +1,11 @@
 import type { Metadata, Viewport } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import {
+  EB_Garamond,
+  Lato,
+  Open_Sans,
+  Plus_Jakarta_Sans,
+  Roboto,
+} from 'next/font/google'
 
 import './globals.css'
 import { AppToaster } from '@/components/app-toaster'
@@ -12,6 +18,53 @@ const sans = Plus_Jakarta_Sans({
   display: 'swap',
   variable: '--font-sans',
 })
+
+/**
+ * Resume typefaces.
+ *
+ * Four of the ten choices in the styling form have no system installation to
+ * fall back to on a typical machine, so without these they silently rendered
+ * as something else. Loading them here makes the choice real. The remaining
+ * six (Times New Roman, Georgia, Cambria, Garamond, Calibri, Arial,
+ * Helvetica) ship with Windows or macOS and are used from the system.
+ */
+const resumeRoboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-roboto',
+})
+
+const resumeLato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-lato',
+})
+
+const resumeOpenSans = Open_Sans({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-open-sans',
+})
+
+const resumeGaramond = EB_Garamond({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-garamond',
+})
+
+const fontVariables = [
+  sans.variable,
+  resumeRoboto.variable,
+  resumeLato.variable,
+  resumeOpenSans.variable,
+  resumeGaramond.variable,
+].join(' ')
 
 export const metadata: Metadata = {
   title: 'Dravvy: Resume builder, no account needed',
@@ -34,7 +87,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={sans.variable}>
+    <html lang="en" suppressHydrationWarning className={fontVariables}>
       <head>
         {/* Paints the stored theme before first paint, so a dark-mode visitor
             never sees a white flash. */}
