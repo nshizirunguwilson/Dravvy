@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T21:00:17.228Z",
+  "generatedAt": "2026-08-17T21:58:37.900Z",
   "baseURL": "http://localhost:3100",
   "devices": 14,
   "screens": 9,
@@ -736,7 +736,7 @@
       ],
       "touch": true,
       "file": "iphone-12-mini--create-references--light.jpg",
-      "bytes": 24392,
+      "bytes": 24376,
       "pass": true,
       "problems": [],
       "detail": {
@@ -1024,7 +1024,7 @@
       ],
       "touch": true,
       "file": "iphone-12-mini--create-references--dark.jpg",
-      "bytes": 23218,
+      "bytes": 23230,
       "pass": true,
       "problems": [],
       "detail": {
@@ -1312,7 +1312,7 @@
       ],
       "touch": true,
       "file": "iphone-14--create-references--light.jpg",
-      "bytes": 25663,
+      "bytes": 25682,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2176,7 +2176,7 @@
       ],
       "touch": true,
       "file": "iphone-15-pro-max--create-references--dark.jpg",
-      "bytes": 28488,
+      "bytes": 28492,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2464,7 +2464,7 @@
       ],
       "touch": true,
       "file": "iphone-6s-landscape--create-references--light.jpg",
-      "bytes": 18127,
+      "bytes": 18132,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2752,7 +2752,7 @@
       ],
       "touch": true,
       "file": "iphone-6s-landscape--create-references--dark.jpg",
-      "bytes": 17232,
+      "bytes": 17222,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2976,7 +2976,7 @@
       ],
       "touch": true,
       "file": "iphone-15-pro-max-landscape--create-work--light.jpg",
-      "bytes": 24676,
+      "bytes": 24681,
       "pass": true,
       "problems": [],
       "detail": {
@@ -4960,7 +4960,7 @@
       ],
       "touch": true,
       "file": "ipad-pro-13--create-basic--dark.jpg",
-      "bytes": 66536,
+      "bytes": 66569,
       "pass": true,
       "problems": [],
       "detail": {
@@ -6688,7 +6688,7 @@
       ],
       "touch": false,
       "file": "macbook-air-13--create-basic--dark.jpg",
-      "bytes": 68419,
+      "bytes": 68408,
       "pass": true,
       "problems": [],
       "detail": {

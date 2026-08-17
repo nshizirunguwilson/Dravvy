@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T21:35:26.112Z",
+  "generatedAt": "2026-08-17T21:41:45.795Z",
   "baseURL": "http://localhost:3100",
   "totalOptions": 38,
   "checked": 38,
@@ -88,7 +88,7 @@
       "bytes": 80953,
       "digest": "36c3ae8977b92337",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -116,7 +116,7 @@
       "bytes": 79776,
       "digest": "e498cde2dae61dff",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -144,7 +144,7 @@
       "bytes": 74024,
       "digest": "f4f347b1942e5c05",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "left",
         "headerGapPx": 18,
@@ -312,7 +312,7 @@
       "bytes": 80953,
       "digest": "36c3ae8977b92337",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -508,7 +508,7 @@
       "bytes": 77164,
       "digest": "0d0accf2d819892a",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 11,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -536,7 +536,7 @@
       "bytes": 80953,
       "digest": "36c3ae8977b92337",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -564,7 +564,7 @@
       "bytes": 91574,
       "digest": "e7f4758a416d909b",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 14,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -592,7 +592,7 @@
       "bytes": 85985,
       "digest": "bb62dadf41bef719",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 12,
@@ -620,7 +620,7 @@
       "bytes": 80953,
       "digest": "36c3ae8977b92337",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -648,7 +648,7 @@
       "bytes": 77575,
       "digest": "96eb4fa4d08cabf9",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 26,
@@ -676,7 +676,7 @@
       "bytes": 80953,
       "digest": "36c3ae8977b92337",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -704,7 +704,7 @@
       "bytes": 89454,
       "digest": "03248faccbe68062",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -732,7 +732,7 @@
       "bytes": 83433,
       "digest": "859a217198772caa",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -760,7 +760,7 @@
       "bytes": 76316,
       "digest": "3907811eb6b6fafa",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -788,7 +788,7 @@
       "bytes": 80953,
       "digest": "36c3ae8977b92337",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -816,7 +816,7 @@
       "bytes": 81373,
       "digest": "736817c225d8e1d6",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -844,7 +844,7 @@
       "bytes": 82319,
       "digest": "eec81404ba112787",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -872,7 +872,7 @@
       "bytes": 78636,
       "digest": "d1dc6d6d151f504e",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -900,7 +900,7 @@
       "bytes": 78309,
       "digest": "3c7817b4c0eb0318",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -928,7 +928,7 @@
       "bytes": 80171,
       "digest": "249fad1167bcf659",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -956,7 +956,7 @@
       "bytes": 80953,
       "digest": "36c3ae8977b92337",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -984,7 +984,7 @@
       "bytes": 80098,
       "digest": "18cbda57d62958df",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -1012,7 +1012,7 @@
       "bytes": 79353,
       "digest": "77ce978d9cc85b26",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -1040,7 +1040,7 @@
       "bytes": 80636,
       "digest": "6ae9964f37d330a1",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -1068,7 +1068,7 @@
       "bytes": 80277,
       "digest": "b1a4b68e06146b40",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -1096,7 +1096,7 @@
       "bytes": 79916,
       "digest": "b8b7ad8ba60da24a",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
@@ -1124,7 +1124,7 @@
       "bytes": 80419,
       "digest": "44a29ff3b3d63dcc",
       "rendered": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, sans-serif",
+        "fontFamily": "\"Helvetica Neue\", Helvetica, __Archivo_ade111, __Archivo_Fallback_ade111, Archivo, sans-serif",
         "bodyPx": 12.5,
         "headerAlign": "center",
         "headerGapPx": 18,
