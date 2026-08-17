@@ -47,3 +47,8 @@ next-env.d.ts
 /test-results
 /playwright-report
 /playwright/.cache
+
+# styling proof: working dir, and the generated report (rebuild with
+# `npm run proof:report` from the committed images and JSON)
+/.styling-proof
+/docs/styling-proof/report.html

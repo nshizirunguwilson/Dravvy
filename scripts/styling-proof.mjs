@@ -236,8 +236,14 @@ function checkOption(groupId, option, rendered, baseline) {
 }
 
 async function main() {
-  await fs.rm(outDir, { recursive: true, force: true })
+  // Clear only what this script owns. The export sweep writes exports.json
+  // into the same folder and the two run independently, in either order.
   await fs.mkdir(outDir, { recursive: true })
+  for (const entry of await fs.readdir(outDir)) {
+    if (entry.endsWith('.jpg') || entry === 'manifest.json') {
+      await fs.rm(path.join(outDir, entry))
+    }
+  }
 
   const browser = await chromium.launch()
   const context = await browser.newContext({
