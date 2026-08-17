@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-17T19:42:09.377Z",
+  "generatedAt": "2026-08-17T19:52:51.011Z",
   "baseURL": "http://localhost:3100",
-  "totalOptions": 36,
-  "checked": 36,
+  "totalOptions": 37,
+  "checked": 37,
   "failures": 0,
   "formCheck": {
     "pass": true,
     "counts": {
       "Theme": 3,
-      "Typeface": 10,
+      "Typeface": 11,
       "Body size": 3,
       "Section spacing": 3,
       "Separator": 4,
@@ -18,7 +18,7 @@
     },
     "expected": {
       "Theme": 3,
-      "Typeface": 10,
+      "Typeface": 11,
       "Body size": 3,
       "Section spacing": 3,
       "Separator": 4,
@@ -68,6 +68,10 @@
     {
       "label": "Open Sans",
       "width": 123.5
+    },
+    {
+      "label": "Montserrat",
+      "width": 128.72
     }
   ],
   "results": [
@@ -422,6 +426,34 @@
         "headerGapPx": 18,
         "headingColor": "rgb(37, 99, 235)",
         "nameWidthPx": 123.5,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "montserrat",
+      "label": "Montserrat",
+      "file": "typeface--montserrat.jpg",
+      "bytes": 88245,
+      "digest": "40f7150b229e2f81",
+      "rendered": {
+        "fontFamily": "__Montserrat_3f47e9, __Montserrat_Fallback_3f47e9, Montserrat, \"Helvetica Neue\", Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 128.72,
         "rulePlacement": "above",
         "ruleCount": 1,
         "ruleHeightPx": 1,
