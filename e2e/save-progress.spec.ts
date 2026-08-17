@@ -38,9 +38,15 @@ test.describe('Save and resume', () => {
 
     await page.getByLabel('Progress file').first().setInputFiles(savedPath)
 
+    // Importing puts you back on the step you saved from, which is the whole
+    // point, so the editor is now showing work experience rather than basics.
+    await expect(page.getByText(/Step 2 of 9/)).toBeVisible()
+    await expect(page.getByRole('heading', { level: 1, name: 'Work experience' })).toBeVisible()
+
+    // The basics came back with it.
+    await page.getByRole('button', { name: /basic information/i }).first().click()
     await expect(page.getByPlaceholder('Jane Doe')).toHaveValue('Avery Lin')
     await expect(page.getByPlaceholder('City, State')).toHaveValue('Kigali, Rwanda')
-    await expect(page.getByText(/Step 2 of 9/)).toBeVisible()
   })
 
   test('previews the file before replacing the draft from settings', async ({ page }) => {
