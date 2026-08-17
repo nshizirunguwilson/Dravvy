@@ -159,6 +159,7 @@ export const groups = [
       { value: 'lato', label: 'Lato', genre: 'sans' },
       { value: 'open sans', label: 'Open Sans', genre: 'sans' },
       { value: 'montserrat', label: 'Montserrat', genre: 'sans' },
+      { value: 'outfit', label: 'Outfit', genre: 'sans' },
     ],
   },
   {

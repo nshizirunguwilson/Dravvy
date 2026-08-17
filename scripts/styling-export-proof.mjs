@@ -97,6 +97,7 @@ const DOCX_FONTS = {
   lato: 'Lato',
   'open sans': 'Open Sans',
   montserrat: 'Montserrat',
+  outfit: 'Outfit',
 }
 
 const DOCX_BODY_HALF_POINTS = { small: 18, medium: 20, large: 24 }
