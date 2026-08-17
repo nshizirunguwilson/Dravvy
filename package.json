@@ -10,6 +10,8 @@
     "lint:dashes": "node scripts/check-dashes.mjs",
     "format": "prettier --write .",
     "test:export": "node scripts/export-smoke.mjs",
+    "proof:styling": "node scripts/styling-proof.mjs",
+    "proof:exports": "node scripts/styling-export-proof.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",

@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import {
+  Caladea,
+  Carlito,
   EB_Garamond,
   Lato,
   Open_Sans,
@@ -22,11 +24,15 @@ const sans = Plus_Jakarta_Sans({
 /**
  * Resume typefaces.
  *
- * Four of the ten choices in the styling form have no system installation to
+ * Six of the ten choices in the styling form have no system installation to
  * fall back to on a typical machine, so without these they silently rendered
- * as something else. Loading them here makes the choice real. The remaining
- * six (Times New Roman, Georgia, Cambria, Garamond, Calibri, Arial,
- * Helvetica) ship with Windows or macOS and are used from the system.
+ * as some other face. Caladea and Carlito are the open, metric-compatible
+ * equivalents of Cambria and Calibri, which ship only with Microsoft Office.
+ *
+ * Each is declared behind the real system font in the stack, so a machine that
+ * genuinely has Cambria or Calibri still uses it. Verified per option by
+ * `npm run proof:styling`, which measures the rendered text width and fails if
+ * two typefaces come out identical.
  */
 const resumeRoboto = Roboto({
   subsets: ['latin'],
@@ -58,12 +64,30 @@ const resumeGaramond = EB_Garamond({
   variable: '--font-resume-garamond',
 })
 
+const resumeCambria = Caladea({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-cambria',
+})
+
+const resumeCalibri = Carlito({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-calibri',
+})
+
 const fontVariables = [
   sans.variable,
   resumeRoboto.variable,
   resumeLato.variable,
   resumeOpenSans.variable,
   resumeGaramond.variable,
+  resumeCambria.variable,
+  resumeCalibri.variable,
 ].join(' ')
 
 export const metadata: Metadata = {

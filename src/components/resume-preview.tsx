@@ -17,9 +17,9 @@ import type { ResumeStyle } from '@/types/resume'
 const fontStack: Record<string, string> = {
   'times new roman': '"Times New Roman", Times, "Liberation Serif", serif',
   georgia: 'Georgia, "Gelasio", "Times New Roman", serif',
-  cambria: 'Cambria, Caladea, Georgia, serif',
+  cambria: 'Cambria, var(--font-resume-cambria), Caladea, Georgia, serif',
   garamond: 'Garamond, var(--font-resume-garamond), "EB Garamond", Georgia, serif',
-  calibri: 'Calibri, Carlito, "Helvetica Neue", Arial, sans-serif',
+  calibri: 'Calibri, var(--font-resume-calibri), Carlito, "Helvetica Neue", Arial, sans-serif',
   helvetica: '"Helvetica Neue", Helvetica, Arial, sans-serif',
   arial: 'Arial, "Liberation Sans", "Helvetica Neue", sans-serif',
   roboto: 'var(--font-resume-roboto), Roboto, "Helvetica Neue", Arial, sans-serif',

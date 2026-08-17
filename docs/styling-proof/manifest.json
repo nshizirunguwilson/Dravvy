@@ -1,0 +1,1083 @@
+{
+  "generatedAt": "2026-08-17T19:22:50.523Z",
+  "baseURL": "http://localhost:3100",
+  "totalOptions": 36,
+  "checked": 36,
+  "failures": 0,
+  "formCheck": {
+    "pass": true,
+    "counts": {
+      "Theme": 3,
+      "Typeface": 10,
+      "Body size": 3,
+      "Section spacing": 3,
+      "Separator": 4,
+      "Date format": 3,
+      "Accent colour": 9,
+      "Accent colour custom": 1
+    },
+    "expected": {
+      "Theme": 3,
+      "Typeface": 10,
+      "Body size": 3,
+      "Section spacing": 3,
+      "Separator": 4,
+      "Date format": 3,
+      "Accent colour": 9,
+      "Accent colour custom": 1
+    },
+    "reason": ""
+  },
+  "typefaceWidths": [
+    {
+      "label": "Times New Roman",
+      "width": 113.8
+    },
+    {
+      "label": "Georgia",
+      "width": 131.36
+    },
+    {
+      "label": "Cambria",
+      "width": 113.11
+    },
+    {
+      "label": "Garamond",
+      "width": 109.06
+    },
+    {
+      "label": "Calibri",
+      "width": 101.5
+    },
+    {
+      "label": "Helvetica",
+      "width": 116.52
+    },
+    {
+      "label": "Arial",
+      "width": 119.88
+    },
+    {
+      "label": "Roboto",
+      "width": 111.05
+    },
+    {
+      "label": "Lato",
+      "width": 111.75
+    },
+    {
+      "label": "Open Sans",
+      "width": 123.5
+    }
+  ],
+  "results": [
+    {
+      "group": "theme",
+      "groupLabel": "Theme",
+      "value": "modern",
+      "label": "Modern",
+      "file": "theme--modern.png",
+      "bytes": 156404,
+      "digest": "850bc8ee26b10e09",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "theme",
+      "groupLabel": "Theme",
+      "value": "classic",
+      "label": "Classic",
+      "file": "theme--classic.png",
+      "bytes": 156784,
+      "digest": "d44d1e9bcab34732",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(17, 24, 39)",
+        "nameWidthPx": 148.63,
+        "rulePlacement": "below",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "theme",
+      "groupLabel": "Theme",
+      "value": "minimal",
+      "label": "Minimal",
+      "file": "theme--minimal.png",
+      "bytes": 154558,
+      "digest": "da27f365ce18ad5a",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "left",
+        "headerGapPx": 18,
+        "headingColor": "rgb(107, 114, 128)",
+        "nameWidthPx": 111.83,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 161,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "times new roman",
+      "label": "Times New Roman",
+      "file": "typeface--times-new-roman.png",
+      "bytes": 155904,
+      "digest": "07df4d3b03927475",
+      "rendered": {
+        "fontFamily": "\"Times New Roman\", Times, \"Liberation Serif\", serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 113.8,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "georgia",
+      "label": "Georgia",
+      "file": "typeface--georgia.png",
+      "bytes": 168242,
+      "digest": "def5dac0676299ec",
+      "rendered": {
+        "fontFamily": "Georgia, Gelasio, \"Times New Roman\", serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 131.36,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "cambria",
+      "label": "Cambria",
+      "file": "typeface--cambria.png",
+      "bytes": 154589,
+      "digest": "e66686d0ff553b0e",
+      "rendered": {
+        "fontFamily": "Cambria, __Caladea_0268e0, __Caladea_Fallback_0268e0, Caladea, Georgia, serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 113.11,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "garamond",
+      "label": "Garamond",
+      "file": "typeface--garamond.png",
+      "bytes": 150232,
+      "digest": "a2732df4e0880275",
+      "rendered": {
+        "fontFamily": "Garamond, __EB_Garamond_32a015, __EB_Garamond_Fallback_32a015, \"EB Garamond\", Georgia, serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 109.06,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "calibri",
+      "label": "Calibri",
+      "file": "typeface--calibri.png",
+      "bytes": 145018,
+      "digest": "2a828a3c43043fe3",
+      "rendered": {
+        "fontFamily": "Calibri, __Carlito_33c777, Carlito, \"Helvetica Neue\", Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 101.5,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "helvetica",
+      "label": "Helvetica",
+      "file": "typeface--helvetica.png",
+      "bytes": 156404,
+      "digest": "850bc8ee26b10e09",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "arial",
+      "label": "Arial",
+      "file": "typeface--arial.png",
+      "bytes": 159227,
+      "digest": "57cf4692a736892a",
+      "rendered": {
+        "fontFamily": "Arial, \"Liberation Sans\", \"Helvetica Neue\", sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 119.88,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "roboto",
+      "label": "Roboto",
+      "file": "typeface--roboto.png",
+      "bytes": 153064,
+      "digest": "76b2488bb594c793",
+      "rendered": {
+        "fontFamily": "__Roboto_720a51, __Roboto_Fallback_720a51, Roboto, \"Helvetica Neue\", Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 111.05,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "lato",
+      "label": "Lato",
+      "file": "typeface--lato.png",
+      "bytes": 152927,
+      "digest": "21d1df23a7a1c94b",
+      "rendered": {
+        "fontFamily": "__Lato_79853d, __Lato_Fallback_79853d, Lato, \"Helvetica Neue\", Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 111.75,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "open sans",
+      "label": "Open Sans",
+      "file": "typeface--open-sans.png",
+      "bytes": 154127,
+      "digest": "1e02c16912926857",
+      "rendered": {
+        "fontFamily": "__Open_Sans_b92217, __Open_Sans_Fallback_b92217, \"Open Sans\", \"Helvetica Neue\", Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 123.5,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "body-size",
+      "groupLabel": "Body size",
+      "value": "small",
+      "label": "Small",
+      "file": "body-size--small.png",
+      "bytes": 152223,
+      "digest": "3c8f8c5747a39269",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 11,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 98.59,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "body-size",
+      "groupLabel": "Body size",
+      "value": "medium",
+      "label": "Medium",
+      "file": "body-size--medium.png",
+      "bytes": 156404,
+      "digest": "850bc8ee26b10e09",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "body-size",
+      "groupLabel": "Body size",
+      "value": "large",
+      "label": "Large",
+      "file": "body-size--large.png",
+      "bytes": 172655,
+      "digest": "07ee0e7f1095b69a",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 14,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 134.44,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "section-spacing",
+      "groupLabel": "Section spacing",
+      "value": "small",
+      "label": "Small",
+      "file": "section-spacing--small.png",
+      "bytes": 166534,
+      "digest": "291f9992e44e3604",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 12,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "section-spacing",
+      "groupLabel": "Section spacing",
+      "value": "medium",
+      "label": "Medium",
+      "file": "section-spacing--medium.png",
+      "bytes": 156404,
+      "digest": "850bc8ee26b10e09",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "section-spacing",
+      "groupLabel": "Section spacing",
+      "value": "large",
+      "label": "Large",
+      "file": "section-spacing--large.png",
+      "bytes": 152345,
+      "digest": "732f0d5810e79007",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 26,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "separator",
+      "groupLabel": "Separator",
+      "value": "line",
+      "label": "Single line",
+      "file": "separator--line.png",
+      "bytes": 156404,
+      "digest": "850bc8ee26b10e09",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "separator",
+      "groupLabel": "Separator",
+      "value": "double line",
+      "label": "Double line",
+      "file": "separator--double-line.png",
+      "bytes": 155185,
+      "digest": "ec0576a890cf464d",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 2,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "separator",
+      "groupLabel": "Separator",
+      "value": "bold line",
+      "label": "Bold line",
+      "file": "separator--bold-line.png",
+      "bytes": 155153,
+      "digest": "522a4f24b0ac93bb",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 3,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "separator",
+      "groupLabel": "Separator",
+      "value": "no separator",
+      "label": "No separator",
+      "file": "separator--no-separator.png",
+      "bytes": 157086,
+      "digest": "0d040ca077676518",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "none",
+        "ruleCount": 0,
+        "ruleHeightPx": null,
+        "ruleWidthPx": null,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "date-format",
+      "groupLabel": "Date format",
+      "value": "MM/YYYY",
+      "label": "01/2026",
+      "file": "date-format--mm-yyyy.png",
+      "bytes": 156404,
+      "digest": "850bc8ee26b10e09",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "date-format",
+      "groupLabel": "Date format",
+      "value": "MMM YYYY",
+      "label": "Jan 2026",
+      "file": "date-format--mmm-yyyy.png",
+      "bytes": 158362,
+      "digest": "b928da3bbfb53351",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "Apr 2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "date-format",
+      "groupLabel": "Date format",
+      "value": "MMMM YYYY",
+      "label": "January 2026",
+      "file": "date-format--mmmm-yyyy.png",
+      "bytes": 160932,
+      "digest": "6c7f884e2c13f070",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "April 2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#0F172A",
+      "label": "Slate",
+      "file": "accent-colour---0f172a.png",
+      "bytes": 156814,
+      "digest": "22c11d00781b3476",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(15, 23, 42)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#1f2937",
+      "label": "Graphite",
+      "file": "accent-colour---1f2937.png",
+      "bytes": 156684,
+      "digest": "d3473c4945d34bd8",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(31, 41, 55)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#1e3a8a",
+      "label": "Indigo",
+      "file": "accent-colour---1e3a8a.png",
+      "bytes": 156724,
+      "digest": "c2b513ab121be039",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(30, 58, 138)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#2563EB",
+      "label": "Blue",
+      "file": "accent-colour---2563eb.png",
+      "bytes": 156404,
+      "digest": "850bc8ee26b10e09",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#0e7490",
+      "label": "Teal",
+      "file": "accent-colour---0e7490.png",
+      "bytes": 156681,
+      "digest": "91dc7a3f3034c494",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(14, 116, 144)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#15803d",
+      "label": "Forest",
+      "file": "accent-colour---15803d.png",
+      "bytes": 156929,
+      "digest": "5445aa479923948d",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(21, 128, 61)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#9a3412",
+      "label": "Sienna",
+      "file": "accent-colour---9a3412.png",
+      "bytes": 156712,
+      "digest": "90e54b2cae31f697",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(154, 52, 18)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#7c2d12",
+      "label": "Burgundy",
+      "file": "accent-colour---7c2d12.png",
+      "bytes": 156716,
+      "digest": "1f11d8d79bf89e0d",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(124, 45, 18)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#7c3aed",
+      "label": "Violet",
+      "file": "accent-colour---7c3aed.png",
+      "bytes": 156364,
+      "digest": "ac1df4a2ad0a246d",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(124, 58, 237)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#B45309",
+      "label": "Custom hex",
+      "file": "accent-colour---b45309.png",
+      "bytes": 156768,
+      "digest": "f8dd291cddc84d2f",
+      "rendered": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(180, 83, 9)",
+        "nameWidthPx": 116.52,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    }
+  ]
+}
