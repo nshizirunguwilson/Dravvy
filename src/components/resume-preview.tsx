@@ -131,9 +131,14 @@ export function ResumePreview() {
 
         {/* The page */}
         <div className="mt-1 overflow-x-auto">
+          {/* The page itself is always white with dark ink, in light and dark
+              theme alike, because that is exactly what the PDF and DOCX
+              exports produce. */}
           <article
-            className="mx-auto bg-surface text-slate-12 shadow-lg"
+            className="mx-auto shadow-lg"
             style={{
+              backgroundColor: '#ffffff',
+              color: '#111827',
               fontFamily: family,
               fontSize: sizes.body,
               width: '210mm',

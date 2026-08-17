@@ -192,7 +192,7 @@ function FormatCard({
       <div
         className={cn(
           'mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors',
-          active ? 'bg-brand text-white' : 'bg-brand-soft text-brand-ink',
+          active ? 'bg-brand text-brand-fg' : 'bg-brand-soft text-brand-ink',
         )}
       >
         {icon}

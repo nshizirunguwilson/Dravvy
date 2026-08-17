@@ -11,6 +11,7 @@ import { ExportForm } from '@/components/export-form'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Wordmark } from '@/components/brand'
+import { ThemeSelector, ThemeToggle } from '@/components/theme-toggle'
 import { useUIStore } from '@/store/useUIStore'
 
 const sections = [
@@ -42,13 +43,16 @@ export default function SettingsPage() {
           <p className="hidden text-[13px] font-medium text-slate-7 md:block">
             Style &amp; export
           </p>
-          <Link
-            href="/create"
-            className="shrink-0 text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
-          >
-            <span className="hidden sm:inline">← Back to editor</span>
-            <span className="sm:hidden">← Editor</span>
-          </Link>
+          <div className="flex shrink-0 items-center gap-3">
+            <ThemeToggle />
+            <Link
+              href="/create"
+              className="text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
+            >
+              <span className="hidden sm:inline">← Back to editor</span>
+              <span className="sm:hidden">← Editor</span>
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -125,10 +129,30 @@ export default function SettingsPage() {
   )
 }
 
+function AppearanceBlock() {
+  return (
+    <section className="rounded-xl border border-line bg-surface-2/40 p-4 sm:p-5">
+      <h2 className="text-[15px] font-semibold text-slate-12">App theme</h2>
+      <p className="mb-4 mt-1 text-[13px] text-slate-7">
+        Light or dark for the builder itself. Your resume always previews and exports on white
+        paper, whichever you pick.
+      </p>
+      <ThemeSelector />
+    </section>
+  )
+}
+
 function renderStep(id: SectionId) {
   switch (id) {
     case 'styling':
-      return <StylingForm />
+      return (
+        <div className="space-y-8">
+          <AppearanceBlock />
+          <div className="border-t border-line pt-8">
+            <StylingForm />
+          </div>
+        </div>
+      )
     case 'preview':
       return <ResumePreview />
     case 'export':

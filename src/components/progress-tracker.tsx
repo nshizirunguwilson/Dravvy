@@ -117,7 +117,7 @@ export function ProgressTracker() {
                   <span
                     className={cn(
                       'flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[10px] font-bold num-tabular',
-                      completed && 'bg-brand text-white',
+                      completed && 'bg-brand text-brand-fg',
                       !completed && active && 'border border-brand bg-surface text-brand',
                       !completed && !active && 'border border-line bg-surface text-slate-7',
                     )}
@@ -189,7 +189,7 @@ function Node({
       aria-hidden
       className={cn(
         'flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold transition-colors num-tabular',
-        completed && 'bg-brand text-white',
+        completed && 'bg-brand text-brand-fg',
         !completed && active && 'border border-brand bg-surface text-brand',
         !completed && !active && 'border border-line bg-surface text-slate-7',
       )}

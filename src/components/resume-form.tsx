@@ -315,7 +315,7 @@ function WorkExperienceForm() {
           <div>
             <Label className={labelStyles}>
               Description {requiredMark}
-              <span className="ml-2 text-xs text-gray-500">(2-4 bullet points)</span>
+              <span className="ml-2 text-xs text-slate-7">(2-4 bullet points)</span>
             </Label>
             <div className="space-y-2">
               {exp.description.map((point, i) => (

@@ -3,6 +3,7 @@ import { ArrowRight, Check, FileDown, Layers, MonitorPlay, Palette, ShieldCheck 
 
 import { Button } from '@/components/ui/button'
 import { Wordmark } from '@/components/brand'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export default function Home() {
   return (
@@ -39,13 +40,16 @@ function SiteHeader() {
             FAQ
           </a>
         </nav>
-        <Link href="/create" className="shrink-0">
-          <Button variant="default" size="sm" className="px-3 sm:px-4">
-            <span className="hidden sm:inline">Start building</span>
-            <span className="sm:hidden">Start</span>
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </Link>
+        <div className="flex shrink-0 items-center gap-2">
+          <ThemeToggle />
+          <Link href="/create">
+            <Button variant="default" size="sm" className="px-3 sm:px-4">
+              <span className="hidden sm:inline">Start building</span>
+              <span className="sm:hidden">Start</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
       </div>
     </header>
   )
@@ -147,7 +151,7 @@ function PreviewMock() {
                   >
                     <span
                       className={`flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-semibold ${
-                        done ? 'bg-brand text-white' : 'border border-line bg-surface text-slate-7'
+                        done ? 'bg-brand text-brand-fg' : 'border border-line bg-surface text-slate-7'
                       }`}
                     >
                       {done ? <Check className="h-3 w-3" strokeWidth={3} /> : n}
@@ -312,7 +316,7 @@ function ProcessStrip() {
               key={n}
               className="rounded-2xl border border-line bg-surface p-6 shadow-sm"
             >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-12 text-[14px] font-bold text-white num-tabular">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-12 text-[14px] font-bold text-canvas num-tabular">
                 {String(n).padStart(2, '0')}
               </span>
               <h3 className="mt-5 text-[17px] font-semibold text-slate-12">{title}</h3>
