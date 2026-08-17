@@ -8,8 +8,10 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 import { ResumeForm, type ResumeSection } from '@/components/resume-form'
 import { ProgressTracker } from '@/components/progress-tracker'
+import { SaveProgressCompact } from '@/components/save-progress'
 import { Button } from '@/components/ui/button'
 import { Wordmark } from '@/components/brand'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { useUIStore } from '@/store/useUIStore'
 
 const sections: { id: ResumeSection; label: string; helper: string }[] = [
@@ -51,20 +53,26 @@ export default function CreatePage() {
           <p className="hidden text-[13px] font-medium text-slate-7 num-tabular md:block">
             Step {safeIndex + 1} of {sections.length}
           </p>
-          <Link
-            href="/settings"
-            className="shrink-0 text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
-          >
-            <span className="hidden sm:inline">Style &amp; export →</span>
-            <span className="sm:hidden">Style →</span>
-          </Link>
+          <div className="flex shrink-0 items-center gap-3">
+            <ThemeToggle />
+            <Link
+              href="/settings"
+              className="text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
+            >
+              <span className="hidden sm:inline">Style &amp; export →</span>
+              <span className="sm:hidden">Style →</span>
+            </Link>
+          </div>
         </div>
       </header>
 
       <div className="mx-auto grid max-w-7xl grid-cols-12 gap-x-8 gap-y-6 px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:gap-y-10">
         {/* Left rail */}
         <div className="col-span-12 lg:col-span-3">
-          <ProgressTracker />
+          <div className="space-y-4 lg:sticky lg:top-24">
+            <ProgressTracker />
+            <SaveProgressCompact />
+          </div>
         </div>
 
         {/* Editor pane */}

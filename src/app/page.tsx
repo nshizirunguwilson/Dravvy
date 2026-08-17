@@ -3,6 +3,7 @@ import { ArrowRight, Check, FileDown, Layers, MonitorPlay, Palette, ShieldCheck 
 
 import { Button } from '@/components/ui/button'
 import { Wordmark } from '@/components/brand'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export default function Home() {
   return (
@@ -39,20 +40,23 @@ function SiteHeader() {
             FAQ
           </a>
         </nav>
-        <Link href="/create" className="shrink-0">
-          <Button variant="default" size="sm" className="px-3 sm:px-4">
-            <span className="hidden sm:inline">Start building</span>
-            <span className="sm:hidden">Start</span>
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </Link>
+        <div className="flex shrink-0 items-center gap-2">
+          <ThemeToggle />
+          <Link href="/create">
+            <Button variant="default" size="sm" className="px-3 sm:px-4">
+              <span className="hidden sm:inline">Start building</span>
+              <span className="sm:hidden">Start</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
       </div>
     </header>
   )
 }
 
 /* ----------------------------------------------------------------------
- * Hero — centred headline, soft trust badge, two CTAs, preview card
+ * Hero: centred headline, soft trust badge, two CTAs, preview card
  * -------------------------------------------------------------------- */
 function Hero() {
   return (
@@ -61,7 +65,7 @@ function Hero() {
         <div className="mx-auto mb-7 inline-flex max-w-full items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-[12px] font-medium text-slate-9 shadow-xs sm:text-[13px]">
           <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-positive" aria-hidden />
           <span className="truncate sm:whitespace-normal">
-            No account, no upload — your draft stays in your browser
+            No account, no upload. Your draft stays in your browser
           </span>
         </div>
 
@@ -122,7 +126,7 @@ function PreviewMock() {
               <span className="h-3 w-3 rounded-full bg-line" />
               <span className="h-3 w-3 rounded-full bg-line" />
             </div>
-            <span className="text-[12px] font-medium text-slate-6">app.dravvy.com — A4 preview</span>
+            <span className="text-[12px] font-medium text-slate-6">app.dravvy.com / A4 preview</span>
             <span className="w-12" />
           </div>
 
@@ -147,7 +151,7 @@ function PreviewMock() {
                   >
                     <span
                       className={`flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-semibold ${
-                        done ? 'bg-brand text-white' : 'border border-line bg-surface text-slate-7'
+                        done ? 'bg-brand text-brand-fg' : 'border border-line bg-surface text-slate-7'
                       }`}
                     >
                       {done ? <Check className="h-3 w-3" strokeWidth={3} /> : n}
@@ -196,14 +200,14 @@ function PreviewMock() {
 }
 
 /* ----------------------------------------------------------------------
- * Features grid — bordered cards, soft shadow, lucide icons in tinted
+ * Features grid: bordered cards, soft shadow, lucide icons in tinted
  * tile, real spacing.
  * -------------------------------------------------------------------- */
 const features = [
   {
     icon: Layers,
     title: 'Nine guided sections',
-    body: 'Basics, experience, education, skills, certifications, awards, projects, languages, references — each with inline validation.',
+    body: 'Basics, experience, education, skills, certifications, awards, projects, languages, references, each with inline validation.',
   },
   {
     icon: Palette,
@@ -228,7 +232,7 @@ const features = [
   {
     icon: Check,
     title: 'ATS-friendly by default',
-    body: 'Single-column body, standard fonts, plain section headings — chosen so applicant tracking systems read every line cleanly.',
+    body: 'Single-column body, standard fonts, plain section headings, chosen so applicant tracking systems read every line cleanly.',
   },
 ] as const
 
@@ -244,7 +248,7 @@ function FeaturesGrid() {
             Everything a hiring manager scans for.
           </h2>
           <p className="mt-4 text-[16px] text-slate-7">
-            Just the parts that matter — none of the busywork.
+            Just the parts that matter, none of the busywork.
           </p>
         </div>
 
@@ -268,7 +272,7 @@ function FeaturesGrid() {
 }
 
 /* ----------------------------------------------------------------------
- * Process — clear numbered steps, tile cards
+ * Process: clear numbered steps, tile cards
  * -------------------------------------------------------------------- */
 const steps = [
   {
@@ -312,7 +316,7 @@ function ProcessStrip() {
               key={n}
               className="rounded-2xl border border-line bg-surface p-6 shadow-sm"
             >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-12 text-[14px] font-bold text-white num-tabular">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-12 text-[14px] font-bold text-canvas num-tabular">
                 {String(n).padStart(2, '0')}
               </span>
               <h3 className="mt-5 text-[17px] font-semibold text-slate-12">{title}</h3>
@@ -324,7 +328,7 @@ function ProcessStrip() {
         <div className="mt-14 flex justify-center">
           <Link href="/create">
             <Button variant="default" size="lg" className="px-7">
-              Start now &mdash; it&rsquo;s free
+              Start now, it&rsquo;s free
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
@@ -335,7 +339,7 @@ function ProcessStrip() {
 }
 
 /* ----------------------------------------------------------------------
- * FAQ — bordered card list, plain English
+ * FAQ: bordered card list, plain English
  * -------------------------------------------------------------------- */
 const faqs = [
   {
@@ -352,7 +356,7 @@ const faqs = [
   },
   {
     q: 'Is the layout ATS-friendly?',
-    a: 'Yes. The export uses single-column body text, standard fonts, and plain section headings — all of which most applicant tracking systems read reliably.',
+    a: 'Yes. The export uses single-column body text, standard fonts, and plain section headings, all of which most applicant tracking systems read reliably.',
   },
 ] as const
 

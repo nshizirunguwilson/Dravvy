@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:dashes": "node scripts/check-dashes.mjs",
     "format": "prettier --write .",
     "test:export": "node scripts/export-smoke.mjs",
     "test": "vitest run",

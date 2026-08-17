@@ -23,7 +23,7 @@ export default function NotFound() {
           </h1>
           <p className="mx-auto max-w-md text-[16px] text-slate-7">
             The link is broken or the page was retired. Your draft, if you have one, is still on
-            this device — head back to the editor.
+            this device. Head back to the editor.
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-3">

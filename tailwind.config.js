@@ -30,6 +30,7 @@ module.exports = {
           hover: 'hsl(var(--accent-hover))',
           soft: 'hsl(var(--accent-soft))',
           ink: 'hsl(var(--accent-ink))',
+          fg: 'hsl(var(--accent-fg))',
         },
         positive: {
           DEFAULT: 'hsl(var(--positive))',
@@ -65,7 +66,7 @@ module.exports = {
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          foreground: 'hsl(var(--accent-fg))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',

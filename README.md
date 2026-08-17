@@ -22,25 +22,31 @@ preview, and one-click export as a print-ready PDF or an editable DOCX.
 <img src="docs/screenshots/home-desktop.png" alt="Dravvy landing page" width="100%" />
 
 - **No account, no upload.** Your draft lives in your browser. Clear site
-  data and it's gone — nothing to sign up for, nothing on a server.
+  data and it's gone. Nothing to sign up for, nothing on a server.
 - **Nine guided sections** with inline validation: Basics, Work, Education,
   Skills, Certifications, Awards, Projects, Languages, References.
 - **True A4 live preview** dimensioned to the millimetre, so what you see in
   the editor is what gets exported.
 - **One-click export** as a print-ready A4 PDF *or* an editable DOCX that
   opens cleanly in Microsoft Word, Pages and Google Docs.
-- **ATS-friendly defaults** — single-column body, standard fonts, plain
-  section headings — chosen so applicant tracking systems read every line.
-- **Stylable without code** — pick a typeface, accent, separator, body size,
+- **ATS-friendly defaults**: single-column body, standard fonts, plain
+  section headings, chosen so applicant tracking systems read every line.
+- **Stylable without code**: pick a typeface, accent, separator, body size,
   spacing rhythm and date format; the choice flows into the preview, the
   PDF and the DOCX.
+- **Save and resume**: download a single progress file holding every section,
+  your styling and the step you were on, then import it later, on any device,
+  and carry on from exactly that point.
+- **Light and dark theme**, remembered per device, following your operating
+  system by default, and applied before first paint so there is no white
+  flash. The resume page itself stays white paper in either theme.
 - **Responsive down to 320px** (iPhone 5/SE).
 
 ---
 
 ## Screenshots
 
-### Editor — pick a section, fill the form, see your progress
+### Editor: pick a section, fill the form, see your progress
 
 <img src="docs/screenshots/create-desktop.png" alt="Dravvy editor with sections rail and form" width="100%" />
 
@@ -48,15 +54,16 @@ A vertical sections rail on the left tracks completion in real time. Each
 field has a visible boundary, a label above the input, and a clear required
 marker. The footer always shows what comes next.
 
-### Style & export — final touches before download
+### Style & export: final touches before download
 
 <img src="docs/screenshots/settings-desktop.png" alt="Dravvy styling page with theme, typeface, accent picker" width="100%" />
 
-A pill-style segmented tab nav switches between **Styling**, **Preview** and
-**Export**. The accent picker offers nine presets and a custom hex; the
-selection is reflected in the preview, the PDF and the DOCX.
+A pill-style segmented tab nav switches between **Styling**, **Preview**,
+**Export** and **Save file**. The accent picker offers nine presets and a
+custom hex; the selection is reflected in the preview, the PDF and the DOCX.
+The Styling tab also carries the app theme control (light / dark / system).
 
-### Mobile — built down to iPhone 5
+### Mobile: built down to iPhone 5
 
 <table>
   <tr>
@@ -92,7 +99,7 @@ vertically and labels switch to compact variants on the smallest widths.
 | Section            | Required fields                                                          | Multiple entries |
 | ------------------ | ------------------------------------------------------------------------ | ---------------- |
 | Basic information  | Full name, email, phone, location, professional summary                  | No               |
-| Work experience    | Job title, company, start date, end date or *current*, 2–4 bullet points | Yes              |
+| Work experience    | Job title, company, start date, end date or *current*, 2-4 bullet points | Yes              |
 | Education          | Degree, field, institution, start date, end date / expected              | Yes              |
 | Skills             | Category name + at least one skill                                       | Yes              |
 | Certifications     | Title, issuer, issue date                                                | Yes              |
@@ -103,6 +110,49 @@ vertically and labels switch to compact variants on the smallest widths.
 
 Optional fields (LinkedIn, GitHub, personal site, GPA, certificate URL,
 project link) appear in the preview/exports only when filled in.
+
+---
+
+## Save and resume
+
+Drafts persist in `localStorage`, which is fine until you switch browser,
+switch machine, or clear your site data. The **Save file** tab (and the
+compact card in the editor rail) writes the whole draft to one portable
+JSON file:
+
+```jsonc
+{
+  "format": "dravvy.resume-progress",
+  "version": 1,
+  "savedAt": "2026-08-17T09:30:00.000Z",
+  "progress": { "builderStep": 4, "settingsStep": 1 },
+  "resume": { "contact": {}, "experience": [], "style": {} }
+}
+```
+
+Importing reads that file back, restores every section and your styling, and
+returns you to the step you were on. The reader is deliberately forgiving: a
+half-finished draft imports fine, missing fields are filled with defaults,
+and unknown styling values fall back rather than failing. Files that are not
+valid JSON, were not written by Dravvy, or come from a newer format version
+are rejected with a plain explanation, and your current draft is left
+untouched until you confirm the replacement.
+
+Nothing is uploaded. The file is produced and read entirely in the browser.
+
+---
+
+## Theme
+
+Light and dark, with a third **System** option that follows the operating
+system live. The choice is stored per device under `dravvy-theme` and applied
+by a small blocking script in `<head>`, so a dark-mode visitor never sees a
+white flash on load. Switching also sets the native `color-scheme`, so
+scrollbars, date pickers and other browser widgets follow along.
+
+The A4 preview is the deliberate exception: it stays white paper with dark
+ink in both themes, because that is exactly what the PDF and DOCX exports
+produce. Printing from dark mode also falls back to the light palette.
 
 ---
 
@@ -137,6 +187,7 @@ npm run dev          # http://localhost:3000
 | `npm run build`       | Production build (also runs `next lint` and TypeScript checks).               |
 | `npm run start`       | Serves the production build.                                                  |
 | `npm run lint`        | Runs the Next/ESLint ruleset.                                                 |
+| `npm run lint:dashes` | Fails if any em dash or en dash creeps into a tracked file.                    |
 | `npm run typecheck`   | Strict TypeScript pass with no emit.                                          |
 | `npm run test`        | Unit + component tests (Vitest, jsdom).                                       |
 | `npm run test:coverage` | Unit/component tests with a v8 coverage gate.                               |
@@ -144,7 +195,7 @@ npm run dev          # http://localhost:3000
 | `npm run test:export` | Headless smoke test: renders the PDF and DOCX from a fixture and asserts the file headers. |
 | `npm run format`      | Prettier formatting.                                                          |
 
-The export smoke test is fully headless — it bundles the export modules
+The export smoke test is fully headless. It bundles the export modules
 with esbuild, runs them in Node, and asserts that the PDF starts with
 `%PDF` and the DOCX is a valid zip. CI can run it without a browser.
 
@@ -154,15 +205,18 @@ with esbuild, runs them in Node, and asserts that the PDF starts with
 
 Three layers, all runnable locally and in CI:
 
-- **Unit & component** — [Vitest](https://vitest.dev) + React Testing Library
+- **Unit & component**: [Vitest](https://vitest.dev) + React Testing Library
   (jsdom). Covers the utilities, Zod validation schemas, both Zustand stores
-  (every action), the UI primitives, the live preview and the DOCX export —
-  **120+ tests**. A v8 coverage gate enforces 90% statements / lines /
-  functions and 85% branches across the tested surface (currently ~99% / ~94%).
-- **End-to-end** — [Playwright](https://playwright.dev) (Chromium) drives the
+  (every action), the UI primitives, the live preview, the DOCX export, the
+  theme system and the progress save/import format, **180+ tests**. A v8
+  coverage gate enforces 90% statements / lines / functions and 85% branches
+  across the tested surface (currently ~97% / ~93%).
+- **End-to-end**: [Playwright](https://playwright.dev) (Chromium) drives the
   real app: the landing CTA into the builder, section-to-section navigation,
-  and the builder ↔ style/export flow. Playwright starts its own dev server on
-  port 3100, so it never collides with another server running on 3000.
+  the builder to style/export flow, the light/dark theme (including the
+  no-flash reload), and a full save-then-import round trip that wipes browser
+  storage in between. Playwright starts its own dev server on port 3100, so it
+  never collides with another server running on 3000.
 
 ```bash
 npm run test            # unit + component (Vitest)
@@ -170,9 +224,9 @@ npm run test:coverage   # with coverage gate
 npm run test:e2e        # end-to-end (Playwright)
 ```
 
-Every push and pull request runs lint, typecheck, the unit suite with
-coverage, the production build, the Playwright e2e suite, and a Docker image
-build via [GitHub Actions](.github/workflows/ci.yml).
+Every push and pull request runs lint, the dash check, typecheck, the unit
+suite with coverage, the production build, the Playwright e2e suite, and a
+Docker image build via [GitHub Actions](.github/workflows/ci.yml).
 
 ---
 
@@ -188,7 +242,7 @@ docker run -p 3000:3000 dravvy        # http://localhost:3000
 docker compose up --build
 ```
 
-The runtime image carries only production dependencies and the build output —
+The runtime image carries only production dependencies and the build output,
 no test tooling, source maps or dev dependencies.
 
 ---
@@ -228,18 +282,18 @@ src/
 
 ## Design notes
 
-- **One sans family** — Plus Jakarta Sans, no serif, no mono spec labels.
+- **One sans family**: Plus Jakarta Sans, no serif, no mono spec labels.
   Typography hierarchy is carried by weight (400 / 500 / 600 / 700) and
   scale, not by mixing families.
 - **Cool slate canvas + white surfaces.** A single restrained blue accent
-  (`hsl(220 88% 56%)`) on the primary CTA, focus rings and links — never
+  (`hsl(220 88% 56%)`) on the primary CTA, focus rings and links, never
   on every interactive element.
 - **Bordered fields with labels above.** Inputs are 44px tall, white, with
   a 1px slate border at rest and a brand-coloured focus ring. Labels sit
   above the field at 14px / weight 500, in normal sentence case.
-- **Three radii** — `8px` (sm), `12px` (default), `18px` (lg) — used for
+- **Three radii**: `8px` (sm), `12px` (default), `18px` (lg), used for
   different surface roles, not the same radius for everything.
-- **Layered shadows** — five shadows from `xs` to `pop`, each composed of
+- **Layered shadows**: five shadows from `xs` to `pop`, each composed of
   a tight ambient shadow plus a soft cast, so cards lift without halos.
 - **Reduced motion respected** throughout (transitions and animations
   collapse to ≈0ms when the user prefers reduced motion).

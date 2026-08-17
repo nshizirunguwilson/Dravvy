@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ----------------------------------------------------------------------
- * Modern product design system — Dravvy v2
+ * Modern product design system for Dravvy v2
  *
  * One sans family (Plus Jakarta Sans). Cool slate canvas, white
  * surfaces, real bordered controls, soft layered shadows, one bright
@@ -13,9 +13,12 @@
 
 @layer base {
   :root {
+    /* Tells the browser which palette its native widgets should use */
+    color-scheme: light;
+
     /* Canvas + surfaces */
-    --canvas: 210 40% 98%;        /* slate-50 ish — page background */
-    --surface: 0 0% 100%;         /* pure white — cards, inputs */
+    --canvas: 210 40% 98%;        /* slate-50 ish, page background */
+    --surface: 0 0% 100%;         /* pure white, cards and inputs */
     --surface-2: 210 40% 96.5%;   /* hover / sunken / row stripe */
 
     /* Slate text ramp (cool, neutral) */
@@ -32,11 +35,12 @@
     --border-strong: 213 16% 80%; /* hover / strong border */
     --divider: 216 22% 94%;       /* very soft inline divider */
 
-    /* Brand accent — confident, professional blue */
+    /* Brand accent, confident, professional blue */
     --accent: 220 88% 56%;        /* primary CTA / focus / link */
     --accent-hover: 220 80% 50%;  /* CTA hover */
     --accent-soft: 220 100% 96%;  /* tint backgrounds */
     --accent-ink: 222 60% 28%;    /* dark blue text on tints */
+    --accent-fg: 0 0% 100%;       /* text and glyphs sitting on the accent */
 
     /* Status */
     --positive: 158 64% 40%;      /* emerald-500 */
@@ -44,13 +48,13 @@
     --negative: 0 72% 51%;        /* red-600 */
     --negative-soft: 0 86% 97%;
 
-    /* Radii — three deliberate sizes */
+    /* Radii, three deliberate sizes */
     --radius-sm: 8px;
     --radius: 12px;
     --radius-lg: 18px;
     --radius-xl: 24px;
 
-    /* Shadows — layered and warm-neutral, soft */
+    /* Shadows, layered and warm-neutral, soft */
     --shadow-xs: 0 1px 2px 0 hsl(220 12% 12% / 0.04);
     --shadow-sm: 0 1px 2px 0 hsl(220 12% 12% / 0.05), 0 1px 3px 0 hsl(220 12% 12% / 0.05);
     --shadow-md: 0 1px 3px 0 hsl(220 12% 12% / 0.05), 0 4px 12px -2px hsl(220 12% 12% / 0.08);
@@ -74,7 +78,7 @@
     --secondary-foreground: var(--slate-12);
     --muted: var(--surface-2);
     --muted-foreground: var(--slate-7);
-    --accent-foreground: var(--surface);
+    --accent-foreground: var(--accent-fg);
     --destructive: var(--negative);
     --destructive-foreground: var(--surface);
     --input: var(--border);
@@ -82,6 +86,8 @@
   }
 
   .dark {
+    color-scheme: dark;
+
     --canvas: 222 30% 8%;
     --surface: 222 24% 11%;
     --surface-2: 222 22% 14%;
@@ -102,6 +108,7 @@
     --accent-hover: 220 90% 70%;
     --accent-soft: 220 50% 18%;
     --accent-ink: 220 100% 90%;
+    --accent-fg: 222 47% 11%;
 
     --positive: 158 60% 55%;
     --positive-soft: 158 30% 18%;
@@ -164,6 +171,27 @@
  * Print
  * -------------------------------------------------------------------- */
 @media print {
+  /* Paper is always paper. Roll the dark palette back to the light one so a
+     visitor reading in dark mode still prints black on white. */
+  .dark {
+    color-scheme: light;
+
+    --canvas: 0 0% 100%;
+    --surface: 0 0% 100%;
+    --surface-2: 210 40% 96.5%;
+    --slate-12: 222 47% 11%;
+    --slate-11: 215 28% 17%;
+    --slate-9: 215 19% 35%;
+    --slate-7: 215 16% 47%;
+    --slate-6: 215 14% 60%;
+    --slate-5: 215 16% 73%;
+    --slate-3: 214 27% 88%;
+    --border: 215 20% 89%;
+    --border-strong: 213 16% 80%;
+    --divider: 216 22% 94%;
+    --accent-fg: 0 0% 100%;
+  }
+
   body {
     background: white !important;
     color: black !important;

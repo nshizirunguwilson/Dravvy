@@ -12,7 +12,7 @@ const base =
 const variants: Record<NonNullable<ButtonProps['variant']>, string> = {
   // Primary: brand blue, white text. Subtle 1px inner top highlight.
   default:
-    'bg-brand text-white shadow-sm ' +
+    'bg-brand text-brand-fg shadow-sm ' +
     'hover:bg-brand-hover hover:shadow-md ' +
     'shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_1px_2px_0_hsl(220_88%_30%/0.25)] ' +
     'focus-visible:[box-shadow:inset_0_1px_0_0_rgba(255,255,255,0.18),0_0_0_1px_hsl(var(--surface)),0_0_0_3px_hsl(var(--accent)/0.45)]',

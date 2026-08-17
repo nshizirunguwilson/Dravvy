@@ -8,15 +8,18 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { StylingForm } from '@/components/styling-form'
 import { ResumePreview } from '@/components/resume-preview'
 import { ExportForm } from '@/components/export-form'
+import { SaveProgress } from '@/components/save-progress'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Wordmark } from '@/components/brand'
+import { ThemeSelector, ThemeToggle } from '@/components/theme-toggle'
 import { useUIStore } from '@/store/useUIStore'
 
 const sections = [
   { id: 'styling', label: 'Styling', helper: 'Choose typeface, accent, separator and rhythm.' },
   { id: 'preview', label: 'Preview', helper: 'A4 page, dimensioned to the millimetre.' },
   { id: 'export', label: 'Export', helper: 'PDF for printing, DOCX for editing.' },
+  { id: 'save', label: 'Save file', helper: 'Keep a copy of your progress, or continue from one.' },
 ] as const
 
 type SectionId = (typeof sections)[number]['id']
@@ -42,13 +45,16 @@ export default function SettingsPage() {
           <p className="hidden text-[13px] font-medium text-slate-7 md:block">
             Style &amp; export
           </p>
-          <Link
-            href="/create"
-            className="shrink-0 text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
-          >
-            <span className="hidden sm:inline">← Back to editor</span>
-            <span className="sm:hidden">← Editor</span>
-          </Link>
+          <div className="flex shrink-0 items-center gap-3">
+            <ThemeToggle />
+            <Link
+              href="/create"
+              className="text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
+            >
+              <span className="hidden sm:inline">← Back to editor</span>
+              <span className="sm:hidden">← Editor</span>
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -64,7 +70,7 @@ export default function SettingsPage() {
           <p className="mt-2 text-[14px] text-slate-7 sm:mt-3 sm:text-[15px]">{current.helper}</p>
         </div>
 
-        {/* Tab nav — wraps in a horizontally-scrollable container at small widths */}
+        {/* Tab nav, wraps in a horizontally-scrollable container at small widths */}
         <Tabs value={current.id} onValueChange={(v) => setActiveSection(sections.findIndex((s) => s.id === v))}>
           <div className="-mx-4 mb-6 overflow-x-auto px-4 sm:mx-0 sm:mb-8 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <TabsList>
@@ -125,13 +131,35 @@ export default function SettingsPage() {
   )
 }
 
+function AppearanceBlock() {
+  return (
+    <section className="rounded-xl border border-line bg-surface-2/40 p-4 sm:p-5">
+      <h2 className="text-[15px] font-semibold text-slate-12">App theme</h2>
+      <p className="mb-4 mt-1 text-[13px] text-slate-7">
+        Light or dark for the builder itself. Your resume always previews and exports on white
+        paper, whichever you pick.
+      </p>
+      <ThemeSelector />
+    </section>
+  )
+}
+
 function renderStep(id: SectionId) {
   switch (id) {
     case 'styling':
-      return <StylingForm />
+      return (
+        <div className="space-y-8">
+          <AppearanceBlock />
+          <div className="border-t border-line pt-8">
+            <StylingForm />
+          </div>
+        </div>
+      )
     case 'preview':
       return <ResumePreview />
     case 'export':
       return <ExportForm />
+    case 'save':
+      return <SaveProgress />
   }
 }
