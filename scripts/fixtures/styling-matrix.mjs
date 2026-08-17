@@ -140,13 +140,13 @@ export const groups = [
     label: 'Typeface',
     field: 'font',
     // A PDF can only rely on the 14 fonts every reader is required to have.
-    // @react-pdf embeds those, so the ten choices resolve to Times for the
-    // four serifs and Helvetica for the six sans faces. The contract the PDF
+    // @react-pdf embeds those, so the twelve choices resolve to Times for the
+    // four serifs and Helvetica for the eight sans faces. The contract the PDF
     // does keep is the serif/sans decision, and that is what gets asserted.
-    // The preview and the DOCX carry all ten distinctly.
+    // The preview and the DOCX carry all twelve distinctly.
     pdfDistinct: false,
     pdfNote:
-      'PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.',
+      'PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.',
     options: [
       { value: 'times new roman', label: 'Times New Roman', genre: 'serif' },
       { value: 'georgia', label: 'Georgia', genre: 'serif' },
