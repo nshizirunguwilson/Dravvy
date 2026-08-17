@@ -10,9 +10,22 @@ import {
   TextRun,
 } from 'docx'
 
+import { resumeTheme, sectionInkColor } from '@/lib/resume-theme'
 import type { ResumeData, ResumeStyle } from '@/types/resume'
 
-type DocxFont = 'Times New Roman' | 'Georgia' | 'Cambria' | 'Garamond' | 'Calibri' | 'Helvetica' | 'Arial' | 'Roboto' | 'Lato' | 'Open Sans'
+type DocxFont =
+  | 'Times New Roman'
+  | 'Georgia'
+  | 'Cambria'
+  | 'Garamond'
+  | 'Calibri'
+  | 'Helvetica'
+  | 'Arial'
+  | 'Roboto'
+  | 'Lato'
+  | 'Open Sans'
+  | 'Montserrat'
+  | 'Outfit'
 
 const fontDisplayMap: Record<string, DocxFont> = {
   'times new roman': 'Times New Roman',
@@ -25,12 +38,25 @@ const fontDisplayMap: Record<string, DocxFont> = {
   roboto: 'Roboto',
   lato: 'Lato',
   'open sans': 'Open Sans',
+  montserrat: 'Montserrat',
+  outfit: 'Outfit',
 }
 
 const fontSizeMap = {
   small: { heading: 32, sub: 18, body: 18 },
   medium: { heading: 40, sub: 22, body: 20 },
   large: { heading: 48, sub: 26, body: 24 },
+} as const
+
+/**
+ * Section rhythm, in twips (1/20 pt). Word has no direct equivalent of the
+ * preview's pixel gap, so the same three steps are expressed as the space
+ * above and below each section heading, and after the header block.
+ */
+const spacingMap = {
+  small: { beforeSection: 120, afterSection: 60, afterHeader: 120 },
+  medium: { beforeSection: 240, afterSection: 100, afterHeader: 200 },
+  large: { beforeSection: 420, afterSection: 180, afterHeader: 320 },
 } as const
 
 const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {
@@ -70,8 +96,11 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
   } = data
 
   const sizes = fontSizeMap[style.fontSize]
+  const gap = spacingMap[style.spacing] ?? spacingMap.medium
   const font = fontDisplayMap[style.font] ?? 'Calibri'
   const accent = hexToDocx(style.color)
+  const theme = resumeTheme(style.theme)
+  const headingInk = sectionInkColor(theme, `#${accent}`).replace('#', '').toUpperCase()
 
   const run = (text: string, opts: Partial<{ bold: boolean; italics: boolean; size: number; color: string }> = {}) =>
     new TextRun({
@@ -92,10 +121,19 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
 
   const sectionTitle = (title: string) =>
     new Paragraph({
-      children: [run(title.toUpperCase(), { bold: true, size: sizes.sub, color: accent })],
-      spacing: { before: 240, after: 100 },
-      border: getSeparator(style.separator, accent),
+      children: [
+        run(title.toUpperCase(), {
+          bold: true,
+          size: Math.round(sizes.sub * theme.sectionScale),
+          color: headingInk,
+        }),
+      ],
+      spacing: { before: gap.beforeSection, after: gap.afterSection },
+      border: getSeparator(style.separator, accent, theme.rulePlacement),
     })
+
+  const headerAlignment =
+    theme.headerAlign === 'left' ? AlignmentType.LEFT : AlignmentType.CENTER
 
   const rightTab = [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }] as const
 
@@ -118,9 +156,16 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
   // Header
   blocks.push(
     new Paragraph({
-      children: [run(contact.fullName || 'Your Name', { bold: true, size: sizes.heading })],
-      alignment: AlignmentType.CENTER,
-      spacing: { after: 160, line: 360 },
+      children: [
+        run(
+          theme.nameUppercase
+            ? (contact.fullName || 'Your Name').toUpperCase()
+            : contact.fullName || 'Your Name',
+          { bold: true, size: sizes.heading },
+        ),
+      ],
+      alignment: headerAlignment,
+      spacing: { after: Math.round(gap.afterHeader * 0.8), line: 360 },
     })
   )
 
@@ -154,8 +199,8 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
     blocks.push(
       new Paragraph({
         children,
-        alignment: AlignmentType.CENTER,
-        spacing: { after: 200 },
+        alignment: headerAlignment,
+        spacing: { after: gap.afterHeader },
       })
     )
   }
@@ -289,36 +334,24 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
   return Packer.toBlob(doc)
 }
 
-function getSeparator(separator: ResumeStyle['separator'], accent: string) {
-  switch (separator) {
-    case 'no separator':
-      return undefined
-    case 'double line':
-      return {
-        bottom: {
-          color: accent,
-          space: 1,
-          style: BorderStyle.DOUBLE,
-          size: 6,
-        },
-      }
-    case 'bold line':
-      return {
-        bottom: {
-          color: accent,
-          space: 1,
-          style: BorderStyle.SINGLE,
-          size: 18,
-        },
-      }
-    default:
-      return {
-        bottom: {
-          color: accent,
-          space: 1,
-          style: BorderStyle.SINGLE,
-          size: 6,
-        },
-      }
+/**
+ * The rule around a section heading. `placement` comes from the theme, so
+ * "modern" and "minimal" put the rule above the heading and "classic" puts it
+ * underneath, matching the preview and the PDF.
+ */
+function getSeparator(
+  separator: ResumeStyle['separator'],
+  accent: string,
+  placement: 'above' | 'below',
+) {
+  if (separator === 'no separator') return undefined
+
+  const edge = {
+    color: accent,
+    space: 1,
+    style: separator === 'double line' ? BorderStyle.DOUBLE : BorderStyle.SINGLE,
+    size: separator === 'bold line' ? 18 : 6,
   }
+
+  return placement === 'above' ? { top: edge } : { bottom: edge }
 }

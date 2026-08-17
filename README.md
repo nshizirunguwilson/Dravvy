@@ -142,6 +142,55 @@ Nothing is uploaded. The file is produced and read entirely in the browser.
 
 ---
 
+## Styling options
+
+Seven groups, 38 individual choices:
+
+| Group            | Options | What it changes                                                              |
+| ---------------- | ------- | ---------------------------------------------------------------------------- |
+| Theme            | 3       | Header alignment, name capitals, section heading ink and tracking, rule side  |
+| Typeface         | 12      | The family used for the whole page                                            |
+| Body size        | 3       | Body, heading and section type together                                       |
+| Section spacing  | 3       | Rhythm between header, rules and entries                                      |
+| Separator        | 4       | The rule drawn at each section boundary                                       |
+| Date format      | 3       | How every start and end date is written                                       |
+| Accent colour    | 10      | Section heading ink and rule: nine presets plus any hex                       |
+
+Every one of those is verified, not assumed. Two sweeps drive the real app and
+the real exporters:
+
+```bash
+npm run dev -- -p 3100     # in one terminal
+npm run proof:styling      # live preview: measure, capture, compare
+npm run proof:exports      # real PDF and real DOCX per option
+npm run proof:report       # build the visual proof sheet
+```
+
+`proof:styling` sets one option at a time, reloads, reads the rendered geometry
+and computed styles back out of the browser, asserts the option took effect, and
+captures a screenshot into [`docs/styling-proof/`](docs/styling-proof). It then
+requires every specimen in a group to be pixel-distinct from its siblings, so an
+option that silently does nothing cannot pass. It also counts the options in the
+live form and fails if they no longer match the matrix, so a new option cannot
+ship without proof.
+
+`proof:exports` renders a real PDF and DOCX per option, unzips
+`word/document.xml`, and asserts the marker the option should have written: the
+font name, the half-point size, the accent hex, the border edge and style, the
+spacing in twips, the formatted date.
+
+**One documented constraint.** A PDF can only rely on the 14 fonts every reader
+is required to have, so the twelve typefaces resolve to Times for the four serif
+choices and Helvetica for the eight sans choices. The serif or sans decision is
+preserved, the DOCX carries the exact typeface name, and the live preview renders
+all twelve distinctly. This is asserted as the contract rather than hidden.
+
+Google Sans is deliberately absent. It is Google's proprietary brand typeface,
+is not published on Google Fonts, and cannot be licensed for use here. Outfit is
+offered as the closest open geometric sans instead, under its own name.
+
+---
+
 ## Theme
 
 Light and dark, with a third **System** option that follows the operating
@@ -193,6 +242,9 @@ npm run dev          # http://localhost:3000
 | `npm run test:coverage` | Unit/component tests with a v8 coverage gate.                               |
 | `npm run test:e2e`    | End-to-end tests (Playwright, Chromium) on a dev server at port 3100.         |
 | `npm run test:export` | Headless smoke test: renders the PDF and DOCX from a fixture and asserts the file headers. |
+| `npm run proof:styling` | Sweeps every styling option through the live preview and captures evidence. |
+| `npm run proof:exports` | Sweeps every styling option through a real PDF and DOCX.                      |
+| `npm run proof:report` | Builds the styling proof sheet from the two sweeps.                           |
 | `npm run format`      | Prettier formatting.                                                          |
 
 The export smoke test is fully headless. It bundles the export modules
@@ -225,8 +277,9 @@ npm run test:e2e        # end-to-end (Playwright)
 ```
 
 Every push and pull request runs lint, the dash check, typecheck, the unit
-suite with coverage, the production build, the Playwright e2e suite, and a
-Docker image build via [GitHub Actions](.github/workflows/ci.yml).
+suite with coverage, the production build, the Playwright e2e suite, both
+styling proof sweeps, and a Docker image build via
+[GitHub Actions](.github/workflows/ci.yml).
 
 ---
 

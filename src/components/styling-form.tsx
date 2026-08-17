@@ -34,6 +34,8 @@ const sansSerifFonts = [
   { value: 'roboto', label: 'Roboto' },
   { value: 'lato', label: 'Lato' },
   { value: 'open sans', label: 'Open Sans' },
+  { value: 'montserrat', label: 'Montserrat' },
+  { value: 'outfit', label: 'Outfit' },
 ] as const
 
 const separatorTypes = [
@@ -54,6 +56,12 @@ const sizes = [
   { value: 'medium', label: 'Medium' },
   { value: 'large', label: 'Large' },
 ] as const
+
+const themeHints: Record<ResumeStyle['theme'], string> = {
+  modern: 'Centred header, accent section headings, rule above each heading.',
+  classic: 'Centred header with the name in capitals, ink headings, rule under each heading.',
+  minimal: 'Left-aligned header, small grey headings with wide tracking, short rule.',
+}
 
 const presetColors: { value: string; name: string }[] = [
   { value: '#0F172A', name: 'Slate' },
@@ -93,7 +101,7 @@ export function StylingForm() {
       </p>
 
       <div className="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2">
-        <Field label="Theme">
+        <Field label="Theme" hint={themeHints[draft.theme] ?? themeHints.modern}>
           <Select value={draft.theme} onValueChange={(v) => update({ theme: v as ResumeStyle['theme'] })}>
             <SelectTrigger>
               <SelectValue placeholder="Select a theme" />
@@ -106,7 +114,14 @@ export function StylingForm() {
           </Select>
         </Field>
 
-        <Field label="Typeface">
+        <Field
+          label="Typeface"
+          hint={
+            serifFonts.some((f) => f.value === draft.font)
+              ? 'A serif face. The PDF embeds Times, the standard serif every reader can render.'
+              : 'A sans-serif face. The PDF embeds Helvetica, the standard sans every reader can render.'
+          }
+        >
           <Select value={draft.font} onValueChange={(v) => update({ font: v })}>
             <SelectTrigger>
               <SelectValue placeholder="Select a typeface" />
@@ -256,11 +271,20 @@ export function StylingForm() {
   )
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  hint,
+  children,
+}: {
+  label: string
+  hint?: string
+  children: React.ReactNode
+}) {
   return (
     <div className="space-y-2">
       <Label>{label}</Label>
       {children}
+      {hint && <p className="text-[12px] leading-[1.5] text-slate-7">{hint}</p>}
     </div>
   )
 }

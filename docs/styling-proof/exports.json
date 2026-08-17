@@ -1,0 +1,774 @@
+{
+  "generatedAt": "2026-08-17T20:08:03.822Z",
+  "checked": 38,
+  "failures": 0,
+  "pdfConstraints": [
+    {
+      "group": "typeface",
+      "label": "Typeface",
+      "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly."
+    }
+  ],
+  "results": [
+    {
+      "group": "theme",
+      "groupLabel": "Theme",
+      "value": "modern",
+      "label": "Modern",
+      "docx": {
+        "bytes": 10191,
+        "digest": "8b55a353571871ce",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "ab7cab5e48d1bc0a",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "theme",
+      "groupLabel": "Theme",
+      "value": "classic",
+      "label": "Classic",
+      "docx": {
+        "bytes": 10189,
+        "digest": "0e12cc7ed65a8968",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6106,
+        "digest": "410d73c07c166b11",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "theme",
+      "groupLabel": "Theme",
+      "value": "minimal",
+      "label": "Minimal",
+      "docx": {
+        "bytes": 10191,
+        "digest": "a00dc61fd3bc42c1",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6064,
+        "digest": "1ce0875ea26f6459",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "times new roman",
+      "label": "Times New Roman",
+      "docx": {
+        "bytes": 10212,
+        "digest": "f3b9c7430033388a",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 5967,
+        "digest": "08270d02a4ab4a81",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Times"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "georgia",
+      "label": "Georgia",
+      "docx": {
+        "bytes": 10178,
+        "digest": "9201b132d1013e6a",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 5967,
+        "digest": "08270d02a4ab4a81",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Times"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "cambria",
+      "label": "Cambria",
+      "docx": {
+        "bytes": 10169,
+        "digest": "5562edacafd17b32",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 5967,
+        "digest": "08270d02a4ab4a81",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Times"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "garamond",
+      "label": "Garamond",
+      "docx": {
+        "bytes": 10173,
+        "digest": "fac673f13b019acf",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 5967,
+        "digest": "08270d02a4ab4a81",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Times"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "calibri",
+      "label": "Calibri",
+      "docx": {
+        "bytes": 10165,
+        "digest": "14f5a78de9b32d8c",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "ab7cab5e48d1bc0a",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Helvetica"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "helvetica",
+      "label": "Helvetica",
+      "docx": {
+        "bytes": 10179,
+        "digest": "9136d2fda76181d7",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "81fccd0e2bd72104",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Helvetica"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "arial",
+      "label": "Arial",
+      "docx": {
+        "bytes": 10160,
+        "digest": "84c37c2dfb1f8fff",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "81fccd0e2bd72104",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Helvetica"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "roboto",
+      "label": "Roboto",
+      "docx": {
+        "bytes": 10161,
+        "digest": "7667d09875b557d8",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "81fccd0e2bd72104",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Helvetica"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "lato",
+      "label": "Lato",
+      "docx": {
+        "bytes": 10158,
+        "digest": "868da7e4b93fa486",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "81fccd0e2bd72104",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Helvetica"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "open sans",
+      "label": "Open Sans",
+      "docx": {
+        "bytes": 10180,
+        "digest": "7199b491611b7110",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "81fccd0e2bd72104",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Helvetica"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "montserrat",
+      "label": "Montserrat",
+      "docx": {
+        "bytes": 10181,
+        "digest": "3740e85d855484a7",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "7bbd79f7800457a7",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Helvetica"
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "outfit",
+      "label": "Outfit",
+      "docx": {
+        "bytes": 10159,
+        "digest": "aa025c5a8220a38d",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "7bbd79f7800457a7",
+        "pass": true,
+        "reason": null,
+        "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the six sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all ten distinctly.",
+        "baseFont": "Helvetica"
+      }
+    },
+    {
+      "group": "body-size",
+      "groupLabel": "Body size",
+      "value": "small",
+      "label": "Small",
+      "docx": {
+        "bytes": 10173,
+        "digest": "2f40f76791ebd8a9",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 5455,
+        "digest": "14ae6ef739754e1e",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "body-size",
+      "groupLabel": "Body size",
+      "value": "medium",
+      "label": "Medium",
+      "docx": {
+        "bytes": 10180,
+        "digest": "2a060c0f63d7d6be",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "7bbd79f7800457a7",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "body-size",
+      "groupLabel": "Body size",
+      "value": "large",
+      "label": "Large",
+      "docx": {
+        "bytes": 10179,
+        "digest": "2e98e860f2bcc4f6",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6260,
+        "digest": "2824453b3fc63abc",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "section-spacing",
+      "groupLabel": "Section spacing",
+      "value": "small",
+      "label": "Small",
+      "docx": {
+        "bytes": 10179,
+        "digest": "a0018118a9f46266",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 5410,
+        "digest": "dc6ccdf8ece6df3a",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "section-spacing",
+      "groupLabel": "Section spacing",
+      "value": "medium",
+      "label": "Medium",
+      "docx": {
+        "bytes": 10182,
+        "digest": "69c801d407421248",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "b5eff59a2cff61d8",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "section-spacing",
+      "groupLabel": "Section spacing",
+      "value": "large",
+      "label": "Large",
+      "docx": {
+        "bytes": 10184,
+        "digest": "3834caa328989c67",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6301,
+        "digest": "03cdfa70164912a8",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "separator",
+      "groupLabel": "Separator",
+      "value": "line",
+      "label": "Single line",
+      "docx": {
+        "bytes": 10184,
+        "digest": "0bc1daa07da24a7c",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "b5eff59a2cff61d8",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "separator",
+      "groupLabel": "Separator",
+      "value": "double line",
+      "label": "Double line",
+      "docx": {
+        "bytes": 10185,
+        "digest": "110fbcb8e0e8cc2a",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6213,
+        "digest": "55389fcbd2f6b472",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "separator",
+      "groupLabel": "Separator",
+      "value": "bold line",
+      "label": "Bold line",
+      "docx": {
+        "bytes": 10176,
+        "digest": "190e44a66d4c7ea8",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6101,
+        "digest": "fe65b14fc39c5f18",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "separator",
+      "groupLabel": "Separator",
+      "value": "no separator",
+      "label": "No separator",
+      "docx": {
+        "bytes": 10139,
+        "digest": "0aa7461ac11b6c9d",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 5207,
+        "digest": "d1b4cd99069950df",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "date-format",
+      "groupLabel": "Date format",
+      "value": "MM/YYYY",
+      "label": "01/2026",
+      "docx": {
+        "bytes": 10180,
+        "digest": "938a3cb670866a08",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "b5eff59a2cff61d8",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "date-format",
+      "groupLabel": "Date format",
+      "value": "MMM YYYY",
+      "label": "Jan 2026",
+      "docx": {
+        "bytes": 10188,
+        "digest": "be0af7410bc8df33",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6091,
+        "digest": "04464cdfa83d314a",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "date-format",
+      "groupLabel": "Date format",
+      "value": "MMMM YYYY",
+      "label": "January 2026",
+      "docx": {
+        "bytes": 10201,
+        "digest": "ba8bcf9fcb53000a",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6104,
+        "digest": "b52c02474023530b",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#0F172A",
+      "label": "Slate",
+      "docx": {
+        "bytes": 10199,
+        "digest": "646b47a86dd326e1",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6055,
+        "digest": "5456416ad594c9c4",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#1f2937",
+      "label": "Graphite",
+      "docx": {
+        "bytes": 10200,
+        "digest": "bc694515839ff98a",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6036,
+        "digest": "bc3e10efc36f1e6b",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#1e3a8a",
+      "label": "Indigo",
+      "docx": {
+        "bytes": 10190,
+        "digest": "abecfadef20fab66",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6048,
+        "digest": "d66a4a8527f99329",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#2563EB",
+      "label": "Blue",
+      "docx": {
+        "bytes": 10185,
+        "digest": "e9cb40a130407609",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "666e0b49692d441a",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#0e7490",
+      "label": "Teal",
+      "docx": {
+        "bytes": 10200,
+        "digest": "b5e15f26ad7d9af6",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6049,
+        "digest": "5245604d9a67d5a8",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#15803d",
+      "label": "Forest",
+      "docx": {
+        "bytes": 10189,
+        "digest": "b5abeb1de882cf85",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6054,
+        "digest": "375c2457681d35a4",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#9a3412",
+      "label": "Sienna",
+      "docx": {
+        "bytes": 10197,
+        "digest": "ead171fffe6dc646",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6055,
+        "digest": "a40becbedab876a3",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#7c2d12",
+      "label": "Burgundy",
+      "docx": {
+        "bytes": 10193,
+        "digest": "b1e791fba45dfeb4",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6059,
+        "digest": "3965cac71920144e",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#7c3aed",
+      "label": "Violet",
+      "docx": {
+        "bytes": 10191,
+        "digest": "c4fc9fad29929091",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "ed6a29a1bb58d4ea",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    },
+    {
+      "group": "accent-colour",
+      "groupLabel": "Accent colour",
+      "value": "#B45309",
+      "label": "Custom hex",
+      "docx": {
+        "bytes": 10194,
+        "digest": "b25e49adf41f9841",
+        "pass": true,
+        "reason": null
+      },
+      "pdf": {
+        "bytes": 6051,
+        "digest": "d253e1ddfade2e55",
+        "pass": true,
+        "reason": null,
+        "note": null,
+        "baseFont": null
+      }
+    }
+  ]
+}

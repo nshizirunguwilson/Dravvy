@@ -69,6 +69,52 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
+  styling-proof:
+    name: Styling options proof
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Prove every styling option reaches the PDF and DOCX
+        run: npm run proof:exports
+
+      - name: Start the app
+        run: npm run dev -- -p 3100 &
+
+      - name: Wait for the app
+        run: |
+          for i in $(seq 1 60); do
+            if curl -sf -o /dev/null http://localhost:3100/settings; then
+              echo "app is up"; exit 0
+            fi
+            sleep 2
+          done
+          echo "app never came up"; exit 1
+
+      - name: Prove every styling option reaches the live preview
+        run: npm run proof:styling
+
+      - name: Upload styling evidence
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: styling-proof
+          path: docs/styling-proof/
+          retention-days: 7
+
   docker:
     name: Docker image builds
     runs-on: ubuntu-latest
