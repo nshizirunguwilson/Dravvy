@@ -28,7 +28,7 @@ const outDir = path.join(root, 'docs/styling-proof')
 const baseURL = process.env.PROOF_URL ?? 'http://localhost:3100'
 
 /** Height of the page captured, in CSS px. Enough to show header + 3 sections. */
-const CLIP_HEIGHT = 760
+const CLIP_HEIGHT = 660
 
 const hash = (buffer) => createHash('sha256').update(buffer).digest('hex').slice(0, 16)
 
@@ -242,7 +242,7 @@ async function main() {
   const browser = await chromium.launch()
   const context = await browser.newContext({
     viewport: { width: 1280, height: 1000 },
-    deviceScaleFactor: 2,
+    deviceScaleFactor: 1.5,
     colorScheme: 'light',
   })
   const page = await context.newPage()
@@ -272,19 +272,22 @@ async function main() {
       const problem = checkOption(group.id, option, rendered)
 
       const article = await page.locator('article').first().boundingBox()
-      const shot = await page.screenshot({
-        clip: {
-          x: article.x,
-          y: Math.max(article.y, 0),
-          width: article.width,
-          height: Math.min(CLIP_HEIGHT, article.height),
-        },
-        type: 'png',
-      })
+      const clip = {
+        x: article.x,
+        y: Math.max(article.y, 0),
+        width: article.width,
+        height: Math.min(CLIP_HEIGHT, article.height),
+      }
+
+      // Distinctness is judged on the lossless capture so compression can
+      // never mask two options rendering the same. Only the lighter copy is
+      // written to disk, to keep the repository sane.
+      const shot = await page.screenshot({ clip, type: 'png' })
+      const compact = await page.screenshot({ clip, type: 'jpeg', quality: 78 })
 
       const slug = `${group.id}--${String(option.value).replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`
-      const file = `${slug}.png`
-      await fs.writeFile(path.join(outDir, file), shot)
+      const file = `${slug}.jpg`
+      await fs.writeFile(path.join(outDir, file), compact)
 
       const digest = hash(shot)
       const clash = seen.get(digest)
@@ -300,7 +303,7 @@ async function main() {
         value: option.value,
         label: option.label,
         file,
-        bytes: shot.length,
+        bytes: compact.length,
         digest,
         rendered: {
           fontFamily: rendered.articleFontFamily,
