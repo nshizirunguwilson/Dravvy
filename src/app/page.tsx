@@ -30,13 +30,13 @@ function SiteHeader() {
           <Wordmark size="md" className="hidden md:inline-flex" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
-          <a href="#features" className="text-[14px] font-medium text-slate-7 transition-colors hover:text-slate-12">
+          <a href="#features" className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center px-1 text-[14px] font-medium text-slate-7 transition-colors hover:text-slate-12">
             Features
           </a>
-          <a href="#how" className="text-[14px] font-medium text-slate-7 transition-colors hover:text-slate-12">
+          <a href="#how" className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center px-1 text-[14px] font-medium text-slate-7 transition-colors hover:text-slate-12">
             How it works
           </a>
-          <a href="#faq" className="text-[14px] font-medium text-slate-7 transition-colors hover:text-slate-12">
+          <a href="#faq" className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center px-1 text-[14px] font-medium text-slate-7 transition-colors hover:text-slate-12">
             FAQ
           </a>
         </nav>
@@ -116,7 +116,7 @@ function PreviewMock() {
         {/* Soft pedestal behind the card */}
         <div
           aria-hidden
-          className="absolute -inset-x-6 -inset-y-3 rounded-[28px] bg-surface-2 md:-inset-x-12 md:-inset-y-6"
+          className="absolute -inset-x-2 -inset-y-3 rounded-[28px] bg-surface-2 sm:-inset-x-6 md:-inset-x-8 md:-inset-y-6"
         />
         <div className="relative rounded-2xl border border-line bg-surface shadow-pop">
           {/* Window chrome */}
@@ -126,7 +126,7 @@ function PreviewMock() {
               <span className="h-3 w-3 rounded-full bg-line" />
               <span className="h-3 w-3 rounded-full bg-line" />
             </div>
-            <span className="text-[12px] font-medium text-slate-6">app.dravvy.com / A4 preview</span>
+            <span className="text-[12px] font-medium text-slate-7">app.dravvy.com / A4 preview</span>
             <span className="w-12" />
           </div>
 
@@ -134,7 +134,7 @@ function PreviewMock() {
           <div className="grid grid-cols-12 gap-0">
             {/* Rail */}
             <div className="col-span-4 hidden border-r border-line bg-surface-2/60 p-5 md:block">
-              <p className="mb-4 text-[12px] font-semibold uppercase tracking-wider text-slate-6">
+              <p className="mb-4 text-[12px] font-semibold uppercase tracking-wider text-slate-7">
                 Sections
               </p>
               <ol className="space-y-2">
@@ -169,14 +169,14 @@ function PreviewMock() {
                 Senior Product Designer · Remote · avery@example.com
               </p>
               <hr className="my-4 border-line" />
-              <p className="mb-1 text-[11px] font-bold uppercase tracking-wider text-slate-9">
+              <p className="mb-1 text-[12px] font-bold uppercase tracking-wider text-slate-9">
                 Experience
               </p>
               <p className="text-[14px] font-medium text-slate-12">Lead Designer · Holloway</p>
               <p className="text-[13px] text-slate-7">
                 Shipped a redesign that lifted activation 38% in two quarters.
               </p>
-              <p className="mb-1 mt-4 text-[11px] font-bold uppercase tracking-wider text-slate-9">
+              <p className="mb-1 mt-4 text-[12px] font-bold uppercase tracking-wider text-slate-9">
                 Skills
               </p>
               <div className="flex flex-wrap gap-1.5">
@@ -417,7 +417,7 @@ function Footer() {
           <p className="mt-4 text-[14px] text-slate-9">
             Free, no account, no upload, no analytics.
           </p>
-          <p className="mt-3 text-[13px] text-slate-6">© {year} Dravvy</p>
+          <p className="mt-3 text-[13px] text-slate-7">© {year} Dravvy</p>
         </div>
       </div>
     </footer>
@@ -433,7 +433,7 @@ function FooterCol({ label, items }: { label: string; items: [string, string][] 
           <li key={text}>
             <a
               href={href}
-              className="text-[14px] text-slate-9 transition-colors hover:text-brand"
+              className="inline-flex min-h-[44px] items-center text-[14px] text-slate-9 transition-colors hover:text-brand"
             >
               {text}
             </a>

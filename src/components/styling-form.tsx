@@ -76,14 +76,15 @@ const presetColors: { value: string; name: string }[] = [
 ]
 
 export function StylingForm() {
-  const style = useResumeStore((s) => s.style)
-  const updateStyle = useResumeStore((s) => s.updateStyle)
+  const style = useResumeStore(s => s.style)
+  const updateStyle = useResumeStore(s => s.updateStyle)
   const [draft, setDraft] = React.useState<ResumeStyle>(style)
   const [saving, setSaving] = React.useState(false)
+  const customColourId = React.useId()
 
   React.useEffect(() => setDraft(style), [style])
 
-  const update = (patch: Partial<ResumeStyle>) => setDraft((c) => ({ ...c, ...patch }))
+  const update = (patch: Partial<ResumeStyle>) => setDraft(c => ({ ...c, ...patch }))
 
   const handleSave = () => {
     setSaving(true)
@@ -102,121 +103,136 @@ export function StylingForm() {
 
       <div className="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2">
         <Field label="Theme" hint={themeHints[draft.theme] ?? themeHints.modern}>
-          <Select value={draft.theme} onValueChange={(v) => update({ theme: v as ResumeStyle['theme'] })}>
-            <SelectTrigger>
-              <SelectValue placeholder="Select a theme" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="modern">Modern</SelectItem>
-              <SelectItem value="classic">Classic</SelectItem>
-              <SelectItem value="minimal">Minimal</SelectItem>
-            </SelectContent>
-          </Select>
+          {id => (
+            <Select
+              value={draft.theme}
+              onValueChange={v => update({ theme: v as ResumeStyle['theme'] })}
+            >
+              <SelectTrigger id={id}>
+                <SelectValue placeholder="Select a theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="modern">Modern</SelectItem>
+                <SelectItem value="classic">Classic</SelectItem>
+                <SelectItem value="minimal">Minimal</SelectItem>
+              </SelectContent>
+            </Select>
+          )}
         </Field>
 
         <Field
           label="Typeface"
           hint={
-            serifFonts.some((f) => f.value === draft.font)
+            serifFonts.some(f => f.value === draft.font)
               ? 'A serif face. The PDF embeds Times, the standard serif every reader can render.'
               : 'A sans-serif face. The PDF embeds Helvetica, the standard sans every reader can render.'
           }
         >
-          <Select value={draft.font} onValueChange={(v) => update({ font: v })}>
-            <SelectTrigger>
-              <SelectValue placeholder="Select a typeface" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectLabel>Serif</SelectLabel>
-                {serifFonts.map((f) => (
-                  <SelectItem key={f.value} value={f.value}>
-                    <span style={{ fontFamily: f.value }}>{f.label}</span>
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-              <SelectGroup>
-                <SelectLabel>Sans-serif</SelectLabel>
-                {sansSerifFonts.map((f) => (
-                  <SelectItem key={f.value} value={f.value}>
-                    <span style={{ fontFamily: f.value }}>{f.label}</span>
-                  </SelectItem>
-                ))}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          {id => (
+            <Select value={draft.font} onValueChange={v => update({ font: v })}>
+              <SelectTrigger id={id}>
+                <SelectValue placeholder="Select a typeface" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Serif</SelectLabel>
+                  {serifFonts.map(f => (
+                    <SelectItem key={f.value} value={f.value}>
+                      <span style={{ fontFamily: f.value }}>{f.label}</span>
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+                <SelectGroup>
+                  <SelectLabel>Sans-serif</SelectLabel>
+                  {sansSerifFonts.map(f => (
+                    <SelectItem key={f.value} value={f.value}>
+                      <span style={{ fontFamily: f.value }}>{f.label}</span>
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          )}
         </Field>
 
         <Field label="Body size">
-          <Select
-            value={draft.fontSize}
-            onValueChange={(v) => update({ fontSize: v as ResumeStyle['fontSize'] })}
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {sizes.map((s) => (
-                <SelectItem key={s.value} value={s.value}>
-                  {s.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          {id => (
+            <Select
+              value={draft.fontSize}
+              onValueChange={v => update({ fontSize: v as ResumeStyle['fontSize'] })}
+            >
+              <SelectTrigger id={id}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {sizes.map(s => (
+                  <SelectItem key={s.value} value={s.value}>
+                    {s.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
         </Field>
 
         <Field label="Section spacing">
-          <Select
-            value={draft.spacing}
-            onValueChange={(v) => update({ spacing: v as ResumeStyle['spacing'] })}
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {sizes.map((s) => (
-                <SelectItem key={s.value} value={s.value}>
-                  {s.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          {id => (
+            <Select
+              value={draft.spacing}
+              onValueChange={v => update({ spacing: v as ResumeStyle['spacing'] })}
+            >
+              <SelectTrigger id={id}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {sizes.map(s => (
+                  <SelectItem key={s.value} value={s.value}>
+                    {s.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
         </Field>
 
         <Field label="Separator">
-          <Select
-            value={draft.separator}
-            onValueChange={(v) => update({ separator: v as ResumeStyle['separator'] })}
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {separatorTypes.map((s) => (
-                <SelectItem key={s.value} value={s.value}>
-                  {s.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          {id => (
+            <Select
+              value={draft.separator}
+              onValueChange={v => update({ separator: v as ResumeStyle['separator'] })}
+            >
+              <SelectTrigger id={id}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {separatorTypes.map(s => (
+                  <SelectItem key={s.value} value={s.value}>
+                    {s.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
         </Field>
 
         <Field label="Date format">
-          <Select
-            value={draft.dateFormat}
-            onValueChange={(v) => update({ dateFormat: v as ResumeStyle['dateFormat'] })}
-          >
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {dateFormats.map((d) => (
-                <SelectItem key={d.value} value={d.value}>
-                  {d.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          {id => (
+            <Select
+              value={draft.dateFormat}
+              onValueChange={v => update({ dateFormat: v as ResumeStyle['dateFormat'] })}
+            >
+              <SelectTrigger id={id}>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {dateFormats.map(d => (
+                  <SelectItem key={d.value} value={d.value}>
+                    {d.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
         </Field>
       </div>
 
@@ -224,7 +240,7 @@ export function StylingForm() {
       <Field label="Accent colour">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
           <div className="flex flex-wrap gap-2">
-            {presetColors.map((c) => {
+            {presetColors.map(c => {
               const selected = draft.color.toLowerCase() === c.value.toLowerCase()
               return (
                 <button
@@ -234,8 +250,8 @@ export function StylingForm() {
                   title={c.name}
                   aria-label={`Use ${c.name}`}
                   className={cn(
-                    'group relative flex h-10 w-10 items-center justify-center rounded-lg border-2 transition-transform hover:-translate-y-0.5',
-                    selected ? 'border-slate-12 shadow-sm' : 'border-transparent',
+                    'group relative flex h-10 w-10 coarse:h-11 coarse:w-11 items-center justify-center rounded-lg border-2 transition-transform hover:-translate-y-0.5',
+                    selected ? 'border-slate-12 shadow-sm' : 'border-transparent'
                   )}
                   style={{ backgroundColor: c.value }}
                 >
@@ -245,11 +261,14 @@ export function StylingForm() {
             })}
           </div>
           <div className="flex items-center gap-3 rounded-md border border-line bg-surface-2/40 px-3 py-2">
-            <span className="text-[13px] font-medium text-slate-7">Custom</span>
+            <Label htmlFor={customColourId} className="text-[13px] font-medium text-slate-7">
+              Custom
+            </Label>
             <Input
+              id={customColourId}
               type="color"
               value={draft.color}
-              onChange={(e) => update({ color: e.target.value })}
+              onChange={e => update({ color: e.target.value })}
             />
             <span className="text-[13px] font-medium text-slate-9 num-tabular">
               {draft.color.toUpperCase()}
@@ -271,6 +290,11 @@ export function StylingForm() {
   )
 }
 
+/**
+ * A labelled field. The label is bound to whatever control it names, so screen
+ * readers announce "Typeface, combo box" rather than an anonymous button. The
+ * child is given the generated id through a render prop.
+ */
 function Field({
   label,
   hint,
@@ -278,12 +302,13 @@ function Field({
 }: {
   label: string
   hint?: string
-  children: React.ReactNode
+  children: React.ReactNode | ((id: string) => React.ReactNode)
 }) {
+  const id = React.useId()
   return (
     <div className="space-y-2">
-      <Label>{label}</Label>
-      {children}
+      <Label htmlFor={id}>{label}</Label>
+      {typeof children === 'function' ? children(id) : children}
       {hint && <p className="text-[12px] leading-[1.5] text-slate-7">{hint}</p>}
     </div>
   )

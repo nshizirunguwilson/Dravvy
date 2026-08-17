@@ -107,5 +107,12 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    // `coarse:` applies only to touch pointers, so controls can stay compact
+    // for a mouse while meeting the 44px thumb target on phones and tablets.
+    ({ addVariant }) => {
+      addVariant('coarse', '@media (pointer: coarse)')
+    },
+  ],
 }

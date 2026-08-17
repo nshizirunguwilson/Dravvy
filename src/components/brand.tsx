@@ -45,7 +45,7 @@ export function Wordmark({
   const mark = size === 'lg' ? 'h-9 w-9' : size === 'sm' ? 'h-6 w-6' : 'h-8 w-8'
 
   return (
-    <span className={cn('inline-flex items-center gap-2.5 text-slate-12', className)}>
+    <span className={cn('inline-flex min-h-[44px] items-center gap-2.5 text-slate-12', className)}>
       <Mark className={mark} />
       <span className={cn('font-bold tracking-[-0.02em]', text)}>Dravvy</span>
     </span>

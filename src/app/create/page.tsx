@@ -57,7 +57,7 @@ export default function CreatePage() {
             <ThemeToggle />
             <Link
               href="/settings"
-              className="text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
+              className="inline-flex min-h-[44px] items-center text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
             >
               <span className="hidden sm:inline">Style &amp; export →</span>
               <span className="sm:hidden">Style →</span>

@@ -9,24 +9,34 @@ import type { ResumeStyle } from '@/types/resume'
 /**
  * Font stacks for the A4 preview.
  *
- * Roboto, Lato, Open Sans and Garamond are loaded as real webfonts in the root
- * layout, so their variables come first and the choice always renders. The
- * rest come from Windows or macOS, with a same-genre fallback behind them so a
- * machine without the face still shows serif for serif and sans for sans.
+ * Two rules hold here, and breaking either one makes a typeface choice a lie:
+ *
+ * 1. Every option names the real system font first, then its own dedicated
+ *    webfont. A machine that has the genuine face uses it; every other machine
+ *    still gets that typeface rather than a substitute.
+ * 2. No stack ever names another option's font. Georgia used to list
+ *    "Times New Roman" as a fallback, so on Linux the two options rendered
+ *    identically. Each chain now ends at a generic family instead.
  */
 const fontStack: Record<string, string> = {
-  'times new roman': '"Times New Roman", Times, "Liberation Serif", serif',
-  georgia: 'Georgia, "Gelasio", "Times New Roman", serif',
-  cambria: 'Cambria, var(--font-resume-cambria), Caladea, Georgia, serif',
-  garamond: 'Garamond, var(--font-resume-garamond), "EB Garamond", Georgia, serif',
-  calibri: 'Calibri, var(--font-resume-calibri), Carlito, "Helvetica Neue", Arial, sans-serif',
-  helvetica: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-  arial: 'Arial, "Liberation Sans", "Helvetica Neue", sans-serif',
-  roboto: 'var(--font-resume-roboto), Roboto, "Helvetica Neue", Arial, sans-serif',
-  lato: 'var(--font-resume-lato), Lato, "Helvetica Neue", Arial, sans-serif',
-  'open sans': 'var(--font-resume-open-sans), "Open Sans", "Helvetica Neue", Arial, sans-serif',
-  montserrat: 'var(--font-resume-montserrat), Montserrat, "Helvetica Neue", Arial, sans-serif',
-  outfit: 'var(--font-resume-outfit), Outfit, "Helvetica Neue", Arial, sans-serif',
+  'times new roman': '"Times New Roman", var(--font-resume-times), Tinos, serif',
+  georgia: 'Georgia, var(--font-resume-georgia), Gelasio, serif',
+  cambria: 'Cambria, var(--font-resume-cambria), Caladea, serif',
+  garamond: 'Garamond, var(--font-resume-garamond), "EB Garamond", serif',
+  calibri: 'Calibri, var(--font-resume-calibri), Carlito, sans-serif',
+  // Arial and Helvetica are the one pair that cannot lead with the system name.
+  // Linux fontconfig aliases both to the same family (usually Liberation Sans),
+  // so the browser "finds" them and never reaches the webfont, and the two
+  // options render identically. Leading with our own face makes them
+  // deterministic on every OS. Arimo is metrically identical to Arial, so
+  // nothing shifts; Archivo is a different grotesque standing in for Helvetica.
+  helvetica: 'var(--font-resume-helvetica), Archivo, "Helvetica Neue", Helvetica, sans-serif',
+  arial: 'var(--font-resume-arial), Arimo, Arial, sans-serif',
+  roboto: 'var(--font-resume-roboto), Roboto, sans-serif',
+  lato: 'var(--font-resume-lato), Lato, sans-serif',
+  'open sans': 'var(--font-resume-open-sans), "Open Sans", sans-serif',
+  montserrat: 'var(--font-resume-montserrat), Montserrat, sans-serif',
+  outfit: 'var(--font-resume-outfit), Outfit, sans-serif',
 }
 
 const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {
@@ -141,7 +151,7 @@ export function ResumePreview() {
             <span aria-hidden className="text-slate-5">·</span>
             <span className="num-tabular">A4 · 210 × 297 mm</span>
           </div>
-          <span className="text-[12px] font-medium text-slate-6">
+          <span className="text-[12px] font-medium text-slate-7">
             What you see is what exports
           </span>
         </div>

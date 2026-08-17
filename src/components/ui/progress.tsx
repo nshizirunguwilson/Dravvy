@@ -8,6 +8,9 @@ const Progress = React.forwardRef<
 >(({ className, value, ...props }, ref) => (
   <ProgressPrimitive.Root
     ref={ref}
+    // A progressbar with no name is announced as an unlabelled region, so give
+    // it one by default while still letting a caller override it.
+    aria-label="Progress"
     className={cn('relative h-1.5 w-full overflow-hidden rounded-full bg-surface-2', className)}
     {...props}
   >

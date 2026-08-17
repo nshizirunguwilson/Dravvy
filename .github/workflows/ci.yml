@@ -70,7 +70,7 @@ jobs:
           retention-days: 7
 
   styling-proof:
-    name: Styling options proof
+    name: Styling and device proofs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -106,6 +106,17 @@ jobs:
 
       - name: Prove every styling option reaches the live preview
         run: npm run proof:styling
+
+      - name: Prove every screen works on every device
+        run: npm run proof:responsive
+
+      - name: Upload device evidence
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: responsive-proof
+          path: docs/responsive-proof/
+          retention-days: 7
 
       - name: Upload styling evidence
         uses: actions/upload-artifact@v4

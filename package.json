@@ -13,6 +13,8 @@
     "proof:styling": "node scripts/styling-proof.mjs",
     "proof:exports": "node scripts/styling-export-proof.mjs",
     "proof:report": "node scripts/styling-report.mjs",
+    "proof:responsive": "node scripts/responsive-proof.mjs",
+    "proof:responsive:report": "node scripts/responsive-report.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -53,6 +55,7 @@
     "zustand": "^4.5.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.61.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -67,6 +70,7 @@
     "@vitejs/plugin-react": "^6.0.3",
     "@vitest/coverage-v8": "^2.1.9",
     "autoprefixer": "^10.4.17",
+    "axe-core": "^4.13.0",
     "esbuild": "^0.28.0",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",

@@ -1,14 +1,18 @@
 import type { Metadata, Viewport } from 'next'
 import {
+  Archivo,
+  Arimo,
   Caladea,
   Carlito,
   EB_Garamond,
+  Gelasio,
   Lato,
   Montserrat,
   Open_Sans,
   Outfit,
   Plus_Jakarta_Sans,
   Roboto,
+  Tinos,
 } from 'next/font/google'
 
 import './globals.css'
@@ -26,15 +30,23 @@ const sans = Plus_Jakarta_Sans({
 /**
  * Resume typefaces.
  *
- * Six of the ten choices in the styling form have no system installation to
- * fall back to on a typical machine, so without these they silently rendered
- * as some other face. Caladea and Carlito are the open, metric-compatible
- * equivalents of Cambria and Calibri, which ship only with Microsoft Office.
+ * Every choice in the styling form gets a real webfont behind the system font
+ * it names. Without this, a machine missing the system face falls through to
+ * whatever fontconfig substitutes, and two different choices silently render
+ * as the same thing. That is not hypothetical: Georgia and Times New Roman came
+ * out identical on Linux until this was added.
  *
- * Each is declared behind the real system font in the stack, so a machine that
- * genuinely has Cambria or Calibri still uses it. Verified per option by
- * `npm run proof:styling`, which measures the rendered text width and fails if
- * two typefaces come out identical.
+ * The open faces here are the metric-compatible equivalents of the proprietary
+ * ones, so a machine that genuinely has Georgia or Cambria still uses it and
+ * the layout does not shift:
+ *
+ *   Tinos    <- Times New Roman      Caladea  <- Cambria
+ *   Gelasio  <- Georgia              Carlito  <- Calibri
+ *   Arimo    <- Arial
+ *
+ * None are preloaded: a visitor only pays for the one typeface they pick.
+ * Verified per option by `npm run proof:styling`, which measures the rendered
+ * text width and fails if two typefaces come out identical.
  */
 const resumeRoboto = Roboto({
   subsets: ['latin'],
@@ -42,6 +54,7 @@ const resumeRoboto = Roboto({
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-resume-roboto',
+  preload: false,
 })
 
 const resumeLato = Lato({
@@ -50,6 +63,7 @@ const resumeLato = Lato({
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-resume-lato',
+  preload: false,
 })
 
 const resumeOpenSans = Open_Sans({
@@ -57,6 +71,7 @@ const resumeOpenSans = Open_Sans({
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-resume-open-sans',
+  preload: false,
 })
 
 const resumeGaramond = EB_Garamond({
@@ -64,6 +79,7 @@ const resumeGaramond = EB_Garamond({
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-resume-garamond',
+  preload: false,
 })
 
 const resumeMontserrat = Montserrat({
@@ -71,6 +87,7 @@ const resumeMontserrat = Montserrat({
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-resume-montserrat',
+  preload: false,
 })
 
 // Outfit publishes no true italic, so the browser synthesises the oblique used
@@ -80,6 +97,47 @@ const resumeOutfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-resume-outfit',
+  preload: false,
+})
+
+const resumeTimes = Tinos({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-times',
+  preload: false,
+})
+
+const resumeGeorgia = Gelasio({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-georgia',
+  preload: false,
+})
+
+const resumeArial = Arimo({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-arial',
+  preload: false,
+})
+
+/**
+ * Helvetica has no open metric clone that is not also an Arial clone, so the
+ * genuine face is named first and Archivo, a different grotesque, sits behind
+ * it. Without this, a machine with neither Helvetica nor Arial resolved both
+ * options to the same substitute.
+ */
+const resumeHelvetica = Archivo({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-helvetica',
+  preload: false,
 })
 
 const resumeCambria = Caladea({
@@ -88,6 +146,7 @@ const resumeCambria = Caladea({
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-resume-cambria',
+  preload: false,
 })
 
 const resumeCalibri = Carlito({
@@ -112,6 +171,10 @@ const fontVariables = [
   resumeCalibri.variable,
   resumeMontserrat.variable,
   resumeOutfit.variable,
+  resumeTimes.variable,
+  resumeGeorgia.variable,
+  resumeArial.variable,
+  resumeHelvetica.variable,
 ].join(' ')
 
 export const metadata: Metadata = {

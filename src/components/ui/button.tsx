@@ -33,8 +33,8 @@ const variants: Record<NonNullable<ButtonProps['variant']>, string> = {
 }
 
 const sizes: Record<NonNullable<ButtonProps['size']>, string> = {
-  sm: 'h-9 px-3.5 text-[13px]',
-  default: 'h-11 px-5',
+  sm: 'h-9 coarse:min-h-[44px] px-3.5 text-[13px]',
+  default: 'h-11 coarse:min-h-[44px] px-5',
   lg: 'h-12 px-6 text-[15px]',
 }
 

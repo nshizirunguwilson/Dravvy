@@ -40,7 +40,8 @@ preview, and one-click export as a print-ready PDF or an editable DOCX.
 - **Light and dark theme**, remembered per device, following your operating
   system by default, and applied before first paint so there is no white
   flash. The resume page itself stays white paper in either theme.
-- **Responsive down to 320px** (iPhone 5/SE).
+- **Verified on 14 device sizes**, from an iPhone 6s to a 16 inch MacBook Pro,
+  in both themes, with zero axe-core violations against WCAG 2.2 AA.
 
 ---
 
@@ -191,6 +192,58 @@ offered as the closest open geometric sans instead, under its own name.
 
 ---
 
+## Devices and accessibility
+
+The app is held to a ladder of 14 device sizes, from an iPhone 6s up to a 16
+inch MacBook Pro, across all 9 screens and both themes. That is 252
+combinations, and every one is measured, not eyeballed:
+
+```bash
+npm run dev -- -p 3100            # in one terminal
+npm run proof:responsive          # 252 combinations, 6 checks each
+npm run proof:responsive:report   # build the visual proof sheet
+```
+
+Each combination is loaded at the viewport a real browser actually gives the
+page, which is not the same as the screen size. An iPhone 6s is a 375x667
+device, but Safari hands the page 375x553 of it, and only 325px of height in
+landscape. The ladder records both numbers and tests against the smaller one.
+
+Six checks run every time:
+
+1. The document never scrolls sideways.
+2. No element extends past either edge, unless it sits inside a container that
+   is meant to scroll. The A4 preview is the one such container.
+3. Every control clears 44px on touch, and the WCAG 2.5.8 floor of 24px on a
+   pointer. A checkbox is measured by its label, which is what you actually tap.
+4. No two controls overlap.
+5. No visible text renders below 12px.
+6. [axe-core](https://github.com/dequelabs/axe-core) runs against `wcag2a`,
+   `wcag2aa`, `wcag21a`, `wcag21aa` and `wcag22aa`, with zero serious or
+   critical violations allowed.
+
+Fitting on a screen is not the same as being usable on one, so
+[`e2e/mobile-flow.spec.ts`](e2e/mobile-flow.spec.ts) drives a real iPhone 6s
+viewport with touch enabled and builds a resume end to end: fills the basics,
+saves, adds a role with bullet points, moves to styling, checks the preview,
+and downloads the PDF.
+
+### Where the evidence lives
+
+Proof output is generated, not authored, so the pictures are not committed. The
+scripts encode the checks, CI regenerates everything on every push and uploads
+the screenshots as build artifacts, and only the measurements are versioned:
+
+| Path | Committed | Why |
+| ---- | --------- | --- |
+| `scripts/*-proof.mjs`, `scripts/fixtures/*` | yes | The checks themselves |
+| `docs/*/manifest.json`, `exports.json` | yes | Measurements, worth diffing over time |
+| `docs/*/*.jpg`, `report.html` | no | Rebuilt by the sweep, uploaded by CI |
+
+Rebuild the pictures and the proof sheets any time with the commands above.
+
+---
+
 ## Theme
 
 Light and dark, with a third **System** option that follows the operating
@@ -245,6 +298,8 @@ npm run dev          # http://localhost:3000
 | `npm run proof:styling` | Sweeps every styling option through the live preview and captures evidence. |
 | `npm run proof:exports` | Sweeps every styling option through a real PDF and DOCX.                      |
 | `npm run proof:report` | Builds the styling proof sheet from the two sweeps.                           |
+| `npm run proof:responsive` | Sweeps every screen across 14 device sizes and both themes.              |
+| `npm run proof:responsive:report` | Builds the device proof sheet.                                    |
 | `npm run format`      | Prettier formatting.                                                          |
 
 The export smoke test is fully headless. It bundles the export modules

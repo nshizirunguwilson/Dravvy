@@ -89,7 +89,7 @@ export function ProgressTracker() {
               {sections.length}
             </p>
           </div>
-          <Progress value={progress} className="mb-4" />
+          <Progress value={progress} className="mb-4" aria-label={`Resume ${progress}% complete`} />
 
           <div
             ref={scrollerRef}
@@ -106,7 +106,7 @@ export function ProgressTracker() {
                   onClick={() => setActiveSection(index)}
                   whileTap={reduce ? undefined : { scale: 0.97 }}
                   className={cn(
-                    'flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors',
+                    'flex min-h-[44px] shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors',
                     active
                       ? 'border-brand bg-brand-soft text-brand-ink'
                       : completed
@@ -143,7 +143,7 @@ export function ProgressTracker() {
             </p>
           </div>
 
-          <Progress value={progress} className="mt-3" />
+          <Progress value={progress} className="mt-3" aria-label={`Resume ${progress}% complete`} />
 
           <ol className="mt-5 space-y-1">
             {sections.map((section, index) => {
@@ -156,7 +156,7 @@ export function ProgressTracker() {
                     onClick={() => setActiveSection(index)}
                     whileTap={reduce ? undefined : { scale: 0.985 }}
                     className={cn(
-                      'group flex w-full items-center gap-3 rounded-md px-2.5 py-2 text-left text-[14px] transition-colors',
+                      'group flex min-h-[44px] w-full items-center gap-3 rounded-md px-2.5 py-2 text-left text-[14px] transition-colors',
                       active
                         ? 'bg-brand-soft text-brand-ink'
                         : 'text-slate-9 hover:bg-surface-2 hover:text-slate-12',

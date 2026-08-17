@@ -10,7 +10,7 @@ import { ResumePreview } from '@/components/resume-preview'
 import { ExportForm } from '@/components/export-form'
 import { SaveProgress } from '@/components/save-progress'
 import { Button } from '@/components/ui/button'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Wordmark } from '@/components/brand'
 import { ThemeSelector, ThemeToggle } from '@/components/theme-toggle'
 import { useUIStore } from '@/store/useUIStore'
@@ -49,7 +49,7 @@ export default function SettingsPage() {
             <ThemeToggle />
             <Link
               href="/create"
-              className="text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
+              className="inline-flex min-h-[44px] items-center text-[13px] font-medium text-slate-9 transition-colors hover:text-brand"
             >
               <span className="hidden sm:inline">← Back to editor</span>
               <span className="sm:hidden">← Editor</span>
@@ -73,10 +73,10 @@ export default function SettingsPage() {
         {/* Tab nav, wraps in a horizontally-scrollable container at small widths */}
         <Tabs value={current.id} onValueChange={(v) => setActiveSection(sections.findIndex((s) => s.id === v))}>
           <div className="-mx-4 mb-6 overflow-x-auto px-4 sm:mx-0 sm:mb-8 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <TabsList>
+            <TabsList aria-label="Final touches">
               {sections.map((section, index) => (
                 <TabsTrigger key={section.id} value={section.id}>
-                  <span className="text-[12px] font-semibold text-slate-6 num-tabular">
+                  <span className="text-[12px] font-semibold text-slate-7 num-tabular">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span>{section.label}</span>
@@ -84,21 +84,24 @@ export default function SettingsPage() {
               ))}
             </TabsList>
           </div>
-        </Tabs>
 
-        {/* Content card */}
-        <AnimatePresence mode="wait">
-          <motion.section
-            key={current.id}
-            initial={reduce ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduce ? undefined : { opacity: 0, y: -6 }}
-            transition={{ duration: 0.22, ease: [0.2, 0.7, 0.2, 1] }}
-            className="rounded-2xl border border-line bg-surface p-4 shadow-sm sm:p-6 md:p-8"
-          >
-            {renderStep(current.id)}
-          </motion.section>
-        </AnimatePresence>
+          {/* The panel has to exist, otherwise every trigger's aria-controls
+              points at nothing and the tablist is broken for screen readers. */}
+          <TabsContent value={current.id} className="mt-0">
+            <AnimatePresence mode="wait">
+              <motion.section
+                key={current.id}
+                initial={reduce ? false : { opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduce ? undefined : { opacity: 0, y: -6 }}
+                transition={{ duration: 0.22, ease: [0.2, 0.7, 0.2, 1] }}
+                className="rounded-2xl border border-line bg-surface p-4 shadow-sm sm:p-6 md:p-8"
+              >
+                {renderStep(current.id)}
+              </motion.section>
+            </AnimatePresence>
+          </TabsContent>
+        </Tabs>
 
         {/* Footer nav */}
         <div className="mt-6 flex items-center justify-between gap-3 sm:mt-8">

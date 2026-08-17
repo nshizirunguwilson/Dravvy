@@ -1,0 +1,8083 @@
+{
+  "generatedAt": "2026-08-17T23:06:32.979Z",
+  "baseURL": "http://localhost:3100",
+  "devices": 14,
+  "screens": 9,
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "checked": 252,
+  "failures": 0,
+  "thresholds": {
+    "touchTarget": 44,
+    "pointerTarget": 24,
+    "minFontPx": 12
+  },
+  "results": [
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--landing--light.jpg",
+      "bytes": 26064,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--create-basic--light.jpg",
+      "bytes": 20391,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--create-work--light.jpg",
+      "bytes": 20250,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--create-skills--light.jpg",
+      "bytes": 19315,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--create-references--light.jpg",
+      "bytes": 20263,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--settings-styling--light.jpg",
+      "bytes": 20814,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--settings-preview--light.jpg",
+      "bytes": 17365,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--settings-export--light.jpg",
+      "bytes": 18684,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--settings-save--light.jpg",
+      "bytes": 22767,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--landing--dark.jpg",
+      "bytes": 25194,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--create-basic--dark.jpg",
+      "bytes": 19471,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--create-work--dark.jpg",
+      "bytes": 19317,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--create-skills--dark.jpg",
+      "bytes": 18362,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--create-references--dark.jpg",
+      "bytes": 19325,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--settings-styling--dark.jpg",
+      "bytes": 19851,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--settings-preview--dark.jpg",
+      "bytes": 17634,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--settings-export--dark.jpg",
+      "bytes": 17686,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s",
+      "deviceLabel": "iPhone 6s / 7 / 8 / SE",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 375,
+        "height": 553
+      },
+      "screenSize": [
+        375,
+        667
+      ],
+      "touch": true,
+      "file": "iphone-6s--settings-save--dark.jpg",
+      "bytes": 21519,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--landing--light.jpg",
+      "bytes": 27824,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 368,
+        "height": 674
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--create-basic--light.jpg",
+      "bytes": 22121,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 368,
+        "height": 674
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--create-work--light.jpg",
+      "bytes": 23383,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 368,
+        "height": 674
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--create-skills--light.jpg",
+      "bytes": 21637,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 368,
+        "height": 674
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--create-references--light.jpg",
+      "bytes": 24392,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--settings-styling--light.jpg",
+      "bytes": 24147,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--settings-preview--light.jpg",
+      "bytes": 22937,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--settings-export--light.jpg",
+      "bytes": 22676,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--settings-save--light.jpg",
+      "bytes": 25970,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--landing--dark.jpg",
+      "bytes": 27039,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 368,
+        "height": 674
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--create-basic--dark.jpg",
+      "bytes": 21162,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 368,
+        "height": 674
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--create-work--dark.jpg",
+      "bytes": 22456,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 368,
+        "height": 674
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--create-skills--dark.jpg",
+      "bytes": 20673,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 368,
+        "height": 674
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--create-references--dark.jpg",
+      "bytes": 23230,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--settings-styling--dark.jpg",
+      "bytes": 22872,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--settings-preview--dark.jpg",
+      "bytes": 23347,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--settings-export--dark.jpg",
+      "bytes": 21127,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-12-mini",
+      "deviceLabel": "iPhone 12 mini",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 360,
+        "height": 659
+      },
+      "screenSize": [
+        360,
+        780
+      ],
+      "touch": true,
+      "file": "iphone-12-mini--settings-save--dark.jpg",
+      "bytes": 24206,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--landing--light.jpg",
+      "bytes": 31474,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--create-basic--light.jpg",
+      "bytes": 25348,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--create-work--light.jpg",
+      "bytes": 25801,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--create-skills--light.jpg",
+      "bytes": 24112,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--create-references--light.jpg",
+      "bytes": 25663,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--settings-styling--light.jpg",
+      "bytes": 26997,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--settings-preview--light.jpg",
+      "bytes": 28582,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--settings-export--light.jpg",
+      "bytes": 23759,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--settings-save--light.jpg",
+      "bytes": 32755,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--landing--dark.jpg",
+      "bytes": 30387,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--create-basic--dark.jpg",
+      "bytes": 24330,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--create-work--dark.jpg",
+      "bytes": 24838,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--create-skills--dark.jpg",
+      "bytes": 23163,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--create-references--dark.jpg",
+      "bytes": 24545,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--settings-styling--dark.jpg",
+      "bytes": 25604,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--settings-preview--dark.jpg",
+      "bytes": 29159,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--settings-export--dark.jpg",
+      "bytes": 22276,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-14",
+      "deviceLabel": "iPhone 13 / 14 / 15",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 390,
+        "height": 724
+      },
+      "screenSize": [
+        390,
+        844
+      ],
+      "touch": true,
+      "file": "iphone-14--settings-save--dark.jpg",
+      "bytes": 30514,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--landing--light.jpg",
+      "bytes": 36961,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--create-basic--light.jpg",
+      "bytes": 29767,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--create-work--light.jpg",
+      "bytes": 30624,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--create-skills--light.jpg",
+      "bytes": 29317,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--create-references--light.jpg",
+      "bytes": 29684,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--settings-styling--light.jpg",
+      "bytes": 30598,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--settings-preview--light.jpg",
+      "bytes": 36340,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--settings-export--light.jpg",
+      "bytes": 28719,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--settings-save--light.jpg",
+      "bytes": 35304,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--landing--dark.jpg",
+      "bytes": 35629,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--create-basic--dark.jpg",
+      "bytes": 28588,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--create-work--dark.jpg",
+      "bytes": 29546,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--create-skills--dark.jpg",
+      "bytes": 28114,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--create-references--dark.jpg",
+      "bytes": 28492,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--settings-styling--dark.jpg",
+      "bytes": 28974,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--settings-preview--dark.jpg",
+      "bytes": 37038,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--settings-export--dark.jpg",
+      "bytes": 26708,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max",
+      "deviceLabel": "iPhone 15 Pro Max",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 430,
+        "height": 814
+      },
+      "screenSize": [
+        430,
+        932
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max--settings-save--dark.jpg",
+      "bytes": 32967,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--landing--light.jpg",
+      "bytes": 18817,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--create-basic--light.jpg",
+      "bytes": 18343,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--create-work--light.jpg",
+      "bytes": 18360,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--create-skills--light.jpg",
+      "bytes": 18131,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--create-references--light.jpg",
+      "bytes": 18127,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--settings-styling--light.jpg",
+      "bytes": 13503,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--settings-preview--light.jpg",
+      "bytes": 13073,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--settings-export--light.jpg",
+      "bytes": 12854,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--settings-save--light.jpg",
+      "bytes": 13625,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--landing--dark.jpg",
+      "bytes": 18361,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 14,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--create-basic--dark.jpg",
+      "bytes": 17334,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--create-work--dark.jpg",
+      "bytes": 17339,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--create-skills--dark.jpg",
+      "bytes": 17228,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--create-references--dark.jpg",
+      "bytes": 17222,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--settings-styling--dark.jpg",
+      "bytes": 13220,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--settings-preview--dark.jpg",
+      "bytes": 12767,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--settings-export--dark.jpg",
+      "bytes": 12592,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-6s-landscape",
+      "deviceLabel": "iPhone 6s, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 667,
+        "height": 325
+      },
+      "screenSize": [
+        667,
+        375
+      ],
+      "touch": true,
+      "file": "iphone-6s-landscape--settings-save--dark.jpg",
+      "bytes": 13343,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--landing--light.jpg",
+      "bytes": 26910,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--create-basic--light.jpg",
+      "bytes": 24635,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--create-work--light.jpg",
+      "bytes": 24676,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--create-skills--light.jpg",
+      "bytes": 24468,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--create-references--light.jpg",
+      "bytes": 24490,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--settings-styling--light.jpg",
+      "bytes": 17285,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--settings-preview--light.jpg",
+      "bytes": 16834,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--settings-export--light.jpg",
+      "bytes": 16481,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--settings-save--light.jpg",
+      "bytes": 19534,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--landing--dark.jpg",
+      "bytes": 26286,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--create-basic--dark.jpg",
+      "bytes": 23371,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--create-work--dark.jpg",
+      "bytes": 23396,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--create-skills--dark.jpg",
+      "bytes": 23279,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--create-references--dark.jpg",
+      "bytes": 23241,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--settings-styling--dark.jpg",
+      "bytes": 16832,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--settings-preview--dark.jpg",
+      "bytes": 16389,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--settings-export--dark.jpg",
+      "bytes": 16019,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "iphone-15-pro-max-landscape",
+      "deviceLabel": "iPhone 15 Pro Max, landscape",
+      "deviceClass": "phone",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 932,
+        "height": 380
+      },
+      "screenSize": [
+        932,
+        430
+      ],
+      "touch": true,
+      "file": "iphone-15-pro-max-landscape--settings-save--dark.jpg",
+      "bytes": 18859,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--landing--light.jpg",
+      "bytes": 63083,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--create-basic--light.jpg",
+      "bytes": 57214,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--create-work--light.jpg",
+      "bytes": 53282,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--create-skills--light.jpg",
+      "bytes": 41652,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--create-references--light.jpg",
+      "bytes": 45413,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--settings-styling--light.jpg",
+      "bytes": 45877,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--settings-preview--light.jpg",
+      "bytes": 54066,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--settings-export--light.jpg",
+      "bytes": 42835,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--settings-save--light.jpg",
+      "bytes": 47651,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--landing--dark.jpg",
+      "bytes": 60513,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--create-basic--dark.jpg",
+      "bytes": 55329,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--create-work--dark.jpg",
+      "bytes": 51236,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--create-skills--dark.jpg",
+      "bytes": 40058,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--create-references--dark.jpg",
+      "bytes": 43747,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--settings-styling--dark.jpg",
+      "bytes": 43679,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--settings-preview--dark.jpg",
+      "bytes": 55043,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--settings-export--dark.jpg",
+      "bytes": 40140,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-mini",
+      "deviceLabel": "iPad mini",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 768,
+        "height": 954
+      },
+      "screenSize": [
+        768,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-mini--settings-save--dark.jpg",
+      "bytes": 45332,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--landing--light.jpg",
+      "bytes": 66787,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--create-basic--light.jpg",
+      "bytes": 63770,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--create-work--light.jpg",
+      "bytes": 60690,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--create-skills--light.jpg",
+      "bytes": 48357,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--create-references--light.jpg",
+      "bytes": 51313,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--settings-styling--light.jpg",
+      "bytes": 54648,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--settings-preview--light.jpg",
+      "bytes": 66284,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--settings-export--light.jpg",
+      "bytes": 44416,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--settings-save--light.jpg",
+      "bytes": 51821,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--landing--dark.jpg",
+      "bytes": 64472,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--create-basic--dark.jpg",
+      "bytes": 61593,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--create-work--dark.jpg",
+      "bytes": 58732,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--create-skills--dark.jpg",
+      "bytes": 46680,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--create-references--dark.jpg",
+      "bytes": 49600,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--settings-styling--dark.jpg",
+      "bytes": 50775,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--settings-preview--dark.jpg",
+      "bytes": 67928,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--settings-export--dark.jpg",
+      "bytes": 41863,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-air",
+      "deviceLabel": "iPad Air 11 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 820,
+        "height": 1110
+      },
+      "screenSize": [
+        820,
+        1180
+      ],
+      "touch": true,
+      "file": "ipad-air--settings-save--dark.jpg",
+      "bytes": 49462,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--landing--light.jpg",
+      "bytes": 76513,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--create-basic--light.jpg",
+      "bytes": 69176,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--create-work--light.jpg",
+      "bytes": 88979,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--create-skills--light.jpg",
+      "bytes": 63668,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--create-references--light.jpg",
+      "bytes": 59521,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--settings-styling--light.jpg",
+      "bytes": 67315,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--settings-preview--light.jpg",
+      "bytes": 87499,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--settings-export--light.jpg",
+      "bytes": 49164,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--settings-save--light.jpg",
+      "bytes": 57182,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--landing--dark.jpg",
+      "bytes": 74469,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--create-basic--dark.jpg",
+      "bytes": 66536,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--create-work--dark.jpg",
+      "bytes": 86367,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--create-skills--dark.jpg",
+      "bytes": 61590,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--create-references--dark.jpg",
+      "bytes": 56846,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--settings-styling--dark.jpg",
+      "bytes": 62879,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--settings-preview--dark.jpg",
+      "bytes": 89337,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--settings-export--dark.jpg",
+      "bytes": 46469,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13",
+      "deviceLabel": "iPad Pro 13 inch",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1024,
+        "height": 1292
+      },
+      "screenSize": [
+        1024,
+        1366
+      ],
+      "touch": true,
+      "file": "ipad-pro-13--settings-save--dark.jpg",
+      "bytes": 54736,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--landing--light.jpg",
+      "bytes": 70247,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--create-basic--light.jpg",
+      "bytes": 71610,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--create-work--light.jpg",
+      "bytes": 73715,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--create-skills--light.jpg",
+      "bytes": 58685,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--create-references--light.jpg",
+      "bytes": 60604,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--settings-styling--light.jpg",
+      "bytes": 54684,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--settings-preview--light.jpg",
+      "bytes": 64472,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--settings-export--light.jpg",
+      "bytes": 49002,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--settings-save--light.jpg",
+      "bytes": 56245,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--landing--dark.jpg",
+      "bytes": 68507,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--create-basic--dark.jpg",
+      "bytes": 69493,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--create-work--dark.jpg",
+      "bytes": 71667,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--create-skills--dark.jpg",
+      "bytes": 57566,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--create-references--dark.jpg",
+      "bytes": 58455,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--settings-styling--dark.jpg",
+      "bytes": 52748,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--settings-preview--dark.jpg",
+      "bytes": 65319,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--settings-export--dark.jpg",
+      "bytes": 46556,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "ipad-pro-13-landscape",
+      "deviceLabel": "iPad Pro 13 inch, landscape",
+      "deviceClass": "tablet",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1366,
+        "height": 950
+      },
+      "screenSize": [
+        1366,
+        1024
+      ],
+      "touch": true,
+      "file": "ipad-pro-13-landscape--settings-save--dark.jpg",
+      "bytes": 54106,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 44,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--landing--light.jpg",
+      "bytes": 51999,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--create-basic--light.jpg",
+      "bytes": 58789,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--create-work--light.jpg",
+      "bytes": 55309,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--create-skills--light.jpg",
+      "bytes": 40746,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--create-references--light.jpg",
+      "bytes": 45256,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--settings-styling--light.jpg",
+      "bytes": 34382,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 40,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--settings-preview--light.jpg",
+      "bytes": 39433,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--settings-export--light.jpg",
+      "bytes": 35429,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--settings-save--light.jpg",
+      "bytes": 43957,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--landing--dark.jpg",
+      "bytes": 50829,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--create-basic--dark.jpg",
+      "bytes": 57130,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--create-work--dark.jpg",
+      "bytes": 53591,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--create-skills--dark.jpg",
+      "bytes": 39460,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--create-references--dark.jpg",
+      "bytes": 43706,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--settings-styling--dark.jpg",
+      "bytes": 33149,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 40,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--settings-preview--dark.jpg",
+      "bytes": 40180,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--settings-export--dark.jpg",
+      "bytes": 33595,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "laptop-1280",
+      "deviceLabel": "Laptop, 1280 wide",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1280,
+        "height": 680
+      },
+      "screenSize": [
+        1280,
+        800
+      ],
+      "touch": false,
+      "file": "laptop-1280--settings-save--dark.jpg",
+      "bytes": 41662,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--landing--light.jpg",
+      "bytes": 62091,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--create-basic--light.jpg",
+      "bytes": 70477,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--create-work--light.jpg",
+      "bytes": 68674,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--create-skills--light.jpg",
+      "bytes": 53515,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--create-references--light.jpg",
+      "bytes": 56300,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--settings-styling--light.jpg",
+      "bytes": 48243,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 40,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--settings-preview--light.jpg",
+      "bytes": 54276,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--settings-export--light.jpg",
+      "bytes": 45441,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--settings-save--light.jpg",
+      "bytes": 51883,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--landing--dark.jpg",
+      "bytes": 60651,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--create-basic--dark.jpg",
+      "bytes": 68408,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--create-work--dark.jpg",
+      "bytes": 66796,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--create-skills--dark.jpg",
+      "bytes": 52414,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--create-references--dark.jpg",
+      "bytes": 54557,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--settings-styling--dark.jpg",
+      "bytes": 46682,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 40,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--settings-preview--dark.jpg",
+      "bytes": 55574,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--settings-export--dark.jpg",
+      "bytes": 43188,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-air-13",
+      "deviceLabel": "MacBook Air 13 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1470,
+        "height": 836
+      },
+      "screenSize": [
+        1470,
+        956
+      ],
+      "touch": false,
+      "file": "macbook-air-13--settings-save--dark.jpg",
+      "bytes": 49881,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--landing--light.jpg",
+      "bytes": 64826,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--create-basic--light.jpg",
+      "bytes": 71976,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--create-work--light.jpg",
+      "bytes": 70179,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--create-skills--light.jpg",
+      "bytes": 55562,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--create-references--light.jpg",
+      "bytes": 57937,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--settings-styling--light.jpg",
+      "bytes": 50785,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 40,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--settings-preview--light.jpg",
+      "bytes": 57294,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--settings-export--light.jpg",
+      "bytes": 47043,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--settings-save--light.jpg",
+      "bytes": 53314,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--landing--dark.jpg",
+      "bytes": 63398,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--create-basic--dark.jpg",
+      "bytes": 69359,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--create-work--dark.jpg",
+      "bytes": 67714,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--create-skills--dark.jpg",
+      "bytes": 54000,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--create-references--dark.jpg",
+      "bytes": 55722,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--settings-styling--dark.jpg",
+      "bytes": 49056,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 40,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--settings-preview--dark.jpg",
+      "bytes": 58540,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--settings-export--dark.jpg",
+      "bytes": 44795,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-14",
+      "deviceLabel": "MacBook Pro 14 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1512,
+        "height": 862
+      },
+      "screenSize": [
+        1512,
+        982
+      ],
+      "touch": false,
+      "file": "macbook-pro-14--settings-save--dark.jpg",
+      "bytes": 51049,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--landing--light.jpg",
+      "bytes": 77427,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--create-basic--light.jpg",
+      "bytes": 75385,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--create-work--light.jpg",
+      "bytes": 81537,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--create-skills--light.jpg",
+      "bytes": 63572,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--create-references--light.jpg",
+      "bytes": 64402,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--settings-styling--light.jpg",
+      "bytes": 59350,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 40,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--settings-preview--light.jpg",
+      "bytes": 71191,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--settings-export--light.jpg",
+      "bytes": 52638,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "light",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--settings-save--light.jpg",
+      "bytes": 60367,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "landing",
+      "screenLabel": "Landing page",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--landing--dark.jpg",
+      "bytes": 75155,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 17,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-basic",
+      "screenLabel": "Editor, basic information",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--create-basic--dark.jpg",
+      "bytes": 72814,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 24,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-work",
+      "screenLabel": "Editor, work experience",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--create-work--dark.jpg",
+      "bytes": 79296,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 40,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-skills",
+      "screenLabel": "Editor, skills",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--create-skills--dark.jpg",
+      "bytes": 62042,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 34,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "create-references",
+      "screenLabel": "Editor, references",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--create-references--dark.jpg",
+      "bytes": 61941,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 36,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 25,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-styling",
+      "screenLabel": "Styling",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--settings-styling--dark.jpg",
+      "bytes": 57173,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 40,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 28,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-preview",
+      "screenLabel": "A4 preview",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--settings-preview--dark.jpg",
+      "bytes": 72647,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-export",
+      "screenLabel": "Export",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--settings-export--dark.jpg",
+      "bytes": 49840,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 13,
+        "axeViolations": []
+      }
+    },
+    {
+      "device": "macbook-pro-16",
+      "deviceLabel": "MacBook Pro 16 inch",
+      "deviceClass": "laptop",
+      "theme": "dark",
+      "screen": "settings-save",
+      "screenLabel": "Save file",
+      "viewport": {
+        "width": 1728,
+        "height": 997
+      },
+      "screenSize": [
+        1728,
+        1117
+      ],
+      "touch": false,
+      "file": "macbook-pro-16--settings-save--dark.jpg",
+      "bytes": 57959,
+      "pass": true,
+      "problems": [],
+      "detail": {
+        "documentOverflow": 0,
+        "escapees": [],
+        "smallestControl": 44,
+        "minTarget": 24,
+        "smallControls": [],
+        "overlaps": [],
+        "tiny": [],
+        "controlCount": 10,
+        "axeViolations": []
+      }
+    }
+  ]
+}
