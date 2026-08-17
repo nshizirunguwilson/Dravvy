@@ -25,9 +25,9 @@
     --slate-12: 222 47% 11%;      /* primary text + primary action bg */
     --slate-11: 215 28% 17%;      /* hover of primary action */
     --slate-9: 215 19% 35%;       /* subhead */
-    --slate-7: 215 16% 47%;       /* body secondary */
-    --slate-6: 215 14% 60%;       /* caption / placeholder shade */
-    --slate-5: 215 16% 73%;       /* placeholder */
+    --slate-7: 215 16% 46%;       /* body secondary, 4.68:1 on canvas */
+    --slate-6: 215 14% 60%;       /* decorative only: icons, dividers. Not text. */
+    --slate-5: 215 16% 73%;       /* decorative only. Placeholders use slate-7. */
     --slate-3: 214 27% 88%;       /* disabled glyph */
 
     /* Borders */
@@ -36,7 +36,7 @@
     --divider: 216 22% 94%;       /* very soft inline divider */
 
     /* Brand accent, confident, professional blue */
-    --accent: 220 88% 56%;        /* primary CTA / focus / link */
+    --accent: 220 88% 54%;        /* primary CTA / focus / link, 4.69:1 as text */
     --accent-hover: 220 80% 50%;  /* CTA hover */
     --accent-soft: 220 100% 96%;  /* tint backgrounds */
     --accent-ink: 222 60% 28%;    /* dark blue text on tints */

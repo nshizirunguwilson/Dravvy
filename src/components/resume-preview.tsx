@@ -141,7 +141,7 @@ export function ResumePreview() {
             <span aria-hidden className="text-slate-5">·</span>
             <span className="num-tabular">A4 · 210 × 297 mm</span>
           </div>
-          <span className="text-[12px] font-medium text-slate-6">
+          <span className="text-[12px] font-medium text-slate-7">
             What you see is what exports
           </span>
         </div>
