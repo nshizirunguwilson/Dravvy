@@ -269,7 +269,14 @@ async function main() {
       await seed(page, style)
       await page.reload({ waitUntil: 'networkidle' })
       await page.waitForSelector('article', { state: 'visible' })
-      await page.evaluate(() => document.fonts.ready)
+      // `document.fonts.ready` only settles fonts already in flight. The resume
+      // faces are lazy (preload: false), so a face can still be swapping in
+      // when the shot is taken, and two options momentarily share a fallback.
+      // Force every declared face to download, then wait.
+      await page.evaluate(async () => {
+        await Promise.all([...document.fonts].map((f) => f.load().catch(() => {})))
+        await document.fonts.ready
+      })
       await page.waitForTimeout(150)
 
       const rendered = await readRendered(page)
