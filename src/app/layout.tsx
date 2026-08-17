@@ -78,6 +78,10 @@ const resumeCalibri = Carlito({
   style: ['normal', 'italic'],
   display: 'swap',
   variable: '--font-resume-calibri',
+  // Next has no metric table for Carlito, and warns when it tries to build a
+  // size-adjusted fallback. The stack already names Calibri ahead of it, which
+  // is the metric match, so the automatic fallback adds nothing here.
+  adjustFontFallback: false,
 })
 
 const fontVariables = [
