@@ -275,7 +275,19 @@ async function main() {
         .analyze()
       const violations = axe.violations
         .filter((v) => v.impact === 'serious' || v.impact === 'critical')
-        .map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.length, help: v.help }))
+        .map((v) => ({
+          id: v.id,
+          impact: v.impact,
+          nodes: v.nodes.length,
+          help: v.help,
+          // Keep the offending elements, not just a count. Without these a
+          // failure that only shows on another OS is undebuggable from here.
+          detail: v.nodes.slice(0, 5).map((n) => ({
+            target: n.target.join(' '),
+            html: n.html.replace(/\s+/g, ' ').slice(0, 200),
+            reason: (n.any[0]?.message ?? n.all[0]?.message ?? '').replace(/\s+/g, ' ').slice(0, 240),
+          })),
+        }))
 
       const problems = []
       if (m.documentOverflow > 1) problems.push(`page scrolls sideways by ${m.documentOverflow}px`)
