@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { v4 as uuidv4 } from 'uuid';
+import type { SnapshotResume } from '@/lib/resume-io';
 import type {
   ResumeData,
   ContactInfo,
@@ -70,7 +71,10 @@ interface ResumeState extends ResumeData {
   
   // Reset
   resetStore: () => void;
-  
+
+  // Save and resume: replace the whole draft with an imported one
+  loadSnapshot: (resume: SnapshotResume) => void;
+
   languages: Language[];
   references: Reference[];
   addLanguage: (language: Omit<Language, 'id'>) => void;
@@ -266,7 +270,24 @@ export const useResumeStore = create<ResumeState>()(
       
       // Reset
       resetStore: () => set(initialState),
-      
+
+      // Save and resume
+      loadSnapshot: (resume) =>
+        set({
+          contact: resume.contact,
+          summary: resume.summary,
+          experience: resume.experience,
+          education: resume.education,
+          skills: resume.skills,
+          projects: resume.projects,
+          certifications: resume.certifications,
+          awards: resume.awards,
+          languages: resume.languages,
+          references: resume.references,
+          referencesMode: resume.referencesMode,
+          style: resume.style,
+        }),
+
       addLanguage: (language) =>
         set((state) => ({
           languages: [...state.languages, { ...language, id: uuidv4() }],

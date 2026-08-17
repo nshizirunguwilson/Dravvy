@@ -111,6 +111,74 @@ describe('useResumeStore: other collections', () => {
   })
 })
 
+describe('useResumeStore: loadSnapshot', () => {
+  const snapshotResume = {
+    contact: { fullName: 'Avery Lin', email: 'a@b.com', phone: '1', location: 'Kigali' },
+    summary: 'Imported summary.',
+    experience: [
+      {
+        id: 'exp-1',
+        company: 'Holloway',
+        position: 'Lead',
+        startDate: '2021-01-01',
+        endDate: '',
+        current: true,
+        description: ['One', 'Two'],
+      },
+    ],
+    education: [],
+    skills: [{ id: 'sk-1', category: 'Design', skills: ['Figma'] }],
+    projects: [],
+    certifications: [],
+    awards: [],
+    languages: [],
+    references: [],
+    referencesMode: 'include' as const,
+    style: {
+      theme: 'classic' as const,
+      fontSize: 'large' as const,
+      spacing: 'small' as const,
+      color: '#0F172A',
+      font: 'georgia',
+      separator: 'bold line' as const,
+      dateFormat: 'MMM YYYY' as const,
+      showLinks: true,
+      showSkillProficiency: false,
+    },
+  }
+
+  it('replaces the whole draft with the imported one', () => {
+    const s = useResumeStore.getState()
+    s.updateSummary('old summary')
+    s.addSkill({ category: 'Old', skills: ['Nothing'] })
+
+    s.loadSnapshot(snapshotResume)
+
+    const after = useResumeStore.getState()
+    expect(after.contact.fullName).toBe('Avery Lin')
+    expect(after.summary).toBe('Imported summary.')
+    expect(after.skills).toEqual(snapshotResume.skills)
+    expect(after.experience).toHaveLength(1)
+    expect(after.referencesMode).toBe('include')
+    expect(after.style.font).toBe('georgia')
+  })
+
+  it('clears sections the imported draft left empty', () => {
+    const s = useResumeStore.getState()
+    s.addEducation({
+      school: 'ALU',
+      degree: 'BSc',
+      field: 'CS',
+      startDate: '2020-01-01',
+      endDate: '2024-01-01',
+    })
+
+    s.loadSnapshot(snapshotResume)
+
+    expect(useResumeStore.getState().education).toEqual([])
+  })
+})
+
 describe('useResumeStore: resetStore', () => {
   it('wipes all entered data back to initial', () => {
     const s = useResumeStore.getState()
