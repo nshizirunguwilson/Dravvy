@@ -397,16 +397,17 @@ async function auditForm(page) {
   counts['Accent colour'] = await page.locator('button[aria-label^="Use "]').count()
   counts['Accent colour custom'] = await page.locator('input[type="color"]').count()
 
-  const expected = {
-    Theme: 3,
-    Typeface: 10,
-    'Body size': 3,
-    'Section spacing': 3,
-    Separator: 4,
-    'Date format': 3,
-    'Accent colour': 9,
-    'Accent colour custom': 1,
-  }
+  // Derived from the matrix, never hardcoded, so adding an option in one place
+  // and forgetting the other is what trips the audit rather than a stale number.
+  const expected = Object.fromEntries(
+    groups.map((group) => [
+      group.label,
+      group.id === 'accent-colour'
+        ? group.options.filter((o) => !o.custom).length
+        : group.options.length,
+    ]),
+  )
+  expected['Accent colour custom'] = 1
 
   const mismatches = Object.entries(expected)
     .filter(([key, want]) => counts[key] !== want)

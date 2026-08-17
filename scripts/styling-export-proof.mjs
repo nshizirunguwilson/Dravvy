@@ -96,6 +96,7 @@ const DOCX_FONTS = {
   roboto: 'Roboto',
   lato: 'Lato',
   'open sans': 'Open Sans',
+  montserrat: 'Montserrat',
 }
 
 const DOCX_BODY_HALF_POINTS = { small: 18, medium: 20, large: 24 }
@@ -117,6 +118,7 @@ function checkDocx(groupId, option, xml) {
     }
     case 'typeface': {
       const name = DOCX_FONTS[option.value]
+      if (!name) return `no expected Word font name recorded for "${option.value}"`
       return xml.includes(`w:ascii="${name}"`) ? null : `document.xml never names ${name}`
     }
     case 'body-size': {

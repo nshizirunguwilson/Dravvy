@@ -619,8 +619,9 @@ async function main() {
     <h2>Ten typefaces, ten widths</h2>
     <p class="lede">
       A font that fails to load is invisible in a screenshot comparison if its fallback is another
-      option in the same list. So the sweep wraps the name in a Range and measures the glyphs. Ten
-      distinct widths is the proof that ten distinct faces rendered.
+      option in the same list. So the sweep wraps the name in a Range and measures the glyphs.
+      ${manifest.typefaceWidths.length} distinct widths is the proof that
+      ${manifest.typefaceWidths.length} distinct faces rendered.
     </p>
     <div class="scroller">
       <table class="widths">
