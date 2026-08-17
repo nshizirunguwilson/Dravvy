@@ -144,12 +144,12 @@ Nothing is uploaded. The file is produced and read entirely in the browser.
 
 ## Styling options
 
-Seven groups, 37 individual choices:
+Seven groups, 38 individual choices:
 
 | Group            | Options | What it changes                                                              |
 | ---------------- | ------- | ---------------------------------------------------------------------------- |
 | Theme            | 3       | Header alignment, name capitals, section heading ink and tracking, rule side  |
-| Typeface         | 11      | The family used for the whole page                                            |
+| Typeface         | 12      | The family used for the whole page                                            |
 | Body size        | 3       | Body, heading and section type together                                       |
 | Section spacing  | 3       | Rhythm between header, rules and entries                                      |
 | Separator        | 4       | The rule drawn at each section boundary                                       |
@@ -180,10 +180,14 @@ font name, the half-point size, the accent hex, the border edge and style, the
 spacing in twips, the formatted date.
 
 **One documented constraint.** A PDF can only rely on the 14 fonts every reader
-is required to have, so the eleven typefaces resolve to Times for the four serif
-choices and Helvetica for the seven sans choices. The serif or sans decision is
+is required to have, so the twelve typefaces resolve to Times for the four serif
+choices and Helvetica for the eight sans choices. The serif or sans decision is
 preserved, the DOCX carries the exact typeface name, and the live preview renders
-all eleven distinctly. This is asserted as the contract rather than hidden.
+all twelve distinctly. This is asserted as the contract rather than hidden.
+
+Google Sans is deliberately absent. It is Google's proprietary brand typeface,
+is not published on Google Fonts, and cannot be licensed for use here. Outfit is
+offered as the closest open geometric sans instead, under its own name.
 
 ---
 

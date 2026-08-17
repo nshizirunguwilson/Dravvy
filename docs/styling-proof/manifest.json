@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-17T19:52:51.011Z",
+  "generatedAt": "2026-08-17T20:07:56.623Z",
   "baseURL": "http://localhost:3100",
-  "totalOptions": 37,
-  "checked": 37,
+  "totalOptions": 38,
+  "checked": 38,
   "failures": 0,
   "formCheck": {
     "pass": true,
     "counts": {
       "Theme": 3,
-      "Typeface": 11,
+      "Typeface": 12,
       "Body size": 3,
       "Section spacing": 3,
       "Separator": 4,
@@ -18,7 +18,7 @@
     },
     "expected": {
       "Theme": 3,
-      "Typeface": 11,
+      "Typeface": 12,
       "Body size": 3,
       "Section spacing": 3,
       "Separator": 4,
@@ -72,6 +72,10 @@
     {
       "label": "Montserrat",
       "width": 128.72
+    },
+    {
+      "label": "Outfit",
+      "width": 113.45
     }
   ],
   "results": [
@@ -454,6 +458,34 @@
         "headerGapPx": 18,
         "headingColor": "rgb(37, 99, 235)",
         "nameWidthPx": 128.72,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "typeface",
+      "groupLabel": "Typeface",
+      "value": "outfit",
+      "label": "Outfit",
+      "file": "typeface--outfit.jpg",
+      "bytes": 81208,
+      "digest": "08d5ea6412df8829",
+      "rendered": {
+        "fontFamily": "__Outfit_ed3508, __Outfit_Fallback_ed3508, Outfit, \"Helvetica Neue\", Arial, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 113.45,
         "rulePlacement": "above",
         "ruleCount": 1,
         "ruleHeightPx": 1,
