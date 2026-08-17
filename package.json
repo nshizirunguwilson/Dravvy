@@ -12,6 +12,7 @@
     "test:export": "node scripts/export-smoke.mjs",
     "proof:styling": "node scripts/styling-proof.mjs",
     "proof:exports": "node scripts/styling-export-proof.mjs",
+    "proof:report": "node scripts/styling-report.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
