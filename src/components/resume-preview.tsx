@@ -24,8 +24,14 @@ const fontStack: Record<string, string> = {
   cambria: 'Cambria, var(--font-resume-cambria), Caladea, serif',
   garamond: 'Garamond, var(--font-resume-garamond), "EB Garamond", serif',
   calibri: 'Calibri, var(--font-resume-calibri), Carlito, sans-serif',
-  helvetica: '"Helvetica Neue", Helvetica, var(--font-resume-helvetica), Archivo, sans-serif',
-  arial: 'Arial, var(--font-resume-arial), Arimo, sans-serif',
+  // Arial and Helvetica are the one pair that cannot lead with the system name.
+  // Linux fontconfig aliases both to the same family (usually Liberation Sans),
+  // so the browser "finds" them and never reaches the webfont, and the two
+  // options render identically. Leading with our own face makes them
+  // deterministic on every OS. Arimo is metrically identical to Arial, so
+  // nothing shifts; Archivo is a different grotesque standing in for Helvetica.
+  helvetica: 'var(--font-resume-helvetica), Archivo, "Helvetica Neue", Helvetica, sans-serif',
+  arial: 'var(--font-resume-arial), Arimo, Arial, sans-serif',
   roboto: 'var(--font-resume-roboto), Roboto, sans-serif',
   lato: 'var(--font-resume-lato), Lato, sans-serif',
   'open sans': 'var(--font-resume-open-sans), "Open Sans", sans-serif',
