@@ -3,19 +3,28 @@
 import * as React from 'react'
 
 import { useResumeStore } from '@/store/useResumeStore'
+import { RESUME_INK, resumeTheme, sectionInkColor } from '@/lib/resume-theme'
 import type { ResumeStyle } from '@/types/resume'
 
+/**
+ * Font stacks for the A4 preview.
+ *
+ * Roboto, Lato, Open Sans and Garamond are loaded as real webfonts in the root
+ * layout, so their variables come first and the choice always renders. The
+ * rest come from Windows or macOS, with a same-genre fallback behind them so a
+ * machine without the face still shows serif for serif and sans for sans.
+ */
 const fontStack: Record<string, string> = {
-  'times new roman': '"Times New Roman", Times, serif',
-  georgia: 'Georgia, "Times New Roman", serif',
-  cambria: 'Cambria, Georgia, serif',
-  garamond: 'Garamond, Georgia, serif',
-  calibri: 'Calibri, "Helvetica Neue", Arial, sans-serif',
+  'times new roman': '"Times New Roman", Times, "Liberation Serif", serif',
+  georgia: 'Georgia, "Gelasio", "Times New Roman", serif',
+  cambria: 'Cambria, Caladea, Georgia, serif',
+  garamond: 'Garamond, var(--font-resume-garamond), "EB Garamond", Georgia, serif',
+  calibri: 'Calibri, Carlito, "Helvetica Neue", Arial, sans-serif',
   helvetica: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-  arial: 'Arial, "Helvetica Neue", sans-serif',
-  roboto: 'Roboto, "Helvetica Neue", Arial, sans-serif',
-  lato: 'Lato, "Helvetica Neue", Arial, sans-serif',
-  'open sans': '"Open Sans", "Helvetica Neue", Arial, sans-serif',
+  arial: 'Arial, "Liberation Sans", "Helvetica Neue", sans-serif',
+  roboto: 'var(--font-resume-roboto), Roboto, "Helvetica Neue", Arial, sans-serif',
+  lato: 'var(--font-resume-lato), Lato, "Helvetica Neue", Arial, sans-serif',
+  'open sans': 'var(--font-resume-open-sans), "Open Sans", "Helvetica Neue", Arial, sans-serif',
 }
 
 const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {
@@ -58,12 +67,15 @@ export function ResumePreview() {
   const gap = spacingMap[style.spacing]
   const family = fontStack[style.font] ?? fontStack.helvetica
   const accent = style.color
+  const theme = resumeTheme(style.theme)
+  const headingInk = sectionInkColor(theme, accent)
 
   const Divider = () => {
+    const width = `${theme.ruleWidth * 100}%`
     if (style.separator === 'no separator') return <div style={{ height: gap / 2 }} />
     if (style.separator === 'double line') {
       return (
-        <div style={{ marginTop: gap / 2, marginBottom: gap / 2 }}>
+        <div style={{ marginTop: gap / 2, marginBottom: gap / 2, width }}>
           <div style={{ height: 1, backgroundColor: accent }} />
           <div style={{ height: 1, marginTop: 2, backgroundColor: accent }} />
         </div>
@@ -73,6 +85,7 @@ export function ResumePreview() {
       <div
         style={{
           height: style.separator === 'bold line' ? 3 : 1,
+          width,
           backgroundColor: accent,
           marginTop: gap / 2,
           marginBottom: gap / 2,
@@ -83,19 +96,21 @@ export function ResumePreview() {
 
   const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
     <section>
-      <Divider />
+      {theme.rulePlacement === 'above' && <Divider />}
       <h2
         style={{
-          fontSize: sizes.sub,
-          color: accent,
+          fontSize: sizes.sub * theme.sectionScale,
+          color: headingInk,
           textTransform: 'uppercase',
-          letterSpacing: '0.08em',
-          marginBottom: gap / 3,
+          letterSpacing: `${theme.sectionTracking}em`,
+          marginTop: theme.rulePlacement === 'below' ? gap / 2 : 0,
+          marginBottom: theme.rulePlacement === 'below' ? 0 : gap / 3,
           fontWeight: 700,
         }}
       >
         {title}
       </h2>
+      {theme.rulePlacement === 'below' && <Divider />}
       {children}
     </section>
   )
@@ -147,13 +162,14 @@ export function ResumePreview() {
               lineHeight: 1.5,
             }}
           >
-        <header style={{ textAlign: 'center', marginBottom: gap }}>
+        <header style={{ textAlign: theme.headerAlign, marginBottom: gap }}>
           <h1
             style={{
               fontSize: sizes.heading,
               fontWeight: 700,
-              letterSpacing: '0.01em',
-              color: '#111827',
+              letterSpacing: `${theme.nameTracking}em`,
+              textTransform: theme.nameUppercase ? 'uppercase' : 'none',
+              color: RESUME_INK.ink,
               lineHeight: 1.2,
               marginBottom: 8,
             }}

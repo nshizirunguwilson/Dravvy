@@ -3,6 +3,7 @@
 import * as React from 'react'
 import { Document, Page, View, Text, Link, StyleSheet } from '@react-pdf/renderer'
 
+import { RESUME_INK, resumeTheme, sectionInkColor } from '@/lib/resume-theme'
 import type { ResumeData, ResumeStyle } from '@/types/resume'
 
 const fontMap: Record<string, string> = {
@@ -68,6 +69,8 @@ export function ResumePDF({ data }: ResumePDFProps) {
   const accent = /^#[0-9a-fA-F]{6}$/.test(style.color) ? style.color : '#1f2937'
   const isBoldFamily = fontFamily === 'Helvetica' ? 'Helvetica-Bold' : 'Times-Bold'
   const isItalicFamily = fontFamily === 'Helvetica' ? 'Helvetica-Oblique' : 'Times-Italic'
+  const theme = resumeTheme(style.theme)
+  const headingInk = sectionInkColor(theme, accent)
 
   const styles = StyleSheet.create({
     page: {
@@ -78,15 +81,16 @@ export function ResumePDF({ data }: ResumePDFProps) {
       lineHeight: 1.45,
     },
     header: {
-      textAlign: 'center',
+      textAlign: theme.headerAlign,
       marginBottom: gap,
     },
     name: {
       fontSize: sizes.heading,
       fontFamily: isBoldFamily,
-      color: '#111827',
+      color: RESUME_INK.ink,
       marginBottom: 8,
       lineHeight: 1.2,
+      letterSpacing: theme.nameTracking * sizes.heading,
     },
     contactLine: {
       fontSize: sizes.body,
@@ -98,13 +102,13 @@ export function ResumePDF({ data }: ResumePDFProps) {
       textDecoration: 'none',
     },
     sectionTitle: {
-      fontSize: sizes.sub,
+      fontSize: sizes.sub * theme.sectionScale,
       fontFamily: isBoldFamily,
-      color: accent,
-      letterSpacing: 0.6,
+      color: headingInk,
+      letterSpacing: theme.sectionTracking * sizes.sub,
       textTransform: 'uppercase',
-      marginBottom: gap / 2,
-      marginTop: gap / 2,
+      marginBottom: theme.rulePlacement === 'below' ? 0 : gap / 2,
+      marginTop: theme.rulePlacement === 'below' ? gap / 2 : 0,
     },
     sectionDivider: {
       marginTop: gap / 2,
@@ -155,11 +159,13 @@ export function ResumePDF({ data }: ResumePDFProps) {
     },
   })
 
+  const ruleWidth = `${theme.ruleWidth * 100}%`
+
   const Divider = () => {
     if (style.separator === 'no separator') return <View style={{ height: gap / 4 }} />
     if (style.separator === 'double line') {
       return (
-        <View style={styles.sectionDivider}>
+        <View style={[styles.sectionDivider, { width: ruleWidth }]}>
           <View style={{ borderBottomWidth: 0.5, borderBottomColor: accent }} />
           <View style={{ borderBottomWidth: 0.5, borderBottomColor: accent, marginTop: 1.5 }} />
         </View>
@@ -170,6 +176,7 @@ export function ResumePDF({ data }: ResumePDFProps) {
         style={{
           borderBottomWidth: style.separator === 'bold line' ? 2 : 0.5,
           borderBottomColor: accent,
+          width: ruleWidth,
           marginTop: gap / 2,
           marginBottom: gap / 2,
         }}
@@ -179,8 +186,9 @@ export function ResumePDF({ data }: ResumePDFProps) {
 
   const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
     <View>
-      <Divider />
+      {theme.rulePlacement === 'above' && <Divider />}
       <Text style={styles.sectionTitle}>{title}</Text>
+      {theme.rulePlacement === 'below' && <Divider />}
       {children}
     </View>
   )
@@ -201,7 +209,11 @@ export function ResumePDF({ data }: ResumePDFProps) {
     <Document title={`${contact.fullName || 'Resume'}`}>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.name}>{contact.fullName || 'Your Name'}</Text>
+          <Text style={styles.name}>
+            {theme.nameUppercase
+              ? (contact.fullName || 'Your Name').toUpperCase()
+              : contact.fullName || 'Your Name'}
+          </Text>
           <Text style={styles.contactLine}>
             {bits.map((bit, index) => (
               <React.Fragment key={index}>
