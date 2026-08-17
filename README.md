@@ -34,6 +34,12 @@ preview, and one-click export as a print-ready PDF or an editable DOCX.
 - **Stylable without code**: pick a typeface, accent, separator, body size,
   spacing rhythm and date format; the choice flows into the preview, the
   PDF and the DOCX.
+- **Save and resume**: download a single progress file holding every section,
+  your styling and the step you were on, then import it later, on any device,
+  and carry on from exactly that point.
+- **Light and dark theme**, remembered per device, following your operating
+  system by default, and applied before first paint so there is no white
+  flash. The resume page itself stays white paper in either theme.
 - **Responsive down to 320px** (iPhone 5/SE).
 
 ---
@@ -52,9 +58,10 @@ marker. The footer always shows what comes next.
 
 <img src="docs/screenshots/settings-desktop.png" alt="Dravvy styling page with theme, typeface, accent picker" width="100%" />
 
-A pill-style segmented tab nav switches between **Styling**, **Preview** and
-**Export**. The accent picker offers nine presets and a custom hex; the
-selection is reflected in the preview, the PDF and the DOCX.
+A pill-style segmented tab nav switches between **Styling**, **Preview**,
+**Export** and **Save file**. The accent picker offers nine presets and a
+custom hex; the selection is reflected in the preview, the PDF and the DOCX.
+The Styling tab also carries the app theme control (light / dark / system).
 
 ### Mobile: built down to iPhone 5
 
@@ -106,6 +113,49 @@ project link) appear in the preview/exports only when filled in.
 
 ---
 
+## Save and resume
+
+Drafts persist in `localStorage`, which is fine until you switch browser,
+switch machine, or clear your site data. The **Save file** tab (and the
+compact card in the editor rail) writes the whole draft to one portable
+JSON file:
+
+```jsonc
+{
+  "format": "dravvy.resume-progress",
+  "version": 1,
+  "savedAt": "2026-08-17T09:30:00.000Z",
+  "progress": { "builderStep": 4, "settingsStep": 1 },
+  "resume": { "contact": {}, "experience": [], "style": {} }
+}
+```
+
+Importing reads that file back, restores every section and your styling, and
+returns you to the step you were on. The reader is deliberately forgiving: a
+half-finished draft imports fine, missing fields are filled with defaults,
+and unknown styling values fall back rather than failing. Files that are not
+valid JSON, were not written by Dravvy, or come from a newer format version
+are rejected with a plain explanation, and your current draft is left
+untouched until you confirm the replacement.
+
+Nothing is uploaded. The file is produced and read entirely in the browser.
+
+---
+
+## Theme
+
+Light and dark, with a third **System** option that follows the operating
+system live. The choice is stored per device under `dravvy-theme` and applied
+by a small blocking script in `<head>`, so a dark-mode visitor never sees a
+white flash on load. Switching also sets the native `color-scheme`, so
+scrollbars, date pickers and other browser widgets follow along.
+
+The A4 preview is the deliberate exception: it stays white paper with dark
+ink in both themes, because that is exactly what the PDF and DOCX exports
+produce. Printing from dark mode also falls back to the light palette.
+
+---
+
 ## Stack
 
 - **Next.js 14** (App Router) + **TypeScript** in strict mode
@@ -137,6 +187,7 @@ npm run dev          # http://localhost:3000
 | `npm run build`       | Production build (also runs `next lint` and TypeScript checks).               |
 | `npm run start`       | Serves the production build.                                                  |
 | `npm run lint`        | Runs the Next/ESLint ruleset.                                                 |
+| `npm run lint:dashes` | Fails if any em dash or en dash creeps into a tracked file.                    |
 | `npm run typecheck`   | Strict TypeScript pass with no emit.                                          |
 | `npm run test`        | Unit + component tests (Vitest, jsdom).                                       |
 | `npm run test:coverage` | Unit/component tests with a v8 coverage gate.                               |
@@ -156,13 +207,16 @@ Three layers, all runnable locally and in CI:
 
 - **Unit & component**: [Vitest](https://vitest.dev) + React Testing Library
   (jsdom). Covers the utilities, Zod validation schemas, both Zustand stores
-  (every action), the UI primitives, the live preview and the DOCX export,
-  **120+ tests**. A v8 coverage gate enforces 90% statements / lines /
-  functions and 85% branches across the tested surface (currently ~99% / ~94%).
+  (every action), the UI primitives, the live preview, the DOCX export, the
+  theme system and the progress save/import format, **180+ tests**. A v8
+  coverage gate enforces 90% statements / lines / functions and 85% branches
+  across the tested surface (currently ~97% / ~93%).
 - **End-to-end**: [Playwright](https://playwright.dev) (Chromium) drives the
   real app: the landing CTA into the builder, section-to-section navigation,
-  and the builder ↔ style/export flow. Playwright starts its own dev server on
-  port 3100, so it never collides with another server running on 3000.
+  the builder to style/export flow, the light/dark theme (including the
+  no-flash reload), and a full save-then-import round trip that wipes browser
+  storage in between. Playwright starts its own dev server on port 3100, so it
+  never collides with another server running on 3000.
 
 ```bash
 npm run test            # unit + component (Vitest)
@@ -170,9 +224,9 @@ npm run test:coverage   # with coverage gate
 npm run test:e2e        # end-to-end (Playwright)
 ```
 
-Every push and pull request runs lint, typecheck, the unit suite with
-coverage, the production build, the Playwright e2e suite, and a Docker image
-build via [GitHub Actions](.github/workflows/ci.yml).
+Every push and pull request runs lint, the dash check, typecheck, the unit
+suite with coverage, the production build, the Playwright e2e suite, and a
+Docker image build via [GitHub Actions](.github/workflows/ci.yml).
 
 ---
 
