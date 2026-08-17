@@ -13,7 +13,18 @@ import {
 import { resumeTheme, sectionInkColor } from '@/lib/resume-theme'
 import type { ResumeData, ResumeStyle } from '@/types/resume'
 
-type DocxFont = 'Times New Roman' | 'Georgia' | 'Cambria' | 'Garamond' | 'Calibri' | 'Helvetica' | 'Arial' | 'Roboto' | 'Lato' | 'Open Sans'
+type DocxFont =
+  | 'Times New Roman'
+  | 'Georgia'
+  | 'Cambria'
+  | 'Garamond'
+  | 'Calibri'
+  | 'Helvetica'
+  | 'Arial'
+  | 'Roboto'
+  | 'Lato'
+  | 'Open Sans'
+  | 'Montserrat'
 
 const fontDisplayMap: Record<string, DocxFont> = {
   'times new roman': 'Times New Roman',
@@ -26,6 +37,7 @@ const fontDisplayMap: Record<string, DocxFont> = {
   roboto: 'Roboto',
   lato: 'Lato',
   'open sans': 'Open Sans',
+  montserrat: 'Montserrat',
 }
 
 const fontSizeMap = {

@@ -4,6 +4,7 @@ import {
   Carlito,
   EB_Garamond,
   Lato,
+  Montserrat,
   Open_Sans,
   Plus_Jakarta_Sans,
   Roboto,
@@ -64,6 +65,13 @@ const resumeGaramond = EB_Garamond({
   variable: '--font-resume-garamond',
 })
 
+const resumeMontserrat = Montserrat({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-resume-montserrat',
+})
+
 const resumeCambria = Caladea({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -92,6 +100,7 @@ const fontVariables = [
   resumeGaramond.variable,
   resumeCambria.variable,
   resumeCalibri.variable,
+  resumeMontserrat.variable,
 ].join(' ')
 
 export const metadata: Metadata = {
