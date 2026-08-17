@@ -133,7 +133,7 @@ export function ProgressTracker() {
       </aside>
 
       {/* Desktop: full vertical rail */}
-      <aside aria-label="Resume progress" className="hidden lg:sticky lg:top-24 lg:block">
+      <aside aria-label="Resume progress" className="hidden lg:block">
         <div className="rounded-xl border border-line bg-surface p-5 shadow-sm">
           <div className="flex items-baseline justify-between gap-4">
             <p className="text-[14px] font-semibold text-slate-12">Sections</p>

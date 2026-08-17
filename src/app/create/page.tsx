@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 import { ResumeForm, type ResumeSection } from '@/components/resume-form'
 import { ProgressTracker } from '@/components/progress-tracker'
+import { SaveProgressCompact } from '@/components/save-progress'
 import { Button } from '@/components/ui/button'
 import { Wordmark } from '@/components/brand'
 import { ThemeToggle } from '@/components/theme-toggle'
@@ -68,7 +69,10 @@ export default function CreatePage() {
       <div className="mx-auto grid max-w-7xl grid-cols-12 gap-x-8 gap-y-6 px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:gap-y-10">
         {/* Left rail */}
         <div className="col-span-12 lg:col-span-3">
-          <ProgressTracker />
+          <div className="space-y-4 lg:sticky lg:top-24">
+            <ProgressTracker />
+            <SaveProgressCompact />
+          </div>
         </div>
 
         {/* Editor pane */}

@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { StylingForm } from '@/components/styling-form'
 import { ResumePreview } from '@/components/resume-preview'
 import { ExportForm } from '@/components/export-form'
+import { SaveProgress } from '@/components/save-progress'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Wordmark } from '@/components/brand'
@@ -18,6 +19,7 @@ const sections = [
   { id: 'styling', label: 'Styling', helper: 'Choose typeface, accent, separator and rhythm.' },
   { id: 'preview', label: 'Preview', helper: 'A4 page, dimensioned to the millimetre.' },
   { id: 'export', label: 'Export', helper: 'PDF for printing, DOCX for editing.' },
+  { id: 'save', label: 'Save file', helper: 'Keep a copy of your progress, or continue from one.' },
 ] as const
 
 type SectionId = (typeof sections)[number]['id']
@@ -157,5 +159,7 @@ function renderStep(id: SectionId) {
       return <ResumePreview />
     case 'export':
       return <ExportForm />
+    case 'save':
+      return <SaveProgress />
   }
 }
