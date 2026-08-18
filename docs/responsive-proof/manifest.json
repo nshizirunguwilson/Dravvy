@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T15:04:07.911Z",
+  "generatedAt": "2026-08-18T17:58:52.800Z",
   "baseURL": "http://localhost:3100",
   "devices": 14,
   "screens": 9,
@@ -488,7 +488,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-6s--create-references--dark.jpg",
-      "bytes": 19225,
+      "bytes": 19203,
       "pass": true,
       "problems": [],
       "detail": {
@@ -1100,7 +1100,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-12-mini--create-references--dark.jpg",
-      "bytes": 22988,
+      "bytes": 22990,
       "pass": true,
       "problems": [],
       "detail": {
@@ -1304,7 +1304,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-14--create-basic--light.jpg",
-      "bytes": 25084,
+      "bytes": 25074,
       "pass": true,
       "problems": [],
       "detail": {
@@ -1406,7 +1406,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-14--create-references--light.jpg",
-      "bytes": 25490,
+      "bytes": 25488,
       "pass": true,
       "problems": [],
       "detail": {
@@ -1712,7 +1712,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-14--create-references--dark.jpg",
-      "bytes": 24368,
+      "bytes": 24369,
       "pass": true,
       "problems": [],
       "detail": {
@@ -1916,7 +1916,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-15-pro-max--create-basic--light.jpg",
-      "bytes": 29167,
+      "bytes": 29161,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2222,7 +2222,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-15-pro-max--create-basic--dark.jpg",
-      "bytes": 27983,
+      "bytes": 27977,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2324,7 +2324,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-15-pro-max--create-references--dark.jpg",
-      "bytes": 28305,
+      "bytes": 28311,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2528,7 +2528,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-6s-landscape--create-basic--light.jpg",
-      "bytes": 18343,
+      "bytes": 18340,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2630,7 +2630,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-6s-landscape--create-references--light.jpg",
-      "bytes": 18132,
+      "bytes": 18127,
       "pass": true,
       "problems": [],
       "detail": {
@@ -2834,7 +2834,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-6s-landscape--create-basic--dark.jpg",
-      "bytes": 17334,
+      "bytes": 17335,
       "pass": true,
       "problems": [],
       "detail": {
@@ -3140,7 +3140,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-15-pro-max-landscape--create-basic--light.jpg",
-      "bytes": 24635,
+      "bytes": 24622,
       "pass": true,
       "problems": [],
       "detail": {
@@ -3242,7 +3242,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-15-pro-max-landscape--create-references--light.jpg",
-      "bytes": 24490,
+      "bytes": 24488,
       "pass": true,
       "problems": [],
       "detail": {
@@ -3446,7 +3446,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-15-pro-max-landscape--create-basic--dark.jpg",
-      "bytes": 23371,
+      "bytes": 23365,
       "pass": true,
       "problems": [],
       "detail": {
@@ -3548,7 +3548,7 @@
       ],
       "touch": true,
       "file": "chromium--iphone-15-pro-max-landscape--create-references--dark.jpg",
-      "bytes": 23241,
+      "bytes": 23243,
       "pass": true,
       "problems": [],
       "detail": {
@@ -3752,7 +3752,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-mini--create-basic--light.jpg",
-      "bytes": 54475,
+      "bytes": 54473,
       "pass": true,
       "problems": [],
       "detail": {
@@ -3854,7 +3854,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-mini--create-references--light.jpg",
-      "bytes": 44364,
+      "bytes": 44373,
       "pass": true,
       "problems": [],
       "detail": {
@@ -4058,7 +4058,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-mini--create-basic--dark.jpg",
-      "bytes": 52486,
+      "bytes": 52481,
       "pass": true,
       "problems": [],
       "detail": {
@@ -4160,7 +4160,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-mini--create-references--dark.jpg",
-      "bytes": 42672,
+      "bytes": 42701,
       "pass": true,
       "problems": [],
       "detail": {
@@ -4364,7 +4364,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-air--create-basic--light.jpg",
-      "bytes": 61132,
+      "bytes": 61078,
       "pass": true,
       "problems": [],
       "detail": {
@@ -4466,7 +4466,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-air--create-references--light.jpg",
-      "bytes": 51770,
+      "bytes": 51763,
       "pass": true,
       "problems": [],
       "detail": {
@@ -4670,7 +4670,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-air--create-basic--dark.jpg",
-      "bytes": 58722,
+      "bytes": 58700,
       "pass": true,
       "problems": [],
       "detail": {
@@ -4772,7 +4772,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-air--create-references--dark.jpg",
-      "bytes": 50172,
+      "bytes": 50129,
       "pass": true,
       "problems": [],
       "detail": {
@@ -5078,7 +5078,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-pro-13--create-references--light.jpg",
-      "bytes": 59477,
+      "bytes": 59470,
       "pass": true,
       "problems": [],
       "detail": {
@@ -5316,7 +5316,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-pro-13--create-work--dark.jpg",
-      "bytes": 84355,
+      "bytes": 84332,
       "pass": true,
       "problems": [],
       "detail": {
@@ -5384,7 +5384,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-pro-13--create-references--dark.jpg",
-      "bytes": 56896,
+      "bytes": 56865,
       "pass": true,
       "problems": [],
       "detail": {
@@ -5690,7 +5690,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-pro-13-landscape--create-references--light.jpg",
-      "bytes": 60623,
+      "bytes": 60602,
       "pass": true,
       "problems": [],
       "detail": {
@@ -5928,7 +5928,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-pro-13-landscape--create-work--dark.jpg",
-      "bytes": 68708,
+      "bytes": 68710,
       "pass": true,
       "problems": [],
       "detail": {
@@ -5996,7 +5996,7 @@
       ],
       "touch": true,
       "file": "chromium--ipad-pro-13-landscape--create-references--dark.jpg",
-      "bytes": 58396,
+      "bytes": 58401,
       "pass": true,
       "problems": [],
       "detail": {
@@ -7458,7 +7458,7 @@
       ],
       "touch": false,
       "file": "chromium--macbook-pro-14--create-work--light.jpg",
-      "bytes": 68021,
+      "bytes": 67936,
       "pass": true,
       "problems": [],
       "detail": {
@@ -7764,7 +7764,7 @@
       ],
       "touch": false,
       "file": "chromium--macbook-pro-14--create-work--dark.jpg",
-      "bytes": 65571,
+      "bytes": 65593,
       "pass": true,
       "problems": [],
       "detail": {
@@ -7832,7 +7832,7 @@
       ],
       "touch": false,
       "file": "chromium--macbook-pro-14--create-references--dark.jpg",
-      "bytes": 55880,
+      "bytes": 55903,
       "pass": true,
       "problems": [],
       "detail": {
@@ -8070,7 +8070,7 @@
       ],
       "touch": false,
       "file": "chromium--macbook-pro-16--create-work--light.jpg",
-      "bytes": 78036,
+      "bytes": 78047,
       "pass": true,
       "problems": [],
       "detail": {
@@ -8138,7 +8138,7 @@
       ],
       "touch": false,
       "file": "chromium--macbook-pro-16--create-references--light.jpg",
-      "bytes": 64681,
+      "bytes": 64662,
       "pass": true,
       "problems": [],
       "detail": {

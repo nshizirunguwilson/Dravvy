@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T14:52:05.009Z",
+  "generatedAt": "2026-08-18T17:47:56.192Z",
   "checked": 42,
   "failures": 0,
   "pdfConstraints": [
@@ -16,14 +16,14 @@
       "value": "modern",
       "label": "Modern",
       "docx": {
-        "bytes": 10187,
-        "digest": "dd4f086e8ebf9801",
+        "bytes": 10184,
+        "digest": "e860c873ba29d28c",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "a15a14ec4eb99d1b",
         "pass": true,
         "reason": null,
         "note": null,
@@ -36,14 +36,14 @@
       "value": "classic",
       "label": "Classic",
       "docx": {
-        "bytes": 10190,
-        "digest": "c9effdd554941ae9",
+        "bytes": 10184,
+        "digest": "f8fdaa3873a23014",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6106,
-        "digest": "0de8cd7a2a07ea72",
+        "digest": "6cd5b7059c122570",
         "pass": true,
         "reason": null,
         "note": null,
@@ -56,14 +56,14 @@
       "value": "minimal",
       "label": "Minimal",
       "docx": {
-        "bytes": 10197,
-        "digest": "7ec1cf03ca81c994",
+        "bytes": 10189,
+        "digest": "e927f9b2e4728c8a",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6064,
-        "digest": "5c13f938dc276a70",
+        "digest": "6b775120bd4b4e83",
         "pass": true,
         "reason": null,
         "note": null,
@@ -76,14 +76,14 @@
       "value": "times new roman",
       "label": "Times New Roman",
       "docx": {
-        "bytes": 10221,
-        "digest": "9f10cc0e085b0b26",
+        "bytes": 10220,
+        "digest": "d50b32a149d09bd0",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 5967,
-        "digest": "6095e04ce2e36e1a",
+        "digest": "22d39d1ceb143465",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -96,14 +96,14 @@
       "value": "georgia",
       "label": "Georgia",
       "docx": {
-        "bytes": 10171,
-        "digest": "95e09e050a4f54ff",
+        "bytes": 10169,
+        "digest": "c8aadccd79e4b387",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 5967,
-        "digest": "6095e04ce2e36e1a",
+        "digest": "22d39d1ceb143465",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -116,14 +116,14 @@
       "value": "cambria",
       "label": "Cambria",
       "docx": {
-        "bytes": 10174,
-        "digest": "7c4e1335470b0619",
+        "bytes": 10177,
+        "digest": "0294ea0f1abe7eb7",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 5967,
-        "digest": "6095e04ce2e36e1a",
+        "digest": "22d39d1ceb143465",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -136,14 +136,14 @@
       "value": "garamond",
       "label": "Garamond",
       "docx": {
-        "bytes": 10171,
-        "digest": "cdb01d6c863c9ddc",
+        "bytes": 10174,
+        "digest": "6d69c6cd5620d836",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 5967,
-        "digest": "6095e04ce2e36e1a",
+        "digest": "22d39d1ceb143465",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -156,14 +156,14 @@
       "value": "calibri",
       "label": "Calibri",
       "docx": {
-        "bytes": 10163,
-        "digest": "ed9b25f37074846e",
+        "bytes": 10164,
+        "digest": "7e864f425e07dbab",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "a15a14ec4eb99d1b",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -176,14 +176,14 @@
       "value": "helvetica",
       "label": "Helvetica",
       "docx": {
-        "bytes": 10187,
-        "digest": "bbb6df5554d5e688",
+        "bytes": 10186,
+        "digest": "7aae5727ea5842d9",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "a15a14ec4eb99d1b",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -196,14 +196,14 @@
       "value": "arial",
       "label": "Arial",
       "docx": {
-        "bytes": 10162,
-        "digest": "b966cf8c292b3c8a",
+        "bytes": 10159,
+        "digest": "eb0729e5cf005c46",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "a15a14ec4eb99d1b",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -216,14 +216,14 @@
       "value": "roboto",
       "label": "Roboto",
       "docx": {
-        "bytes": 10171,
-        "digest": "498abc3df1cd7ab6",
+        "bytes": 10169,
+        "digest": "2207206da42a39d4",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "a15a14ec4eb99d1b",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -236,14 +236,14 @@
       "value": "lato",
       "label": "Lato",
       "docx": {
-        "bytes": 10163,
-        "digest": "ca24340c6e1ce215",
+        "bytes": 10158,
+        "digest": "213e69af136e45bc",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -256,14 +256,14 @@
       "value": "open sans",
       "label": "Open Sans",
       "docx": {
-        "bytes": 10180,
-        "digest": "f5d1405eeceb6a9c",
+        "bytes": 10186,
+        "digest": "891823f1bd4efb71",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -276,14 +276,14 @@
       "value": "montserrat",
       "label": "Montserrat",
       "docx": {
-        "bytes": 10181,
-        "digest": "4da8ae48342c317b",
+        "bytes": 10188,
+        "digest": "7a23b1aedec42895",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -296,14 +296,14 @@
       "value": "outfit",
       "label": "Outfit",
       "docx": {
-        "bytes": 10168,
-        "digest": "c1949706c8c4e994",
+        "bytes": 10165,
+        "digest": "6d58d760397c6791",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "44d6086d82299425",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": "PDF embeds the standard base-14 fonts: the four serif choices become Times, the eight sans choices become Helvetica. The serif or sans decision is preserved. The DOCX carries the exact typeface name, and the live preview renders all twelve distinctly.",
@@ -316,14 +316,14 @@
       "value": "small",
       "label": "Small",
       "docx": {
-        "bytes": 10173,
-        "digest": "f359928957fd4c54",
+        "bytes": 10185,
+        "digest": "2a731f337cbe7354",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 5455,
-        "digest": "2e73bba1afa3fa6f",
+        "digest": "8bbe454369233eeb",
         "pass": true,
         "reason": null,
         "note": null,
@@ -336,14 +336,14 @@
       "value": "medium",
       "label": "Medium",
       "docx": {
-        "bytes": 10178,
-        "digest": "7615285adae08b9f",
+        "bytes": 10183,
+        "digest": "05c1918cc3ece74b",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "14230b94e1d2839a",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": null,
@@ -356,14 +356,14 @@
       "value": "large",
       "label": "Large",
       "docx": {
-        "bytes": 10184,
-        "digest": "a4d7014e6d4c1e1f",
+        "bytes": 10182,
+        "digest": "b382c8cd1ef050ee",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6260,
-        "digest": "8252163299c61f76",
+        "digest": "b82ba5b5f1cfdd9c",
         "pass": true,
         "reason": null,
         "note": null,
@@ -376,14 +376,14 @@
       "value": "small",
       "label": "Small",
       "docx": {
-        "bytes": 10179,
-        "digest": "c9607709e28089c0",
+        "bytes": 10183,
+        "digest": "7d96cbb26ccd5981",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 5410,
-        "digest": "cda4c200564261ab",
+        "digest": "3ea13e4a4c7d2ca8",
         "pass": true,
         "reason": null,
         "note": null,
@@ -396,14 +396,14 @@
       "value": "medium",
       "label": "Medium",
       "docx": {
-        "bytes": 10186,
-        "digest": "2ea3450f72253064",
+        "bytes": 10183,
+        "digest": "ac5d8c82180283a9",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "14230b94e1d2839a",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": null,
@@ -416,14 +416,14 @@
       "value": "large",
       "label": "Large",
       "docx": {
-        "bytes": 10190,
-        "digest": "15c7a936fc086bc5",
+        "bytes": 10187,
+        "digest": "a94cd50501a03de7",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6301,
-        "digest": "b4ea57cc6bc18ba6",
+        "digest": "1abc46566406e78f",
         "pass": true,
         "reason": null,
         "note": null,
@@ -436,14 +436,14 @@
       "value": "line",
       "label": "Single line",
       "docx": {
-        "bytes": 10182,
-        "digest": "bda0d8a56a220bfb",
+        "bytes": 10183,
+        "digest": "4f6e9650e6db2b49",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "14230b94e1d2839a",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": null,
@@ -456,14 +456,14 @@
       "value": "double line",
       "label": "Double line",
       "docx": {
-        "bytes": 10192,
-        "digest": "5f0456b56420c346",
+        "bytes": 10185,
+        "digest": "e3583befd08fcad0",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6213,
-        "digest": "7a70877b79b0bd33",
+        "digest": "821cd44d13ef3f33",
         "pass": true,
         "reason": null,
         "note": null,
@@ -476,14 +476,14 @@
       "value": "bold line",
       "label": "Bold line",
       "docx": {
-        "bytes": 10187,
-        "digest": "428663ef1c590d31",
+        "bytes": 10180,
+        "digest": "509d060173ed401c",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6101,
-        "digest": "20aa8c09ed4d2f49",
+        "digest": "87f044464ace23d3",
         "pass": true,
         "reason": null,
         "note": null,
@@ -496,14 +496,14 @@
       "value": "no separator",
       "label": "No separator",
       "docx": {
-        "bytes": 10135,
-        "digest": "f258522f035f6311",
+        "bytes": 10140,
+        "digest": "4cd0a8e9b4ee16a8",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 5207,
-        "digest": "2703cccbe6ca8d20",
+        "digest": "9d0d728a2c322a33",
         "pass": true,
         "reason": null,
         "note": null,
@@ -516,14 +516,14 @@
       "value": "MM/YYYY",
       "label": "01/2026",
       "docx": {
-        "bytes": 10180,
-        "digest": "795e6d2bbcaeda7a",
+        "bytes": 10185,
+        "digest": "6f25f3ffd28a8893",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "14230b94e1d2839a",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": null,
@@ -536,14 +536,14 @@
       "value": "MMM YYYY",
       "label": "Jan 2026",
       "docx": {
-        "bytes": 10187,
-        "digest": "e252cb6a57ec1e5f",
+        "bytes": 10192,
+        "digest": "f7d44d391dc57af2",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6091,
-        "digest": "0e30008a378f0110",
+        "digest": "8040c56c6eb626a4",
         "pass": true,
         "reason": null,
         "note": null,
@@ -556,14 +556,14 @@
       "value": "MMMM YYYY",
       "label": "January 2026",
       "docx": {
-        "bytes": 10199,
-        "digest": "8ff2f2f921877487",
+        "bytes": 10204,
+        "digest": "bc2876b40e2c1fc2",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6104,
-        "digest": "8df16793447085fa",
+        "digest": "f73e333ec2c46233",
         "pass": true,
         "reason": null,
         "note": null,
@@ -576,14 +576,14 @@
       "value": true,
       "label": "Links shown",
       "docx": {
-        "bytes": 10186,
-        "digest": "b4f6c72653bad10c",
+        "bytes": 10183,
+        "digest": "9d2d0dcb5d2fb005",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "14230b94e1d2839a",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": null,
@@ -596,14 +596,14 @@
       "value": false,
       "label": "Links hidden",
       "docx": {
-        "bytes": 9994,
-        "digest": "1ddb1b4a2de6403c",
+        "bytes": 9996,
+        "digest": "c6f3c5e8c5510147",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 5259,
-        "digest": "243025ea75c457ed",
+        "digest": "0ca16aa10bf5d41d",
         "pass": true,
         "reason": null,
         "note": null,
@@ -616,14 +616,14 @@
       "value": true,
       "label": "Proficiency shown",
       "docx": {
-        "bytes": 10186,
-        "digest": "9360ed64e3780225",
+        "bytes": 10181,
+        "digest": "2a52c5e6b0df9544",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "14230b94e1d2839a",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": null,
@@ -636,14 +636,14 @@
       "value": false,
       "label": "Proficiency hidden",
       "docx": {
-        "bytes": 10169,
-        "digest": "f9f40333554eb6e8",
+        "bytes": 10171,
+        "digest": "4c1a4975b6ae486b",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6005,
-        "digest": "7df7836ff0134f52",
+        "digest": "1c0a6a11035b3551",
         "pass": true,
         "reason": null,
         "note": null,
@@ -656,14 +656,14 @@
       "value": "#0F172A",
       "label": "Slate",
       "docx": {
-        "bytes": 10196,
-        "digest": "4523eefb4744bc45",
+        "bytes": 10188,
+        "digest": "08b556cdc8fec9d2",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6055,
-        "digest": "d7b26cfb925ce992",
+        "digest": "237b3abef1718ca4",
         "pass": true,
         "reason": null,
         "note": null,
@@ -676,14 +676,14 @@
       "value": "#1f2937",
       "label": "Graphite",
       "docx": {
-        "bytes": 10195,
-        "digest": "69b3e92eab191618",
+        "bytes": 10192,
+        "digest": "13049911ddabca39",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6036,
-        "digest": "051743a6ce954fab",
+        "digest": "653a36c8a5ba5609",
         "pass": true,
         "reason": null,
         "note": null,
@@ -696,14 +696,14 @@
       "value": "#1e3a8a",
       "label": "Indigo",
       "docx": {
-        "bytes": 10192,
-        "digest": "50e9d64a8a818e2a",
+        "bytes": 10185,
+        "digest": "222ec162bd682461",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6048,
-        "digest": "38d4918a96497446",
+        "digest": "726c8b0565e24984",
         "pass": true,
         "reason": null,
         "note": null,
@@ -717,13 +717,13 @@
       "label": "Blue",
       "docx": {
         "bytes": 10185,
-        "digest": "653646a81d55600b",
+        "digest": "05705e038747597d",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "14230b94e1d2839a",
+        "digest": "09c81a0d34b93584",
         "pass": true,
         "reason": null,
         "note": null,
@@ -736,14 +736,14 @@
       "value": "#0e7490",
       "label": "Teal",
       "docx": {
-        "bytes": 10198,
-        "digest": "6dc7ba9b5da53d03",
+        "bytes": 10194,
+        "digest": "f032b8cdfaee87e0",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6049,
-        "digest": "ae3bc0e3fe1d5383",
+        "digest": "8423138d063cbf0c",
         "pass": true,
         "reason": null,
         "note": null,
@@ -756,14 +756,14 @@
       "value": "#15803d",
       "label": "Forest",
       "docx": {
-        "bytes": 10181,
-        "digest": "d523f756eae5795a",
+        "bytes": 10197,
+        "digest": "d3d504d7eaa2e297",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6054,
-        "digest": "da8948bcf6b05fdf",
+        "digest": "c00b99ebd09ebdbe",
         "pass": true,
         "reason": null,
         "note": null,
@@ -776,14 +776,14 @@
       "value": "#9a3412",
       "label": "Sienna",
       "docx": {
-        "bytes": 10194,
-        "digest": "c3bef94d4cd44fcf",
+        "bytes": 10192,
+        "digest": "2aae353bd6bccdc1",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6055,
-        "digest": "8f3bbf00eaff89e5",
+        "digest": "0f1d63e792c53788",
         "pass": true,
         "reason": null,
         "note": null,
@@ -796,14 +796,14 @@
       "value": "#7c2d12",
       "label": "Burgundy",
       "docx": {
-        "bytes": 10196,
-        "digest": "54def9439b3c0279",
+        "bytes": 10203,
+        "digest": "51f3aa5049713f77",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6059,
-        "digest": "aeca2671de193005",
+        "digest": "8a95f971228361d6",
         "pass": true,
         "reason": null,
         "note": null,
@@ -816,14 +816,14 @@
       "value": "#7c3aed",
       "label": "Violet",
       "docx": {
-        "bytes": 10191,
-        "digest": "1ecbcfe314159ef5",
+        "bytes": 10195,
+        "digest": "d38952885302d286",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "451d7de68d96b145",
+        "digest": "fb39841a56d83b4e",
         "pass": true,
         "reason": null,
         "note": null,
@@ -836,14 +836,14 @@
       "value": "#B45309",
       "label": "Custom hex",
       "docx": {
-        "bytes": 10194,
-        "digest": "dba2c52af47917e4",
+        "bytes": 10199,
+        "digest": "66e5112f86eb220a",
         "pass": true,
         "reason": null
       },
       "pdf": {
         "bytes": 6051,
-        "digest": "3321918e6d662b77",
+        "digest": "39b09ca2f0a5856b",
         "pass": true,
         "reason": null,
         "note": null,
