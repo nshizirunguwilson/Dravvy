@@ -303,7 +303,21 @@ async function main() {
         await Promise.all([...document.fonts].map((f) => f.load().catch(() => {})))
         await document.fonts.ready
       })
-      await page.waitForTimeout(150)
+      // Wait for every animation to finish before measuring. The settings
+      // content fades in over 220ms, and a fixed 200ms wait sometimes sampled
+      // it mid-fade: the text really was semi-transparent, so axe was right to
+      // call the contrast, and the harness was wrong to look that early. This
+      // is the whole class of problem, not just that one screen.
+      await page
+        .waitForFunction(
+          () => document.getAnimations().every((a) => a.playState !== 'running'),
+          undefined,
+          { timeout: 5000 },
+        )
+        .catch(() => {
+          // An indefinite animation would never settle, so do not block on it.
+        })
+      await page.waitForTimeout(120)
 
       const rendered = await readRendered(page)
       if (!rendered) throw new Error(`preview did not render for ${group.id}/${option.value}`)
