@@ -66,9 +66,9 @@ export default function CreatePage() {
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-x-8 gap-y-6 px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:gap-y-10">
+      <div className="mx-auto grid max-w-7xl grid-cols-12 gap-y-6 px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:gap-x-8 lg:gap-y-10">
         {/* Left rail */}
-        <div className="col-span-12 lg:col-span-3">
+        <div className="col-span-12 min-w-0 lg:col-span-3">
           <div className="space-y-4 lg:sticky lg:top-24">
             <ProgressTracker />
             <SaveProgressCompact />
@@ -76,7 +76,7 @@ export default function CreatePage() {
         </div>
 
         {/* Editor pane */}
-        <main id="main-content" tabIndex={-1} className="col-span-12 lg:col-span-9">
+        <main id="main-content" tabIndex={-1} className="col-span-12 min-w-0 lg:col-span-9">
           {/* Section header */}
           <div className="mb-6 sm:mb-8">
             <p className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-brand sm:text-[13px]">
