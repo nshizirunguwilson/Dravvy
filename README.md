@@ -40,8 +40,11 @@ preview, and one-click export as a print-ready PDF or an editable DOCX.
 - **Light and dark theme**, remembered per device, following your operating
   system by default, and applied before first paint so there is no white
   flash. The resume page itself stays white paper in either theme.
+- **Works offline.** A service worker caches the shell, so the whole builder
+  keeps working with no connection, and installs to a phone home screen.
 - **Verified on 14 device sizes**, from an iPhone 6s to a 16 inch MacBook Pro,
-  in both themes, with zero axe-core violations against WCAG 2.2 AA.
+  in both themes, in Chromium and WebKit, with zero axe-core violations
+  against WCAG 2.2 AA.
 
 ---
 
@@ -288,6 +291,8 @@ npm run dev          # http://localhost:3000
 | `npm run dev`         | Next.js dev server with hot reload.                                           |
 | `npm run build`       | Production build (also runs `next lint` and TypeScript checks).               |
 | `npm run start`       | Serves the production build.                                                  |
+| `npm run verify`      | Every automated check, in order. Needs a dev server on 3100.                   |
+| `npm run verify:quick`| Everything except the two browser sweeps. About two minutes.                   |
 | `npm run lint`        | Runs the Next/ESLint ruleset.                                                 |
 | `npm run lint:dashes` | Fails if any em dash or en dash creeps into a tracked file.                    |
 | `npm run typecheck`   | Strict TypeScript pass with no emit.                                          |
@@ -321,15 +326,21 @@ Three layers, all runnable locally and in CI:
 - **End-to-end**: [Playwright](https://playwright.dev) (Chromium) drives the
   real app: the landing CTA into the builder, section-to-section navigation,
   the builder to style/export flow, the light/dark theme (including the
-  no-flash reload), and a full save-then-import round trip that wipes browser
-  storage in between. Playwright starts its own dev server on port 3100, so it
-  never collides with another server running on 3000.
+  no-flash reload), keyboard-only operation, and a full save-then-import round
+  trip that wipes browser storage in between. It runs in **Chromium and
+  WebKit**, because every phone and tablet in the device ladder runs Safari.
+  Playwright starts its own dev server on port 3100, so it never collides with
+  another server running on 3000.
 
 ```bash
 npm run test            # unit + component (Vitest)
 npm run test:coverage   # with coverage gate
-npm run test:e2e        # end-to-end (Playwright)
+npm run test:e2e        # end-to-end (Playwright, Chromium and WebKit)
 ```
+
+**[TESTING.md](TESTING.md) is the full guide**: what every command proves, how
+to walk each feature by hand, how to check offline, dark mode, keyboard only and
+screen reader behaviour, and what to do when something fails.
 
 Every push and pull request runs lint, the dash check, typecheck, the unit
 suite with coverage, the production build, the Playwright e2e suite, both
