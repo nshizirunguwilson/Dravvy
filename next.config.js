@@ -8,6 +8,14 @@
  * them, and for the one inline script in <head> that paints the stored theme
  * before first paint.
  */
+const isDev = process.env.NODE_ENV !== 'production'
+
+// Next's dev server compiles with eval, so blocking it stops React hydrating
+// and the whole app goes dead on click. Production needs no eval at all.
+const scriptSrc = isDev
+  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+  : "script-src 'self' 'unsafe-inline'"
+
 const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'X-Frame-Options', value: 'DENY' },
@@ -18,11 +26,11 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      scriptSrc,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob:",
       "font-src 'self' data:",
-      "connect-src 'self'",
+      isDev ? "connect-src 'self' ws: wss:" : "connect-src 'self'",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
