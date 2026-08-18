@@ -36,9 +36,9 @@ test.describe('Building a resume on an iPhone 6s', () => {
     // "2Work experience", so an exact match picks out the footer button.
     await page.getByRole('button', { name: 'Work experience', exact: true }).click()
     await expect(page.getByRole('heading', { level: 1, name: 'Work experience' })).toBeVisible()
-    await page.getByRole('button', { name: 'Add Experience' }).click()
+    await page.getByRole('button', { name: 'Add role' }).click()
 
-    await page.getByLabel('Job Title', { exact: false }).first().fill('Lead Product Designer')
+    await page.getByLabel('Job title', { exact: false }).first().fill('Lead Product Designer')
     await page.getByLabel('Company', { exact: false }).first().fill('Holloway Financial')
     await page.getByLabel('Bullet point 1').first().fill('Raised activation 38% in two quarters.')
     await page.getByLabel('Bullet point 2').first().fill('Coached three designers.')
