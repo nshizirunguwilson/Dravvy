@@ -18,6 +18,7 @@ import {
 import './globals.css'
 import { AppToaster } from '@/components/app-toaster'
 import { ErrorBoundary } from '@/components/error-boundary'
+import { ServiceWorker } from '@/components/service-worker'
 import { ThemeProvider } from '@/components/theme-provider'
 import { THEME_COLORS, themeInitScript } from '@/lib/theme'
 
@@ -177,7 +178,19 @@ const fontVariables = [
   resumeHelvetica.variable,
 ].join(' ')
 
+/**
+ * Absolute base for Open Graph and Twitter images. Without it Next resolves
+ * them against localhost and every shared link previews as broken.
+ */
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  manifest: '/manifest.webmanifest',
+  applicationName: 'Dravvy',
+  appleWebApp: { capable: true, title: 'Dravvy', statusBarStyle: 'default' },
   title: 'Dravvy: Resume builder, no account needed',
   description:
     'A browser-only resume builder. Walk through nine sections, pick a styling, see a true A4 preview, export as PDF or DOCX.',
@@ -206,6 +219,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen bg-canvas font-sans text-slate-12 antialiased">
         <ThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only rounded-md bg-brand text-[14px] font-semibold text-brand-fg focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:inline-flex focus:min-h-[44px] focus:items-center focus:px-4 focus:py-3 focus:shadow-lg"
+          >
+            Skip to main content
+          </a>
+          <ServiceWorker />
           <ErrorBoundary>
             {children}
             <AppToaster />

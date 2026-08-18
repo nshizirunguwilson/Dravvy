@@ -4,6 +4,7 @@ import * as React from 'react'
 import { Document, Page, View, Text, Link, StyleSheet } from '@react-pdf/renderer'
 
 import { RESUME_INK, resumeTheme, sectionInkColor } from '@/lib/resume-theme'
+import { formatResumeDate, runtimeLocale } from '@/lib/format-date'
 import type { ResumeData, ResumeStyle } from '@/types/resume'
 
 const fontMap: Record<string, string> = {
@@ -29,20 +30,6 @@ const fontSizeMap = {
 
 const spacingMap = { small: 6, medium: 10, large: 16 } as const
 
-const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {
-  if (!raw) return ''
-  const date = new Date(raw)
-  if (Number.isNaN(date.getTime())) return raw
-  switch (fmt) {
-    case 'MM/YYYY':
-      return date.toLocaleDateString('en-US', { month: '2-digit', year: 'numeric' })
-    case 'MMMM YYYY':
-      return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-    default:
-      return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-  }
-}
-
 interface ResumePDFProps {
   data: ResumeData & {
     referencesMode: 'uponRequest' | 'include'
@@ -64,6 +51,10 @@ export function ResumePDF({ data }: ResumePDFProps) {
     referencesMode,
     style,
   } = data
+
+  const locale = runtimeLocale()
+  const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) =>
+    formatResumeDate(raw, fmt, locale)
 
   const sizes = fontSizeMap[style.fontSize]
   const gap = spacingMap[style.spacing]
@@ -203,9 +194,11 @@ export function ResumePDF({ data }: ResumePDFProps) {
   if (contact.location) bits.push({ kind: 'text', value: contact.location })
   if (contact.phone) bits.push({ kind: 'text', value: contact.phone })
   if (contact.email) bits.push({ kind: 'link', label: contact.email, href: `mailto:${contact.email}` })
-  if (contact.linkedin) bits.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
-  if (contact.github) bits.push({ kind: 'link', label: 'GitHub', href: contact.github })
-  if (contact.website) bits.push({ kind: 'link', label: 'Portfolio', href: contact.website })
+  if (style.showLinks !== false) {
+    if (contact.linkedin) bits.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
+    if (contact.github) bits.push({ kind: 'link', label: 'GitHub', href: contact.github })
+    if (contact.website) bits.push({ kind: 'link', label: 'Portfolio', href: contact.website })
+  }
 
   return (
     <Document title={`${contact.fullName || 'Resume'}`}>
@@ -347,7 +340,9 @@ export function ResumePDF({ data }: ResumePDFProps) {
             {languages.map((l) => (
               <View key={l.id} style={[styles.rowBetween, { marginBottom: 2 }]}>
                 <Text style={{ fontFamily: isBoldFamily }}>{l.language}</Text>
-                <Text style={[styles.italic, { textTransform: 'capitalize' }]}>{l.proficiency}</Text>
+                {style.showSkillProficiency !== false && (
+                  <Text style={[styles.italic, { textTransform: 'capitalize' }]}>{l.proficiency}</Text>
+                )}
               </View>
             ))}
           </Section>

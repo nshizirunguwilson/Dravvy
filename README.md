@@ -11,7 +11,7 @@ preview, and one-click export as a print-ready PDF or an editable DOCX.
 
 [![CI](https://github.com/nshizirunguwilson/Dravvy/actions/workflows/ci.yml/badge.svg)](https://github.com/nshizirunguwilson/Dravvy/actions/workflows/ci.yml)
 
-[Features](#highlights) · [Screenshots](#screenshots) · [Getting started](#getting-started) · [Testing](#testing) · [Docker](#docker) · [Stack](#stack)
+[Features](#highlights) · [Screenshots](#screenshots) · [Styling](#styling-options) · [Devices](#devices-and-accessibility) · [Offline](#offline) · [Getting started](#getting-started) · [Testing](#testing) · [Stack](#stack)
 
 </div>
 
@@ -23,8 +23,11 @@ preview, and one-click export as a print-ready PDF or an editable DOCX.
 
 - **No account, no upload.** Your draft lives in your browser. Clear site
   data and it's gone. Nothing to sign up for, nothing on a server.
-- **Nine guided sections** with inline validation: Basics, Work, Education,
-  Skills, Certifications, Awards, Projects, Languages, References.
+- **Nine guided sections** with real inline validation: every field is bound to
+  its own error message, announced to screen readers rather than flashed as a
+  toast that names nothing.
+- **Reorder, remove and undo.** Move any entry up or down, and a removal offers
+  an undo that puts it back in its original position.
 - **True A4 live preview** dimensioned to the millimetre, so what you see in
   the editor is what gets exported.
 - **One-click export** as a print-ready A4 PDF *or* an editable DOCX that
@@ -40,8 +43,11 @@ preview, and one-click export as a print-ready PDF or an editable DOCX.
 - **Light and dark theme**, remembered per device, following your operating
   system by default, and applied before first paint so there is no white
   flash. The resume page itself stays white paper in either theme.
+- **Works offline.** A service worker caches the shell, so the whole builder
+  keeps working with no connection, and installs to a phone home screen.
 - **Verified on 14 device sizes**, from an iPhone 6s to a 16 inch MacBook Pro,
-  in both themes, with zero axe-core violations against WCAG 2.2 AA.
+  in both themes, in Chromium and WebKit, with zero axe-core violations
+  against WCAG 2.2 AA.
 
 ---
 
@@ -64,7 +70,7 @@ A pill-style segmented tab nav switches between **Styling**, **Preview**,
 custom hex; the selection is reflected in the preview, the PDF and the DOCX.
 The Styling tab also carries the app theme control (light / dark / system).
 
-### Mobile: built down to iPhone 5
+### Mobile: built down to an iPhone 6s
 
 <table>
   <tr>
@@ -84,7 +90,7 @@ The Styling tab also carries the app theme control (light / dark / system).
     </td>
     <td align="center" width="50%">
       <img src="docs/screenshots/create-iphone5.png" alt="Editor on a 320px viewport" />
-      <br /><sub><b>Editor</b> · 320px (iPhone 5)</sub>
+      <br /><sub><b>Editor</b> · 320px</sub>
     </td>
   </tr>
 </table>
@@ -145,25 +151,25 @@ Nothing is uploaded. The file is produced and read entirely in the browser.
 
 ## Styling options
 
-Seven groups, 38 individual choices:
+Nine groups, 42 individual choices:
 
-| Group            | Options | What it changes                                                              |
-| ---------------- | ------- | ---------------------------------------------------------------------------- |
-| Theme            | 3       | Header alignment, name capitals, section heading ink and tracking, rule side  |
-| Typeface         | 12      | The family used for the whole page                                            |
-| Body size        | 3       | Body, heading and section type together                                       |
-| Section spacing  | 3       | Rhythm between header, rules and entries                                      |
-| Separator        | 4       | The rule drawn at each section boundary                                       |
-| Date format      | 3       | How every start and end date is written                                       |
-| Accent colour    | 10      | Section heading ink and rule: nine presets plus any hex                       |
+| Group                     | Options | What it changes                                                             |
+| ------------------------- | ------- | --------------------------------------------------------------------------- |
+| Theme                     | 3       | Header alignment, name capitals, section heading ink and tracking, rule side |
+| Typeface                  | 12      | The family used for the whole page                                           |
+| Body size                 | 3       | Body, heading and section type together                                      |
+| Section spacing           | 3       | Rhythm between header, rules and entries                                     |
+| Separator                 | 4       | The rule drawn at each section boundary                                      |
+| Date format               | 3       | How every start and end date is written                                      |
+| Show profile links        | 2       | Whether LinkedIn, GitHub and your portfolio appear in the contact line       |
+| Show language proficiency | 2       | Whether languages carry a level, so "English, native" or just "English"      |
+| Accent colour             | 10      | Section heading ink and rule: nine presets plus any hex                      |
 
 Every one of those is verified, not assumed. Two sweeps drive the real app and
 the real exporters:
 
 ```bash
-npm run dev -- -p 3100     # in one terminal
-npm run proof:styling      # live preview: measure, capture, compare
-npm run proof:exports      # real PDF and real DOCX per option
+npm run proof:all          # all three sweeps, dev server managed for you
 npm run proof:report       # build the visual proof sheet
 ```
 
@@ -195,14 +201,18 @@ offered as the closest open geometric sans instead, under its own name.
 ## Devices and accessibility
 
 The app is held to a ladder of 14 device sizes, from an iPhone 6s up to a 16
-inch MacBook Pro, across all 9 screens and both themes. That is 252
-combinations, and every one is measured, not eyeballed:
+inch MacBook Pro, across all 9 screens, both themes, and both browser engines.
+That is **504 combinations**, and every one is measured, not eyeballed:
 
 ```bash
-npm run dev -- -p 3100            # in one terminal
-npm run proof:responsive          # 252 combinations, 6 checks each
+npm run proof:responsive          # 504 combinations, 6 checks each
 npm run proof:responsive:report   # build the visual proof sheet
 ```
+
+Chromium stands in for Chrome and Edge, WebKit for Safari. WebKit is not
+optional here: almost every device on the ladder runs Safari, and adding it
+immediately found a horizontal scroll on phones that Chromium had absorbed
+silently.
 
 Each combination is loaded at the viewport a real browser actually gives the
 page, which is not the same as the screen size. An iPhone 6s is a 375x667
@@ -244,6 +254,29 @@ Rebuild the pictures and the proof sheets any time with the commands above.
 
 ---
 
+## Offline
+
+A service worker caches the app shell, and because the whole builder runs in the
+browser there is nothing else to fetch: with the shell cached you can write,
+style and export a resume with no connection at all.
+
+- Navigations try the network first, so a deploy is picked up, and fall back to
+  the cache when there is none.
+- Static assets are content hashed, so they are served straight from the cache.
+- A web manifest makes it installable: **Add to Home Screen** on a phone gives
+  you a standalone app.
+
+The worker is deliberately disabled in development, where it would only serve
+stale code. To try it, run a production build:
+
+```bash
+npm run build && npm start
+```
+
+Then load the app, switch the Network tab to **Offline**, and reload.
+
+---
+
 ## Theme
 
 Light and dark, with a third **System** option that follows the operating
@@ -262,13 +295,18 @@ produce. Printing from dark mode also falls back to the light palette.
 
 - **Next.js 14** (App Router) + **TypeScript** in strict mode
 - **Tailwind CSS** with a hand-tuned token system in [`globals.css`](src/app/globals.css)
-- **Plus Jakarta Sans** as the single typeface (loaded via `next/font`)
-- **Radix UI** primitives (Select, Tabs, Switch, Progress, Radio, Dialog)
-- **Zustand** for the in-browser draft store
-- **React Hook Form** + **Zod** for form state and validation
+- **Plus Jakarta Sans** for the interface, plus twelve resume typefaces loaded
+  on demand through `next/font` so you only download the one you pick
+- **Radix UI** primitives (Select, Tabs, Switch, Progress, Radio)
+- **Zustand** for the in-browser draft store, persisted to `localStorage`
+- **Zod** for validation, wired directly to the field-level error messages
 - **Framer Motion** for section transitions and micro-interactions
-- **Sonner** for toasts
+- **Sonner** for toasts, including the undo action on a deletion
 - **`@react-pdf/renderer`** for PDF export, **`docx`** for DOCX export
+- A **service worker** and web manifest, so the app runs offline and installs
+
+Twenty runtime dependencies, and every one is imported somewhere. Anything that
+stopped being used has been removed.
 
 ---
 
@@ -288,18 +326,21 @@ npm run dev          # http://localhost:3000
 | `npm run dev`         | Next.js dev server with hot reload.                                           |
 | `npm run build`       | Production build (also runs `next lint` and TypeScript checks).               |
 | `npm run start`       | Serves the production build.                                                  |
+| `npm run verify`      | Every automated check, in order. Manages its own dev server.                   |
+| `npm run verify:quick`| Everything except the browser sweeps. About two minutes.                       |
 | `npm run lint`        | Runs the Next/ESLint ruleset.                                                 |
 | `npm run lint:dashes` | Fails if any em dash or en dash creeps into a tracked file.                    |
 | `npm run typecheck`   | Strict TypeScript pass with no emit.                                          |
 | `npm run test`        | Unit + component tests (Vitest, jsdom).                                       |
 | `npm run test:coverage` | Unit/component tests with a v8 coverage gate.                               |
-| `npm run test:e2e`    | End-to-end tests (Playwright, Chromium) on a dev server at port 3100.         |
+| `npm run test:e2e`    | End-to-end tests (Playwright, Chromium and WebKit) on a dev server at port 3100. |
 | `npm run test:export` | Headless smoke test: renders the PDF and DOCX from a fixture and asserts the file headers. |
 | `npm run proof:styling` | Sweeps every styling option through the live preview and captures evidence. |
 | `npm run proof:exports` | Sweeps every styling option through a real PDF and DOCX.                      |
 | `npm run proof:report` | Builds the styling proof sheet from the two sweeps.                           |
-| `npm run proof:responsive` | Sweeps every screen across 14 device sizes and both themes.              |
+| `npm run proof:responsive` | Sweeps every screen across 14 devices, both themes, both engines.       |
 | `npm run proof:responsive:report` | Builds the device proof sheet.                                    |
+| `npm run proof:all`   | Runs all three sweeps against a dev server it starts and stops itself.        |
 | `npm run format`      | Prettier formatting.                                                          |
 
 The export smoke test is fully headless. It bundles the export modules
@@ -313,23 +354,46 @@ with esbuild, runs them in Node, and asserts that the PDF starts with
 Three layers, all runnable locally and in CI:
 
 - **Unit & component**: [Vitest](https://vitest.dev) + React Testing Library
-  (jsdom). Covers the utilities, Zod validation schemas, both Zustand stores
-  (every action), the UI primitives, the live preview, the DOCX export, the
-  theme system and the progress save/import format, **180+ tests**. A v8
-  coverage gate enforces 90% statements / lines / functions and 85% branches
-  across the tested surface (currently ~97% / ~93%).
+  (jsdom). Covers the utilities, the Zod schemas, both Zustand stores (every
+  action), the UI primitives, every section of the resume form, the styling and
+  export forms, the live preview, the DOCX export, the theme system, date
+  formatting and the progress save/import format: **282 tests**. A v8 coverage
+  gate enforces 90% statements / lines / functions and 85% branches across
+  everything in `src/lib`, `src/hooks`, `src/store` and `src/components`
+  (currently ~94% / ~92%).
 - **End-to-end**: [Playwright](https://playwright.dev) (Chromium) drives the
   real app: the landing CTA into the builder, section-to-section navigation,
   the builder to style/export flow, the light/dark theme (including the
-  no-flash reload), and a full save-then-import round trip that wipes browser
-  storage in between. Playwright starts its own dev server on port 3100, so it
-  never collides with another server running on 3000.
+  no-flash reload), keyboard-only operation, and a full save-then-import round
+  trip that wipes browser storage in between. It runs in **Chromium and
+  WebKit**, because every phone and tablet in the device ladder runs Safari.
+  Playwright starts its own dev server on port 3100, so it never collides with
+  another server running on 3000.
+
+- **Proof sweeps**: every styling option is driven through the live preview,
+  a real PDF and a real DOCX; every screen is driven across 14 devices, both
+  themes and both engines. These are described in full above.
 
 ```bash
+npm run verify          # everything, in order, server managed for you
+npm run verify:quick    # everything except the browser sweeps
+
 npm run test            # unit + component (Vitest)
 npm run test:coverage   # with coverage gate
-npm run test:e2e        # end-to-end (Playwright)
+npm run test:e2e        # end-to-end (Playwright, Chromium and WebKit)
+npm run proof:all       # all three proof sweeps
 ```
+
+> `npm run build` and `npm run dev` share the `.next` directory and corrupt
+> each other if they run at the same time. `npm run verify` sequences them
+> correctly, so prefer it over running the pieces in parallel yourself.
+
+**[TESTING.md](TESTING.md)** walks through checking every feature by hand,
+including offline, dark mode, keyboard-only and screen reader behaviour.
+
+**[TESTING.md](TESTING.md) is the full guide**: what every command proves, how
+to walk each feature by hand, how to check offline, dark mode, keyboard only and
+screen reader behaviour, and what to do when something fails.
 
 Every push and pull request runs lint, the dash check, typecheck, the unit
 suite with coverage, the production build, the Playwright e2e suite, both

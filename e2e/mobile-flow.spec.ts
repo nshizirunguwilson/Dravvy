@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
 
+import { gotoReady } from './helpers'
+
 /**
  * The whole point of the responsive work: a person on the smallest phone we
  * support can actually build and export a resume, not merely view a page that
@@ -17,7 +19,7 @@ test.use({
 
 test.describe('Building a resume on an iPhone 6s', () => {
   test('completes the flow from empty draft to a downloaded PDF', async ({ page }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
 
     // ---- Basic information ----
     await expect(page.getByRole('heading', { level: 1, name: 'Basic information' })).toBeVisible()
@@ -36,15 +38,15 @@ test.describe('Building a resume on an iPhone 6s', () => {
     // "2Work experience", so an exact match picks out the footer button.
     await page.getByRole('button', { name: 'Work experience', exact: true }).click()
     await expect(page.getByRole('heading', { level: 1, name: 'Work experience' })).toBeVisible()
-    await page.getByRole('button', { name: 'Add Experience' }).click()
+    await page.getByRole('button', { name: 'Add role' }).click()
 
-    await page.getByLabel('Job Title', { exact: false }).first().fill('Lead Product Designer')
+    await page.getByLabel('Job title', { exact: false }).first().fill('Lead Product Designer')
     await page.getByLabel('Company', { exact: false }).first().fill('Holloway Financial')
     await page.getByLabel('Bullet point 1').first().fill('Raised activation 38% in two quarters.')
     await page.getByLabel('Bullet point 2').first().fill('Coached three designers.')
 
     // ---- Straight through to style and export ----
-    await page.goto('/settings')
+    await gotoReady(page, '/settings')
     await expect(page.getByRole('tab', { name: /styling/i })).toBeVisible()
 
     await page.getByRole('tab', { name: /preview/i }).click()

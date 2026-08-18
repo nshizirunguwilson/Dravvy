@@ -58,7 +58,7 @@ export default function SettingsPage() {
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-14">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-4 py-6 sm:px-6 sm:py-10 md:px-10 md:py-14">
         {/* Page heading */}
         <div className="mb-6 sm:mb-8">
           <p className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-brand sm:text-[13px]">
@@ -129,7 +129,7 @@ export default function SettingsPage() {
             <span className="text-[13px] font-medium text-slate-7">All set.</span>
           )}
         </div>
-      </div>
+      </main>
     </div>
   )
 }

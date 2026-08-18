@@ -204,6 +204,27 @@ export const groups = [
     ],
   },
   {
+    id: 'profile-links',
+    label: 'Show profile links',
+    field: 'showLinks',
+    options: [
+      { value: true, label: 'Links shown' },
+      { value: false, label: 'Links hidden' },
+    ],
+  },
+  {
+    id: 'language-proficiency',
+    label: 'Show language proficiency',
+    field: 'showSkillProficiency',
+    // Languages sit near the foot of the page, past the default crop, so this
+    // group is captured tall enough for the difference to be visible.
+    captureHeight: 1180,
+    options: [
+      { value: true, label: 'Proficiency shown' },
+      { value: false, label: 'Proficiency hidden' },
+    ],
+  },
+  {
     id: 'accent-colour',
     label: 'Accent colour',
     field: 'color',

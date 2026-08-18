@@ -55,8 +55,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium webkit
 
       - name: Run e2e tests
         run: npm run test:e2e
@@ -85,30 +85,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium webkit
 
-      - name: Prove every styling option reaches the PDF and DOCX
-        run: npm run proof:exports
-
-      - name: Start the app
-        run: npm run dev -- -p 3100 &
-
-      - name: Wait for the app
-        run: |
-          for i in $(seq 1 60); do
-            if curl -sf -o /dev/null http://localhost:3100/settings; then
-              echo "app is up"; exit 0
-            fi
-            sleep 2
-          done
-          echo "app never came up"; exit 1
-
-      - name: Prove every styling option reaches the live preview
-        run: npm run proof:styling
-
-      - name: Prove every screen works on every device
-        run: npm run proof:responsive
+      - name: Run every sweep against a managed dev server
+        run: npm run proof:all
 
       - name: Upload device evidence
         uses: actions/upload-artifact@v4

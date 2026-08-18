@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-17T22:38:27.572Z",
+  "generatedAt": "2026-08-18T17:48:44.818Z",
   "baseURL": "http://localhost:3100",
-  "totalOptions": 38,
-  "checked": 38,
+  "totalOptions": 42,
+  "checked": 42,
   "failures": 0,
   "formCheck": {
     "pass": true,
@@ -14,7 +14,9 @@
       "Separator": 4,
       "Date format": 3,
       "Accent colour": 9,
-      "Accent colour custom": 1
+      "Accent colour custom": 1,
+      "Show profile links": 2,
+      "Show language proficiency": 2
     },
     "expected": {
       "Theme": 3,
@@ -23,6 +25,8 @@
       "Section spacing": 3,
       "Separator": 4,
       "Date format": 3,
+      "Show profile links": 2,
+      "Show language proficiency": 2,
       "Accent colour": 9,
       "Accent colour custom": 1
     },
@@ -85,8 +89,8 @@
       "value": "modern",
       "label": "Modern",
       "file": "theme--modern.jpg",
-      "bytes": 82171,
-      "digest": "feea6bdeec581f49",
+      "bytes": 93103,
+      "digest": "aecce22a4f6ea81d",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -113,8 +117,8 @@
       "value": "classic",
       "label": "Classic",
       "file": "theme--classic.jpg",
-      "bytes": 81397,
-      "digest": "88185060c5c25195",
+      "bytes": 92571,
+      "digest": "85d17010b27a31df",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -141,8 +145,8 @@
       "value": "minimal",
       "label": "Minimal",
       "file": "theme--minimal.jpg",
-      "bytes": 74272,
-      "digest": "e012e5de5927d4c7",
+      "bytes": 83667,
+      "digest": "4371358c237c4bfe",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -169,8 +173,8 @@
       "value": "times new roman",
       "label": "Times New Roman",
       "file": "typeface--times-new-roman.jpg",
-      "bytes": 74207,
-      "digest": "21096f0f923a404b",
+      "bytes": 84461,
+      "digest": "55085a03db063037",
       "rendered": {
         "fontFamily": "\"Times New Roman\", __Tinos_aad644, __Tinos_Fallback_aad644, Tinos, serif",
         "bodyPx": 12.5,
@@ -197,8 +201,8 @@
       "value": "georgia",
       "label": "Georgia",
       "file": "typeface--georgia.jpg",
-      "bytes": 84344,
-      "digest": "3222aee4cc1baf2e",
+      "bytes": 95979,
+      "digest": "d0d31f3356c40c32",
       "rendered": {
         "fontFamily": "Georgia, __Gelasio_04b91b, __Gelasio_Fallback_04b91b, Gelasio, serif",
         "bodyPx": 12.5,
@@ -225,8 +229,8 @@
       "value": "cambria",
       "label": "Cambria",
       "file": "typeface--cambria.jpg",
-      "bytes": 76067,
-      "digest": "642d38acb6b2c481",
+      "bytes": 86355,
+      "digest": "ab541643602b0175",
       "rendered": {
         "fontFamily": "Cambria, __Caladea_6673ce, __Caladea_Fallback_6673ce, Caladea, serif",
         "bodyPx": 12.5,
@@ -253,8 +257,8 @@
       "value": "garamond",
       "label": "Garamond",
       "file": "typeface--garamond.jpg",
-      "bytes": 69989,
-      "digest": "951c15a465786d82",
+      "bytes": 81245,
+      "digest": "c2845d8de7476826",
       "rendered": {
         "fontFamily": "Garamond, __EB_Garamond_4bf290, __EB_Garamond_Fallback_4bf290, \"EB Garamond\", serif",
         "bodyPx": 12.5,
@@ -281,8 +285,8 @@
       "value": "calibri",
       "label": "Calibri",
       "file": "typeface--calibri.jpg",
-      "bytes": 73748,
-      "digest": "529cf1d6ec2d39f3",
+      "bytes": 83425,
+      "digest": "cd97b54b0639a7e6",
       "rendered": {
         "fontFamily": "Calibri, __Carlito_33c777, Carlito, sans-serif",
         "bodyPx": 12.5,
@@ -309,8 +313,8 @@
       "value": "helvetica",
       "label": "Helvetica",
       "file": "typeface--helvetica.jpg",
-      "bytes": 82171,
-      "digest": "feea6bdeec581f49",
+      "bytes": 93103,
+      "digest": "aecce22a4f6ea81d",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -337,8 +341,8 @@
       "value": "arial",
       "label": "Arial",
       "file": "typeface--arial.jpg",
-      "bytes": 81192,
-      "digest": "9b49294315881916",
+      "bytes": 92069,
+      "digest": "399a281cae72cab7",
       "rendered": {
         "fontFamily": "__Arimo_f747f6, __Arimo_Fallback_f747f6, Arimo, Arial, sans-serif",
         "bodyPx": 12.5,
@@ -365,8 +369,8 @@
       "value": "roboto",
       "label": "Roboto",
       "file": "typeface--roboto.jpg",
-      "bytes": 80230,
-      "digest": "c497fb2f6a69bd12",
+      "bytes": 93242,
+      "digest": "5476d9447569b210",
       "rendered": {
         "fontFamily": "__Roboto_b305b6, __Roboto_Fallback_b305b6, Roboto, sans-serif",
         "bodyPx": 12.5,
@@ -393,8 +397,8 @@
       "value": "lato",
       "label": "Lato",
       "file": "typeface--lato.jpg",
-      "bytes": 78800,
-      "digest": "a9f46230f5be4476",
+      "bytes": 91490,
+      "digest": "a8db3d4c0055dc87",
       "rendered": {
         "fontFamily": "__Lato_831472, __Lato_Fallback_831472, Lato, sans-serif",
         "bodyPx": 12.5,
@@ -421,8 +425,8 @@
       "value": "open sans",
       "label": "Open Sans",
       "file": "typeface--open-sans.jpg",
-      "bytes": 83177,
-      "digest": "b2256473733b97f1",
+      "bytes": 96430,
+      "digest": "313d0720746d0fbc",
       "rendered": {
         "fontFamily": "__Open_Sans_36321d, __Open_Sans_Fallback_36321d, \"Open Sans\", sans-serif",
         "bodyPx": 12.5,
@@ -449,8 +453,8 @@
       "value": "montserrat",
       "label": "Montserrat",
       "file": "typeface--montserrat.jpg",
-      "bytes": 85305,
-      "digest": "94c89050110b2034",
+      "bytes": 98988,
+      "digest": "433fc0ddf5615ab4",
       "rendered": {
         "fontFamily": "__Montserrat_99b489, __Montserrat_Fallback_99b489, Montserrat, sans-serif",
         "bodyPx": 12.5,
@@ -477,8 +481,8 @@
       "value": "outfit",
       "label": "Outfit",
       "file": "typeface--outfit.jpg",
-      "bytes": 81401,
-      "digest": "708da9d47f70d640",
+      "bytes": 92115,
+      "digest": "435129a73f29c776",
       "rendered": {
         "fontFamily": "__Outfit_86bc3c, __Outfit_Fallback_86bc3c, Outfit, sans-serif",
         "bodyPx": 12.5,
@@ -505,8 +509,8 @@
       "value": "small",
       "label": "Small",
       "file": "body-size--small.jpg",
-      "bytes": 77227,
-      "digest": "4cd452a3f5fc1121",
+      "bytes": 87937,
+      "digest": "21bf999b4001980f",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 11,
@@ -533,8 +537,8 @@
       "value": "medium",
       "label": "Medium",
       "file": "body-size--medium.jpg",
-      "bytes": 82171,
-      "digest": "feea6bdeec581f49",
+      "bytes": 93103,
+      "digest": "aecce22a4f6ea81d",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -561,8 +565,8 @@
       "value": "large",
       "label": "Large",
       "file": "body-size--large.jpg",
-      "bytes": 91719,
-      "digest": "0a181bbad2fc20e5",
+      "bytes": 102409,
+      "digest": "a86ca37c0bfa5de7",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 14,
@@ -589,8 +593,8 @@
       "value": "small",
       "label": "Small",
       "file": "section-spacing--small.jpg",
-      "bytes": 88370,
-      "digest": "baabe4b041010ff4",
+      "bytes": 100542,
+      "digest": "6ba96cec0402e702",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -617,8 +621,8 @@
       "value": "medium",
       "label": "Medium",
       "file": "section-spacing--medium.jpg",
-      "bytes": 82171,
-      "digest": "feea6bdeec581f49",
+      "bytes": 93103,
+      "digest": "aecce22a4f6ea81d",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -645,8 +649,8 @@
       "value": "large",
       "label": "Large",
       "file": "section-spacing--large.jpg",
-      "bytes": 80696,
-      "digest": "61a25e19654c0bc2",
+      "bytes": 91576,
+      "digest": "c9db78d64951b35c",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -673,8 +677,8 @@
       "value": "line",
       "label": "Single line",
       "file": "separator--line.jpg",
-      "bytes": 82171,
-      "digest": "feea6bdeec581f49",
+      "bytes": 93103,
+      "digest": "aecce22a4f6ea81d",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -701,8 +705,8 @@
       "value": "double line",
       "label": "Double line",
       "file": "separator--double-line.jpg",
-      "bytes": 88120,
-      "digest": "f05d7c5599f76214",
+      "bytes": 98987,
+      "digest": "d0eebef094eac98a",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -729,8 +733,8 @@
       "value": "bold line",
       "label": "Bold line",
       "file": "separator--bold-line.jpg",
-      "bytes": 83925,
-      "digest": "e04ea518656152e4",
+      "bytes": 95619,
+      "digest": "0f6026e5a53e1ca2",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -757,8 +761,8 @@
       "value": "no separator",
       "label": "No separator",
       "file": "separator--no-separator.jpg",
-      "bytes": 75447,
-      "digest": "223ab8ee864a8540",
+      "bytes": 85269,
+      "digest": "bd25fc4449877ff9",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -785,8 +789,8 @@
       "value": "MM/YYYY",
       "label": "01/2026",
       "file": "date-format--mm-yyyy.jpg",
-      "bytes": 82171,
-      "digest": "feea6bdeec581f49",
+      "bytes": 93103,
+      "digest": "aecce22a4f6ea81d",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -813,8 +817,8 @@
       "value": "MMM YYYY",
       "label": "Jan 2026",
       "file": "date-format--mmm-yyyy.jpg",
-      "bytes": 82558,
-      "digest": "e75fb5f5f2577649",
+      "bytes": 93571,
+      "digest": "cc504069e51abbb3",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -841,8 +845,8 @@
       "value": "MMMM YYYY",
       "label": "January 2026",
       "file": "date-format--mmmm-yyyy.jpg",
-      "bytes": 83668,
-      "digest": "976579330476497f",
+      "bytes": 94539,
+      "digest": "f610a7f69e31c4ad",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -864,13 +868,125 @@
       }
     },
     {
+      "group": "profile-links",
+      "groupLabel": "Show profile links",
+      "value": true,
+      "label": "Links shown",
+      "file": "profile-links--true.jpg",
+      "bytes": 93103,
+      "digest": "aecce22a4f6ea81d",
+      "rendered": {
+        "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 117.13,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "profile-links",
+      "groupLabel": "Show profile links",
+      "value": false,
+      "label": "Links hidden",
+      "file": "profile-links--false.jpg",
+      "bytes": 91335,
+      "digest": "3f7343ddd5523466",
+      "rendered": {
+        "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 117.13,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "language-proficiency",
+      "groupLabel": "Show language proficiency",
+      "value": true,
+      "label": "Proficiency shown",
+      "file": "language-proficiency--true.jpg",
+      "bytes": 150276,
+      "digest": "61a1e3cb8d8e46ba",
+      "rendered": {
+        "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 117.13,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
+      "group": "language-proficiency",
+      "groupLabel": "Show language proficiency",
+      "value": false,
+      "label": "Proficiency hidden",
+      "file": "language-proficiency--false.jpg",
+      "bytes": 149430,
+      "digest": "345b53f4f33dd809",
+      "rendered": {
+        "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
+        "bodyPx": 12.5,
+        "headerAlign": "center",
+        "headerGapPx": 18,
+        "headingColor": "rgb(37, 99, 235)",
+        "nameWidthPx": 117.13,
+        "rulePlacement": "above",
+        "ruleCount": 1,
+        "ruleHeightPx": 1,
+        "ruleWidthPx": 643,
+        "date": "04/2022"
+      },
+      "effectCheck": {
+        "pass": true
+      },
+      "distinctCheck": {
+        "pass": true
+      }
+    },
+    {
       "group": "accent-colour",
       "groupLabel": "Accent colour",
       "value": "#0F172A",
       "label": "Slate",
       "file": "accent-colour---0f172a.jpg",
-      "bytes": 79803,
-      "digest": "09997a720aabaa2d",
+      "bytes": 90199,
+      "digest": "12f9082928069cb1",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -897,8 +1013,8 @@
       "value": "#1f2937",
       "label": "Graphite",
       "file": "accent-colour---1f2937.jpg",
-      "bytes": 79497,
-      "digest": "bec868662e636ca8",
+      "bytes": 89815,
+      "digest": "ff555ca8a8df37ff",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -925,8 +1041,8 @@
       "value": "#1e3a8a",
       "label": "Indigo",
       "file": "accent-colour---1e3a8a.jpg",
-      "bytes": 81202,
-      "digest": "66ec1f5c9e31b322",
+      "bytes": 92202,
+      "digest": "32207bbe95a0f71b",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -953,8 +1069,8 @@
       "value": "#2563EB",
       "label": "Blue",
       "file": "accent-colour---2563eb.jpg",
-      "bytes": 82171,
-      "digest": "feea6bdeec581f49",
+      "bytes": 93103,
+      "digest": "aecce22a4f6ea81d",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -981,8 +1097,8 @@
       "value": "#0e7490",
       "label": "Teal",
       "file": "accent-colour---0e7490.jpg",
-      "bytes": 81262,
-      "digest": "8150938feabcedbe",
+      "bytes": 91968,
+      "digest": "23fa0533d4bc3424",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -1009,8 +1125,8 @@
       "value": "#15803d",
       "label": "Forest",
       "file": "accent-colour---15803d.jpg",
-      "bytes": 80598,
-      "digest": "4d656d56f5bd3551",
+      "bytes": 91277,
+      "digest": "47b2cb413b9b7eb7",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -1037,8 +1153,8 @@
       "value": "#9a3412",
       "label": "Sienna",
       "file": "accent-colour---9a3412.jpg",
-      "bytes": 81709,
-      "digest": "26eb44a9bf883a8a",
+      "bytes": 92635,
+      "digest": "d910bdc0922794ef",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -1065,8 +1181,8 @@
       "value": "#7c2d12",
       "label": "Burgundy",
       "file": "accent-colour---7c2d12.jpg",
-      "bytes": 81290,
-      "digest": "1694ffc8194f0f34",
+      "bytes": 92146,
+      "digest": "6556241e81f67345",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -1093,8 +1209,8 @@
       "value": "#7c3aed",
       "label": "Violet",
       "file": "accent-colour---7c3aed.jpg",
-      "bytes": 81136,
-      "digest": "de4227478ce4ee27",
+      "bytes": 91849,
+      "digest": "bb4ff048fc0262c7",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,
@@ -1121,8 +1237,8 @@
       "value": "#B45309",
       "label": "Custom hex",
       "file": "accent-colour---b45309.jpg",
-      "bytes": 81600,
-      "digest": "49afc3f79c9854a5",
+      "bytes": 92399,
+      "digest": "a4b3878e01f1268a",
       "rendered": {
         "fontFamily": "__Archivo_ade111, __Archivo_Fallback_ade111, Archivo, \"Helvetica Neue\", Helvetica, sans-serif",
         "bodyPx": 12.5,

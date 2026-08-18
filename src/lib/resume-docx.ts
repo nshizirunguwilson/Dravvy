@@ -11,6 +11,7 @@ import {
 } from 'docx'
 
 import { resumeTheme, sectionInkColor } from '@/lib/resume-theme'
+import { formatResumeDate, runtimeLocale } from '@/lib/format-date'
 import type { ResumeData, ResumeStyle } from '@/types/resume'
 
 type DocxFont =
@@ -59,20 +60,6 @@ const spacingMap = {
   large: { beforeSection: 420, afterSection: 180, afterHeader: 320 },
 } as const
 
-const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {
-  if (!raw) return ''
-  const date = new Date(raw)
-  if (Number.isNaN(date.getTime())) return raw
-  switch (fmt) {
-    case 'MM/YYYY':
-      return date.toLocaleDateString('en-US', { month: '2-digit', year: 'numeric' })
-    case 'MMMM YYYY':
-      return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-    default:
-      return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-  }
-}
-
 const hexToDocx = (hex: string) => (/^#?[0-9a-fA-F]{6}$/.test(hex) ? hex.replace('#', '').toUpperCase() : '1F2937')
 
 interface DocxResumeData extends ResumeData {
@@ -94,6 +81,10 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
     referencesMode,
     style,
   } = data
+
+  const locale = runtimeLocale()
+  const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) =>
+    formatResumeDate(raw, fmt, locale)
 
   const sizes = fontSizeMap[style.fontSize]
   const gap = spacingMap[style.spacing] ?? spacingMap.medium
@@ -177,9 +168,11 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
   if (contact.location) contactItems.push({ kind: 'text', value: contact.location })
   if (contact.phone) contactItems.push({ kind: 'text', value: contact.phone })
   if (contact.email) contactItems.push({ kind: 'link', label: contact.email, href: `mailto:${contact.email}` })
-  if (contact.linkedin) contactItems.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
-  if (contact.github) contactItems.push({ kind: 'link', label: 'GitHub', href: contact.github })
-  if (contact.website) contactItems.push({ kind: 'link', label: 'Portfolio', href: contact.website })
+  if (style.showLinks !== false) {
+    if (contact.linkedin) contactItems.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
+    if (contact.github) contactItems.push({ kind: 'link', label: 'GitHub', href: contact.github })
+    if (contact.website) contactItems.push({ kind: 'link', label: 'Portfolio', href: contact.website })
+  }
 
   if (contactItems.length > 0) {
     const children: (TextRun | ExternalHyperlink)[] = []
@@ -293,7 +286,12 @@ export async function buildResumeDocxBlob(data: DocxResumeData): Promise<Blob> {
     blocks.push(sectionTitle('Languages'))
     for (const l of languages) {
       blocks.push(
-        titleWithDate([run(l.language, { bold: true })], l.proficiency.charAt(0).toUpperCase() + l.proficiency.slice(1))
+        titleWithDate(
+          [run(l.language, { bold: true })],
+          style.showSkillProficiency === false
+            ? ''
+            : l.proficiency.charAt(0).toUpperCase() + l.proficiency.slice(1),
+        )
       )
     }
   }

@@ -63,3 +63,22 @@ afterEach(() => {
   cleanup()
   localStorage.clear()
 })
+
+// jsdom implements no Pointer Capture API, and both Radix and Sonner call it.
+// Without these an interaction inside a toast throws an unhandled TypeError.
+if (typeof Element !== 'undefined') {
+  if (!Element.prototype.setPointerCapture) {
+    Element.prototype.setPointerCapture = function setPointerCapture() {}
+  }
+  if (!Element.prototype.releasePointerCapture) {
+    Element.prototype.releasePointerCapture = function releasePointerCapture() {}
+  }
+  if (!Element.prototype.hasPointerCapture) {
+    Element.prototype.hasPointerCapture = function hasPointerCapture() {
+      return false
+    }
+  }
+  if (!Element.prototype.scrollIntoView) {
+    Element.prototype.scrollIntoView = function scrollIntoView() {}
+  }
+}

@@ -47,11 +47,14 @@ export function ExportForm() {
     style: s.style,
   }))
 
+  // Seed the filename once. Re-seeding whenever the box is empty meant you
+  // could never clear it to type your own: it refilled on the next keystroke.
+  const seeded = React.useRef(false)
   React.useEffect(() => {
-    if (!filename && data.contact.fullName) {
-      setFilename(`${slugify(data.contact.fullName)}-resume`)
-    }
-  }, [data.contact.fullName, filename])
+    if (seeded.current || !data.contact.fullName) return
+    seeded.current = true
+    setFilename(`${slugify(data.contact.fullName)}-resume`)
+  }, [data.contact.fullName])
 
   if (!hydrated) return null
 

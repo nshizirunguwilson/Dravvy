@@ -26,31 +26,24 @@ export default defineConfig({
       // Scope coverage to the modules that are under unit test. Heavy view
       // components and the DOCX/PDF exporters are exercised by the export
       // smoke test instead, so they're intentionally out of this gate.
+      // Everything with logic worth protecting. Route files and the two heavy
+      // exporters are deliberately out: routes are covered end to end by
+      // Playwright, and the PDF and DOCX pipelines by the export smoke test
+      // and the styling proof, neither of which runs under jsdom.
       include: [
-        'src/lib/utils.ts',
-        'src/lib/utils/progress.ts',
-        'src/lib/validations/resume.ts',
-        'src/lib/theme.ts',
-        'src/lib/resume-io.ts',
+        'src/lib/**',
+        'src/hooks/**',
         'src/store/**',
-        'src/hooks/useHydration.ts',
-        'src/components/brand.tsx',
-        'src/components/error-boundary.tsx',
-        'src/components/progress-tracker.tsx',
-        'src/components/save-progress.tsx',
-        'src/components/theme-provider.tsx',
-        'src/components/theme-toggle.tsx',
-        'src/components/ui/button.tsx',
-        'src/components/ui/card.tsx',
-        'src/components/ui/input.tsx',
-        'src/components/ui/label.tsx',
-        'src/components/ui/progress.tsx',
-        'src/components/ui/radio-group.tsx',
-        'src/components/ui/switch.tsx',
-        'src/components/ui/tabs.tsx',
-        'src/components/ui/textarea.tsx',
+        'src/components/**',
       ],
-      exclude: ['src/**/*.d.ts', 'src/**/*.test.{ts,tsx}'],
+      exclude: [
+        'src/**/*.d.ts',
+        'src/**/*.test.{ts,tsx}',
+        'src/components/resume-pdf.tsx',
+        'src/lib/resume-docx.ts',
+        'src/components/service-worker.tsx',
+        'src/components/app-toaster.tsx',
+      ],
       thresholds: {
         statements: 90,
         branches: 85,

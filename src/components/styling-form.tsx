@@ -9,6 +9,7 @@ import type { ResumeStyle } from '@/types/resume'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
+import { Switch } from '@/components/ui/switch'
 import {
   Select,
   SelectContent,
@@ -277,6 +278,23 @@ export function StylingForm() {
         </div>
       </Field>
 
+      {/* What the resume shows */}
+      <fieldset className="space-y-4 border-t border-line pt-6">
+        <legend className="sr-only">What the resume shows</legend>
+        <Toggle
+          label="Show profile links"
+          hint="LinkedIn, GitHub and your portfolio in the contact line."
+          checked={draft.showLinks !== false}
+          onChange={(showLinks) => update({ showLinks })}
+        />
+        <Toggle
+          label="Show language proficiency"
+          hint={'Writes "English, native" instead of just "English".'}
+          checked={draft.showSkillProficiency !== false}
+          onChange={(showSkillProficiency) => update({ showSkillProficiency })}
+        />
+      </fieldset>
+
       {/* Save bar */}
       <div className="flex items-center justify-between gap-4 border-t border-line pt-6">
         <p className="text-[14px] text-slate-7">
@@ -295,6 +313,38 @@ export function StylingForm() {
  * readers announce "Typeface, combo box" rather than an anonymous button. The
  * child is given the generated id through a render prop.
  */
+/** A labelled switch, bound so the label reads out with the control. */
+function Toggle({
+  label,
+  hint,
+  checked,
+  onChange,
+}: {
+  label: string
+  hint: string
+  checked: boolean
+  onChange: (next: boolean) => void
+}) {
+  const id = React.useId()
+  const hintId = `${id}-hint`
+  // The whole row is the target. A 24px tall track alone is far too small to
+  // hit with a thumb, and wrapping it in the label makes the row clickable.
+  return (
+    <label
+      htmlFor={id}
+      className="flex min-h-[44px] cursor-pointer items-center justify-between gap-6 py-1"
+    >
+      <span className="min-w-0">
+        <span className="block text-[14px] font-medium leading-none text-slate-9">{label}</span>
+        <span id={hintId} className="mt-1 block text-[12px] leading-[1.5] text-slate-7">
+          {hint}
+        </span>
+      </span>
+      <Switch id={id} checked={checked} onCheckedChange={onChange} aria-describedby={hintId} />
+    </label>
+  )
+}
+
 function Field({
   label,
   hint,

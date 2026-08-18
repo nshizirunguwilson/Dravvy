@@ -15,7 +15,7 @@
  *   npm run proof:responsive
  */
 import { AxeBuilder } from '@axe-core/playwright'
-import { chromium } from 'playwright'
+import { chromium, webkit } from 'playwright'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -52,6 +52,17 @@ const CONTROL_SELECTOR = [
 ].join(',')
 
 const THEMES = ['light', 'dark']
+
+/**
+ * Both engines, because the ladder is mostly iPhones and iPads and those all
+ * run Safari. Verifying only Chromium proved the app on a browser most of
+ * those users never open. axe runs on Chromium only: it is engine independent
+ * for the rules used here, and running it twice doubles the sweep for nothing.
+ */
+const ENGINES = [
+  { id: 'chromium', label: 'Chrome and Edge', launch: chromium, axe: true },
+  { id: 'webkit', label: 'Safari', launch: webkit, axe: false },
+]
 
 const seed = (page, { builderStep = 0, settingsStep = 0 }, theme) =>
   page.evaluate(
@@ -145,14 +156,13 @@ const measure = (page, controlSelector, minFont) =>
         if (!visible(el)) continue
         if (screenReaderOnly(el)) continue
         const r = el.getBoundingClientRect()
-        // A checkbox or radio is activated by its whole label, so the label
-        // is the real target. Measure that instead of the 20px box.
+        // A control wrapped in a label is activated by the whole label, so the
+        // label is the real target. True of checkboxes, radios and switches.
         let box = r
-        if (el.tagName === 'INPUT' && (el.type === 'checkbox' || el.type === 'radio')) {
-          const owner =
-            el.closest('label') ||
-            (el.id ? document.querySelector(`label[for="${CSS.escape(el.id)}"]`) : null)
-          if (owner) box = owner.getBoundingClientRect()
+        const owner = el.closest('label')
+        if (owner && owner.contains(el)) {
+          const ownerBox = owner.getBoundingClientRect()
+          if (ownerBox.width >= r.width && ownerBox.height >= r.height) box = ownerBox
         }
 
         controls.push({
@@ -231,11 +241,12 @@ async function main() {
     if (entry.endsWith('.jpg') || entry === 'manifest.json') await fs.rm(path.join(outDir, entry))
   }
 
-  const browser = await chromium.launch()
   const results = []
   let failures = 0
 
-  for (const device of devices) {
+  for (const engine of ENGINES) {
+   const browser = await engine.launch.launch()
+   for (const device of devices) {
    for (const theme of THEMES) {
     const [width, height] = device.viewport
     const context = await browser.newContext({
@@ -246,6 +257,17 @@ async function main() {
       hasTouch: device.touch,
       isMobile: device.touch,
       colorScheme: theme,
+      // Measure the resting state, not a frame mid-fade.
+      //
+      // Framer Motion drives its fades with requestAnimationFrame, so they
+      // never appear in document.getAnimations() and no amount of waiting on
+      // that catches them. Sampling mid-fade reports a blend of the text and
+      // the background, which really is below 4.5:1, so axe was right to flag
+      // it and the harness was wrong to look while it was still moving.
+      //
+      // The app honours prefers-reduced-motion throughout, so asking for it
+      // renders every section at its final state immediately.
+      reducedMotion: 'reduce',
     })
     const page = await context.newPage()
     await page.goto(`${baseURL}/`)
@@ -261,7 +283,21 @@ async function main() {
         await Promise.all([...document.fonts].map((f) => f.load().catch(() => {})))
         await document.fonts.ready
       })
-      await page.waitForTimeout(200)
+      // Wait for every animation to finish before measuring. The settings
+      // content fades in over 220ms, and a fixed 200ms wait sometimes sampled
+      // it mid-fade: the text really was semi-transparent, so axe was right to
+      // call the contrast, and the harness was wrong to look that early. This
+      // is the whole class of problem, not just that one screen.
+      await page
+        .waitForFunction(
+          () => document.getAnimations().every((a) => a.playState !== 'running'),
+          undefined,
+          { timeout: 5000 },
+        )
+        .catch(() => {
+          // An indefinite animation would never settle, so do not block on it.
+        })
+      await page.waitForTimeout(120)
 
       const m = await measure(page, CONTROL_SELECTOR, MIN_FONT_PX)
 
@@ -270,10 +306,12 @@ async function main() {
         (c) => !c.inline && (c.w < minTarget - 0.5 || c.h < minTarget - 0.5),
       )
 
-      const axe = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
-        .analyze()
-      const violations = axe.violations
+      const axeRun = engine.axe
+        ? await new AxeBuilder({ page })
+            .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
+            .analyze()
+        : { violations: [] }
+      const violations = axeRun.violations
         .filter((v) => v.impact === 'serious' || v.impact === 'critical')
         .map((v) => ({
           id: v.id,
@@ -300,11 +338,13 @@ async function main() {
       }
       if (problems.length > 0) failures += 1
 
-      const slug = `${device.id}--${screen.id}--${theme}`
+      const slug = `${engine.id}--${device.id}--${screen.id}--${theme}`
       const shot = await page.screenshot({ type: 'jpeg', quality: 70 })
       await fs.writeFile(path.join(outDir, `${slug}.jpg`), shot)
 
       results.push({
+        engine: engine.id,
+        engineLabel: engine.label,
         device: device.id,
         deviceLabel: device.label,
         deviceClass: device.class,
@@ -334,14 +374,16 @@ async function main() {
       })
 
       const mark = problems.length ? 'FAIL' : 'ok  '
-      console.log(`  ${mark} ${device.label} / ${screen.label} / ${theme} ${problems.join(' | ')}`)
+      console.log(
+        `  ${mark} ${engine.id} / ${device.label} / ${screen.label} / ${theme} ${problems.join(' | ')}`,
+      )
     }
 
     await context.close()
+    }
    }
+   await browser.close()
   }
-
-  await browser.close()
 
   const manifest = {
     generatedAt: new Date().toISOString(),
@@ -349,6 +391,7 @@ async function main() {
     devices: devices.length,
     screens: screens.length,
     themes: THEMES,
+    engines: ENGINES.map((e) => ({ id: e.id, label: e.label, axe: e.axe })),
     checked: results.length,
     failures,
     thresholds: { touchTarget: TOUCH_TARGET, pointerTarget: POINTER_TARGET, minFontPx: MIN_FONT_PX },

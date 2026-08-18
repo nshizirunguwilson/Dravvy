@@ -18,7 +18,12 @@ export default defineConfig({
     baseURL: 'http://localhost:3100',
     trace: 'on-first-retry',
   },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    // Every iPhone and iPad in the device ladder runs Safari, so verifying
+    // only Chromium proved the app on a browser most of those users never use.
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+  ],
   webServer: {
     command: 'npm run dev -- -p 3100',
     url: 'http://localhost:3100',
