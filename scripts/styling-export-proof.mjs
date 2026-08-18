@@ -145,6 +145,18 @@ function checkDocx(groupId, option, xml) {
       ]
       return xml.includes(marker) ? null : `expected a date rendered as ${marker}`
     }
+    case 'profile-links': {
+      const shown = xml.includes('LinkedIn')
+      if (option.value === true && !shown) return 'document.xml has no LinkedIn link'
+      if (option.value === false && shown) return 'document.xml still writes LinkedIn'
+      return null
+    }
+    case 'language-proficiency': {
+      const shown = /Native|Fluent/.test(xml)
+      if (option.value === true && !shown) return 'document.xml writes no proficiency'
+      if (option.value === false && shown) return 'document.xml still writes proficiency'
+      return null
+    }
     case 'accent-colour': {
       const hex = option.value.replace('#', '').toUpperCase()
       return xml.includes(`w:color w:val="${hex}"`) || xml.includes(`w:color="${hex}"`)

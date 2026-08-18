@@ -88,6 +88,13 @@ const readRendered = (page) =>
     const headingStyle = heading ? getComputedStyle(heading) : null
     const nameStyle = name ? getComputedStyle(name) : null
 
+    // The contact line carries the profile links.
+    const contactLine = article.querySelector('header p')?.textContent ?? ''
+    // Language rows are the only place proficiency is written.
+    const languageText = Array.from(article.querySelectorAll('section'))
+      .find((s) => /languages/i.test(s.querySelector('h2')?.textContent ?? ''))
+      ?.textContent ?? ''
+
     // Dates live in the right-hand span of each experience row.
     const dateText =
       Array.from(article.querySelectorAll('span'))
@@ -119,6 +126,8 @@ const readRendered = (page) =>
       ruleBoxes,
       rulePlacement: firstRuleTop === null ? 'none' : firstRuleTop < headingTop ? 'above' : 'below',
       contentWidth: Math.round(article.getBoundingClientRect().width - 2 * parseFloat(articleStyle.paddingLeft)),
+      contactLine,
+      languageText,
       dateText,
     }
   })
@@ -218,6 +227,20 @@ function checkOption(groupId, option, rendered, baseline) {
       return null
     }
 
+    case 'profile-links': {
+      const shown = /LinkedIn/.test(rendered.contactLine)
+      if (option.value === true && !shown) return 'expected LinkedIn in the contact line'
+      if (option.value === false && shown) return 'contact line still lists LinkedIn'
+      return null
+    }
+
+    case 'language-proficiency': {
+      const shown = /native|fluent|proficient/i.test(rendered.languageText)
+      if (option.value === true && !shown) return 'expected a proficiency level beside a language'
+      if (option.value === false && shown) return 'proficiency is still written beside a language'
+      return null
+    }
+
     case 'accent-colour': {
       const expected = hexToRgb(option.value)
       if (rendered.headingColor !== expected) {
@@ -247,7 +270,10 @@ async function main() {
 
   const browser = await chromium.launch()
   const context = await browser.newContext({
-    viewport: { width: 1280, height: 1000 },
+    // Tall enough that a whole A4 page fits on screen. A clip can never reach
+    // past the viewport, so a short one silently truncated the capture and two
+    // options differing near the foot of the page looked identical.
+    viewport: { width: 1280, height: 1900 },
     deviceScaleFactor: 1.5,
     colorScheme: 'light',
   })
@@ -289,7 +315,7 @@ async function main() {
         x: article.x,
         y: Math.max(article.y, 0),
         width: article.width,
-        height: Math.min(CLIP_HEIGHT, article.height),
+        height: Math.min(group.captureHeight ?? CLIP_HEIGHT, article.height),
       }
 
       // Distinctness is judged on the lossless capture so compression can
@@ -403,6 +429,12 @@ async function auditForm(page) {
 
   counts['Accent colour'] = await page.locator('button[aria-label^="Use "]').count()
   counts['Accent colour custom'] = await page.locator('input[type="color"]').count()
+
+  // The two boolean options are switches, not dropdowns. Each is on or off,
+  // so a switch that exists is worth two options in the matrix.
+  const switches = await page.locator('[role="switch"]').count()
+  counts['Show profile links'] = switches >= 1 ? 2 : 0
+  counts['Show language proficiency'] = switches >= 2 ? 2 : 0
 
   // Derived from the matrix, never hardcoded, so adding an option in one place
   // and forgetting the other is what trips the audit rather than a stale number.
