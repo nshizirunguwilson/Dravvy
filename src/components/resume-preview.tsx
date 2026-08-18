@@ -4,6 +4,8 @@ import * as React from 'react'
 
 import { useResumeStore } from '@/store/useResumeStore'
 import { RESUME_INK, resumeTheme, sectionInkColor } from '@/lib/resume-theme'
+import { formatResumeDate } from '@/lib/format-date'
+import { useLocale } from '@/hooks/useLocale'
 import type { ResumeStyle } from '@/types/resume'
 
 /**
@@ -39,20 +41,6 @@ const fontStack: Record<string, string> = {
   outfit: 'var(--font-resume-outfit), Outfit, sans-serif',
 }
 
-const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) => {
-  if (!raw) return ''
-  const date = new Date(raw)
-  if (Number.isNaN(date.getTime())) return raw
-  switch (fmt) {
-    case 'MM/YYYY':
-      return date.toLocaleDateString('en-US', { month: '2-digit', year: 'numeric' })
-    case 'MMMM YYYY':
-      return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-    default:
-      return date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
-  }
-}
-
 const fontSizeMap = {
   small: { heading: 22, sub: 13, body: 11 },
   medium: { heading: 26, sub: 15, body: 12.5 },
@@ -74,6 +62,10 @@ export function ResumePreview() {
   const references = useResumeStore((s) => s.references)
   const referencesMode = useResumeStore((s) => s.referencesMode)
   const style = useResumeStore((s) => s.style)
+
+  const locale = useLocale()
+  const formatDate = (raw: string, fmt: ResumeStyle['dateFormat']) =>
+    formatResumeDate(raw, fmt, locale)
 
   const sizes = fontSizeMap[style.fontSize]
   const gap = spacingMap[style.spacing]
@@ -135,9 +127,12 @@ export function ResumePreview() {
   if (contact.location) contactItems.push({ kind: 'text', value: contact.location })
   if (contact.phone) contactItems.push({ kind: 'text', value: contact.phone })
   if (contact.email) contactItems.push({ kind: 'link', label: contact.email, href: `mailto:${contact.email}` })
-  if (contact.linkedin) contactItems.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
-  if (contact.github) contactItems.push({ kind: 'link', label: 'GitHub', href: contact.github })
-  if (contact.website) contactItems.push({ kind: 'link', label: 'Portfolio', href: contact.website })
+  // Profile links are optional: some people would rather keep the header short.
+  if (style.showLinks !== false) {
+    if (contact.linkedin) contactItems.push({ kind: 'link', label: 'LinkedIn', href: contact.linkedin })
+    if (contact.github) contactItems.push({ kind: 'link', label: 'GitHub', href: contact.github })
+    if (contact.website) contactItems.push({ kind: 'link', label: 'Portfolio', href: contact.website })
+  }
 
   return (
     <div className="relative">
@@ -323,7 +318,9 @@ export function ResumePreview() {
               {languages.map((l) => (
                 <div key={l.id} style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ fontWeight: 600 }}>{l.language}</span>
-                  <span style={{ color: '#4b5563', textTransform: 'capitalize' }}>{l.proficiency}</span>
+                  {style.showSkillProficiency !== false && (
+                    <span style={{ color: '#4b5563', textTransform: 'capitalize' }}>{l.proficiency}</span>
+                  )}
                 </div>
               ))}
             </div>

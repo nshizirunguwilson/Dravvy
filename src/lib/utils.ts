@@ -2,15 +2,18 @@ import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { ZodError } from 'zod'
 
+import { DEFAULT_LOCALE, formatResumeDate } from '@/lib/format-date'
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-US', {
-    month: 'short',
-    year: 'numeric',
-  })
+/**
+ * Short month and year. Delegates to the shared resume formatter so there is
+ * exactly one place that decides how a date is written.
+ */
+export function formatDate(date: string, locale: string = DEFAULT_LOCALE) {
+  return formatResumeDate(date, 'MMM YYYY', locale)
 }
 
 export function getZodErrorMessage(error: unknown): string {

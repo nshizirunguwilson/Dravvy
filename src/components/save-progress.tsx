@@ -4,7 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { saveAs } from 'file-saver'
 import { toast } from 'sonner'
-import { AlertCircle, ArrowRight, CheckCircle2, Download, RotateCcw, Upload } from 'lucide-react'
+import { AlertCircle, ArrowRight, CheckCircle2, Download, RotateCcw, Trash2, Upload } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { useHydration } from '@/hooks/useHydration'
@@ -51,6 +51,7 @@ function useProgressFile() {
   const referencesMode = useResumeStore((s) => s.referencesMode)
   const style = useResumeStore((s) => s.style)
   const loadSnapshot = useResumeStore((s) => s.loadSnapshot)
+  const resetStore = useResumeStore((s) => s.resetStore)
 
   const resume = React.useMemo<SnapshotResume>(
     () => ({
@@ -124,7 +125,13 @@ function useProgressFile() {
     [loadSnapshot, setActiveSection, setActiveSettingsSection],
   )
 
-  return { resume, entryCount, hasDraft, save, restore }
+  const startOver = React.useCallback(() => {
+    resetStore()
+    setActiveSection(0)
+    setActiveSettingsSection(0)
+  }, [resetStore, setActiveSection, setActiveSettingsSection])
+
+  return { resume, entryCount, hasDraft, save, restore, startOver }
 }
 
 async function readSnapshotFile(file: File) {
@@ -138,7 +145,7 @@ async function readSnapshotFile(file: File) {
 
 export function SaveProgress() {
   const hydrated = useHydration()
-  const { resume, entryCount, hasDraft, save, restore } = useProgressFile()
+  const { resume, entryCount, hasDraft, save, restore, startOver } = useProgressFile()
 
   const inputRef = React.useRef<HTMLInputElement>(null)
   const [dragging, setDragging] = React.useState(false)
@@ -147,6 +154,7 @@ export function SaveProgress() {
     { snapshot: ResumeSnapshot; summary: SnapshotSummary; fileName: string } | null
   >(null)
   const [restored, setRestored] = React.useState(false)
+  const [confirmingReset, setConfirmingReset] = React.useState(false)
 
   if (!hydrated) return null
 
@@ -330,6 +338,58 @@ export function SaveProgress() {
               </Button>
             </Link>
           </div>
+        )}
+      </section>
+
+      {/* Start over */}
+      <section className="rounded-xl border border-line bg-surface p-5 shadow-xs">
+        <h3 className="text-[16px] font-semibold text-slate-12">Start over</h3>
+        <p className="mt-1 text-[13px] leading-[1.55] text-slate-7">
+          Empties every section and returns the styling to its defaults. There was no way to do
+          this before short of clearing your browser data. Save a progress file first if you might
+          want this draft back.
+        </p>
+
+        {confirmingReset ? (
+          <div
+            role="alertdialog"
+            aria-label="Confirm starting over"
+            className="mt-4 rounded-lg border border-negative/40 bg-negative-soft p-4"
+          >
+            <p className="text-[13px] font-medium text-slate-12">
+              Erase this draft? Everything in it goes, and this cannot be undone.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              <Button
+                type="button"
+                variant="default"
+                onClick={() => {
+                  startOver()
+                  setConfirmingReset(false)
+                  setRestored(false)
+                  setPending(null)
+                  setError(null)
+                  toast.success('Draft cleared', { description: 'You are back to a blank resume.' })
+                }}
+              >
+                Yes, erase it
+              </Button>
+              <Button type="button" variant="ghost" onClick={() => setConfirmingReset(false)}>
+                Keep my draft
+              </Button>
+            </div>
+          </div>
+        ) : (
+          <Button
+            type="button"
+            variant="outline"
+            className="mt-4 gap-2"
+            disabled={!hasDraft}
+            onClick={() => setConfirmingReset(true)}
+          >
+            <Trash2 className="h-4 w-4" aria-hidden />
+            Start over
+          </Button>
         )}
       </section>
     </div>
