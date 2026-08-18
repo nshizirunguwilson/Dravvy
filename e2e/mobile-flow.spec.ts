@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
 
+import { gotoReady } from './helpers'
+
 /**
  * The whole point of the responsive work: a person on the smallest phone we
  * support can actually build and export a resume, not merely view a page that
@@ -17,7 +19,7 @@ test.use({
 
 test.describe('Building a resume on an iPhone 6s', () => {
   test('completes the flow from empty draft to a downloaded PDF', async ({ page }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
 
     // ---- Basic information ----
     await expect(page.getByRole('heading', { level: 1, name: 'Basic information' })).toBeVisible()
@@ -44,7 +46,7 @@ test.describe('Building a resume on an iPhone 6s', () => {
     await page.getByLabel('Bullet point 2').first().fill('Coached three designers.')
 
     // ---- Straight through to style and export ----
-    await page.goto('/settings')
+    await gotoReady(page, '/settings')
     await expect(page.getByRole('tab', { name: /styling/i })).toBeVisible()
 
     await page.getByRole('tab', { name: /preview/i }).click()

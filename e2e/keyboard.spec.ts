@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
 
+import { gotoReady } from './helpers'
+
 /**
  * Safari keeps links out of the tab order unless the visitor turns on full
  * keyboard access, which is off by default on macOS. That is a browser
@@ -16,7 +18,7 @@ const linksAreTabbable = (browserName: string) => browserName !== 'webkit'
  */
 test.describe('Keyboard navigation', () => {
   test('a skip link jumps past the header to the content', async ({ page, browserName }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
     const skip = page.getByRole('link', { name: /skip to main content/i })
 
     if (linksAreTabbable(browserName)) {
@@ -35,7 +37,7 @@ test.describe('Keyboard navigation', () => {
   })
 
   test('every control on the editor is reachable by tabbing', async ({ page, browserName }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
 
     const reached = new Set<string>()
     for (let i = 0; i < 60; i += 1) {
@@ -54,7 +56,7 @@ test.describe('Keyboard navigation', () => {
   })
 
   test('focus is always visible, never invisible', async ({ page }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
     for (let i = 0; i < 12; i += 1) {
       await page.keyboard.press('Tab')
       const visible = await page.evaluate(() => {
@@ -71,7 +73,7 @@ test.describe('Keyboard navigation', () => {
   })
 
   test('a form can be filled and saved without a mouse', async ({ page }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
 
     await page.getByLabel(/full name/i).focus()
     await page.keyboard.type('Avery Lin')
@@ -83,7 +85,7 @@ test.describe('Keyboard navigation', () => {
   })
 
   test('an invalid field announces itself rather than only flashing a toast', async ({ page }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
     await page.getByRole('button', { name: /save section/i }).click()
 
     const name = page.getByLabel(/full name/i)
@@ -98,7 +100,7 @@ test.describe('Keyboard navigation', () => {
   })
 
   test('the settings tabs work with arrow keys', async ({ page }) => {
-    await page.goto('/settings')
+    await gotoReady(page, '/settings')
     await page.getByRole('tab', { name: /styling/i }).focus()
     await page.keyboard.press('ArrowRight')
     await expect(page.getByRole('tab', { name: /preview/i })).toBeFocused()

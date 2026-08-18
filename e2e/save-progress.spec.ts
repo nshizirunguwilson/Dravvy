@@ -4,6 +4,8 @@ import os from 'node:os'
 
 import { test, expect, type Page } from '@playwright/test'
 
+import { gotoReady } from './helpers'
+
 const fillBasics = async (page: Page) => {
   await page.getByPlaceholder('Jane Doe').fill('Avery Lin')
   await page.getByPlaceholder('jane@example.com').fill('avery@example.com')
@@ -13,7 +15,7 @@ const fillBasics = async (page: Page) => {
 
 test.describe('Save and resume', () => {
   test('saves a progress file and loads it back after the draft is gone', async ({ page }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
     await fillBasics(page)
     // Move a couple of steps in so we can prove the position is restored too.
     await page.getByRole('button', { name: /next:\s*work experience/i }).click()
@@ -50,10 +52,10 @@ test.describe('Save and resume', () => {
   })
 
   test('previews the file before replacing the draft from settings', async ({ page }) => {
-    await page.goto('/create')
+    await gotoReady(page, '/create')
     await fillBasics(page)
 
-    await page.goto('/settings')
+    await gotoReady(page, '/settings')
     await page.getByRole('tab', { name: /save file/i }).click()
 
     const downloadPromise = page.waitForEvent('download')
@@ -72,12 +74,12 @@ test.describe('Save and resume', () => {
     await page.getByRole('button', { name: /replace my draft/i }).click()
     await expect(page.getByText(/draft restored/i)).toBeVisible()
 
-    await page.goto('/create')
+    await gotoReady(page, '/create')
     await expect(page.getByPlaceholder('Jane Doe')).toHaveValue('Avery Lin')
   })
 
   test('refuses a file it did not write', async ({ page }) => {
-    await page.goto('/settings')
+    await gotoReady(page, '/settings')
     await page.getByRole('tab', { name: /save file/i }).click()
 
     await page.getByLabel('Progress file').setInputFiles({

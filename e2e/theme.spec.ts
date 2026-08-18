@@ -1,11 +1,13 @@
 import { test, expect } from '@playwright/test'
 
+import { gotoReady } from './helpers'
+
 const rootClass = (page: import('@playwright/test').Page) =>
   page.evaluate(() => document.documentElement.className)
 
 test.describe('Light and dark theme', () => {
   test('switches the whole page to dark and back', async ({ page }) => {
-    await page.goto('/')
+    await gotoReady(page, '/')
 
     await expect(page.locator('html')).not.toHaveClass(/dark/)
     await page.getByRole('button', { name: /switch to dark theme/i }).click()
@@ -16,7 +18,7 @@ test.describe('Light and dark theme', () => {
   })
 
   test('remembers the choice across a reload with no flash of light', async ({ page }) => {
-    await page.goto('/')
+    await gotoReady(page, '/')
     await page.getByRole('button', { name: /switch to dark theme/i }).click()
     await expect(page.locator('html')).toHaveClass(/dark/)
 
@@ -27,18 +29,18 @@ test.describe('Light and dark theme', () => {
   })
 
   test('carries the choice across pages', async ({ page }) => {
-    await page.goto('/')
+    await gotoReady(page, '/')
     await page.getByRole('button', { name: /switch to dark theme/i }).click()
 
-    await page.goto('/create')
+    await gotoReady(page, '/create')
     await expect(page.locator('html')).toHaveClass(/dark/)
 
-    await page.goto('/settings')
+    await gotoReady(page, '/settings')
     await expect(page.locator('html')).toHaveClass(/dark/)
   })
 
   test('paints a dark canvas, not just a class', async ({ page }) => {
-    await page.goto('/')
+    await gotoReady(page, '/')
     const light = await page.evaluate(() => getComputedStyle(document.body).backgroundColor)
 
     await page.getByRole('button', { name: /switch to dark theme/i }).click()
@@ -50,7 +52,7 @@ test.describe('Light and dark theme', () => {
   })
 
   test('offers the three-way selector on the settings page', async ({ page }) => {
-    await page.goto('/settings')
+    await gotoReady(page, '/settings')
     await expect(page.getByRole('radio', { name: 'Light' })).toBeVisible()
     await expect(page.getByRole('radio', { name: 'Dark' })).toBeVisible()
     await expect(page.getByRole('radio', { name: 'System' })).toBeVisible()
@@ -61,7 +63,7 @@ test.describe('Light and dark theme', () => {
   })
 
   test('keeps the resume page white while the app is dark', async ({ page }) => {
-    await page.goto('/settings')
+    await gotoReady(page, '/settings')
     await page.getByRole('radio', { name: 'Dark' }).click()
     await page.getByRole('tab', { name: /preview/i }).click()
 
