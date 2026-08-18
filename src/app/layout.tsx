@@ -221,7 +221,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <a
             href="#main-content"
-            className="sr-only rounded-md bg-brand px-4 py-3 text-[14px] font-semibold text-brand-fg focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:shadow-lg"
+            className="sr-only rounded-md bg-brand text-[14px] font-semibold text-brand-fg focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:inline-flex focus:min-h-[44px] focus:items-center focus:px-4 focus:py-3 focus:shadow-lg"
           >
             Skip to main content
           </a>

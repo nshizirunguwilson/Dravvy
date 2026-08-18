@@ -327,16 +327,21 @@ function Toggle({
 }) {
   const id = React.useId()
   const hintId = `${id}-hint`
+  // The whole row is the target. A 24px tall track alone is far too small to
+  // hit with a thumb, and wrapping it in the label makes the row clickable.
   return (
-    <div className="flex items-start justify-between gap-6">
-      <div className="min-w-0">
-        <Label htmlFor={id}>{label}</Label>
-        <p id={hintId} className="mt-1 text-[12px] leading-[1.5] text-slate-7">
+    <label
+      htmlFor={id}
+      className="flex min-h-[44px] cursor-pointer items-center justify-between gap-6 py-1"
+    >
+      <span className="min-w-0">
+        <span className="block text-[14px] font-medium leading-none text-slate-9">{label}</span>
+        <span id={hintId} className="mt-1 block text-[12px] leading-[1.5] text-slate-7">
           {hint}
-        </p>
-      </div>
+        </span>
+      </span>
       <Switch id={id} checked={checked} onCheckedChange={onChange} aria-describedby={hintId} />
-    </div>
+    </label>
   )
 }
 
