@@ -16,6 +16,17 @@ import type {
   Reference,
 } from '@/types/resume';
 
+/** The list-shaped parts of a resume, the ones with add, remove and reorder. */
+export type CollectionKey =
+  | 'experience'
+  | 'education'
+  | 'skills'
+  | 'projects'
+  | 'certifications'
+  | 'awards'
+  | 'languages'
+  | 'references';
+
 interface ResumeState extends ResumeData {
   activeSection: number;
   setActiveSection: (section: number) => void;
@@ -74,6 +85,16 @@ interface ResumeState extends ResumeData {
 
   // Save and resume: replace the whole draft with an imported one
   loadSnapshot: (resume: SnapshotResume) => void;
+
+  // Languages and references were the only collections without reordering
+  reorderLanguages: (startIndex: number, endIndex: number) => void;
+  reorderReferences: (startIndex: number, endIndex: number) => void;
+
+  /**
+   * Puts a whole collection back as it was. Used to undo a deletion, where
+   * re-adding is not enough because the entry has to return to its position.
+   */
+  replaceCollection: <K extends CollectionKey>(key: K, items: ResumeState[K]) => void;
 
   languages: Language[];
   references: Reference[];
@@ -316,6 +337,21 @@ export const useResumeStore = create<ResumeState>()(
         set((state) => ({
           references: state.references.filter((r) => r.id !== id),
         })),
+      reorderLanguages: (startIndex, endIndex) =>
+        set((state) => {
+          const result = Array.from(state.languages);
+          const [removed] = result.splice(startIndex, 1);
+          result.splice(endIndex, 0, removed);
+          return { languages: result };
+        }),
+      reorderReferences: (startIndex, endIndex) =>
+        set((state) => {
+          const result = Array.from(state.references);
+          const [removed] = result.splice(startIndex, 1);
+          result.splice(endIndex, 0, removed);
+          return { references: result };
+        }),
+      replaceCollection: (key, items) => set({ [key]: items } as Pick<ResumeState, typeof key>),
     }),
     {
       name: 'resume-store',
