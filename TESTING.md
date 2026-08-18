@@ -29,23 +29,23 @@ and Edge, WebKit for Safari, which is what every iPhone and iPad actually runs.
 
 ## The short version
 
-Two terminals. In the first:
-
-```bash
-npm run dev -- -p 3100
-```
-
-In the second, once it says ready:
+One terminal, one command:
 
 ```bash
 npm run verify
 ```
 
 That runs every automated check in order and stops at the first failure. It
-takes roughly fifteen minutes, most of it the device sweep.
+takes roughly fifteen minutes, most of it the device sweep. It starts and stops
+its own dev server, so nothing else needs to be running.
 
-If you only have a minute, `npm run verify:quick` skips the two sweeps and
+If you only have a minute, `npm run verify:quick` skips the browser sweeps and
 finishes in about two.
+
+> **Do not run `npm run build` while `npm run dev` is running.** They share the
+> `.next` directory and corrupt each other, which shows up later as nonsense
+> failures like a blank page with no `<title>`. `npm run verify` sequences them
+> correctly on your behalf.
 
 ---
 
@@ -65,11 +65,18 @@ finishes in about two.
 | `npm run proof:responsive` | ~9m | Every screen on 14 devices, 2 themes, 2 engines. |
 | `npm run build` | ~40s | It compiles for production. |
 
-### The two that need the dev server
+### The ones that need a running app
 
-`proof:styling` and `proof:responsive` drive a real browser against a running
-app, so they need `npm run dev -- -p 3100` in another terminal first. The rest
-are self-contained.
+`proof:styling` and `proof:responsive` drive a real browser against the app.
+Run them through the wrapper and you never have to think about it:
+
+```bash
+npm run proof:all      # starts a server, runs all three sweeps, stops it
+```
+
+If a dev server is already up on 3100 the wrapper reuses it instead of starting
+a second one. To run a single sweep by hand, start `npm run dev -- -p 3100`
+yourself first.
 
 ### The coverage gate
 
@@ -195,13 +202,8 @@ macOS: **Cmd + F5** for VoiceOver. Windows: NVDA.
 Two reports are generated from real runs, not written by hand.
 
 ```bash
-npm run dev -- -p 3100        # terminal one
-
-npm run proof:styling          # terminal two
-npm run proof:exports
-npm run proof:report           # builds docs/styling-proof/report.html
-
-npm run proof:responsive
+npm run proof:all                # all three sweeps, server managed for you
+npm run proof:report             # builds docs/styling-proof/report.html
 npm run proof:responsive:report  # builds docs/responsive-proof/report.html
 ```
 
@@ -216,7 +218,12 @@ measurements, `manifest.json` and `exports.json`, are versioned.
 
 ## When something fails
 
-**A proof script says `ECONNREFUSED`.** The dev server is not running on 3100.
+**A proof script says `ECONNREFUSED`.** Nothing is serving port 3100. Use
+`npm run proof:all`, which starts one for you.
+
+**Every screen fails with `document-title` and `html-has-lang`.** The dev
+server is serving a broken build. Almost always this means `npm run build` ran
+while `npm run dev` was up. Stop both, `rm -rf .next`, and start again.
 
 **A sweep hangs or the results look stale.** A dev server left over from an
 earlier run is serving old code:
