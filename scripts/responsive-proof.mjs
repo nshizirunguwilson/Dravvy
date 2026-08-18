@@ -257,6 +257,17 @@ async function main() {
       hasTouch: device.touch,
       isMobile: device.touch,
       colorScheme: theme,
+      // Measure the resting state, not a frame mid-fade.
+      //
+      // Framer Motion drives its fades with requestAnimationFrame, so they
+      // never appear in document.getAnimations() and no amount of waiting on
+      // that catches them. Sampling mid-fade reports a blend of the text and
+      // the background, which really is below 4.5:1, so axe was right to flag
+      // it and the harness was wrong to look while it was still moving.
+      //
+      // The app honours prefers-reduced-motion throughout, so asking for it
+      // renders every section at its final state immediately.
+      reducedMotion: 'reduce',
     })
     const page = await context.newPage()
     await page.goto(`${baseURL}/`)

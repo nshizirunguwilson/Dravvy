@@ -276,6 +276,9 @@ async function main() {
     viewport: { width: 1280, height: 1900 },
     deviceScaleFactor: 1.5,
     colorScheme: 'light',
+    // Capture the resting state. See the note in responsive-proof.mjs: Framer
+    // Motion fades are rAF driven and invisible to document.getAnimations().
+    reducedMotion: 'reduce',
   })
   const page = await context.newPage()
 
