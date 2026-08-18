@@ -9,10 +9,12 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-canvas text-slate-12">
       <SiteHeader />
-      <Hero />
-      <FeaturesGrid />
-      <ProcessStrip />
-      <Faq />
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
+        <FeaturesGrid />
+        <ProcessStrip />
+        <Faq />
+      </main>
       <Footer />
     </div>
   )

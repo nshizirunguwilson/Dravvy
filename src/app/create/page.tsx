@@ -76,7 +76,7 @@ export default function CreatePage() {
         </div>
 
         {/* Editor pane */}
-        <main className="col-span-12 lg:col-span-9">
+        <main id="main-content" tabIndex={-1} className="col-span-12 lg:col-span-9">
           {/* Section header */}
           <div className="mb-6 sm:mb-8">
             <p className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-brand sm:text-[13px]">
