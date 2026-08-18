@@ -66,7 +66,7 @@ async function main() {
     'The editor, on all fourteen',
     'Same screen, every device',
     devices.map((d) => ({
-      file: `${d.id}--create-basic--light.jpg`,
+      file: `chromium--${d.id}--create-basic--light.jpg`,
       caption: d.label,
       sub: `${d.viewport[0]} x ${d.viewport[1]} viewport`,
     })),
@@ -76,7 +76,7 @@ async function main() {
     'Every screen on an iPhone 6s',
     'Smallest device we support, 375 x 553',
     screens.map((s) => ({
-      file: `iphone-6s--${s.id}--light.jpg`,
+      file: `chromium--iphone-6s--${s.id}--light.jpg`,
       caption: s.label,
       sub: `${get('iphone-6s', s.id, 'light')?.detail.controlCount ?? 0} controls, all reachable`,
     })),
@@ -86,7 +86,7 @@ async function main() {
     'Every screen on a 16 inch MacBook Pro',
     'Largest device we support, 1728 x 997',
     screens.map((s) => ({
-      file: `macbook-pro-16--${s.id}--light.jpg`,
+      file: `chromium--macbook-pro-16--${s.id}--light.jpg`,
       caption: s.label,
       sub: `${get('macbook-pro-16', s.id, 'light')?.detail.controlCount ?? 0} controls, all reachable`,
     })),
@@ -98,7 +98,7 @@ async function main() {
       const dev = devices.find((x) => x.id === d)
       const scr = screens.find((x) => x.id === s)
       darkPairs.push({
-        file: `${d}--${s}--dark.jpg`,
+        file: `chromium--${d}--${s}--dark.jpg`,
         caption: `${dev.label}, ${scr.label}`,
         sub: 'dark theme',
       })
@@ -108,6 +108,24 @@ async function main() {
     'Dark theme holds at every size',
     'Both themes swept, not just one',
     darkPairs,
+  )
+
+  const safariPairs = []
+  for (const d of ['iphone-6s', 'iphone-12-mini', 'ipad-mini', 'macbook-pro-16']) {
+    for (const s of ['create-basic', 'settings-styling']) {
+      const dev = devices.find((x) => x.id === d)
+      const scr = screens.find((x) => x.id === s)
+      safariPairs.push({
+        file: `webkit--${d}--${s}--light.jpg`,
+        caption: `${dev.label}, ${scr.label}`,
+        sub: 'WebKit, the Safari engine',
+      })
+    }
+  }
+  const safariGallery = await gallery(
+    'The same screens in Safari',
+    'WebKit, not just Chromium',
+    safariPairs,
   )
 
   const html = `<title>Dravvy Device Proof Sheet</title>
@@ -210,15 +228,18 @@ async function main() {
     <p class="kicker">Dravvy / device and accessibility verification</p>
     <h1>From an iPhone 6s to a 16 inch MacBook Pro.</h1>
     <p class="standfirst">
-      Fourteen device sizes, nine screens, both themes. Every combination is loaded at the viewport a
-      real browser actually gives the page, then measured: no sideways scrolling, nothing pushed off
-      screen, every control big enough to hit with a thumb, no overlaps, no text below a legible size,
-      and a full axe-core pass against WCAG 2.2 AA.
+      Fourteen device sizes, nine screens, both themes, in Chromium and WebKit. Every combination is
+      loaded at the viewport a real browser actually gives the page, then measured: no sideways
+      scrolling, nothing pushed off screen, every control big enough to hit with a thumb, no
+      overlaps, no text below a legible size, and a full axe-core pass against WCAG 2.2 AA. WebKit
+      matters because every phone and tablet below runs Safari, and testing only Chromium proved the
+      app on a browser most of those people never open.
     </p>
     <dl class="tally">
       <div><dt>Devices</dt><dd>${m.devices}</dd></div>
       <div><dt>Screens</dt><dd>${m.screens}</dd></div>
       <div><dt>Themes</dt><dd>${m.themes.length}</dd></div>
+      <div><dt>Engines</dt><dd>${m.engines?.length ?? 1}</dd></div>
       <div><dt>Combinations</dt><dd>${m.checked}</dd></div>
       <div><dt>Passing</dt><dd class="hi">${passed}</dd></div>
       <div><dt>Failing</dt><dd>${m.failures}</dd></div>
@@ -229,59 +250,44 @@ async function main() {
     <p class="eyebrow">Before the sweep could pass</p>
     <h2>What the audit turned up</h2>
     <p class="lede">
-      The first run failed all 126 light-theme combinations. Everything below had to be fixed before
-      a single one went green.
+      This round added WebKit, both new styling toggles and a skip link, and the sweep grew to 504
+      combinations. Everything below turned up in that first run.
     </p>
     <div class="findings">
       <article class="finding">
-        <h3>Form fields had no labels</h3>
-        <p class="was">axe: label, critical, 168 nodes</p>
+        <h3>Safari scrolled sideways</h3>
+        <p class="was">webkit only, 8px at 360px wide</p>
         <p>
-          Every visible label was a floating <code>&lt;label&gt;</code> with no <code>for</code>, so a
-          screen reader announced an unnamed text box. All 39 fields are now bound to their control,
-          groups of inputs get a <code>role="group"</code> name, and repeated inputs are numbered.
+          The editor grid asked for 32px between twelve columns. Eleven gaps come to 352px, more
+          than a 360px phone has after padding, so the whole grid overflowed. Below the point where
+          the two columns sit side by side the gap does nothing, so it is gone there now. Chromium
+          absorbed this silently, which is exactly why WebKit is in the sweep.
         </p>
       </article>
       <article class="finding">
-        <h3>Muted text failed contrast</h3>
-        <p class="was">axe: color-contrast, serious, 994 nodes</p>
+        <h3>The skip link was not really hidden</h3>
+        <p class="was">32x24 box on every screen</p>
         <p>
-          The secondary ink sat at 4.48:1 and the caption ink at 2.96:1, both under the 4.5:1 floor.
-          The ramp was re-solved: secondary text and the accent now clear 4.5:1 on every ground, and
-          the two lightest shades are reserved for decoration.
+          Padding on an <code>sr-only</code> element gives it a real size, so the "invisible" skip
+          link was a small clickable box in the corner. The padding now only applies once it is
+          focused and visible.
         </p>
       </article>
       <article class="finding">
-        <h3>The tab strip pointed at nothing</h3>
-        <p class="was">axe: aria-valid-attr-value, critical</p>
+        <h3>The new toggles were 24px tall</h3>
+        <p class="was">44x24, under the thumb target</p>
         <p>
-          The settings tabs declared <code>aria-controls</code> for panels that were never rendered.
-          The step content now lives in a real <code>TabsContent</code>, so the reference resolves.
+          A switch track alone is too small to hit. The whole row, label and hint included, is now
+          the target, which is both easier to tap and easier to explain.
         </p>
       </article>
       <article class="finding">
-        <h3>Selects had no accessible name</h3>
-        <p class="was">axe: button-name, critical, 84 nodes</p>
+        <h3>Safari hides links from the tab order</h3>
+        <p class="was">a browser default, not a page bug</p>
         <p>
-          All six styling dropdowns were anonymous buttons. Each is now bound to its visible label
-          through a generated id.
-        </p>
-      </article>
-      <article class="finding">
-        <h3>Controls were too small for a thumb</h3>
-        <p class="was">up to 19 controls under 44px per screen</p>
-        <p>
-          The theme toggle was 36px, tabs 37px, header links 19.5px, checkboxes 16px, colour swatches
-          40px. A <code>coarse:</code> variant now lifts every control to 44px on touch pointers while
-          leaving compact sizes for a mouse.
-        </p>
-      </article>
-      <article class="finding">
-        <h3>The landing page overflowed</h3>
-        <p class="was">8px past the viewport, both edges</p>
-        <p>
-          A decorative panel behind the preview card reached 48px outside a container padded to 40px.
-          It is now clamped inside its parent at every breakpoint.
+          Safari only tabs between form controls unless the visitor turns on full keyboard access.
+          The skip link is reachable in Chrome, Edge and Firefox and by VoiceOver everywhere, and
+          the keyboard tests state this difference rather than pretending it away.
         </p>
       </article>
     </div>
@@ -320,6 +326,7 @@ async function main() {
   ${phoneJourney}
   ${laptopJourney}
   ${darkGallery}
+  ${safariGallery}
 
   <section class="block">
     <p class="eyebrow">Beyond layout</p>
