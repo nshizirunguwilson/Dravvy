@@ -12,15 +12,17 @@ const ROUTES = ['/', '/create', '/settings']
 
 export default async function globalSetup(config: FullConfig) {
   const baseURL = config.projects[0]?.use?.baseURL ?? 'http://localhost:3100'
-  const deadline = Date.now() + 120_000
+  const deadline = Date.now() + 240_000
 
   for (const route of ROUTES) {
     const url = `${baseURL}${route}`
+    process.stdout.write(`warming ${route} ... `)
     for (;;) {
       try {
         const response = await fetch(url)
         if (response.ok) {
           await response.text()
+          process.stdout.write('ok\n')
           break
         }
       } catch {
