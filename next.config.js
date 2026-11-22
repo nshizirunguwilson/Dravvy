@@ -11,10 +11,12 @@
 const isDev = process.env.NODE_ENV !== 'production'
 
 // Next's dev server compiles with eval, so blocking it stops React hydrating
-// and the whole app goes dead on click. Production needs no eval at all.
+// and the whole app goes dead on click. Production needs no JS eval, but
+// @react-pdf/renderer lays out pages with Yoga, which is WebAssembly.
+// 'wasm-unsafe-eval' allows compiling WASM only; JS eval stays blocked.
 const scriptSrc = isDev
   ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
-  : "script-src 'self' 'unsafe-inline'"
+  : "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'"
 
 const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
