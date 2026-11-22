@@ -128,6 +128,31 @@ const measure = (page, controlSelector, minFont) =>
         return false
       }
 
+      /**
+       * The horizontal span of an element that can actually be seen, after
+       * every ancestor that clips its overflow has cut it down. A progress
+       * fill drawn full width and slid left inside an overflow-hidden track
+       * has a box far off screen, but none of it is visible, so it is not an
+       * escapee. Measuring the raw box made the proof flag it whenever it was
+       * caught mid-slide.
+       */
+      const visibleSpan = (el) => {
+        const r = el.getBoundingClientRect()
+        let left = r.left
+        let right = r.right
+        let node = el.parentElement
+        while (node && node !== doc && right > left) {
+          const cs = getComputedStyle(node)
+          if (/(hidden|clip)/.test(cs.overflowX)) {
+            const p = node.getBoundingClientRect()
+            left = Math.max(left, p.left)
+            right = Math.min(right, p.right)
+          }
+          node = node.parentElement
+        }
+        return { left, right }
+      }
+
       // ---- 1. Does the document itself scroll sideways? ----
       const documentOverflow = Math.max(0, doc.scrollWidth - width)
 
@@ -137,7 +162,8 @@ const measure = (page, controlSelector, minFont) =>
         if (!visible(el)) continue
         const cs = getComputedStyle(el)
         if (cs.position === 'fixed') continue
-        const r = el.getBoundingClientRect()
+        const r = visibleSpan(el)
+        if (r.right <= r.left) continue // fully clipped away
         const overRight = r.right - width
         const overLeft = -r.left
         if (overRight > 1 || overLeft > 1) {
